@@ -16,6 +16,7 @@ error:
 
 clean:
 	latexmk -C
+	rm *.bbl
 
 view:
 	1>/dev/null 2>/dev/null xdg-open $(PROJECT_NAME).pdf &
