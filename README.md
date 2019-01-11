@@ -1,5 +1,5 @@
 # CSR-Research
 
-Notes, paper, and experiments for my CSR Masters degree.
+Graduate thesis research, paper, notes, and experiments.
 
 ---
