@@ -6,23 +6,28 @@
 \author{Austin Gill}
 
 \begin{document}
-    \maketitle
-    \begin{abstract}
-        Thoughts about my graduate thesis on the computer generation of poetry using a more sophisticated natural language processing approach.
-    \end{abstract}
-    \thispagestyle{empty}
-    \tableofcontents
-    \newpage
+\maketitle
+\begin{abstract}
+    Thoughts about my graduate thesis on the computer generation of poetry using a more
+    sophisticated natural language processing approach.
+\end{abstract}
+\thispagestyle{empty}
+\tableofcontents
+\newpage
 
-    \section{Introduction}\label{sec:introduction}
-        \input{sections/introduction.tex}
+\section{Introduction}\label{sec:introduction}
+\input{sections/introduction.tex}
 
-    % Start appendices. Add appendices head section and add to table of contents
-    \newpage\appendix\appendixpage{}\addappheadtotoc{}
+% Start appendices. Add appendices head section and add to table of contents
+\newpage\appendix\appendixpage{}\addappheadtotoc{}
 
-    % \section{Supplemental Content}\label{sec:supplemental-content}
+% \section{Supplemental Content}\label{sec:supplemental-content}
 
-    \newpage
-    \bibliographystyle{ieeetr}
-    \bibliography{../bibliography}{}
+\newpage
+% Make a references entry for everything in my database.
+\nocite{*}
+% There wasn't a style that I liked with annotations, so I edited ieeetr as
+% https://tex.stackexchange.com/a/225453 indicates.
+\bibliographystyle{ieeetrannotate}
+\bibliography{../bibliography}{}
 \end{document}
