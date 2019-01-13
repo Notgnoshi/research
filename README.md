@@ -139,6 +139,21 @@ sudo update-alternatives --config g++
 
 again.
 
+## Keras GPU Usage
+
+Keras, by default allocates your entire damn GPU, even when working with a small model. This is frustrating, so do the following to disable this.
+
+```python
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+config.gpu_options.visible_device_list = "0"
+
+set_session(tf.Session(config=config))
+```
+
 ## TODO
 
 * Experiment with different Python NLP [libraries](https://kleiber.me/blog/2018/02/25/top-10-python-nlp-libraries-2018/)
