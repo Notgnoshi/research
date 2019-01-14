@@ -1,27 +1,8 @@
 #!/usr/bin/env python3
 import argparse
 import sys
-from pathlib import Path
 
-import requests
-
-DATASETS = {"nietzsche": ("https://s3.amazonaws.com/text-datasets/nietzsche.txt", "nietzsche.txt")}
-
-
-def curl(url, filename):
-    """Download a file from the internet.
-
-    Overwrites the file if it exists.
-
-    :param url: The URL to Download
-    :type url: str
-    :param filename: The filename to save the file as
-    :type filename: str
-    """
-    r = requests.get(url, stream=True)
-    with open(filename, "wb") as fd:
-        for chunk in r.iter_content(chunk_size=128):
-            fd.write(chunk)
+from datasets import DATASETS
 
 
 def validate(datasets):
@@ -39,19 +20,6 @@ def validate(datasets):
         else:
             ids.append(key)
     return ids
-
-
-def download(key):
-    """Download the dataset corresponding to the given key.
-
-    :param key: The dataset id
-    :type key: str
-    """
-    url, filename = DATASETS[key]
-    # Download the files in the data/ directory
-    filename = Path(__file__).parent.joinpath(Path(filename))
-    print("Downloading {} from {}...".format(filename, url))
-    curl(url, filename)
 
 
 def parse_args():
@@ -76,8 +44,9 @@ def main(args):
     args.datasets = validate(args.datasets)
 
     for dataset in args.datasets:
-        download(dataset)
-
+        dataset = DATASETS[dataset]
+        if not dataset.exists():
+            dataset.download()
 
 if __name__ == "__main__":
     main(parse_args())
