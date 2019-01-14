@@ -1,5 +1,10 @@
 ## Editor settings
-.vscode
+.vscode/
+
+## Ignore the data/ folder, but not the script to download the data.
+datasets/*
+!datasets/__init__.py
+!datasets/get_data.py
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
