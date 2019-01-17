@@ -1,5 +1,5 @@
 PROJECT_NAME := notes
-SRC := $(shell find . -name '*.tex') ../research.sty ../bibliography.bib
+SRC := $(shell find . -name '*.tex') ../research.sty ../bibliography.bib ../glossary.tex
 
 .PHONY: $(PROJECT_NAME).pdf all clean view
 
@@ -16,7 +16,7 @@ error:
 
 clean:
 	latexmk -C
-	rm *.bbl
+	rm -rf *.bbl *.tdo
 
 view:
 	1>/dev/null 2>/dev/null xdg-open $(PROJECT_NAME).pdf &

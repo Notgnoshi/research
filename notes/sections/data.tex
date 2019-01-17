@@ -1,0 +1,24 @@
+% !TEX root = ../notes.tex
+\section{Data Sources and Cleaning}\label{sec:data}
+
+\todoinline[caption={Find haiku dataset}]{
+    Find haiku dataset, or for that matter determine if haikus are worth
+    generating. Maybe some other form of poetry would work too.
+
+    There are a number of sources online, but in aggregate there aren't many
+    haikus. Definitely not enough for a decent training \textit{and} test set.
+    Try to find PDF books of haikus. Maybe ask on IRC.
+
+    All of the following should be done programmatically and reproducibly.
+    \begin{itemize}
+        \item Download data
+        \item Clean data
+              \begin{itemize}
+                  \item Remove duplicates
+                  \item Remove haikus too similar to one another (levenstein or
+                        cosine similarity)
+                  \item Restrict the alphabet
+              \end{itemize}
+        \item Put it into a standard format
+    \end{itemize}
+}

@@ -1,6 +1,8 @@
 \documentclass{article}
 
 \input{../research.sty}
+\makeglossaries
+\loadglsentries{../glossary}
 
 \title{Notes}
 \author{Austin Gill}
@@ -8,20 +10,25 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-    Thoughts about my graduate thesis on the computer generation of poetry using a more
-    sophisticated natural language processing approach.
+    Thoughts about my graduate thesis on the computer generation of poetry
+    using a more sophisticated natural language processing approach.
 \end{abstract}
 \thispagestyle{empty}
 \tableofcontents
-\newpage
+\listoftodos
 
-\section{Introduction}\label{sec:introduction}
-\input{sections/introduction.tex}
+\include{sections/introduction}
+\include{sections/methods}
+\include{sections/nlp}
+\include{sections/data}
+\include{sections/explore}
 
 % Start appendices. Add appendices head section and add to table of contents
-\newpage\appendix\appendixpage{}\addappheadtotoc{}
-
+% \newpage\appendix\appendixpage{}\addappheadtotoc{}
 % \section{Supplemental Content}\label{sec:supplemental-content}
+
+\printglossary[type=acronym]
+\printglossary[type=main]
 
 \newpage
 % Make a references entry for everything in my database.
