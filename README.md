@@ -36,15 +36,17 @@ Then I added the following to my `~/.bashrc`
 ```shell
 # export PATH="/usr/local/cuda/bin:${PATH:+:${PATH}}"
 # export LIBRARY_PATH="/usr/local/cuda/lib64${LIBRARY_PATH:+:${LIBRARY_PATH}}"
-export PATH="$HOME/.local/cuda-9.0/bin${PATH:+:${PATH}}"
-export LIBRARY_PATH="$HOME/.local/cuda-9.0/lib64${LIBRARY_PATH:+:${LIBRARY_PATH}}"
+export PATH="$HOME/.local/cuda/bin${PATH:+:${PATH}}"
+export LIBRARY_PATH="$HOME/.local/cuda/lib64${LIBRARY_PATH:+:${LIBRARY_PATH}}"
 ```
 
-and sourced it
+and symlinked `~/.local/cuda` to `~/.local/cuda-9.0`.
 
 ```shell
-source ~/.bashrc
+ln -s ~/.local/cuda-9.0 ~/.local/cuda
 ```
+
+This way, I can symlink `/usr/local/cuda` to `~/.local/cuda` on the Opp Lab machines and have everything work.
 
 ### CUDNN 7.4.2 for CUDA 9.0
 
@@ -127,7 +129,7 @@ Then install spaCy with GPU support with
 
 ```shell
 pip install --user --upgrade spacy[cuda90]
-python -m spacy download en --user
+python3 -m spacy download en --user
 ```
 
 Then revert GCC back to its default version by running
