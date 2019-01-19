@@ -18,7 +18,7 @@ class Dataset:
         :type url: str
         """
         # Add type hints for better editor completion.
-        self.filename: Path = Path(__file__).parent.joinpath(Path(filename))
+        self.filename: Path = Path(__file__).parent.parent.joinpath(Path(filename))
         self.url: str = url
 
     def download(self):
