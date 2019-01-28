@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 import pickle
+import re
 import string
 from pathlib import Path
 
 ALPHABET = frozenset(string.ascii_lowercase + " ")
+REGEX = re.compile(r"[^a-zA-Z]", flags=re.IGNORECASE)
 
 
 def preprocess(text):
@@ -16,7 +18,15 @@ def preprocess(text):
     :return: The cleaned text.
     :rtype: str
     """
-    return "".join(filter(ALPHABET.__contains__, text.strip().lower()))
+    # Replace non alphabetic things with spaces.
+    text, _ = re.subn(REGEX, " ", text)
+    # Replace multiple spaces with a single space.
+    text = " ".join(text.split())
+    # Re-add apostrophes.
+    text = text.replace(" s ", "'s ")
+    text = text.replace(" t ", "'t ")
+    # Lowercase the text.
+    return text.lower()
 
 
 def load(filename):
@@ -29,10 +39,21 @@ def load(filename):
         return pickle.load(f)
 
 
-def long_enough(haiku):
-    """Determine if the given haiku is long enough to be a haiku."""
-    # There should be 4 or more words in the haiku
-    if haiku.count(" ") < 3:
+def is_haiku(haiku):
+    """Determine if the given haiku might actually be a haiku."""
+    # There should be 6 or more words in the haiku
+    if haiku.count(" ") < 5:
+        return False
+
+    # Avoid catching the list of volumes.
+    if "volume" in haiku:
+        return False
+
+    if "nbsp" in haiku:
+        return False
+
+    # Determined by hand.
+    if len(haiku) > 99 or len(haiku) < 26:
         return False
 
     return True
@@ -48,7 +69,7 @@ if __name__ == "__main__":
         cleaned += [preprocess(h) for h in haikus[source]]
 
     # Remove some of the false positives.
-    cleaned[:] = [x for x in cleaned if long_enough(x)]
+    cleaned[:] = [x for x in cleaned if is_haiku(x)]
 
     # Remove duplicates.
     cleaned = set(cleaned)
