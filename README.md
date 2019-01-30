@@ -161,3 +161,29 @@ set_session(tf.Session(config=config))
 * Experiment with different Python NLP [libraries](https://kleiber.me/blog/2018/02/25/top-10-python-nlp-libraries-2018/)
 * Read Stanford [book](https://web.stanford.edu/~jurafsky/slp3/) on NLP
 * Watch Stanford [lectures](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6) oriented towards deep learning
+* Write a better interface to downloading the dataset if it doesn't exist, similar to the Nietzsche corpus.
+  * Save the dirty plaintext in some structured form, giving the source URL and the line structure.
+  * Find the right Python object format, and pickle, as well as providing options for returning the object.
+  * Get a pickled object, if it exists, and download/clean if it doesn't exist.
+* Write a better interface to cleaning the dataset.
+  * Save the cleaned plaintext in some structured form, giving the source URL and the line structure.
+  * Find the right Python object format, and pickle, as well as providing options for returning the object.
+  * Get a pickled object, if it exists, and download/clean if it doesn't exist.
+* Improve web scraper to read newlines in the `<pre>` tags on Heron's Nest.
+* Improve web scraper to filter some non-haikus from the haiku list.
+* Do a better job cleaning the haiku dataset.
+  * Improve punctuation handling (don't just replace with spaces, and don't just remove)
+
+    There is a difference between how "don't" and how "thing-other" should be handled.
+  * Clean rogue HTML
+  * Do a better job of catching non-haikus
+  * Filter really long and really short.
+  * Attempt to find non-words.
+* Remove stop words and build a word cloud. This could be interesting to get a sense of what kind of language is in the dataset.
+
+  It might be interesting to build word clouds for each of the data sources too.
+* Check whether Zipf's law holds for the haiku dataset.
+* Attempt NLP/ML topic modeling.
+* Attempt ML sentiment analysis.
+* Can the haikus be clustered by their topics, sentiments, or something else?
+* Document sources for dataset, and cite in paper.
