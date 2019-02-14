@@ -187,3 +187,8 @@ set_session(tf.Session(config=config))
 * Attempt ML sentiment analysis.
 * Can the haikus be clustered by their topics, sentiments, or something else?
 * Document sources for dataset, and cite in paper.
+* Look through the links [here](http://www.theheronsnest.com/archived_issues/connections/) and [here](https://www.ahapoetry.com/h_links.html) for more haikus.
+* There's an essay on haiku FAQ [here](http://haiku.ru/frog/alexey_def.htm)
+* There are educational links [here](https://www.ahapoetry.com/Bare%20Bones/bbtoc%20intro.html) and [here](https://www.ahapoetry.com/all%20haiku%20info.html) on how to write haikus.
+* There are more haiku in a not-easily-parseable format [here](http://startag.tripod.com/HLpg1sep01.html) and [here](http://www.haikupoet.com/search.php)
+* I think that I'll end up having to do a lot of manual work to recover the newline positions anyways, but then that won't be reproducible.
