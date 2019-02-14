@@ -4,6 +4,7 @@
 import pickle
 from collections import deque
 from multiprocessing import Pool
+from pathlib import Path
 
 from requests_html import HTMLSession
 
@@ -167,11 +168,11 @@ def heronsnest():
         "http://www.theheronsnest.com/memorials/",
         "http://www.theheronsnest.com/order.html",
         "http://www.thewondercode.com/#payment",
-        "http://www.theheronsnest.com/archived_issues/haiku/0402v2111/thn_va.c0.html",
-        "http://www.theheronsnest.com/archived_issues/haiku/0502v2324/thn_va.c0.html",
-        "http://www.theheronsnest.com/archived_issues/haiku/0602v1758/thn_va.c0.html",
-        "http://www.theheronsnest.com/archived_issues/haiku/0700v0214/thn_va.c0.html",
-        "http://www.theheronsnest.com/archived_issues/haiku/0202va0793/thn_va.c0.html",
+        "http://www.theheronsnest.com/archived_issues/connections/",
+        "http://www.theheronsnest.com/archived_issues/journal/",
+        "http://www.theheronsnest.com/archived_issues/journal",
+        "http://www.theheronsnest.com/archived_issues/haiku/",
+        "http://www.theheronsnest.com/archived_issues/haiku/index.html",
     }
 
     while q:
@@ -182,16 +183,19 @@ def heronsnest():
         for link in r.html.absolute_links:
             if "#" in link:
                 link, _, _ = link.partition("#")
+            # Don't leave the Herons Nest website, or revisit a link!
             if link not in visited and link.startswith("http://www.theheronsnest.com/"):
                 q.append(link)
                 visited.add(link)
 
-        haikus = [h.text for h in r.html.find("p.haiku")]
-        # TODO: This has a lot of false positives.
-        haikus += [h.text for h in r.html.find("p > font")]
-        if haikus:
-            print(url, "->", len(haikus))
-            all_haikus[url] = haikus
+        if not ("thn_va" in link or "thn_toc" in link):
+            haikus = [h.text for h in r.html.find("p.haiku")]
+            # TODO: This has a lot of false positives.
+            haikus += [h.text for h in r.html.find("p > font")]
+            # Pages with fewer than 4 haikus tend to be false positives
+            if len(haikus) > 4:
+                print(url, "->", len(haikus))
+                all_haikus[url] = haikus
 
     return all_haikus
 
