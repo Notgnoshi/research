@@ -188,7 +188,7 @@ def heronsnest():
                 q.append(link)
                 visited.add(link)
 
-        if not ("thn_va" in link or "thn_toc" in link):
+        if not ("thn_va" in url or "thn_toc" in url):
             haikus = [h.text for h in r.html.find("p.haiku")]
             # TODO: This has a lot of false positives.
             haikus += [h.text for h in r.html.find("p > font")]
