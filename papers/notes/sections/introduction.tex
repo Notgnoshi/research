@@ -4,3 +4,42 @@
 Throughout these notes, vocabulary items will be typeset in
 \textbf{\textcolor{__glossary_entry_color}{bold blue}} letters, and will link
 to the~\nameref{glos:main}. Acronyms can be found at \nameref{glos:acronym}.
+
+\subsection{General Research Question}\label{sec:research-question}
+
+This will take some serious refinement, but for now, my research question is
+
+\begin{quote}
+    Is it possible to generate believable poetry without falling back to a simple template or
+    rule-based system? What techniques in deep learning\todo{Add glossary entry} or \gls{NLP} might
+    be employable?
+\end{quote}
+
+I will also have to decide if I want to focus on haikus (I think I should at the moment) or some
+other form of poetry. Shakespearean sonnets, for example, might be easier because they are longer,
+and the training dataset is better defined and easier to get a hold of.
+
+\subsection{Techniques to Explore}\label{sec:techniques-to-explore}
+
+I have already attempted to generate haikus using a naive LSTM\todo{Add glossary entry} generative
+deep learning model. I did not have much success, but that may have been due to the limited size of
+my training dataset.
+
+The problem with the LSTM generative model is that it is completely unaware that it is generating
+\textit{natural language}. So we are, in effect, not using all of the information available. That
+is, haikus follow (loosely) the usual rules of English grammar. This means that it may be possible
+to supplement the LSTM model using \gls{NLP} techniques.
+
+I am currently taking a course in Natural Computing\todo{Add glossary entry}, which excels in areas
+where the problem is subtle and complex. Further, it is possible in natural computing to run an
+algorithm without an explicit fitness function; all that's necessary is a comparative process where
+one individual is compared to another. This could be crowdsourced via a website.
+
+One of the most promising techniques that I have learned so far is grammatical evolution via an
+intermediate solution representation with some set of production rules. To use this method, I would
+have to define a grammar for haikus --- that is, find some way to deterministically turn a finite
+array of discrete symbols into a haiku.
+
+The other problem that I have to solve is that I will need to find a fitness function. This will
+have to be done no matter what approach I take. I believe that it will likely have to be a
+comparison of two haikus, rather than a strict numerical score between 0 and 1.
