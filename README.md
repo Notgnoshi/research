@@ -158,19 +158,13 @@ set_session(tf.Session(config=config))
 
 ## TODO
 
+Data parsing, cleaning, and standardization
+
 * Experiment with different Python NLP [libraries](https://kleiber.me/blog/2018/02/25/top-10-python-nlp-libraries-2018/)
 * Read Stanford [book](https://web.stanford.edu/~jurafsky/slp3/) on NLP
 * Watch Stanford [lectures](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6) oriented towards deep learning
-* Write a better interface to downloading the dataset if it doesn't exist, similar to the Nietzsche corpus.
-  * Save the dirty plaintext in some structured form, giving the source URL and the line structure.
-  * Find the right Python object format, and pickle, as well as providing options for returning the object.
-  * Get a pickled object, if it exists, and download/clean if it doesn't exist.
-* Write a better interface to cleaning the dataset.
-  * Save the cleaned plaintext in some structured form, giving the source URL and the line structure.
-  * Find the right Python object format, and pickle, as well as providing options for returning the object.
-  * Get a pickled object, if it exists, and download/clean if it doesn't exist.
-* Improve web scraper to read newlines in the `<pre>` tags on Heron's Nest.
-* Improve web scraper to filter some non-haikus from the haiku list.
+* There are more haiku in a not-easily-parseable format [here](http://startag.tripod.com/HLpg1sep01.html) and [here](http://www.haikupoet.com/search.php)
+* Look through the links [here](http://www.theheronsnest.com/archived_issues/connections/) and [here](https://www.ahapoetry.com/h_links.html) for more haikus.
 * Do a better job cleaning the haiku dataset.
   * Improve punctuation handling (don't just replace with spaces, and don't just remove)
 
@@ -179,6 +173,14 @@ set_session(tf.Session(config=config))
   * Do a better job of catching non-haikus
   * Filter really long and really short.
   * Attempt to find non-words.
+* I think that I'll end up having to do a lot of manual work to recover the newline positions anyways, but then that won't be reproducible.
+* Document sources for dataset, and cite in paper.
+
+Exploratory data analysis
+
+* There's an essay on haiku FAQ [here](http://haiku.ru/frog/alexey_def.htm)
+* There are educational links [here](https://www.ahapoetry.com/Bare%20Bones/bbtoc%20intro.html) and [here](https://www.ahapoetry.com/all%20haiku%20info.html) on how to write haikus.
+  * How do the existing haikus fit with these rules?
 * Remove stop words and build a word cloud. This could be interesting to get a sense of what kind of language is in the dataset.
 
   It might be interesting to build word clouds for each of the data sources too.
@@ -186,9 +188,13 @@ set_session(tf.Session(config=config))
 * Attempt NLP/ML topic modeling.
 * Attempt ML sentiment analysis.
 * Can the haikus be clustered by their topics, sentiments, or something else?
-* Document sources for dataset, and cite in paper.
-* Look through the links [here](http://www.theheronsnest.com/archived_issues/connections/) and [here](https://www.ahapoetry.com/h_links.html) for more haikus.
-* There's an essay on haiku FAQ [here](http://haiku.ru/frog/alexey_def.htm)
-* There are educational links [here](https://www.ahapoetry.com/Bare%20Bones/bbtoc%20intro.html) and [here](https://www.ahapoetry.com/all%20haiku%20info.html) on how to write haikus.
-* There are more haiku in a not-easily-parseable format [here](http://startag.tripod.com/HLpg1sep01.html) and [here](http://www.haikupoet.com/search.php)
-* I think that I'll end up having to do a lot of manual work to recover the newline positions anyways, but then that won't be reproducible.
+  * The topics will be a vector of words? So can the vectors be clustered?
+* Can an RNN find the appropriate line breaks?
+  * Variable length inputs and outputs will be tricky
+  * Look into seq2seq where there's an encoder and decoder at both ends of the RNN.
+* How many haikus actually follow the 5-7-5 common pattern?
+  * Need to find a good way to count syllables
+  * Also look at number of lines
+* Naive haiku generation with Markov chains and LSTM networks
+* Think about grammatical evolution with some kind of encoding and production rules
+* "grey" vs "gray" and other spellings
