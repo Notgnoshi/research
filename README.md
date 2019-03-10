@@ -198,3 +198,6 @@ Exploratory data analysis
 * Naive haiku generation with Markov chains and LSTM networks
 * Think about grammatical evolution with some kind of encoding and production rules
 * "grey" vs "gray" and other spellings
+* Interesting bi and tri-grams. '`*` hour', '`*` blossom(s)', '`*` season `*`', '`*` wind', `<flower name>` etc.
+* What birds are mentioned. What flowers? What animals?
+* There was a PyCon talk about the colors in works of literature. Can I do the same with haikus?
