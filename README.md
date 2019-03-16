@@ -167,8 +167,6 @@ Overall TODOs
 Data Sources
 
 * Document sources for dataset, and cite in paper.
-* There are more haiku in a not-easily-parseable format [here](http://startag.tripod.com/HLpg1sep01.html) and [here](http://www.haikupoet.com/search.php)
-* Look through the links [here](http://www.theheronsnest.com/archived_issues/connections/) and [here](https://www.ahapoetry.com/h_links.html) for more haikus.
 
 Exploratory data analysis
 
