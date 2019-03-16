@@ -4,6 +4,38 @@ Graduate thesis research, paper, notes, and experiments.
 
 ---
 
+## Notes on Jupyter Notebooks
+
+Many, of not all of the Jupyter notebooks in this project use Python libraries located elsewhere in
+this project. Rather than edit `sys.path` relative to each of the notebooks whenever importing one
+of those libraries is necessary, run the Jupyter server with the command
+
+```shell
+PYTHONPATH=$(pwd) jupyter lab
+```
+
+*in the root directory of this repository*.
+
+Since I use the notebooks for development, including the development of those libraries, it is helpful
+to automatically reload the libraries when they change. Do this by adding the Jupyter magics
+
+```python
+%load_ext autoreload
+%autoreload 2
+%aimport data # library name
+```
+
+It's also nice to use better plot formats
+
+```python
+%config InlineBackend.figure_format = 'svg'
+%matplotlib inline
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+```
+
 ## Dependency Installation Notes
 
 Some of the dependencies required a bit more work to install, so I'll make a note here so I don't forget how.
