@@ -1,10 +1,9 @@
 ## Editor settings
 .vscode/
 
-## Ignore the data/ folder, but not the script to download the data.
-data/*
-!data/datasets/
-!data/get_data.py
+## Ignore pickled data files, and all text files.
+*.pkl
+*.txt
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
