@@ -141,9 +141,9 @@ sudo update-alternatives --config g++
 
 again.
 
-## Keras GPU Usage
+## TensorFlow GPU Usage
 
-Keras, by default allocates your entire damn GPU, even when working with a small model. This is frustrating, so do the following to disable this.
+TensorFlow, by default allocates your entire damn GPU, even when working with a small model. This is frustrating, so do the following to disable this.
 
 ```python
 import tensorflow as tf
@@ -158,33 +158,43 @@ set_session(tf.Session(config=config))
 
 ## TODO
 
-Data parsing, cleaning, and standardization
+Overall TODOs
 
 * Experiment with different Python NLP [libraries](https://kleiber.me/blog/2018/02/25/top-10-python-nlp-libraries-2018/)
 * Read Stanford [book](https://web.stanford.edu/~jurafsky/slp3/) on NLP
 * Watch Stanford [lectures](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6) oriented towards deep learning
+
+Data Sources
+
+* Document sources for dataset, and cite in paper.
 * There are more haiku in a not-easily-parseable format [here](http://startag.tripod.com/HLpg1sep01.html) and [here](http://www.haikupoet.com/search.php)
 * Look through the links [here](http://www.theheronsnest.com/archived_issues/connections/) and [here](https://www.ahapoetry.com/h_links.html) for more haikus.
-* Do a better job cleaning the haiku dataset.
-  * Improve punctuation handling (don't just replace with spaces, and don't just remove)
-
-    There is a difference between how "don't" and how "thing-other" should be handled.
-  * Clean rogue HTML
-  * Do a better job of catching non-haikus
-  * Filter really long and really short.
-  * Attempt to find non-words.
-* I think that I'll end up having to do a lot of manual work to recover the newline positions anyways, but then that won't be reproducible.
-* Document sources for dataset, and cite in paper.
 
 Exploratory data analysis
 
-* There's an essay on haiku FAQ [here](http://haiku.ru/frog/alexey_def.htm)
-* There are educational links [here](https://www.ahapoetry.com/Bare%20Bones/bbtoc%20intro.html) and [here](https://www.ahapoetry.com/all%20haiku%20info.html) on how to write haikus.
-  * How do the existing haikus fit with these rules?
-* Remove stop words and build a word cloud. This could be interesting to get a sense of what kind of language is in the dataset.
-
-  It might be interesting to build word clouds for each of the data sources too.
+* Analyze word frequencies before and after removing stop words. Consider the rarest words, and potentially remove the containing haikus from the dataset.
+* "grey" vs "gray" and other British spellings.
+* Build a word cloud. This could be interesting to get a sense of what kind of language is in the dataset.
+  * Build word cloud after removing stop words.
+  * Identify haiku-specific stop words.
+  * Build word cloud after stemming/lemmatization.
+  * Do the same thing for flowers, colors, season bigrams, wind bigrams, etc.
+* Interesting bi and tri-grams. '`*` hour', '`*` blossom(s)', '`*` season `*`', '`*` wind', `<flower name>` etc.
+* What birds are mentioned. What flowers? What animals?
+* There was a PyCon talk about the colors in works of literature. Can I do the same with haikus?
 * Check whether Zipf's law holds for the haiku dataset.
+* Find haikus that are very similar to each other (small edit distance)
+* Find outliers
+* There's an essay on haiku FAQ [here](http://haiku.ru/frog/alexey_def.htm). There are educational links [here](https://www.ahapoetry.com/Bare%20Bones/bbtoc%20intro.html) and [here](https://www.ahapoetry.com/all%20haiku%20info.html) on how to write haikus.
+
+  Qualify each point with real data.
+
+  ```text
+  asshole questioning
+  doesn't know about haiku
+  5-7-5 bitch
+  ```
+
 * Attempt NLP/ML topic modeling.
 * Attempt ML sentiment analysis.
 * Can the haikus be clustered by their topics, sentiments, or something else?
@@ -197,7 +207,3 @@ Exploratory data analysis
   * Also look at number of lines
 * Naive haiku generation with Markov chains and LSTM networks
 * Think about grammatical evolution with some kind of encoding and production rules
-* "grey" vs "gray" and other spellings
-* Interesting bi and tri-grams. '`*` hour', '`*` blossom(s)', '`*` season `*`', '`*` wind', `<flower name>` etc.
-* What birds are mentioned. What flowers? What animals?
-* There was a PyCon talk about the colors in works of literature. Can I do the same with haikus?
