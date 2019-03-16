@@ -173,6 +173,7 @@ Data Sources
 Exploratory data analysis
 
 * Analyze word frequencies before and after removing stop words. Consider the rarest words, and potentially remove the containing haikus from the dataset.
+* Analyze common lines
 * "grey" vs "gray" and other British spellings.
 * Build a word cloud. This could be interesting to get a sense of what kind of language is in the dataset.
   * Build word cloud after removing stop words.
