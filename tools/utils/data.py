@@ -9,7 +9,7 @@ import pandas as pd
 def get_df():
     """Get the dataset unmodified in a pandas.DataFrame."""
     return pd.read_csv(
-        Path(__file__).parent.joinpath("haikus.csv"),
+        Path(__file__).parent.parent.parent.joinpath("data/haikus.csv"),
         index_col=0,
         # Ensure that the list of lines is interpreted as a list, not a string...
         converters={"haiku": literal_eval},
