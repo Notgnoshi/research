@@ -38,13 +38,17 @@ sns.set()
 
 ## Dependency Installation Notes
 
-Some of the dependencies required a bit more work to install, so I'll make a note here so I don't forget how.
+Some of the dependencies required a bit more work to install, so I'll make a note here so I don't
+forget how.
 
 ### CUDA 9.0
 
-First, you need a recent version of `nvidia-driver` (I have `nvidia-driver-415`). Since my machines need to Nvidia drivers before they will boot successfully, this was already done.
+First, you need a recent version of `nvidia-driver` (I have `nvidia-driver-415`). Since my machines
+need to Nvidia drivers before they will boot successfully, this was already done.
 
-Then download the CUDA Toolkit 9.0 from [https://developer.nvidia.com/cuda-toolkit](https://developer.nvidia.com/cuda-toolkit). I chose the runfile because I wanted to do a local installation. Download the base installer and any patches.
+Then download the CUDA Toolkit 9.0 from [https://developer.nvidia.com/cuda-toolkit](https://developer.nvidia.com/cuda-toolkit).
+I chose the runfile because I wanted to do a local installation. Download the base installer and any
+patches.
 
 I had to install these dependencies before the installer would run
 
@@ -78,11 +82,13 @@ and symlinked `~/.local/cuda` to `~/.local/cuda-9.0`.
 ln -s ~/.local/cuda-9.0 ~/.local/cuda
 ```
 
-This way, I can symlink `/usr/local/cuda` to `~/.local/cuda` on the Opp Lab machines and have everything work.
+This way, I can symlink `/usr/local/cuda` to `~/.local/cuda` on the Opp Lab machines and have
+everything work.
 
 ### CUDNN 7.4.2 for CUDA 9.0
 
-Then download the cuDNN v7.4.2 Library for Linux tarball from [https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn) and extract
+Then download the cuDNN v7.4.2 Library for Linux tarball from [https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn)
+and extract
 
 ```shell
 tar -xvf cudnn-9.0-linux-x64-v7.4.1.5.tgz
@@ -127,7 +133,8 @@ physical_device_desc: "device: 0, name: GeForce GTX 1080, pci bus id: 0000:02:00
 
 ### spaCy 2.0.18
 
-Installing spaCy with GPU support requires GCC-6, but I don't want to use GCC-6 as the default, so we have to jump through some hoops.
+Installing spaCy with GPU support requires GCC-6, but I don't want to use GCC-6 as the default, so
+we have to jump through some hoops.
 
 ```shell
 sudo update-alternatives --remove-all gcc
@@ -175,7 +182,8 @@ again.
 
 ## TensorFlow GPU Usage
 
-TensorFlow, by default allocates your entire damn GPU, even when working with a small model. This is frustrating, so do the following to disable this.
+TensorFlow, by default allocates your entire damn GPU, even when working with a small model. This
+is frustrating, so do the following to disable this.
 
 ```python
 import tensorflow as tf
@@ -202,7 +210,8 @@ Data Sources
 
 Exploratory data analysis
 
-* Analyze word frequencies before and after removing stop words. Consider the rarest words, and potentially remove the containing haikus from the dataset.
+* Analyze word frequencies before and after removing stop words. Consider the rarest words, and
+  potentially remove the containing haikus from the dataset.
 * Analyze common lines
 * "grey" vs "gray" and other British spellings.
 * Build a word cloud. This could be interesting to get a sense of what kind of language is in the dataset.
@@ -216,7 +225,9 @@ Exploratory data analysis
 * Check whether Zipf's law holds for the haiku dataset.
 * Find haikus that are very similar to each other (small edit distance)
 * Find outliers
-* There's an essay on haiku FAQ [here](http://haiku.ru/frog/alexey_def.htm). There are educational links [here](https://www.ahapoetry.com/Bare%20Bones/bbtoc%20intro.html) and [here](https://www.ahapoetry.com/all%20haiku%20info.html) on how to write haikus.
+* There's an essay on haiku FAQ [here](http://haiku.ru/frog/alexey_def.htm). There are educational links
+  [here](https://www.ahapoetry.com/Bare%20Bones/bbtoc%20intro.html) and
+  [here](https://www.ahapoetry.com/all%20haiku%20info.html) on how to write haikus.
 
   Qualify each point with real data.
 
