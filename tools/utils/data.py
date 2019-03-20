@@ -35,8 +35,8 @@ def get_df():
     return pd.read_csv(
         Path(__file__).parent.parent.parent.joinpath("data/haikus.csv"),
         index_col=0,
-        # Ensure that the list of lines is interpreted as a list, not a string...
-        converters={"haiku": literal_eval},
+        # Ensure that the lists of lines are interpreted as a list, not a string...
+        converters={"haiku": literal_eval, "nostopwords": literal_eval, "lemmas": literal_eval},
     )
 
 
