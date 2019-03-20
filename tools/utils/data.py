@@ -40,25 +40,47 @@ def get_df():
     )
 
 
-def get_bag_of_words():
-    """Get the dataset in a bag of words representation."""
+def get_bag_of(kind):
+    """Get a bag of ... representation of the dataset.
+
+    Kind may be one of 'words', 'lines', 'nostopwords', or 'lemmas'.
+    """
     df = get_df()
     bag = Counter()
-    for haiku in df["haiku"]:
-        for line in haiku:
-            bag.update(line.split())
+
+    if kind == "lines":
+        lines = []
+        for haiku in df["haiku"]:
+            for line in haiku:
+                lines.append(line)
+        bag = Counter(lines)
+
+    columns = {
+        # token kind: column name
+        "words": "haiku",
+        "lemmas": "lemmas",
+        "nostopwords": "nostopwords",
+    }
+
+    if kind in ("words", "lemmas", "nostopwords"):
+        column = columns[kind]
+        for haiku in df[column]:
+            for line in haiku:
+                bag.update(line.split())
+    else:
+        raise ValueError(f"bag of '{kind}' is unsupported.")
 
     return bag
 
 
+def get_bag_of_words():
+    """Get the dataset in a bag of words representation."""
+    return get_bag_of("words")
+
+
 def get_bag_of_lines():
     """Get the dataset in a bag of lines representation."""
-    df = get_df()
-    lines = []
-    for haiku in df["haiku"]:
-        for line in haiku:
-            lines.append(line)
-    return Counter(lines)
+    return get_bag_of("lines")
 
 
 def read_from_file():
