@@ -210,6 +210,7 @@ Data Sources
 
 Exploratory data analysis
 
+* Go through notebook(s) and redo with better CSV file and library functions.
 * Analyze word frequencies before and after removing stop words. Consider the rarest words, and
   potentially remove the containing haikus from the dataset.
 * Analyze common lines
