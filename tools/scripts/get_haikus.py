@@ -230,7 +230,8 @@ if __name__ == "__main__":
     for _, values in haikus.items():
         s += len(values)
 
-    print("Saving", s, "haikus to haikus.pkl")
+    datapath = Path(__file__).parent.parent.parent.joinpath("data/haikus.pkl")
+    print("Saving", s, "haikus to", datapath)
 
-    with open(Path(__file__).parent.parent.parent.joinpath("data/haikus.pkl"), "wb") as f:
+    with open(datapath, "wb") as f:
         pickle.dump(haikus, f)

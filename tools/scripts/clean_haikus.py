@@ -61,6 +61,7 @@ def is_haiku(haiku):
 
 if __name__ == "__main__":
     haikus = Path(__file__).parent.parent.parent.joinpath("data/haikus.pkl")
+    print("Reading haikus from", haikus)
     haikus = load(haikus)
 
     cleaned = []
@@ -75,6 +76,7 @@ if __name__ == "__main__":
     cleaned = set(cleaned)
     cleaned = list(cleaned)
 
-    print("Saving", len(cleaned), "cleaned haikus in cleaned.pkl")
-    with open(Path(__file__).parent.parent.parent.joinpath("data/cleaned.pkl"), "wb") as f:
+    datapath = Path(__file__).parent.parent.parent.joinpath("data/cleaned.pkl")
+    print("Saving", len(cleaned), "cleaned haikus in", datapath)
+    with open(datapath, "wb") as f:
         pickle.dump(cleaned, f)

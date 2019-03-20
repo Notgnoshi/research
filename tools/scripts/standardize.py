@@ -26,6 +26,7 @@ def main():
     # Requires Python 3.6+
     haikus = list(dict.fromkeys(haikus))
 
+    # TODO: Parallelize.
     rows = list(map(process_haiku, haikus))
 
     haikus = pd.DataFrame(rows)
