@@ -232,5 +232,5 @@ if __name__ == "__main__":
 
     print("Saving", s, "haikus to haikus.pkl")
 
-    with open(Path(__file__).parent.parent.joinpath("haikus.pkl"), "wb") as f:
+    with open(Path(__file__).parent.parent.parent.joinpath("data/haikus.pkl"), "wb") as f:
         pickle.dump(haikus, f)
