@@ -33,17 +33,24 @@ class NlpTest(unittest.TestCase):
         self.assertEqual(remove_stopwords(phrase), "heathen worst")
 
     def test_lemmatization(self):
-        line1 = "she's my friend"
-        line2 = "i'd rather not meet"
-        line3 = "reading the stock futures"
-        line4 = "the leaves still clinging"
-        line5 = "beehives beneath kiwifruit vines"
-        line6 = "warm winter rain/the beach and i/collecting sea glass"
+        lines = [
+            "she's my friend",
+            "i'd rather not meet",
+            "reading the stock futures",
+            "the leaves still clinging",
+            "beehives beneath kiwifruit vines",
+            "warm winter rain/the beach and i/collecting sea glass",
+        ]
+        expected_lemmas = [
+            "-PRON- be -PRON- friend",
+            "-PRON- would rather not meet",
+            "read the stock future",
+            "the leaf still cling",
+            "beehive beneath kiwifruit vine",
+            # TODO: Why does "i'd" lemmatize to "-PRON- would" but "i" lemmatize to "i"?
+            "warm winter rain / the beach and i / collect sea glass",
+        ]
 
-        self.assertEqual(lemmatize(line1), "-PRON- be -PRON- friend")
-        self.assertEqual(lemmatize(line2), "-PRON- would rather not meet")
-        self.assertEqual(lemmatize(line3), "read the stock future")
-        self.assertEqual(lemmatize(line4), "the leaf still cling")
-        self.assertEqual(lemmatize(line5), "beehive beneath kiwifruit vine")
-        # TODO: Why does "i'd" lemmatize to "-PRON- would" but "i" lemmatize to "i"?
-        self.assertEqual(lemmatize(line6), "warm winter rain / the beach and i / collect sea glass")
+        lemmas = lemmatize(lines)
+        for lemma, expected in zip(lemmas, expected_lemmas):
+            self.assertEqual(lemma, expected)

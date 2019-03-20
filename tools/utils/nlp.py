@@ -19,6 +19,7 @@ def remove_stopwords(text):
     return " ".join(word for word in text.split() if word not in STOPWORDS)
 
 
-def lemmatize(text):
+def lemmatize(texts):
     """Return the lemmatized version of the given text."""
-    return " ".join(token.lemma_ for token in nlp(text))
+    for doc in nlp.pipe(texts, batch_size=512, n_threads=-1):
+        yield " ".join(token.lemma_ for token in doc)
