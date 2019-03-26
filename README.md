@@ -104,10 +104,11 @@ sudo apt install libcupti-dev
 
 ### Tensorflow-GPU 1.12.0
 
-Install Tensorflow with the following
+Versions of Tensorflow greater than 1.12.0 require CUDA 10.
+Install Tensorflow 1.12.0 with the following
 
 ```shell
-pip install --user --upgrade tensorflow-gpu
+pip install --user --upgrade tensorflow-gpu==1.12.0
 ```
 
 and test by running the following in a python interpreter
@@ -131,54 +132,12 @@ incarnation: 240771873777457974,
 physical_device_desc: "device: 0, name: GeForce GTX 1080, pci bus id: 0000:02:00.0, compute capability: 6.1"
 ```
 
-### spaCy 2.0.18
-
-Installing spaCy with GPU support requires GCC-6, but I don't want to use GCC-6 as the default, so
-we have to jump through some hoops.
-
-```shell
-sudo update-alternatives --remove-all gcc
-sudo update-alternatives --remove-all g++
-
-sudo apt install gcc-6 g++-6
-
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 10
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 20
-
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 10
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20
-
-sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
-sudo update-alternatives --set cc /usr/bin/gcc
-
-sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
-sudo update-alternatives --set c++ /usr/bin/g++
-```
-
-Then temporarily pick GCC-6 as the default by running
-
-```shell
-sudo update-alternatives --config gcc
-sudo update-alternatives --config g++
-```
-
-and pick GCC-6 from the list of options.
-
-Then install spaCy with GPU support with
+### spaCy 2.1.3
 
 ```shell
 pip install --user --upgrade spacy[cuda90]
 python3 -m spacy download en --user
 ```
-
-Then revert GCC back to its default version by running
-
-```shell
-sudo update-alternatives --config gcc
-sudo update-alternatives --config g++
-```
-
-again.
 
 ## TensorFlow GPU Usage
 
@@ -200,6 +159,7 @@ set_session(tf.Session(config=config))
 
 Overall TODOs
 
+* Upgrade to CUDA 10, Tensorflow 1.13.0 (or 2.0 if Keras works well)
 * Experiment with different Python NLP [libraries](https://kleiber.me/blog/2018/02/25/top-10-python-nlp-libraries-2018/)
 * Read Stanford [book](https://web.stanford.edu/~jurafsky/slp3/) on NLP
 * Watch Stanford [lectures](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6) oriented towards deep learning
