@@ -11,7 +11,7 @@
 \usepackage{color}
 \usepackage{eqparbox}
 \usepackage{float}
-\usepackage[margin=1in, left=2in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 % *must* be loaded after hyperref
@@ -30,10 +30,9 @@
 \usepackage{titlesec}
 \usepackage{textcomp}
 \usepackage[nottoc]{tocbibind}
-\usepackage[textsize=small]{todonotes}
+% Disabled for compilation speed.
+% \usepackage[textsize=small]{todonotes}
 \usepackage[normalem]{ulem}
-
-% Document Settings
 
 \definecolor{__minted_background_color}{rgb}{0.95, 0.95, 0.98}
 \definecolor{__minted_highlight_color}{rgb}{0.88, 0.88, 1.0}
@@ -49,9 +48,6 @@
 \usetikzlibrary{arrows, shapes, positioning}
 \pgfplotsset{compat=1.16}
 \numberwithin{equation}{section}
-% Sets the width of the margin TODO notes
-\setlength{\marginparwidth}{1.8in}
-\reversemarginpar{}
 
 % hex #184c9a
 \definecolor{__glossary_entry_color}{rgb}{0.094, 0.298, 0.604}
@@ -83,9 +79,12 @@
 
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
-% An inline TODO command. Doesn't play nicely with \todotableofcontents
-\newcommand\todoinline[2][]{\todo[inline, caption={TODO}, #1]{
-\begin{minipage}{\textwidth-4pt}#2\end{minipage}}}
+% % Sets the width of the margin TODO notes
+% \setlength{\marginparwidth}{1.8in}
+% \reversemarginpar{}
+% % An inline TODO command. Doesn't play nicely with \todotableofcontents
+% \newcommand\todoinline[2][]{\todo[inline, caption={TODO}, #1]{
+% \begin{minipage}{\textwidth-4pt}#2\end{minipage}}}
 
 % Draw clouds around things. Useful in mathematical proofs.
 \newcommand{\cloud}[4][\dots]{
