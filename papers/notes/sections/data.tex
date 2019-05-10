@@ -2,63 +2,49 @@
 \section{Data Sources and Cleaning}\label{sec:data}
 
 {\color{red}
-    Find haiku dataset, or for that matter determine if haikus are worth
-    generating. Maybe some other form of poetry would work too.
+      Find haiku dataset, or for that matter determine if haikus are worth generating.
+      Maybe some other form of poetry would work too.
 
-    All of the following \textit{should} be done programmatically and reproduceably.
-    \begin{itemize}
-        \item Download data
-              \begin{itemize}
-                  \item There are still several websites that I have not scraped yet.
-                  \item I think this step might require manual labor to get the haikus into a
-                        standardized form
-              \end{itemize}
-        \item Clean data
-              \begin{itemize}
-                  \item Remove non-haikus
-                  \item Remove duplicates
-                  \item Remove haikus too similar to one another (levenshtein or
-                        cosine similarity)
-                  \item Restrict the alphabet
-              \end{itemize}
-        \item Put it into a standard format
-    \end{itemize}
+      All of the following \textit{should} be done programmatically and reproduceably.
+      \begin{itemize}
+            \item Download data
+                  \begin{itemize}
+                        \item There are still several websites that I have not scraped yet.
+                        \item I think this step might require manual labor to get the haikus into a standardized form
+                  \end{itemize}
+            \item Clean data
+                  \begin{itemize}
+                        \item Remove non-haikus
+                        \item Remove duplicates
+                        \item Remove haikus too similar to one another (levenshtein or cosine similarity)
+                        \item Restrict the alphabet
+                  \end{itemize}
+            \item Put it into a standard format
+      \end{itemize}
 
-    I also need to figure out how to cite the haikus and their sources.
+      I also need to figure out how to cite the haikus and their sources.
 }
 
-I found a number of websites that publish haikus. I was able to find enough that my previous
-concerns about the size of the dataset are no longer relevant. However, the script I wrote to
-scrape the websites has a few limitations.
+I found a number of websites that publish haikus.
+I was able to find enough that my previous concerns about the size of the dataset are no longer relevant.
+However, the script I wrote to scrape the websites has a few limitations.
 
 \begin{itemize}
-    \item The websites do not consistently (even within the same site) format the haikus in the
-          HTML markup. This means that the scraping script has to be very flexible in what it
-          considers a haiku, or that it should only use sources that rigorously format their data.
+      \item The websites do not consistently (even within the same site) format the haikus in the HTML markup.
+            This means that the scraping script has to be very flexible in what it considers a haiku, or that it should only use sources that rigorously format their data.
 
-          If the script is flexible in its haiku classification, there are a lot of false
-          positives, because the markup for a haiku is identical to the markup for potions of the
-          table of contents, for example.
+            If the script is flexible in its haiku classification, there are a lot of false positives, because the markup for a haiku is identical to the markup for potions of the table of contents, for example.
 
-          Limiting the sources to those who are consistent with their formatting cuts the scraped
-          dataset by half.
-    \item Again, due to the site inconsistency, there are a lot of false positives, and almost just
-          as many haikus that are missed.
-    \item There are a lot of haikus with weird formatting --- resulting in HTML fragments in the
-          haiku, weird punctuation, non-words, and author names and dates in the dataset.
+            Limiting the sources to those who are consistent with their formatting cuts the scraped dataset by half.
+      \item Again, due to the site inconsistency, there are a lot of false positives, and almost just as many haikus that are missed.
+      \item There are a lot of haikus with weird formatting --- resulting in HTML fragments in the haiku, weird punctuation, non-words, and author names and dates in the dataset.
 
-          Also, the markup on some sites does not preserve the concept of distinct lines, and at
-          times includes the author name in the haiku.
-    \item Some of the words are not separated by spaces. They are separated by punctuation, but
-          simply replacing punctuation with spaces is not the correct approach.
+            Also, the markup on some sites does not preserve the concept of distinct lines, and at times includes the author name in the haiku.
+      \item Some of the words are not separated by spaces. They are separated by punctuation, but simply replacing punctuation with spaces is not the correct approach.
 \end{itemize}
 
-Unfortunately, I currently believe that the above limitations will force me to manually filter and
-clean the dataset to insert appropriate newlines, clean broken HTML fragments, non-haikus, and
-broken punctuation.
+Unfortunately, I currently believe that the above limitations will force me to manually filter and clean the dataset to insert appropriate newlines, clean broken HTML fragments, non-haikus, and broken punctuation.
 
-Perhaps while manually doing the above I will find a programmatic method of cleaning and
-standardizing the data.
+Perhaps while manually doing the above I will find a programmatic method of cleaning and standardizing the data.
 
-The exploratory data analysis from \autoref{sec:explore} will provide better hints on how to remove
-outliers, standardize, and clean the dataset.
+The exploratory data analysis from \autoref{sec:explore} will provide better hints on how to remove outliers, standardize, and clean the dataset.
