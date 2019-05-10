@@ -41,6 +41,10 @@ def __get_bag_of_words(df, column):
         # The /'s are separated by space on each side, so they get tokenized as their own symbol.
         bag.update(haiku.split())
 
+    # Do not count the line separator as a word.
+    if '/' in bag:
+        del bag['/']
+
     return bag
 
 
