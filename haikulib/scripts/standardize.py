@@ -16,25 +16,19 @@ def process_haikus(haikus):
 
     # Before splitting each haiku into a list of lines, remove stopwords from each haiku.
     nostops = (remove_stopwords(haiku) for haiku in haikus)
-    # Split each stopword-less haiku into a list of lines.
-    nostops = (haiku.split("/") for haiku in nostops)
-    # Trim whitespace from each line in each haiku.
-    nostops = ([line.strip() for line in haiku] for haiku in nostops)
+    # Trim whitespace from each haiku.
+    nostops = (haiku.strip() for haiku in nostops)
 
-    # Convert each haiku into a list of lines.
-    haikus = (haiku.split("/") for haiku in haikus)
-    # Trim whitespace from each line in each haiku.
-    haikus = ([line.strip() for line in haiku] for haiku in haikus)
+    # Trim whitespace from each haiku.
+    haikus = (haiku.strip() for haiku in haikus)
 
-    # Convert each lemma into a list of lines.
-    lemmas = (lemma.split("/") for lemma in lemmas)
-    # Trim whitespace from each line in each haiku.
-    lemmas = ([line.strip() for line in lemma] for lemma in lemmas)
+    # Trim whitespace from each haiku.
+    lemmas = (lemma.strip() for lemma in lemmas)
 
     haikus = list(haikus)
     # Count the number of lines for each haiku. Perform after the list conversion
     # to avoid depleting the haikus generator.
-    lines = [len(haiku) for haiku in haikus]
+    lines = [haiku.count('/') + 1 for haiku in haikus]
     nostops = list(nostops)
     # Since lemmas is an iterator, this is where the actual parallel computation will be performed.
     lemmas = list(lemmas)

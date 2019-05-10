@@ -1,7 +1,6 @@
 """Helper functions for loading data into multiple different representations."""
 import re
 import string
-from ast import literal_eval
 from collections import Counter
 from pathlib import Path
 
@@ -32,59 +31,54 @@ def preprocess(text):
 
 def get_df():
     """Get the dataset unmodified in a pandas.DataFrame."""
-    return pd.read_csv(
-        Path(__file__).parent.parent.parent.joinpath("data/haikus.csv"),
-        index_col=0,
-        # Ensure that the lists of lines are interpreted as a list, not a string...
-        converters={"haiku": literal_eval, "nostopwords": literal_eval, "lemmas": literal_eval},
-    )
+    return pd.read_csv(Path(__file__).parent.parent.parent.joinpath("data/haikus.csv"), index_col=0)
 
 
-def get_bag_of(kind):
-    """Get a bag of ... representation of the dataset.
-
-    Kind may be one of 'words', 'lines', 'nostopwords', or 'lemmas'.
-    """
-    df = get_df()
+def __get_bag_of_words(df, column):
+    """Get a bag of words representation of given column from the dataframe."""
     bag = Counter()
-
-    if kind == "lines":
-        lines = []
-        for haiku in df["haiku"]:
-            for line in haiku:
-                lines.append(line)
-        bag = Counter(lines)
-
-    columns = {
-        # token kind: column name
-        "words": "haiku",
-        "lemmas": "lemmas",
-        "nostopwords": "nostopwords",
-    }
-
-    if kind in ("words", "lemmas", "nostopwords"):
-        column = columns[kind]
-        for haiku in df[column]:
-            for line in haiku:
-                bag.update(line.split())
-    else:
-        raise ValueError(f"bag of '{kind}' is unsupported.")
+    for haiku in df[column]:
+        # The /'s are separated by space on each side, so they get tokenized as their own symbol.
+        bag.update(haiku.split())
 
     return bag
 
 
-def get_bag_of_words():
-    """Get the dataset in a bag of words representation."""
-    return get_bag_of("words")
+def __get_bag_of_lines(df, column):
+    all_lines = []
+    for haiku in df[column]:
+        lines = haiku.split('/')
+        lines = [l.strip() for l in lines]
+        all_lines += lines
+
+    return Counter(lines)
 
 
-def get_bag_of_lines():
-    """Get the dataset in a bag of lines representation."""
-    return get_bag_of("lines")
+def get_bag_of(column, kind):
+    """Get a bag of 'kind' representation of the dataset.
+
+    :param column: The dataset column to use.
+    :param kind: The kind of bag. One of 'words' or 'lines'.
+    :rtype: collections.Counter
+    """
+    if kind not in ('words', 'lines'):
+        raise ValueError('kind "{}" is unsupported.'.format(kind))
+    if column not in ('haiku', 'lemmas', 'nostopwords'):
+        raise ValueError('column "{}" is unsupported'.format(column))
+
+    df = get_df()
+
+    if kind == 'words':
+        return __get_bag_of_words(df, column)
+
+    return __get_bag_of_lines(df, column)
 
 
 def read_from_file():
-    """Get a list of unclean haikus from the text file."""
+    """Get a list of unclean haiku from the text file.
+
+    Each haiku is a single string, with lines separated by `/`.
+    """
     haikus = []
     with open(Path(__file__).parent.parent.parent.joinpath("data/haikus.txt"), "r") as datafile:
         haiku = ""
@@ -92,6 +86,7 @@ def read_from_file():
             line = line.strip()
             if line:
                 if haiku:
+                    # Separate the /'s by spaces so that str.split() works more intuitively.
                     haiku += " / "
                 haiku += line
             elif not line and haiku:
