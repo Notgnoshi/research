@@ -4,9 +4,9 @@ import sys
 
 import pandas as pd
 
-# Add repository root directory to path so that tools.utils is importable.
+# Add repository root directory to path so that haikulib.data_utils is importable.
 sys.path.append(str(pathlib.Path(__file__).parent.parent.parent))
-from tools.utils import lemmatize, preprocess, read_from_file, remove_stopwords
+from haikulib.data_utils import lemmatize, preprocess, read_from_file, remove_stopwords
 
 
 def process_haikus(haikus):

@@ -1,7 +1,7 @@
 import string
 import unittest
 
-from tools.utils.data import preprocess
+from haikulib.data_utils import preprocess
 
 
 class TestPreprocess(unittest.TestCase):
