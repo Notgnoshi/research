@@ -5,6 +5,8 @@
 *.pkl
 *.txt
 
+data/haikus.csv
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
