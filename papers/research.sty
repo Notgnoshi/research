@@ -14,8 +14,6 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
-% *must* be loaded after hyperref
-\usepackage[toc, acronym, numberedsection=nameref]{glossaries}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 \usepackage[cache=false]{minted}
@@ -48,13 +46,6 @@
 \usetikzlibrary{arrows, shapes, positioning}
 \pgfplotsset{compat=1.16}
 \numberwithin{equation}{section}
-
-% hex #184c9a
-\definecolor{__glossary_entry_color}{rgb}{0.094, 0.298, 0.604}
-\renewcommand{\glstextformat}[1]{\textbf{\textcolor{__glossary_entry_color}{#1}}}
-
-% Add glos: to the beginning of the glossary labels.
-\renewcommand*{\glsautoprefix}{glos:}
 
 % All I want is to have comment italicized, but I cant figure out how
 % to properly modify the existing \Comment macro.
