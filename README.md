@@ -167,3 +167,15 @@ config.gpu_options.visible_device_list = "0"
 
 set_session(tf.Session(config=config))
 ```
+
+### NLTK Datasets
+
+Run the following to download the NLTK datasets I use.
+
+```python
+import nltk
+
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
+```
