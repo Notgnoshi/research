@@ -4,6 +4,7 @@
 ## Ignore pickled data files, and all text files.
 *.pkl
 *.txt
+*.gz
 
 data/haikus.csv
 
