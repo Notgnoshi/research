@@ -45,7 +45,7 @@ class NlpTest(unittest.TestCase):
             "-PRON- be -PRON- friend",
             "-PRON- would rather not meet",
             "read the stock future",
-            "the leaf still cling",
+            "the leave still cling",
             "beehive beneath kiwifruit vine",
             # TODO: Why does "i'd" lemmatize to "-PRON- would" but "i" lemmatize to "i"?
             "warm winter rain / the beach and i / collect sea glass",
