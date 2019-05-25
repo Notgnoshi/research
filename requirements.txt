@@ -1,5 +1,8 @@
 black>=19.3b0; python_version >= '3.6'
 gensim>=3.7.2
+# NOTE: Run `python3 -m ipykernel install --user --name=research` to install a
+# Python kernel for this virtualenv.
+ipykernel>=5.1.1
 isort>=4.3.18
 jedi>=0.13.3
 matplotlib>=3.0.3

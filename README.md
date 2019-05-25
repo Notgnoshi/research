@@ -6,6 +6,14 @@ Graduate thesis research, paper, notes, and experiments.
 
 ## Notes on Jupyter Notebooks
 
+Since Jupyter and related libraries are used by *many* local projects, it's useful to install Jupyter site-wide and create a new kernel specific to this project.
+Source the project virtualenv and create a new kernel as follows
+
+```shell
+source ~/.virtualenvs/research/bin/activate
+python3 -m ipykernel install --user --name=research
+```
+
 Many, of not all of the Jupyter notebooks in this project use Python libraries located elsewhere in
 this project. Rather than edit `sys.path` relative to each of the notebooks whenever importing one
 of those libraries is necessary, run the Jupyter server with the command
