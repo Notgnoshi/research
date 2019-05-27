@@ -1,0 +1,3 @@
+[submodule "depends/PlotNeuralNet"]
+	path = depends/PlotNeuralNet
+	url = git@github.com:HarisIqbal88/PlotNeuralNet.git
