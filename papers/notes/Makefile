@@ -16,7 +16,7 @@ error:
 
 clean:
 	latexmk -C
-	rm -rf *.bbl *.tdo
+	rm -rf *.bbl *.tdo _minted-*
 
 view:
 	1>/dev/null 2>/dev/null xdg-open $(PROJECT_NAME).pdf &
