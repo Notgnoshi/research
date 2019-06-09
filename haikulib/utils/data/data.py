@@ -103,3 +103,19 @@ def read_from_file():
                 haikus.append(haiku)
                 haiku = ""
     return haikus
+
+
+def tokenize(haiku, method="words"):
+    """Tokenize the given haiku using the specified method.
+
+    :param haiku: The (single) haiku to tokenize.
+    :type haiku: str, of the form 'line / line #'
+    :param method: The tokenization method. One of 'words' or 'characters', defaults to 'words'
+    """
+    if method == "words":
+        return haiku.split()
+    elif method == "characters":
+        # Strings are already tokenized into characters. Duh...
+        return list(haiku)
+
+    raise ValueError(f"Unrecognized tokenization method '{method}'")
