@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 
 # Preserve alphabetic, numeric, spaces, and single quotes.
-ALPHABET = frozenset(string.ascii_lowercase + " " + "'" + "/" + string.digits)
+ALPHABET = frozenset(string.ascii_lowercase + " " + "'" + "/" + "#" + string.digits)
 
 
 def preprocess(text):
@@ -31,7 +31,9 @@ def preprocess(text):
 
 def get_df():
     """Get the dataset unmodified in a pandas.DataFrame."""
-    return pd.read_csv(Path(__file__).parent.parent.parent.parent.joinpath("data/haikus.csv"), index_col=0)
+    return pd.read_csv(
+        Path(__file__).parent.parent.parent.parent.joinpath("data/haikus.csv"), index_col=0
+    )
 
 
 def __get_bag_of_words(df, column):
@@ -42,8 +44,8 @@ def __get_bag_of_words(df, column):
         bag.update(haiku.split())
 
     # Do not count the line separator as a word.
-    if '/' in bag:
-        del bag['/']
+    if "/" in bag:
+        del bag["/"]
 
     return bag
 
@@ -51,7 +53,7 @@ def __get_bag_of_words(df, column):
 def __get_bag_of_lines(df, column):
     all_lines = []
     for haiku in df[column]:
-        lines = haiku.split('/')
+        lines = haiku.split("/")
         lines = [l.strip() for l in lines]
         all_lines += lines
 
@@ -65,14 +67,14 @@ def get_bag_of(column, kind):
     :param kind: The kind of bag. One of 'words' or 'lines'.
     :rtype: collections.Counter
     """
-    if kind not in ('words', 'lines'):
+    if kind not in ("words", "lines"):
         raise ValueError('kind "{}" is unsupported.'.format(kind))
-    if column not in ('haiku', 'lemmas', 'nostopwords'):
+    if column not in ("haiku", "lemmas", "nostopwords"):
         raise ValueError('column "{}" is unsupported'.format(column))
 
     df = get_df()
 
-    if kind == 'words':
+    if kind == "words":
         return __get_bag_of_words(df, column)
 
     return __get_bag_of_lines(df, column)
@@ -84,7 +86,9 @@ def read_from_file():
     Each haiku is a single string, with lines separated by `/`.
     """
     haikus = []
-    with open(Path(__file__).parent.parent.parent.parent.joinpath("data/haikus.txt"), "r") as datafile:
+    with open(
+        Path(__file__).parent.parent.parent.parent.joinpath("data/haikus.txt"), "r"
+    ) as datafile:
         haiku = ""
         for line in datafile:
             line = line.strip()
@@ -94,6 +98,8 @@ def read_from_file():
                     haiku += " / "
                 haiku += line
             elif not line and haiku:
+                # Add an end-of-haiku symbol.
+                haiku += " #"
                 haikus.append(haiku)
                 haiku = ""
     return haikus
