@@ -57,3 +57,24 @@ class TestPreprocess(unittest.TestCase):
 
         self.assertRaises(ValueError, tokenize, haiku, method="Words")
         self.assertRaises(ValueError, tokenize, haiku, method="asdfdf")
+
+
+class TestHaikuDataset(unittest.TestCase):
+    def test_sliding_window(self):
+        tokens = range(20)
+        seqs = HaikuVocabIndexDataset.get_sequences_single(tokens, 2)
+
+        X, Y = next(seqs)
+        self.assertEqual(X, (0, 1))
+        self.assertEqual(Y, 2)
+
+        X, Y = next(seqs)
+        self.assertEqual(X, (1, 2))
+        self.assertEqual(Y, 3)
+
+    def test_sequences(self):
+        tokenized = [[1, 2, 3, 4, 5], [11, 22, 33, 44, 55], [111, 222, 333, 444, 555]]
+        x, y = HaikuVocabIndexDataset.get_sequences(tokenized, 2)
+
+        self.assertEqual(x.size(), (9, 2))
+        self.assertEqual(y.size(), (9,))
