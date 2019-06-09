@@ -4,9 +4,10 @@ import sys
 
 import pandas as pd
 
-# Add repository root directory to path so that haikulib.data_utils is importable.
+# Add repository root directory to path so that haikulib.utils.data is importable.
 sys.path.append(str(pathlib.Path(__file__).parent.parent.parent))
-from haikulib.data_utils import lemmatize, preprocess, read_from_file, remove_stopwords
+from haikulib.utils.data import preprocess, read_from_file
+from haikulib.utils.nlp import lemmatize, remove_stopwords
 
 
 def process_haikus(haikus):
@@ -28,7 +29,7 @@ def process_haikus(haikus):
     haikus = list(haikus)
     # Count the number of lines for each haiku. Perform after the list conversion
     # to avoid depleting the haikus generator.
-    lines = [haiku.count('/') + 1 for haiku in haikus]
+    lines = [haiku.count("/") + 1 for haiku in haikus]
     nostops = list(nostops)
     # Since lemmas is an iterator, this is where the actual parallel computation will be performed.
     lemmas = list(lemmas)

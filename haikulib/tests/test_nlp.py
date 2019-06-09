@@ -4,7 +4,7 @@ from nltk.corpus import stopwords as nltk_stop_words
 from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS as sklearn_stop_words
 from spacy.lang.en.stop_words import STOP_WORDS as spacy_stop_words
 
-from haikulib.data_utils import STOPWORDS, lemmatize, remove_stopwords
+from haikulib.utils.nlp import STOPWORDS, lemmatize, remove_stopwords
 
 
 class NlpTest(unittest.TestCase):
