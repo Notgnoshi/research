@@ -1,5 +1,6 @@
 black>=19.3b0; python_version >= '3.6'
 gensim>=3.7.2
+h5py>=2.9
 # NOTE: Run `python3 -m ipykernel install --user --name=research` to install a
 # Python kernel for this virtualenv.
 ipykernel>=5.1.1
@@ -23,5 +24,6 @@ sklearn>=0.0
 # NOTE: gcc must be version 6 or lower before the wheel for cuda100 will compile.
 spacy[cuda100]>=2.1.3
 sympy>=1.4
+tensorflow-gpu>=2.0.0-beta1
 textblob>=0.15.3
 wordcloud>=1.5.0
