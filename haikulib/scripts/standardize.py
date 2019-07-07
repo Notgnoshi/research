@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
+import csv
 import pathlib
 import sys
 
 import pandas as pd
 
+REPO_DIR = pathlib.Path(__file__).parent.parent.parent
+DATA_DIR = REPO_DIR / "data"
+
 # Add repository root directory to path so that haikulib.utils.data is importable.
-sys.path.append(str(pathlib.Path(__file__).parent.parent.parent))
+sys.path.append(str(REPO_DIR))
 from haikulib.utils.data import preprocess, read_from_file
 from haikulib.utils.nlp import lemmatize, remove_stopwords
 
@@ -54,10 +58,15 @@ def main():
     haikus = pd.DataFrame(rows)
     print(haikus.tail())
 
-    datapath = pathlib.Path(__file__).parent.parent.parent.joinpath("data/haikus.csv")
-
-    print("\nSaving haikus to", datapath)
-    haikus.to_csv(datapath)
+    haikus.to_csv(DATA_DIR / "haikus.csv")
+    haikus.to_csv(
+        DATA_DIR / "cleaned.txt",
+        columns=["haiku"],
+        header=False,
+        index=False,
+        sep="|",
+        quoting=csv.QUOTE_NONE,
+    )
 
 
 if __name__ == "__main__":
