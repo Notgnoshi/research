@@ -8,6 +8,9 @@
 
 data/haikus.csv
 
+## Ignore graph files
+*.gexf
+
 .noseids
 
 ## Core latex/pdflatex auxiliary files:
