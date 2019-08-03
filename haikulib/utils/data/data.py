@@ -10,6 +10,11 @@ import pandas as pd
 ALPHABET = frozenset(string.ascii_lowercase + " " + "'" + "/" + "#" + string.digits)
 
 
+def get_data_dir():
+    """Get the path to the data directory in this repository."""
+    return Path(__file__).parent.parent.parent.parent.joinpath("data").resolve()
+
+
 def preprocess(text):
     """Preprocess the text of a haiku.
 
@@ -31,9 +36,7 @@ def preprocess(text):
 
 def get_df():
     """Get the dataset unmodified in a pandas.DataFrame."""
-    return pd.read_csv(
-        Path(__file__).parent.parent.parent.parent.joinpath("data/haikus.csv"), index_col=0
-    )
+    return pd.read_csv(get_data_dir() / "haikus.csv", index_col=0)
 
 
 def __get_bag_of_words(df, column):
@@ -86,9 +89,7 @@ def read_from_file():
     Each haiku is a single string, with lines separated by `/`.
     """
     haikus = []
-    with open(
-        Path(__file__).parent.parent.parent.parent.joinpath("data/haikus.txt"), "r"
-    ) as datafile:
+    with open(get_data_dir() / "haikus.txt", "r") as datafile:
         haiku = ""
         for line in datafile:
             line = line.strip()
