@@ -46,9 +46,11 @@ def __get_bag_of_words(df, column):
         # The /'s are separated by space on each side, so they get tokenized as their own symbol.
         bag.update(haiku.split())
 
-    # Do not count the line separator as a word.
+    # Do not count the line or haiku separators as a words.
     if "/" in bag:
         del bag["/"]
+    if "#" in bag:
+        del bag["#"]
 
     return bag
 
@@ -57,7 +59,7 @@ def __get_bag_of_lines(df, column):
     all_lines = []
     for haiku in df[column]:
         lines = haiku.split("/")
-        lines = [l.strip() for l in lines]
+        lines = [l.strip(" \t\n#") for l in lines]
         all_lines += lines
 
     return Counter(lines)
