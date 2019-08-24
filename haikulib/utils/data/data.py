@@ -122,3 +122,26 @@ def tokenize(haiku, method="words"):
         return list(haiku)
 
     raise ValueError(f"Unrecognized tokenization method '{method}'")
+
+
+def get_flowers():
+    """Get a set of flower names."""
+    path = get_data_dir() / "flowers.txt"
+    with path.open("r") as f:
+        flowers = set(preprocess(line) for line in f)
+
+    return flowers
+
+
+def get_colors():
+    path = get_data_dir() / "rgb.txt"
+    with path.open("r") as f:
+        colors = dict()
+
+        for line in f:
+            if not line.startswith("#"):
+                color, rgb = line.strip().split("\t")
+                assert rgb.startswith("#")
+                colors[color] = rgb
+
+    return colors
