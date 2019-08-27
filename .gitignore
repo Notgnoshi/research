@@ -12,6 +12,7 @@ data/haikus.csv
 *.gexf
 
 .noseids
+poetry.lock
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
