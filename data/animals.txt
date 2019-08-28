@@ -445,8 +445,6 @@ appalachian cottontail
 appalachian evening primrose
 appalachian roachfly
 appert's tetraka
-apple
-apple-leaf
 apple leafroller moth
 apple leaf skeletonizer moth
 apple maggot fly
@@ -456,10 +454,6 @@ apple-of-peru
 apple scab fungus
 apple snail
 apricot
-aprv
-aqrv-a
-aqrv-c
-aqrv-g
 aquatic fungus
 aquatic warbler
 arabian chameleon
@@ -1001,7 +995,6 @@ barking marsh frog
 barking owl
 bark scorpion
 bark spider
-barley
 barley covered smut fungus
 barley leaf stripe
 barley net blotch fungus
@@ -1079,20 +1072,6 @@ bay-leaved caper
 baymv
 bay scallop
 bay-winged cowbird
-bbscv
-bbtv
-bbv
-bbwv-1
-bbwv-2
-bcmnv
-bcnv
-bcov
-bcov-ent
-bcov-lsu
-bcov-lun
-bctiv
-bctv
-bdv
 beach bean
 beach cabbage
 beach conger
@@ -1231,15 +1210,10 @@ betacoronavirus england 1
 beth root
 betonyleaf mazus
 betsileo short-tailed rat
-bev
 bewick's swan
 bewick's wren
 beydv
 bezy's arizona night lizard
-bfdv
-bfpyv
-bfv
-bgymv
 bharal
 biajaca
 bibron's agama
@@ -1883,18 +1857,9 @@ blunthead puffer
 bluntleaf yellow-cress
 blunt-leaved bog-moss
 blunt-nosed viper
-blv
 blyth's horsehoe bat
 blyth's leaf-warbler
 blyth's tragopan pheasant
-bmcpv
-bmdnv
-bmdnv-3
-bmdnv-5
-bmdv
-bmnpv
-bmv
-bnyvv
 boa
 boar
 boat-billed heron
@@ -1920,10 +1885,6 @@ bogue
 bog yellow-cress
 bohemian waxwing
 bohor reedbuck
-bohv-1
-bohv-2
-bohv-4
-bohv-5
 boie's frog
 boie's wart frog
 boisduval's yellow butterfly
@@ -2013,15 +1974,9 @@ bowl coral
 bowl-tubed iris
 bowtie damselfish
 bow-winged grasshopper
-box
-box elder
 box jellyfish
 boxlip mullet
 boxthorn
-bpiv-3
-bpmv
-bpv
-bpyv
 bracken fern
 bracket fungus
 brackish marsh clam
@@ -2044,7 +1999,6 @@ brassy-breasted tanager
 brassy seachub
 brassy willow beetle
 braun's stonewort
-brav
 brazilian amazonian armed spider
 brazilian armed spider
 brazilian big-eyed bat
@@ -2484,7 +2438,6 @@ cabinza grunt
 cabot's tragopan pheasant
 cabrera's vole
 cacao
-cactus
 cactus-finch
 cactus longhorn beetle
 cactus moth
@@ -2772,7 +2725,6 @@ caucasian spinach
 caucasian wild beet
 caucasus subalpine viper
 cauliflower
-cav
 cave bear
 cave cricket
 cavefish
@@ -2780,27 +2732,16 @@ cave loach
 cave shrimp
 cave spider
 cave swallow
-cavv
 cayenne keyhole limpet
 cayenne pepper
 cayenne porterweed
 cayenne spiny rat
-cbepv
-cbv-pw1
-cchfv
-ccmv
-ccov
-cdv
 ceanothus silk moth
 ceara white-lipped frog
 cecropia moth
 cedar glade-cress
 cedar sage
 cedar waxwing
-cehv-1
-cehv-12
-cehv-16
-cehv-9
 celandine poppy
 celebes beauty shrimp
 celebes black macaque
@@ -2845,13 +2786,6 @@ ceylon ebony
 ceylonese tree viper
 ceylon satinwood
 ceylon spinach
-cfcpv
-cfdef
-cfepv
-cfgv
-cfmnpv
-cfmv
-cgmmv
 chacma baboon
 chaco grass mouse
 chaco lancehead
@@ -2908,7 +2842,6 @@ cheer pheasant
 cheetah
 chequered lily
 cherrie's pocket gopher
-cherry
 cherry-faced meadowhawk dragonfly
 cherry laurel
 cherry salmon
@@ -2934,7 +2867,6 @@ chestnut white-bellied rat
 chestnut woodpecker
 chevrier's field mouse
 chevron butterflyfish
-chhv-5
 chia
 chickadee
 chicken
@@ -3158,9 +3090,6 @@ chum salmon
 chungan torrent frog
 chupandilla
 churchyard beetle
-chv-1/ep713
-chv-1/euro7
-chymv
 cicada
 cichlid
 cichlid fish
@@ -3220,7 +3149,6 @@ clawed frog
 clay-colored robin
 clay-colored sparrow
 clay colored weevil
-clbv
 clearfin squirrelfish
 clearnose skate
 clear-winged grasshopper
@@ -3229,7 +3157,6 @@ clearwing tussock moth
 cleese's woolly lemur
 clematis
 cleopatra butterfly
-clgv
 cliff chipmunk
 cliff swallow
 cliff water beetle
@@ -3280,15 +3207,7 @@ clustered bur-reed
 clustered gentian
 clustered yellowtops
 cluster fly
-clv
 clymene dolphin
-cmov
-cmv
-cmv1
-cmylcv
-cnpv
-cnsv
-cnv
 coahuila box turtle
 coal skink
 coal tit
@@ -3569,15 +3488,6 @@ coyote tobacco
 coypu
 cozumel harvest mouse
 cozumel thrasher
-cpgv
-cpmv
-cpmyrv-1
-cpsmv
-cpsv
-cpv
-cpv-1
-cpv-2
-cpxv
 crab
 crab apple
 crab-beetle
@@ -3631,7 +3541,6 @@ creosote bush
 creosote fungus
 crepe ginger
 crepe jasmine
-crescent
 crescent-chested warbler
 crested argus
 crested auklet
@@ -3720,13 +3629,6 @@ cryptic bumblebee
 cryptophyte
 cryptophyte alga
 crystalline sea star snail
-csfv
-csiv
-csmv
-csrv
-csvmv
-ctfv
-ctv
 cuban boa
 cuban crescent
 cuban crocodile
@@ -3810,7 +3712,6 @@ cziv
 dab
 dachshund
 daddy-long-legs spider
-daffodil
 daggerblade grass shrimp
 dagger nematode
 daggertooth pike conger
@@ -3956,10 +3857,6 @@ demon eartheater
 denison barb
 dentated pug
 dentex
-denv-1
-denv-2
-denv-3
-denv-4
 deodar cedar
 depressed slippersnail
 de prunner's ringlet butterfly
@@ -4302,9 +4199,6 @@ dybowski's sika deer
 dyeing poison dart frog
 dyer's greenweed
 dyer's woad
-e-1
-eadv-1
-eadv-2
 eagle
 eagle wood
 eared blacksmelt
@@ -4456,19 +4350,12 @@ eastern yellow-billed hornbill
 eastern yellow jacket
 easter orchid
 eaton's skate
-eav
-eblv1
-eblv2
 ebony cup
 ebony jewelwing damselfly
 eccentric sand dollar
 echidna
 echidna tick
 eclectus parrot
-ecov
-ecpv-1
-ecsv
-ectv
 ecuadorian auger snail
 ecuadorian hermit crab
 edeltanne
@@ -4482,14 +4369,12 @@ edwards's long-clawed mouse
 edwards's long-tailed giant rat
 edwards's pheasant
 edward's swamp rat
-eeev
 eel
 eelgrass
 eel loach
 eelpout
 eel swimbladder nematode
 eendracht land silverside
-eepv
 egg cockle
 egg-in-a-nest orchid
 eggplant
@@ -4509,15 +4394,6 @@ egyptian rousette
 egyptian scorpion
 egyptian slit-faced bat
 egyptian vulture
-eh-btpv-1
-ehdv-1
-ehdv-2
-ehv
-ehv-1
-ehv-2
-ehv-4
-ehv-86
-eiav
 eider
 eight-armed cushion starfish
 eight-banded butterflyfish
@@ -6352,10 +6228,6 @@ ground squirrel
 grouse
 grove earwort
 grubby sculpin
-grv
-gshv
-gsmv
-gtov
 guabang shan salamander
 guacamayo plump toad
 guadalcanal monkey-faced bat
@@ -6439,27 +6311,6 @@ habu
 hackberry emperor
 hackberry petiole gall psyllid
 haddock
-hadv-1
-hadv-11
-hadv-12
-hadv-15
-hadv-15/h9
-hadv-16
-hadv-17
-hadv-18
-hadv-2
-hadv-3
-hadv-31
-hadv-35
-hadv-4
-hadv-40
-hadv-41
-hadv-5
-hadv-6
-hadv-7
-hadv-8
-hadv-9
-haepv
 hagen's bluet damselfly
 hagen's pit viper
 hagv
@@ -6527,7 +6378,6 @@ halloween darter
 halloween hermit crab
 hallowell's house snake
 hall's giant petrel
-ha/lv/ebhsv/gd/1989/fr
 hamadryas baboon
 hamilton's barila
 hamilton's frog
@@ -6593,16 +6443,6 @@ harvestman
 harvey's red duiker
 hassar
 hastate orach
-hastv-1
-hastv-2
-hastv-3
-hastv-4
-hastv-5
-hastv-6
-hastv-7
-hastv-8
-hasv
-hav01
 havanese
 hawaian sea urchin
 hawaiian blackfoot limpet
@@ -6634,34 +6474,6 @@ hay-scented orchid
 hazel leaf-roller weevil
 hazel mouse
 hazelnut
-hbgv
-hbov1
-hbov2
-hbov3
-hbov4
-hbv
-hbv-a
-hbv-b
-hbv-c
-hbvcpz
-hbv-d
-hbv-e
-hbv-f
-hbv-g
-hbvgbn
-hbvgor
-hbv-h
-hbvoru
-hcdnav01
-hcnpv
-hcosv-a
-hcov-229e
-hcov-hku1
-hcov-nl63
-hcov-oc43
-hcrnav01
-hcv
-hdv
 head coral
 headwater catfish
 heart cockle
@@ -6748,26 +6560,8 @@ herring cale
 herring gull
 herring worm
 hessian fly
-hev
-hev-1
-hev-2
-hev-3
-hev-4
-hev-67n
 hewitt's red rock hare
 hexagonal-pored polypore
-hgsv-2
-hhav
-hhbv
-hhv-1
-hhv-2
-hhv-3
-hhv-4
-hhv-5
-hhv-6 variant a
-hhv-6 variant b
-hhv-7
-hhv-8
 hiba arborvitae
 hickorynut mussel
 hidden walking leaf frog
@@ -6811,9 +6605,6 @@ hind's chiton
 hinoki false-cypress
 hiougi-ayame
 hippopotamus
-hirrv
-his1v
-his2v
 hispaniolan amazon
 hispaniolan funnel-eared bat
 hispaniolan giant ameiva lizard
@@ -6826,11 +6617,6 @@ hispid pocket mouse
 hisser roach
 hister beetle
 hitchhiker elephant ear
-hiv-1
-hiv-2
-hkv-1
-hmev
-hmpv
 hoary bat
 hoary comma
 hoary fox
@@ -6973,35 +6759,11 @@ house sparrow
 house spider
 hoverfly
 howell's forest shrew
-hpev-1
-hpev-2
-hpiv-1
-hpiv-2
-hpiv-3
-hpiv-4a
-hpiv-4b
-hpv b19
-hrpv-1
-hrsv-s2
-hrv-14
-hrv-16
-hrv-1a
-hrv-1b
-hrv-2
-hrv-23
-hrv-3
-hrv-89
-hspv
-htlv-1
-htlv-2
-htlv-3
 huallaga spiny rat
 huanren frog
 huaxteca lesser galliwasp
 hubb's beaked whale
 huckleberry oak
-hucyv-1
-hu/dresden/pjg-sap01/de
 hudsonian godwit
 hudsonian springfly
 human
@@ -7031,16 +6793,10 @@ humpnose big-eye bream
 humus earthworm
 hundred-pace snake
 hungarian glider
-hu/nlv/chiba 407/1987/jp
-hu/nlv/gii/md145-12/1987/us
 hunter's antelope
-hu/nv/nv/1968/us
 huon pine
 huon tree-kangaroo
 hurricane lily
-hu/sav/mc10/2000/thailand
-hu/sv/ehi643/2000/jp
-hu/sv/man/1993/uk
 hutchins' ulota moss
 hutton's shearwater
 hutton's vireo
@@ -7072,14 +6828,7 @@ hynann ricefish
 hyphomycete
 hyssop
 hyssop-leaf thoroughwort
-hznv-2
-hzsnpv
-iap-h18
-iap-il3
-iap-mia14
-iap-miae
-ibdv
-iberian chiffchaff
+an chiffchaff
 iberian desman
 iberian lynx
 iberian midwife toad
@@ -7089,38 +6838,25 @@ iberian shrew
 iberian wall lizard
 ibex
 ibis
-ibv
 icefish
 iceland gull
 iceland poppy
 iceland scallop
 ice plant
-ichv-1
-icmv
-icrsv
 idaho giant salamander
 ifafa lily
-ifv
 iguana
 iguanid lizard
 ihering's atlantic spiny rat
 ihering's hocicudo
-ihhnv
-ihnv
 iigiri tree
-iiv-22
-iiv-3
-iiv-6
 ijima's leaf-warbler
 ikonnikov's bat
 ilala palm
-ilhv
-iliau
 ili pika
 illawarra funnel-web spider
 illinois cave amphipod
 illyarie
-iltv
 impala
 imperial cone
 imperial moth
@@ -7522,7 +7258,6 @@ jarbua terapon
 jarrah tree
 jarrinha
 jarvis' fruit fly
-jasmine
 java apple
 javanese
 javanese ricefish
@@ -7537,9 +7272,6 @@ java water-dropwort
 javelin sand boa
 jay
 jay's nutmeg snail
-jcdnv
-jcpyv
-jdv
 jefferson salamander
 jelly bean plant
 jelly fig
@@ -7557,7 +7289,6 @@ jerusalem artichoke
 jerusalem cricket
 jerusalem thorn
 jet ant
-jev
 jewel beetle
 jeweled chameleon
 jewel lanternfish
@@ -7988,13 +7719,6 @@ laysan albatross
 laysan duck
 laysan finch
 lazuli bunting
-lbv
-lbvav
-lcdv-1
-lcmv
-ldcpv-1
-ldmnpv
-ldv
 leach's storm-petrel
 leadbeater's possum
 leaden honeyeater
@@ -8195,7 +7919,6 @@ lewis' shade skink
 lewis's tuco-tuco
 lewis' woodpecker
 l'hoest's monkey
-li
 liberian mongoose
 lichen-forming fungus
 lichtenstein's hartebeest
@@ -8211,7 +7934,6 @@ light-mantled albatross
 lightning whelk
 light southeastern subterranean termite
 likiang spruce
-lilac
 lilac-breasted roller
 lilliput
 lillypilly psyllid
@@ -8314,9 +8036,6 @@ lizard pinworm
 lizard's tail
 llama
 llano pocket gopher
-llov
-lmv
-lnyv
 lobb's bulbophyllum
 lobed brain coral
 loblolly bay
@@ -8905,10 +8624,6 @@ mccown's longspur
 mcilhenny's four-eyed opossum
 mckay's bunting
 mckenzie's dragon
-mcmv
-mdbv
-mdmv
-mdv
 meadow barley
 meadow bistort
 meadow brome
@@ -9073,15 +8788,6 @@ mexican woodrat
 mexican yellow butterfly
 meyer's butterflyfish
 meyer's spruce
-mhv
-mhv-1
-mhv-2
-mhv-3
-mhv-4
-mhv-a59
-mhv-dvim
-mhv-jhm
-mhv-s
 miami cave crayfish
 michaux's glade-cress
 michaux's sumac
@@ -9181,14 +8887,6 @@ mitred leaf monkey
 mitred parakeet
 mitsinjo sportive lemur
 mittermeier's mouse lemur
-mmpv
-mmtv
-mmv
-mnesv
-mnnpv
-mnpv
-mnsv
-mobv
 mockingbird
 mock leopardbane
 moco moco
@@ -9421,23 +9119,6 @@ mov-a2
 mozambique baboon spider
 mozambique spitting cobra
 mozambique tilapia
-mplv
-mpmv
-mprv
-mpv
-mpv-sp1
-mpx
-mpyv
-mrdv
-mrfv
-mrigala
-mrnv
-mrs. farrer's rhododendron
-mrs hume's pheasant
-mscpv1
-msepv
-mstv
-msv
 mt. kenya guereza
 mt. sapphire rockcress
 mucana
@@ -10052,11 +9733,7 @@ olive sparrow
 olive thrush
 olive warbler
 olluco
-olm
-oloru
 olrog's chaco mouse
-olv-2
-olvv
 olympia marble
 olympic marmot
 olympic mudminnow
@@ -10067,21 +9744,16 @@ onager
 one-eyed sphinx
 one-seed juniper
 one-spotted leafwing butterfly
-onion
-onnv
 ooldea dunnart
 oospora lactis
 opah
 opalescent sea slug
 opal worm
-opcpv
 open brain coral
 opium poppy
-opmnpv
 opossum
 opossum shrimp
 opposite-leaf candytuft
-opsnpv
 orache
 orange auger snail
 orange ball sponge
@@ -10142,7 +9814,6 @@ orchard ermine moth
 orchard grass
 orchard orbweaver
 orchard oriole
-orchid
 orchid endophyte fungus
 orchid lily
 orchid tree
@@ -10153,10 +9824,6 @@ oregon iris
 oregon shore crab
 oregon slender salamander
 oregon tiger beetle
-orev
-orfv
-oribatid mite
-oribi
 oriental angel wing
 oriental armyworm
 oriental basin pocket gopher
@@ -10235,9 +9902,6 @@ oval-leaf sedge
 oval-spot butterflyfish
 ovenbird
 overcup oak
-ov nz-2
-ov nz-7
-ov-sa00
 owl
 owl-faced monkey
 owlfly
@@ -10319,8 +9983,6 @@ packard grasshopper
 pacu
 paddle worm
 pademelon
-padv-3
-padv-4
 pagoda dogwood
 paintbrush lily
 painted anemone
@@ -10493,14 +10155,11 @@ particoloured bat
 partridge
 partridge berry
 partridge wood
-parv
 pasang hiris
 passion flower
 passion fruit
 pasture grasshopper
 pasture rose
-pastv-1
-pasv-a1
 patagonian blennie
 patagonian bobtail squid
 patagonian grass
@@ -10508,7 +10167,6 @@ patagonian grenadier
 patagonian mara
 patagonian opossum
 patagonian toothfish
-patch
 patchouli
 patellaria webbiana
 paterson's curse pollen beetle
@@ -10522,26 +10180,8 @@ pavement mushroom
 pavonine quetzal
 pawpaw
 payara
-pb1
-pbcv-1
-pbcv-ar158
-pbcv-fr483
-pbcv-il3a
-pbcv-mt325
-pbcv-nc1a
-pbcv-ny2a
-pbcv-xz-6e
-pbgv
-pbv
-pcpv-1
-pcpv-1c
-pcv
-pcv1
-pcv2
-pdv
 pea aphid
 peace lily
-peach
 peach-fronted parakeet
 peach fruit moth
 peach leaf curl fungus
@@ -10569,7 +10209,6 @@ peanut
 peanut root-knot nematode
 peanut worm
 pea powdery mildew
-pear
 pear cichlid
 pearl bluebush
 pearl cichlid
@@ -10596,7 +10235,6 @@ pectobacterium cypripedii
 pectoral sandpiper
 pedinomonas minutissima
 pedunculate clathrina
-pedv
 peg-billed finch
 pekingese
 pelagic armorhead
@@ -10610,10 +10248,6 @@ pelican eel
 pelican flower
 pellitory-of-the-wall
 peloponnesian wall lizard
-pelv
-pemv
-pemv-1
-pemv-2
 pencil coffinfish
 pencil pine
 pencil sea urchin
@@ -10630,8 +10264,6 @@ penny-cress
 pennyroyal
 penoeid shrimp
 pen shell
-pensv
-peony
 pepper-and-salt geometer moth
 pepperbush
 pepper-cress
@@ -10645,7 +10277,6 @@ pepper-rosmarin
 pepper tree
 pepperweed
 peptostreptococcus prevotii
-pepv
 perch
 percival's legless lizard
 percival's spiny mouse
@@ -10758,10 +10389,6 @@ philippine tarsier
 philippine tree squirrel
 philippine trogon
 philippine warty pig
-phmv
-phv
-phyvv
-piapiac
 picado's pit viper
 picarel
 picasso triggerfish
@@ -10967,13 +10594,6 @@ plum-thistle aphid
 plunkett mallee
 plush-crested jay
 plutella xylostella parasite
-pmmv
-pmmv-i
-pmmv-j
-pmmv-s
-pmtv
-pmv
-pnlv
 pocket gopher
 pocket mouse
 podolsk mole rat
@@ -11060,7 +10680,6 @@ possum
 possumhaw
 possum-specific nematode worm
 postman butterfly
-potato
 potato buckeye rot agent
 potato cyst nematode
 potato ladybird beetle
@@ -11083,10 +10702,6 @@ powdery mildew
 powdery mildew agent
 powell's amaranth
 powerful owl
-powv
-pprv
-ppv
-ppv01
 prairie cordgrass
 prairie deer mouse
 prairie dog
@@ -11147,23 +10762,16 @@ prothonotary warbler
 providence petrel
 prrsv
 prussian carp
-prv
-prvfl
 pryer's petaltail
 przewalski's gazelle
 przewalski's horse
 pseudomonas acidovorans
 pseudomonas maltophilia
 pseudomonas marginata
-pshv-1
-psim1
-pspv
-psv
 psychedelic mushroom
 psychod fly
 psyllid
 ptarmigan
-ptv-1
 puerto rican coqui
 puerto rican emerald
 puerto rican parrot
@@ -11181,7 +10789,6 @@ puku antelope
 pulse beetle
 pulse coral
 puma
-pumpkin
 pumpkin fruit fly
 pumpkinseed sunfish
 puna ibis
@@ -11264,15 +10871,6 @@ purslane
 pussy willow
 putitor mahseer
 puxiong's salamander
-pv
-pva
-pvcv
-pvm
-pvt
-pvx
-pvy
-pwv
-pyfv
 pygmy chimpanzee
 pygmy copperhead
 pygmy desert monitor
@@ -11427,15 +11025,6 @@ rayed mediterranean limpet
 razorbill
 razor clam
 razor shell
-rbdv
-rbsdv
-rcmv
-rcmv-e
-rcn
-rcnmv
-rcv-nj
-rcv-sdav
-rdv
 rear horned baboon tarantula
 rebov
 recluse spider
@@ -11763,12 +11352,6 @@ reverdin's blue butterfly
 reversed clover
 rex begonia vine
 rex sole
-rfv
-rgdv
-rgmv
-rhbv
-rhcmv
-rhdv
 rhesus macaque
 rhinoceros
 rhinoceros adder
@@ -11782,7 +11365,6 @@ rhododendron
 rhodora
 rhombic night adder
 rhombic three-seeded mercury
-rhpv 1
 riband wave
 ribbed bog moss
 ribbed fluke snail
@@ -11795,7 +11377,6 @@ ribbon moray
 ribbon seal
 ribbonwood tree
 ribbon worm
-rice
 rice-bean
 rice blast fungus
 rice coral
@@ -11877,12 +11458,6 @@ river needlefish
 river otter
 river red gum
 river skater
-r-mulv
-rmv
-rnmbv1
-rnmyrv-3
-rnpv-1
-rnqv1
 roach
 roach-like stonefly
 roadrunner
@@ -12080,20 +11655,6 @@ royal poinciana
 royal sago
 royal tern
 royle's pika
-rprsv
-rpv
-rrsv
-rrv
-rsetrnav01
-rsffv
-rsiv
-rsv
-rsv-prc
-rsv-sra
-rsv-srb
-rsv-sr-e
-rtbv
-rtsv
 rubber eel
 rubberlip grunt
 rubber tree
@@ -12185,11 +11746,6 @@ rusty sundew
 ruthven's kingsnake
 ruwenzori duiker
 ruwenzori sun squirrel
-rv-a
-rv adrv-n
-rv-b
-rv-c
-rvfv
 rye
 rye brome
 rysv
@@ -12368,7 +11924,6 @@ sausage tree
 sausage worm
 saussure's shrew
 sauvage's leaf frog
-sav
 savanna dormouse
 savannah sparrow
 savannah tsetse fly
@@ -12389,8 +11944,6 @@ sawtooth sunflower
 saw-wort
 saxaul sparrow
 say's phoebe
-sbmv
-sbv
 sbwmv
 scabrous barnacle
 scaled dove
@@ -12455,8 +12008,6 @@ scissor-tailed flycatcher
 scissortail sergeant
 sclater's monal
 sclater's whistler
-scnv-20s
-scnv-23s
 scopoli's shearwater
 scorched mussel
 scorpion
@@ -12599,7 +12150,6 @@ sensitive plant
 sepi
 sepia short-tailed opossum
 septate eugregarine
-sepv-1
 seram death adder
 serendipity berry
 sergeant major
@@ -12615,23 +12165,11 @@ serval
 servaline genet
 sessile-leaved cytisus
 setzer's hairy-footed gerbil
-sev
 seven-angled pipewort
 seven-colored tanager
 seven-spotted ladybird beetle
 seventeen-year cicada
-severe fever with thrombocytopenia virus
 severum
-sevruga
-sfav-1a
-sfnpv
-sfs
-sfv
-sfvagm
-sfvcpz
-sfvcpz(hu)
-sfvmac
-shad
 shaggyfruit pepperweed
 shaggy hedgehyssop
 shaggy mane
@@ -12787,9 +12325,6 @@ shrubby cinquefoil
 shrubby milkwort
 shrubby pepper-cress
 shrubby swampfire
-shrv
-shv
-shvx
 siamang
 siamese
 siamese crocodile
@@ -12934,24 +12469,12 @@ singlebar devil
 single-spined mole cricket
 single-striped grass mouse
 sinnamary brush-tailed rat
-sinv
-sinv-3
 sipunculan worm
-sirv-1
 siskiyou chipmunk
 siskiyou iris
 sister butterfly
 sitatunga
 sitka spruce
-siv
-siv-agm.gri
-siv-agm.sab
-siv-agm.tan
-siv-agm.ver
-siv-cpz
-siv-mac
-siv-mnd
-siv-sm
 six-banded angelfish
 six-banded armadillo
 sixbar grouper
@@ -12963,7 +12486,6 @@ six-rayed sea star
 six-spotted orbweaver
 six-spotted tiger beetle
 six-toothed spruce bark beetle
-sjnnv
 skimming bluet damselfly
 skin fluke
 skink
@@ -12981,7 +12503,6 @@ slate awl
 slate pencil urchin
 slate-pencil urchin
 slaty-backed gull
-slcv
 sleek unicornfish
 sleeping chironomid midge
 sleepy orange butterfly
@@ -13120,7 +12641,6 @@ small woodland mosquito
 small wood nymph
 smelt
 smew
-sm-fesv
 smirnow's rhododendron
 smith's bush squirrel
 smith's dwarf chamaeleon
@@ -13162,14 +12682,8 @@ smooth stonewort
 smooth sumac
 smooth trunkfish
 smooth woodruff
-smrv-h
-smsv-1
-smsv-4
 smut fungus
 smut grass
-smv
-smyeav
-snadv-1
 snail
 snail-eating fly
 snail fur
@@ -13760,10 +13274,7 @@ spurge hawk-moth
 spur-thighed tortoise
 spur-throat grasshopper
 spur-winged lapwing
-spv1
-spv4
 spy hocicudo
-sqmv
 squarestem butterflybush
 squaretail coralgrouper
 squash bug
@@ -13783,10 +13294,6 @@ squirrel's foot fern
 squirrel-toothed rat
 sri lanka hump-nosed viper
 sri lanka junglefowl
-ssadv
-ssdrv
-ssv
-ssv1
 stable fly
 stag beetle
 staghorn coral
@@ -13880,9 +13387,7 @@ st. lawrence island shrew
 st lucia black finch
 st. mark's fly
 st. martin's flower
-stmv
 stoat
-stock
 stokes' aster
 stokes's sea snake
 stomach hairworm
@@ -13908,7 +13413,6 @@ stramenopile
 strap-toothed whale
 strapwort
 strasburg's dascyllus
-strawberry
 strawberry anemone
 strawberry clover
 strawberry conch
@@ -13995,7 +13499,6 @@ stump-tailed macaque
 stump-tail macaque
 sturgeon
 sturt's desert rose
-stv
 subalpine fir
 subalpine spirea
 subarctic sea anemone
@@ -14030,7 +13533,6 @@ sugar maple
 sugar pine
 sugar sumac
 sugi bark bore
-suhv-1
 suicide tree
 sulawesi bear cuscus
 sulawesi shrew
@@ -14315,14 +13817,6 @@ tawny-throated dotterel
 taylor's sea slug
 tayra
 t-bar cichlid
-tbev
-tbrv
-tbsv
-tcov
-tcrv
-tctv
-tcv
-tea
 tea geometrid moth
 teak
 tea looper moth
@@ -14373,8 +13867,6 @@ texas ranger
 texas stork's bill
 texas thistle
 textile onion
-tgev
-tgmv
 thai blackwood
 thai catfish
 thai centipede
@@ -14523,16 +14015,6 @@ tiny tree toad
 tiny wild mustard
 titan arum
 tit-berry
-tiv
-tmev
-tmgmv
-tmv
-tmv-06
-tmv-r
-tnav-2c
-tngv
-tnv-a
-tnv-d
 toad
 toadfish
 toadflax
@@ -14542,7 +14024,6 @@ toad lily
 toad rush
 toadstool
 toadstool umbrella leather coral
-tobacco
 tobacco budworm moth
 tobacco hawkmoth
 tobacco mouse
@@ -15048,11 +14529,8 @@ vesper mouse
 vesper sparrow
 vesta crescent
 vestal cuckoo-bee
-vesv
 vetch
 vetch aphid
-vfev
-vhsv
 viceroy butterfly
 victoria blight of oats agent
 victoria crowned pigeon
@@ -15072,8 +14550,6 @@ vine leafhopper
 vine mesquite
 vining horsetail
 violaceous trogon
-violet
-violeta
 violet copper
 violet coral
 violet cress
@@ -15249,13 +14725,7 @@ wax plant
 waxyleaf nightshade
 waxy satyr orchid
 wayfaring tree
-wbv
-wcbv
-wccv-1
-wcmv
-wcv
-wdsv
-wdv
+
 weasel
 weasel cone
 weasel olive snail

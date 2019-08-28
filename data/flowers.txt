@@ -39,8 +39,8 @@ acradenia
 acrocomia
 actaea
 actinidia
-adansonia
 ada orchod
+adansonia
 adenandra
 adenanthos
 adenia
@@ -94,8 +94,8 @@ aiai
 aichryson
 ailanthus
 aiphanes
-aira
 air plant
+aira
 ajania
 ajuga
 akebia
@@ -215,6 +215,7 @@ anoda
 anomatheca
 anopterus
 anredera
+ant plantabelia
 antennaria
 anthemis
 anthericum
@@ -228,7 +229,6 @@ antigonon
 antigua whitewood
 antirrhinum
 antirrhinum majus
-ant plantabelia
 apera
 aphelandra
 aphyllanthes
@@ -380,13 +380,13 @@ ballota
 balm
 balm of gilead
 balm of heaven
+balsa tree
 balsam
 balsam apple
 balsam fir
 balsam fraser fir
-balsamorhiza
 balsam root
-balsa tree
+balsamorhiza
 bamboo
 bambusa
 banana
@@ -413,13 +413,13 @@ bastard tamarind
 bauera
 bauhinia
 baumea
-bayahonda
-bayberry
 bay laurel
 bay leaf
-bayleaf
 bay rum tree
 bay tree
+bayahonda
+bayberry
+bayleaf
 bead tree
 beallara
 bearberry
@@ -427,17 +427,17 @@ beaucarnea
 beaufortia
 beaumontia
 beauty berry
-beautybush
 beauty leaf
+beautybush
 beccariella
 bedfordia
 bedstraw
 bee balm
 bee bee tree
+bee tree
 beech
 beech fern
 beet
-bee tree
 begonia
 belamcanda
 bellevalia
@@ -466,8 +466,8 @@ biarum
 bidens
 big cone pine
 big flax
-bighead knapweed
 big heavy pine
+bighead knapweed
 bignonia
 bikkia
 billardiera
@@ -479,13 +479,11 @@ birch
 bird lime tree
 bird of paradise
 bischofia
-bismarckia
 bismarck palm tree
+bismarckia
 bittercress
 bixa
-blackbead
 black bean
-blackjack pine
 black locust
 black mangrove tree
 black mulberry
@@ -493,10 +491,12 @@ black olive tree
 black poui
 black walnut
 black wattle
+blackbead
+blackjack pine
 bladder fern
+bladder senna
 bladdernut
 bladderpod
-bladder senna
 bladderwort
 blandfordia
 blazing star
@@ -542,10 +542,10 @@ boronia
 bosea
 bossiaea
 bothriochloa
-bottlebrush
 bottle palm
 bottle palm tree
 bottle tree
+bottlebrush
 bottletree
 bottom white pine
 bougainvillea
@@ -555,8 +555,8 @@ bowenia
 bowiea
 bowkeria
 box elder
-boxelder
 box shrubs
+boxelder
 boxwood
 boxwood african
 boykinia
@@ -571,19 +571,19 @@ brachystelma
 bracteantha
 bracted balsam fir
 brahea
+brass buttons
 brassaia
 brassavola
-brass buttons
 brassia
 brassica
 brassidium
 brassocattleya
 brassolaeliocattleya
+brazil nut tree
 brazilian caroba tree
 brazilian cherry
 brazilian pepper tree
 brazilian rose wood
-brazil nut tree
 brazilwood
 breadfruit tree
 breadnut
@@ -629,21 +629,21 @@ bulbine
 bulbinella
 bulbocodium
 bulbophyllum
-bullet tree
 bull pine
+bullet tree
 bulnesia
 bunchosia
 bunya bunya
 buphthalmum
 bupleurum
+bur oak
+bur reed
 burchardia
 burchellia
 buri palm
 burnet
 burning bush
-bur oak
 burrageara
-bur reed
 burretiokentia
 bursaria
 bursera
@@ -666,10 +666,10 @@ butterfly flag
 butterfly orchid
 butterfruit
 butterwort
-buttonbush
 button funray
 button mangrove
 button tree
+buttonbush
 buttonwood
 buxus
 byrsonima
@@ -701,8 +701,8 @@ california coulter pine
 california fan palm
 california great fir
 california lilac
-california pepperberry
 california pepper tree
+california pepperberry
 california poppy
 california redwood
 california torreya
@@ -835,8 +835,8 @@ cavendishia
 ceanothus
 cedar
 cedrela
-cedronella
 cedro tree
+cedronella
 cedrus
 ceiba
 celastrus
@@ -885,8 +885,8 @@ chamelaucium
 chamomile
 chasmanthe
 chasmanthium
-chasteberry
 chaste tree
+chasteberry
 chastetree
 cheilanthes
 cheiridopsis
@@ -899,18 +899,18 @@ chestnut
 chiastophyllum
 chicken tree
 chicory
-chilean wine palm
 chile cocopalm
 chile pine
+chilean wine palm
 chiliotrichum
 chilopsis
 chimaphila
 chimney bells
 chimonanthus
 chimonobambusa
-chinaberry
 china doll tree
 china fir
+chinaberry
 chinese arborvitae
 chinese aster
 chinese fan palm
@@ -956,8 +956,8 @@ cigar tree
 cimicifuga
 cinnamomum
 cinnamon bark
-cinnamonbark
 cinnamon tree
+cinnamonbark
 cinnamonwood
 cinquefoil
 cionura
@@ -999,14 +999,14 @@ cochlospermum
 cockscomb
 cockscomb crested
 coco
-cocoanut
-cocoa plant
 coco de mer
 coco de mer palm
 coco fresse
+coco plum
+cocoa plant
+cocoanut
 coconut
 coconut palm tree
-coco plum
 cocos
 cocos palm
 codiaeum
@@ -1072,10 +1072,10 @@ copiapoa pilocopiapoa
 copperwood
 coprosma
 coptis
-coralberry
 coral flower
 coral pea
 coral tree
+coralberry
 cord grass
 cordia
 cordyline
@@ -1085,9 +1085,9 @@ coriandrum
 coriaria
 cork tree
 corn cockle
+corn lily
 cornel
 cornflower
-corn lily
 cornstalk dracaena
 cornus
 corokia
@@ -1130,8 +1130,8 @@ crassula
 crataegomespilus
 crataegus
 crataemespilus
-creamcups
 cream nut tree
+creamcups
 creeping zinnia
 creosote bush
 crepe myrtle
@@ -1162,8 +1162,8 @@ cuminum
 cunila
 cunninghamia
 cunonia
-cupaniopsis
 cup fern
+cupaniopsis
 cuphea
 cupressus
 cuprocyparis
@@ -1197,9 +1197,9 @@ cyperus
 cyphomandra
 cyphostemma
 cypress
-cypresses
 cypress pine
 cypress pines
+cypresses
 cypripedium
 cyrilla
 cyrtanthus
@@ -1224,6 +1224,7 @@ damasonium
 dammar
 dampiera
 danae
+dandelion
 daphne
 daphniphyllum
 darlingia
@@ -1337,8 +1338,8 @@ divi divi
 dizygotheca
 docynia
 dodecatheon
-dodonaea
 dodo tree
+dodonaea
 dogwood
 dolichandrone
 dombeya
@@ -1349,8 +1350,8 @@ dorotheanthus
 dorstenia
 doryanthes
 doryopteris
-double coconut
 doub palm
+double coconut
 douglas fir
 douglas tree
 doum palm
@@ -1390,9 +1391,9 @@ dymondia
 dypsis chrysalidocarpus
 earth stars
 eastern fir
-eastern redbud
 eastern red cedar
 eastern red pine
+eastern redbud
 eastern white pine
 ebony
 ebracteola
@@ -1538,8 +1539,8 @@ felicia
 fendlera
 fenestraria
 fennel
-fernleaf yarrow
 fern tree
+fernleaf yarrow
 ferocactus
 ferraria
 ferula
@@ -1558,9 +1559,9 @@ filbert
 filipendula
 finger cherry
 fir
+fire lily
 firebell
 firecracker flower
-fire lily
 firestick plants
 firethorn
 firmiana
@@ -1572,9 +1573,9 @@ fittonia
 fitzroya
 flamboyant tree
 flame
-flamegold
 flame of the forest
 flame violet
+flamegold
 flamingo flower
 flax
 flax lily
@@ -1619,9 +1620,9 @@ frailea
 francoa
 frangipani
 frangipani vine
+franklin tree
 franklinia
 franklinia tree
-franklin tree
 fraser fir
 fraxinus
 freesia
@@ -1646,8 +1647,8 @@ galtonia
 gambel oak
 gamboge
 garcinias
-gardenia
 garden valerian
+gardenia
 garjan
 garrya
 gasteria
@@ -1697,9 +1698,9 @@ glaucium
 gleditsia
 globba
 globe daisy
-globeflower
 globe thistle
 globe willow
+globeflower
 globularia
 gloriosa
 glory of the snow
@@ -1707,8 +1708,8 @@ glottiphyllum
 gloxinia
 glyceria
 glycyrrhiza
-goats beard
 goat tree
+goats beard
 godetia
 gold blossom tree
 golden apple tree
@@ -1717,11 +1718,11 @@ golden club
 golden larch
 golden rain tree
 golden raintree
-goldenraintree
 golden rod
+golden shower tree
+goldenraintree
 goldenrod
 goldenseal
-golden shower tree
 goldthread
 gommier
 gomphocarpus
@@ -1737,8 +1738,8 @@ graft chimera
 granadilla
 grand fir
 grape
-grapefruit
 grape hyacinth
+grapefruit
 graptopetalum
 graptophyllum
 graptoveria
@@ -1753,8 +1754,8 @@ grevillea
 grewia
 grey bark
 grey boxwood tree
-greyia
 grey mangrove
+greyia
 grindelia
 griselina
 ground cherry
@@ -1772,9 +1773,9 @@ gulmohar
 gum
 gum acacia
 gum arabic
-gumbo limbo
 gum senegal tree
 gum tree
+gumbo limbo
 gumtree
 gunnera
 gutta percha
@@ -1807,8 +1808,8 @@ handkerchief tree
 hanging helicona
 hanyu
 haplopappus
-hardenbergia
 hard fern
+hardenbergia
 hares foot fern
 harrisia
 hatiora
@@ -1820,9 +1821,10 @@ hawthorn
 hayscented fern
 hazel
 hazelnut
+he huckleberry
 heath
-heather
 heath myrtle
+heather
 heavenly bamboo
 hebe
 hechtia
@@ -1832,7 +1834,6 @@ hedychium
 hedyotis
 hedysarum
 hedyscepe
-he huckleberry
 helenium
 helianthemum
 helianthus
@@ -1862,11 +1863,11 @@ herbertia
 hereroa
 hermannia
 hermodactylus
+hesper palm
 hesperaloe
 hesperantha
 hesperis
 hesperocallis
-hesper palm
 heterocentron
 heterotheca
 heuchera
@@ -2032,8 +2033,8 @@ java apple
 java plum
 jeffersonia
 jeffrey pine
-jellyfish tree
 jelly palm
+jellyfish tree
 jersey pine
 jessamine
 jewel orchid
@@ -2078,8 +2079,8 @@ kerria
 kevazingo
 khat tree
 kigelia
-kingcup
 king palm
+kingcup
 kirengeshoma
 kitaibela
 kiwifruit
@@ -2140,16 +2141,16 @@ lardizabala
 larix
 larkspur
 larrea
+latan palm
 latania
 latania palm
 latanier rouge
-latan palm
 latex rubber tree
 lathraea
 lathyrus
 lathyrus odoratus
-laurelia
 laurel tree
+laurelia
 laurus
 lavandula
 lavatera
@@ -2236,8 +2237,8 @@ lindheimeria
 linnaea
 linospadix
 linum
-liquidambar
 liquid amber
+liquidambar
 liriodendron
 liriope
 lisianthus
@@ -2379,9 +2380,9 @@ marsh pine
 marsilea
 masdevallia
 mastic tree
+mat rush
 matai
 matilija poppy
-mat rush
 matteuccia
 matthiola
 mattholia incana
@@ -2390,10 +2391,10 @@ maurandella
 maurandya
 maxillaria
 maximiliana
-mayan pear
-maya nut
-mayapple
 may lily
+maya nut
+mayan pear
+mayapple
 mayten
 maytenus
 mazus
@@ -2455,8 +2456,8 @@ mikania
 milfoil
 milium
 milk tree
-milktree
 milk vetch
+milktree
 milkweed
 milkwort
 milla
@@ -2469,8 +2470,8 @@ mimosa tree
 mimulus
 minature carnation
 ming fern
-miniature gladiolus
 mini carnation
+miniature gladiolus
 mint
 mint bush
 mirabilis
@@ -2502,8 +2503,8 @@ monkey pot tree
 monkey puzzle
 monkey puzzle tree
 monkey tail tree
-monkshood
 monks pepper
+monkshood
 monstera
 montbretia
 monte cassino
@@ -2518,17 +2519,17 @@ morning glory
 morus
 moss
 moss rose
-mother in laws tongue
-mother in law tongue
 moth orchid
+mother in law tongue
+mother in laws tongue
 moulmein rosewood
 mountain ash
 mountain avens
-mountainbay
 mountain camellia
 mountain holly
 mountain laurel
 mountain pine
+mountainbay
 mousehole tree
 mucuna
 muehlenbeckia
@@ -2593,10 +2594,10 @@ nertera
 nettle tree
 new caledonia yew or southern yew
 new mexico locust
-newport plum
 new zealand aster
 new zealand black tree fern
 new zealand daisy
+newport plum
 nicandra
 nicotiana
 nidularium
@@ -2629,9 +2630,9 @@ nothoscordum
 notospartium
 nsafu
 nuphar
+nut pine
 nutmeg
 nutmeg yew
-nut pine
 nymania
 nymphaea
 nymphoides
@@ -2722,8 +2723,8 @@ ourisia
 outeniqua yellowwood
 ovang
 overtop palm
-oxalis
 ox eye
+oxalis
 oxeye
 oxydendrum
 oxypetalum
@@ -2747,10 +2748,10 @@ paeonia
 painted tongue
 paliurus
 palm
+palm tree yucca
 palma culona
 palmetto
 palmetto fan palm
-palm tree yucca
 palmyra palm
 palo de gusano
 palo de hule
@@ -2776,18 +2777,18 @@ papaver
 papaw tree
 papaya
 papeda tree
-paperbark
 paper mulberry
 paper reed
+paperbark
 paphiopedilum
 papyrus lionzinnias head
-paradisea
+para rubber tree
 paradise lily
 paradise nut
 paradise plum
+paradisea
 parahebe
 paraquilegia
-para rubber tree
 parasoltree
 parkinsonia
 parnassia
@@ -2924,8 +2925,10 @@ pilosocereus
 pimelea
 pimpernel
 pimpinella
-pinanga
 pin blanc
+pin oak
+pin rouge
+pinanga
 pinckneya
 pincushion
 pincushion flower
@@ -2940,14 +2943,12 @@ pink mink
 pink shower tree
 pink silk tree
 pink siris
-pin oak
-pin rouge
 pinus
 pinyon
 pinyon pine
+pip thong
 piper
 piptanthus
-pip thong
 pisonia
 pistache
 pistachio
@@ -2956,8 +2957,8 @@ pistia
 pitanga
 pitcairnia
 pitch apple
-pitcher plant
 pitch pine
+pitcher plant
 pithecellobium
 pitomba
 pittosporum
@@ -2980,10 +2981,10 @@ pleione
 pleiospilos
 pleurothallis
 plum
-plume grass
-plumeria
 plum yew
 plum yews
+plume grass
+plumeria
 pocosin pine
 podalyria
 podocarp
@@ -3014,12 +3015,12 @@ pommelo
 pompon chrysanthemum
 poncirus
 pond cypress
+pond pine
 ponderosa pine
 ponderosa white pine
-pond pine
 pondweed
-pongamia
 pongam oiltree
+pongamia
 pontederia
 ponytail palm
 poplar
@@ -3034,14 +3035,14 @@ portia tree
 portulaca
 portulacaria
 posoqueria
-possumhaw
 possum pine
+possumhaw
+pot marigold
 potamogeton
 potato
 potentilla
 pothos
 potinara
-pot marigold
 poverty pine
 pratia
 prickly ash
@@ -3138,15 +3139,14 @@ ranunculus
 ranzania
 raoulia
 raphia
-raspberry
 rasp fern
+raspberry
 rata
 ratibida
 rattlepod
 ravenala
 real fan palm
 rebutia
-redbud
 red cotton tree
 red gum
 red maple
@@ -3155,6 +3155,7 @@ red pine
 red ribbons
 red rover
 red titi
+redbud
 redwoods
 reed
 reed grass
@@ -3231,12 +3232,12 @@ rose kardinal
 rose lady liberty
 rose lavanda
 rose mallow
-rosemallow
-rosemary
-rosemary pine
 rose of sharon
 rose osiana
 rose royalty
+rosemallow
+rosemary
+rosemary pine
 rosewood
 rosmarinus
 rossioglossum
@@ -3271,8 +3272,8 @@ safari sunset
 safflower
 safou
 sage
-sagebrush
 sage perennial
+sagebrush
 sagina
 sagittaria
 sago palm
@@ -3283,15 +3284,15 @@ saintpaulia
 salix
 salmon reagan
 salpiglossis
-saltbush
 salt cedar
+saltbush
 salvia
 salvinia
 sambucus
 sanchezia
-sandersonia
 sand pine
 sand verbena
+sandersonia
 sandwort
 sanguinaria
 sanguisorba
@@ -3317,9 +3318,9 @@ sarracenia
 sasa
 sassafras
 sathon tree
-satinash
 satin flowers
 satin walnut
+satinash
 satsuma
 satureja
 saucer magnolia
@@ -3409,9 +3410,9 @@ shaddock
 shamrock
 sharinga tree
 she balsam
+she oak and beefwood
 shell flowers
 sheoak
-she oak and beefwood
 shepherdia
 shibataea
 shield fern
@@ -3443,16 +3444,16 @@ silkweed
 silky camellia
 silky oak
 silphium
-silverbell
-silverberry
 silver fir
 silver greywood
-silverling
 silver maple
 silver oak
 silver pine
 silver saw palmetto
 silver tree fern
+silverbell
+silverberry
+silverling
 silybum
 simmondsia
 simpsons stopper
@@ -3480,11 +3481,11 @@ snakewood
 snapdragon
 sneezeweed
 snot apple
+snow poppy
 snowbell
 snowberry
 snowdrop
 snowflake
-snow poppy
 soapwort
 sobralia
 soft pine
@@ -3511,6 +3512,7 @@ sorrel tree
 soursop
 sourwood
 south american cherry
+south florida slash pine
 southern balsam fir
 southern beech
 southern catalpa
@@ -3518,7 +3520,6 @@ southern fir
 southern foxtail pine
 southern mountain pine
 southern yellow pine
-south florida slash pine
 spanish elm
 spanish moss
 sparaxis
@@ -3553,6 +3554,8 @@ sprianthes
 spruce
 spruce pine
 spurge
+st johns bread
+st johns wort
 stachys
 stachyurus
 staff vine
@@ -3566,9 +3569,9 @@ staphylea
 star anise
 star apple
 star daisy
-starflower
 star of bethlehem
 star pine
+starflower
 statice
 stauntonia
 stenamezon
@@ -3585,18 +3588,16 @@ stephanotis
 sternbergia
 sticks on fire
 stigmaphyllon
+stink tree
 stinking cedar
 stinking fir
 stinking yew
-stink tree
 stipa
-st johns bread
-st johns wort
 stock
 stokesia
 stomatium
-stonecrop
 stone oak
+stonecrop
 stopper tree
 stratiotes
 strawberry
@@ -3620,11 +3621,11 @@ styrax
 subalpine fir
 succisa
 sugar apple
-sugarberry
 sugar cane
 sugar maple
 sugar palm
 sugar pine
+sugarberry
 sugarpod
 sugi
 sulcorebutia
@@ -3633,15 +3634,14 @@ summer plume
 summer poinsettia
 summers darling
 summersweet
+sun rose
 sundew
 sundrops
 sunflower
-sun rose
 sutera
 sutherlandia
 swainsona
 swainsonia
-swampbay
 swamp box
 swamp cypresses
 swamp cyrilla
@@ -3649,17 +3649,18 @@ swamp mahogany
 swamp pine
 swamp wattle
 swamp white oak
+swampbay
 swan river peppermint
 sweet acacia
 sweet alyssum
 sweet bay
 sweet cicely
 sweet coltsfoot
-sweetfern
 sweet gum
-sweetgum
 sweet pea
 sweet william
+sweetfern
+sweetgum
 sword fern
 syagrus
 sycamore
@@ -3686,13 +3687,13 @@ tahiti hibiscus
 tailflowers
 taiwania tree
 tala palm
-talinum
 tali palm
+talinum
 talipalm
 talipot palm
 tall lodgepole pine
-tallow tree
 tall silver fir
+tallow tree
 tamarack
 tamarind tree
 tamarisk
@@ -3712,9 +3713,9 @@ tassel flower
 tasselflower
 taxodium
 taxus
+tea tree
 teak
 teasel
-tea tree
 teatree
 tecoma
 tecomanthe
@@ -3769,19 +3770,20 @@ ticodendron
 tigridia
 tilia
 tillandsia
-tipuana
 tipu tree
+tipuana
 titanopsis
 tithonia
 titi tree
-toadflax
 toad lily
+toadflax
 toatoa
 tobacco
 toddy palm
 todea
 tolmiea
 tolpis
+tomato
 toothbrush tree
 torch pine
 torenia
@@ -3842,9 +3844,9 @@ tuckeroo
 tuftroot
 tulbaghia
 tulip
-tulipa
 tulip poplar
 tulip tree
+tulipa
 tuliptree
 tulipwood
 tulipwood tree
@@ -3928,25 +3930,26 @@ washingtonia
 washoe pine
 water apple
 water caltrop
-watercress
 water dropwort
 water elm
 water gum
 water hyacinth
 water hyssop
-waterlily
 water plantain
 water starwort
 water trumpet
 water white alder
+watercress
+waterlily
+watermelon
 waterwitels
 watsonia
 wattle
 wax flower
-waxflower
 wax myrtle
 wax palm
 wax tree
+waxflower
 weberocereus
 wedelia
 weeping willow
@@ -3956,6 +3959,8 @@ weldenia
 wellingtonia
 welwitschia
 wenge tree
+west indian cedar
+west indian lilac tree
 western australian peppermint
 western balsam fir
 western catalpa
@@ -3963,15 +3968,11 @@ western pitch pine
 western red pine
 western water birch
 western yellow pine
-west indian cedar
-west indian lilac tree
 westringia
 weymouth pine
 wheel wingnut tree
 wheki ponga
 white ash
-whitebark pine
-whitebeam
 white berry yew
 white cedar
 white champaca
@@ -3986,6 +3987,8 @@ white poplar
 white sandalwood
 white siris
 white stinkwood
+whitebark pine
+whitebeam
 whitewood
 whitlow grass
 widdringtonia
@@ -4010,12 +4013,12 @@ windmill palm
 wine palm
 wingnut
 winter aconite
-winterberry
-winterbloom
 winter cinnamon
 winter cress
-wintergreen
 winter hazel
+winterberry
+winterbloom
+wintergreen
 wintersweet
 wisteria
 witch hazel
@@ -4048,13 +4051,13 @@ yatay palms
 yellow fir
 yellow oleander
 yellow pine
-yellowpoplar
 yellow rocket
 yellow skunk cabbage
 yellow slash pine
 yellow tulip tree
 yellow tulipwood
 yellow wood
+yellowpoplar
 yellowwood
 yew
 ylang ylang
