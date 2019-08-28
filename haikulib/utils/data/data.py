@@ -145,3 +145,10 @@ def get_colors():
                 colors[color] = rgb
 
     return colors
+
+def get_animals():
+    path = get_data_dir() / "animals.txt"
+    with path.open("r") as f:
+        animals = set(preprocess(line) for line in f)
+
+    return animals
