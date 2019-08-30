@@ -1,5 +1,5 @@
 PROJECT_NAME := notes
-SRC := $(shell find . -name '*.tex') ../research.sty ../bibliography.bib ../glossary.tex
+SRC := $(shell find . -name '*.tex') ../research.sty ../bibliography.bib
 
 .PHONY: $(PROJECT_NAME).pdf all clean view
 
