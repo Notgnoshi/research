@@ -11,6 +11,9 @@ data/haikus.csv
 ## Ignore graph files
 *.gexf
 
+## Ignore large binary files
+*.bin
+
 .noseids
 
 ## Core latex/pdflatex auxiliary files:
