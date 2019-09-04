@@ -12,7 +12,7 @@ ALPHABET = frozenset(string.ascii_lowercase + " " + "'" + "/" + "#" + string.dig
 
 def get_data_dir() -> pathlib.Path:
     """Get the path to the data directory in this repository."""
-    return pathlib.Path(__file__).parent.parent.parent.parent.joinpath("data").resolve()
+    return pathlib.Path(__file__).parent.parent.parent.joinpath("data").resolve()
 
 
 def read_from_file() -> list:
@@ -171,7 +171,7 @@ def get_colors() -> pd.DataFrame:
 def get_colors_dict() -> dict:
     """Get a dictionary of color -> HTML color mappings."""
     df = get_colors()
-    return {row["color"]: row["rgb"] for row in df}
+    return {row["color"]: row["rgb"] for index, row in df.iterrows()}
 
 
 def get_animals() -> set:
