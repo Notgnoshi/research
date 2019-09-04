@@ -51,10 +51,11 @@ def preprocess(text: str) -> str:
     text = text.replace("–", " ")
     # Remove all other non-ascii characters
     text = text.encode("ascii", "ignore").decode("utf-8")
+    text = "".join(filter(ALPHABET.__contains__, text.lower()))
     # Remove redundant whitespace
     text = re.sub(r"\s+", " ", text).strip()
 
-    return "".join(filter(ALPHABET.__contains__, text.lower()))
+    return text
 
 
 def init_data_dir():
