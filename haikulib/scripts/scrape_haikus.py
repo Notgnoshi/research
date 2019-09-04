@@ -264,15 +264,15 @@ def init_pool():
 
 if __name__ == "__main__":
     jobs = [
-        # henderson,
-        # brady,
-        # museum,
-        # virgilio,
-        # perdiem,
-        # ahapoetry,
-        # dailyhaiku,
-        # tinywords,
-        # heronsnest,
+        henderson,
+        brady,
+        museum,
+        virgilio,
+        perdiem,
+        ahapoetry,
+        dailyhaiku,
+        tinywords,
+        heronsnest,
         haikuvillage,
         tempslibres,  # Requires a fair amount of cleaning because the language detection isn't perfect.
     ]
