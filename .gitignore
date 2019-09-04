@@ -1,20 +1,16 @@
 ## Editor settings
 .vscode/
 
-## Ignore pickled data files, and all text files.
-*.pkl
-*.txt
-*.gz
+## Ignore everything in the data directory, except a whitelist of files.
+data/*
 
-data/haikus.csv
-# Generated results from experiment notebooks.
-data/experiments
-
-## Ignore graph files
-*.gexf
-
-## Ignore large binary files
-*.bin
+!data/haiku.txt
+!data/flora.txt
+!data/fauna.txt
+!data/colors.csv
+!data/color_names.csv
+!data/rgb.txt
+!data/speclist.txt
 
 .noseids
 

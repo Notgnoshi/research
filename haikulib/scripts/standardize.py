@@ -2,6 +2,12 @@
 import csv
 import pathlib
 import sys
+import warnings
+
+warnings.warn(
+    "This script is deprecated in favor of running haikulib.data.init_data_dir()",
+    DeprecationWarning,
+)
 
 import pandas as pd
 
@@ -58,7 +64,7 @@ def main():
     haikus = pd.DataFrame(rows)
     print(haikus.tail())
 
-    haikus.to_csv(DATA_DIR / "haikus.csv")
+    haikus.to_csv(DATA_DIR / "haiku.csv")
     haikus.to_csv(
         DATA_DIR / "cleaned.txt",
         columns=["haiku"],
