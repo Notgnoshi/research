@@ -1,19 +1,27 @@
 #!/usr/bin/env python3
 
-"""A test script to download haikus from individual websites."""
+"""A test script to download haikus from individual websites.
+
+See also https://github.com/herval/creative_machines/blob/master/haikuzao/src/main/resources/haiku.txt
+and https://github.com/napsternxg/haiku_rnn/blob/master/haiku.txt
+"""
+import itertools
 import pickle
+import signal
 from collections import deque
 from multiprocessing import Pool
 from pathlib import Path
 
-from requests_html import HTMLSession
+# import langdetect
+import langid
+import requests
+import requests_html
 
 REPO_DIR = Path(__file__).parent.parent.parent
+session = requests_html.HTMLSession()
 
 
 def henderson():
-    session = HTMLSession()
-
     url = "http://www.hsa-haiku.org/hendersonawards/henderson.htm"
     r = session.get(url)
     haikus = r.html.find("td > blockquote > p")
@@ -24,8 +32,6 @@ def henderson():
 
 
 def brady():
-    session = HTMLSession()
-
     url = "http://www.hsa-haiku.org/bradyawards/brady.htm"
     r = session.get(url)
     haikus = r.html.find("td > blockquote > p")
@@ -36,7 +42,6 @@ def brady():
 
 
 def museum():
-    session = HTMLSession()
     url = "http://www.hsa-haiku.org/museumhaikuliteratureawards/museumhaikuliterature-award.htm"
     r = session.get(url)
     # Ignore the haikus in <td></td>s because it'd be too hard to parse out the author names et al.
@@ -48,7 +53,6 @@ def museum():
 
 
 def virgilio():
-    session = HTMLSession()
     url = "http://www.hsa-haiku.org/virgilioawards/virgilio.htm"
     r = session.get(url)
     # Not just <p></p>s...
@@ -60,7 +64,6 @@ def virgilio():
 
 
 def perdiem():
-    session = HTMLSession()
     # A massive agglomeration of individual archives, all with the same formatting :D
     url = "https://www.thehaikufoundation.org/per-diem-archive/"
     r = session.get(url)
@@ -82,7 +85,6 @@ def perdiem():
 
 
 def ahapoetry():
-    session = HTMLSession()
     url = "https://www.ahapoetry.com/aadoh/h_dictionary.htm"
     r = session.get(url)
     urls = r.html.find("p > a")
@@ -107,7 +109,6 @@ def ahapoetry():
 
 
 def dailyhaiku():
-    session = HTMLSession()
     baseurl = "http://www.dailyhaiku.org/haiku/"
     # Page numbers go from 1..519, determined experimentally.
     urls = (f"{baseurl}?pg={i}" for i in range(1, 520))
@@ -122,7 +123,6 @@ def dailyhaiku():
 
 
 def tinywords():
-    session = HTMLSession()
     url = "http://tinywords.com/haiku/?sort=date&order=1&show=all"
     r = session.get(url)
     urls = r.html.find("td.nowrap > a")
@@ -155,7 +155,6 @@ def heronsnest():
     a haiku.
     """
     all_haikus = {}
-    session = HTMLSession()
     baseurl = "http://www.theheronsnest.com/archives.html"
     q = deque()
     q.append(baseurl)
@@ -202,38 +201,97 @@ def heronsnest():
     return all_haikus
 
 
+def haikuvillage():
+    baseurl = "http://www.haikuvillage.com/haiku"
+    # Page numbers go from 1..519, determined experimentally.
+    urls = (f"{baseurl}?page={i}" for i in range(1, 285))
+    all_haikus = dict()
+    for url in urls:
+        r = session.get(url)
+        haikus = r.html.find("div.haiku > div.text_author_group > a.text")
+        all_haikus[url] = [h.text for h in haikus]
+        print(url, "->", len(all_haikus[url]))
+
+    return all_haikus
+
+
+def tempslibres():
+    baseurl = "http://www.tempslibres.org/tl/tlphp/dbauteursl.php?lang=en"
+    baseurl2 = "http://www.tempslibres.org/tl/tlphp/dbauteurs.php"
+
+    r = session.get(baseurl)
+    r2 = session.get(baseurl2)
+    links = r.html.find("td.liensurl > a")
+    links2 = r2.html.find("td.liensurl > a")
+    urls = set()
+    for link in links:
+        urls |= link.links
+    for link in links2:
+        urls |= link.links
+    urls = ["http://www.tempslibres.org/tl/tlphp/" + url for url in urls]
+
+    all_haiku = dict()
+    for url in urls:
+        r = session.get(url)
+        haikus = r.html.find("p.haiku")
+        haikus = itertools.chain.from_iterable(h.text.split("\n\n") for h in haikus)
+
+        def is_english(haiku):
+            # The probabilities are not normalized.
+            lang, prob = langid.classify(haiku)
+            # langdetect uses hidden global state to do language detection.
+            # Doesn't play nicely with parallelization.
+            # lang2 = langdetect.detect(haiku)
+            return lang == "en"
+
+        haikus = filter(is_english, haikus)
+        all_haiku[url] = list(haikus)
+        print(url, "->", len(all_haiku[url]))
+
+    return all_haiku
+
+
 def download(job):
     return job()
 
 
+def init_pool():
+    global session
+    session = requests_html.HTMLSession()
+    session.mount("http://", requests.adapters.HTTPAdapter(max_retries=10))
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+
+
 if __name__ == "__main__":
     jobs = [
-        henderson,
-        brady,
-        museum,
-        virgilio,
-        perdiem,
-        ahapoetry,
-        dailyhaiku,
-        tinywords,
-        heronsnest,
+        # henderson,
+        # brady,
+        # museum,
+        # virgilio,
+        # perdiem,
+        # ahapoetry,
+        # dailyhaiku,
+        # tinywords,
+        # heronsnest,
+        haikuvillage,
+        tempslibres,  # Requires a fair amount of cleaning because the language detection isn't perfect.
     ]
 
     # Default to nprocs
-    with Pool(processes=None) as pool:
+    with Pool(processes=None, initializer=init_pool) as pool:
         results = pool.map(download, jobs)
 
     # Glue together list of dictionaries into a single dictionary.
-    haikus = dict()
+    haiku = dict()
     for result in results:
-        haikus.update(result)
+        haiku.update(result)
 
     s = 0
-    for _, values in haikus.items():
+    for _, values in haiku.items():
         s += len(values)
 
-    datapath = REPO_DIR / "data" / "haikus.pkl"
-    print("Saving", s, "haikus to", datapath)
+    datapath = REPO_DIR / "data" / "haiku.pkl"
+    print("Saving", s, "haiku to", datapath)
 
     with open(datapath, "wb") as f:
-        pickle.dump(haikus, f)
+        pickle.dump(haiku, f)
