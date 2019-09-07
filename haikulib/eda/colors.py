@@ -3,16 +3,38 @@
 find_colors() is used to initialize the haiku dataset, while get_color_counts is used to process
 the prepared dataset after it's been initialized.
 """
+import colorsys
 import itertools
 from collections import Counter
 from typing import Iterable, List, Tuple
 
 import nltk
 import pandas as pd
+import webcolors
 
-from haikulib.data import get_colors_dict, get_df
+from haikulib.data import get_data_dir, get_df
 
-COLORS = get_colors_dict()
+
+def __get_colors() -> pd.DataFrame:
+    """Get a DataFrame of color -> HTML colors.
+
+    Note that this CSV file uses hex RGB color codes for many of the colors, but falls back to using
+    HTML named colors for colors without an RGB value.
+
+    The colors with RGB values came from https://xkcd.com/color/rgb/ while the colors with the named
+    values came from
+    https://medium.com/@eleanorstrib/python-nltk-and-the-digital-humanities-finding-patterns-in-gothic-literature-aca84639ceeb
+    """
+    return pd.read_csv(get_data_dir() / "colors.csv", index_col=0)
+
+
+def __get_colors_dict() -> dict:
+    """Get a dictionary of color -> HTML color mappings."""
+    df = __get_colors()
+    return {row["color"]: row["hex"] for index, row in df.iterrows()}
+
+
+COLORS = __get_colors_dict()
 COLOR_POS_TAGS = frozenset({"JJ", "NN"})
 
 
@@ -79,16 +101,21 @@ def find_colors(text: Iterable[Tuple[str, str]]) -> List[str]:
     return colors
 
 
-def get_color_counts() -> pd.DataFrame:
-    """Get a DataFrame of the color counts and HTML color codes."""
-    df = get_df()
-    colors = Counter(itertools.chain.from_iterable(df["colors"].tolist()))
+def get_colors() -> pd.DataFrame:
+    """Get a DataFrame of the haiku color usage counts, hex, RGB, HSV, and HLS representations."""
+    color_counts = Counter(itertools.chain.from_iterable(get_df()["colors"].tolist()))
 
-    # Relies on dicts being sorted, added in Python 3.6, guaranteed by Python 3.7
-    return pd.DataFrame(
-        {
-            "color": list(colors.keys()),
-            "count": list(colors.values()),
-            "html_color": [COLORS[c] for c in colors],
-        }
-    )
+    colors = __get_colors()
+    colors["count"] = 0
+
+    for index, row in colors.iterrows():
+        color = row["color"]
+        colors.at[index, "count"] = color_counts[color] if color in color_counts else 0
+
+    colors["rgb"] = colors["hex"].apply(webcolors.hex_to_rgb)
+    # Normalize RGB values to [0, 1]
+    colors["rgb"] = colors["rgb"].apply(lambda t: tuple(v / 255 for v in t))
+    colors["hsv"] = colors["rgb"].apply(lambda t: colorsys.rgb_to_hsv(*t))
+    colors["hls"] = colors["rgb"].apply(lambda t: colorsys.rgb_to_hls(*t))
+
+    return colors

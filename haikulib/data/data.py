@@ -69,25 +69,6 @@ def get_flowers() -> set:
     return flowers
 
 
-def get_colors() -> pd.DataFrame:
-    """Get a DataFrame of color -> HTML colors.
-
-    Note that this CSV file uses hex RGB color codes for many of the colors, but falls back to using
-    HTML named colors for colors without an RGB value.
-
-    The colors with RGB values came from https://xkcd.com/color/rgb/ while the colors with the named
-    values came from
-    https://medium.com/@eleanorstrib/python-nltk-and-the-digital-humanities-finding-patterns-in-gothic-literature-aca84639ceeb
-    """
-    return pd.read_csv(get_data_dir() / "colors.csv", index_col=0)
-
-
-def get_colors_dict() -> dict:
-    """Get a dictionary of color -> HTML color mappings."""
-    df = get_colors()
-    return {row["color"]: row["rgb"] for index, row in df.iterrows()}
-
-
 def get_animals() -> set:
     """Get a set of animal names.
 
