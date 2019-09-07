@@ -1,8 +1,8 @@
-,color,rgb
+,color,hex
 0,cloudy blue,#acc2d9
-1,dark pastel green,#56ae57
+1,dark pastel green,#03c03c
 2,dust,#b2996e
-3,electric lime,#a8ff04
+3,electric lime,#ccff00
 4,fresh green,#69d84f
 5,light eggplant,#894585
 6,nasty green,#70b23f
@@ -14,7 +14,7 @@
 12,dark grass green,#388004
 13,dusty teal,#4c9085
 14,grey teal,#5e9b8a
-15,macaroni and cheese,#efb435
+15,macaroni and cheese,#ffbd88
 16,pinkish tan,#d99b82
 17,spruce,#0a5f38
 18,strong blue,#0c06f7
@@ -36,17 +36,17 @@
 34,olive yellow,#c2b709
 35,pig pink,#e78ea5
 36,deep lilac,#966ebd
-37,desert,#ccad60
+37,desert,#c19a6b
 38,dusty lavender,#ac86a8
 39,purpley grey,#947e94
 40,purply,#983fb2
-41,candy pink,#ff63e9
+41,candy pink,#e4717a
 42,light pastel green,#b2fba5
 43,boring green,#63b365
 44,kiwi green,#8ee53f
 45,light grey green,#b7e1a1
 46,orange pink,#ff6f52
-47,tea green,#bdf8a3
+47,tea green,#d0f0c0
 48,very light brown,#d3b683
 49,egg shell,#fffcc4
 50,eggplant purple,#430541
@@ -62,7 +62,7 @@
 60,greenish beige,#c9d179
 61,manilla,#fffa86
 62,off blue,#5684ae
-63,battleship grey,#6b7c85
+63,battleship grey,#848482
 64,browny green,#6f6c0a
 65,bruise,#7e4071
 66,kelley green,#009337
@@ -80,7 +80,7 @@
 78,butterscotch,#fdb147
 79,toupe,#c7ac7d
 80,dark cream,#fff39a
-81,indian red,#850e04
+81,indian red,#cd5c5c
 82,light lavender,#dfc5fe
 83,poison green,#40fd14
 84,baby puke green,#b6c406
@@ -90,7 +90,7 @@
 88,cinnamon,#ac4f06
 89,light pea green,#c4fe82
 90,radioactive green,#2cfa1f
-91,raw sienna,#9a6200
+91,raw sienna,#d68a59
 92,baby purple,#ca9bf7
 93,cocoa,#875f42
 94,light royal blue,#3a2efe
@@ -102,8 +102,8 @@
 100,burnt siena,#b75203
 101,camo,#7f8f4e
 102,dusk blue,#26538d
-103,fern,#63a950
-104,old rose,#c87f89
+103,fern,#63b76c
+104,old rose,#c08081
 105,pale light green,#b1fc99
 106,peachy pink,#ff9a8a
 107,rosy pink,#f6688e
@@ -111,15 +111,15 @@
 109,light bright green,#53fe5c
 110,light neon green,#4efd54
 111,light seafoam,#a0febf
-112,tiffany blue,#7bf2da
+112,tiffany blue,#0abab5
 113,washed out green,#bcf5a6
 114,browny orange,#ca6b02
 115,nice blue,#107ab0
-116,sapphire,#2138ab
+116,sapphire,#0f52ba
 117,greyish teal,#719f91
 118,orangey yellow,#fdb915
 119,parchment,#fefcaf
-120,straw,#fcf679
+120,straw,#e4d96f
 121,very dark brown,#1d0200
 122,terracotta,#ca6641
 123,ugly blue,#31668a
@@ -147,14 +147,14 @@
 145,hazel,#8e7618
 146,muted pink,#d1768f
 147,booger green,#96b403
-148,canary,#fdff63
-149,cool grey,#95a3a6
+148,canary,#ffff99
+149,cool grey,#8c92ac
 150,dark taupe,#7f684e
 151,darkish purple,#751973
 152,true green,#089404
-153,coral pink,#ff6163
+153,coral pink,#f88379
 154,dark sage,#598556
-155,dark slate blue,#214761
+155,dark slate blue,#483d8b
 156,flat blue,#3c73a8
 157,mushroom,#ba9e88
 158,rich blue,#021bf9
@@ -165,7 +165,7 @@
 163,warm blue,#4b57db
 164,dark hot pink,#d90166
 165,deep sea blue,#015482
-166,carmine,#9d0216
+166,carmine,#e62e6b
 167,dark yellow green,#728f02
 168,pale peach,#ffe5ad
 169,plum purple,#4e0550
@@ -181,19 +181,19 @@
 179,flat green,#699d4c
 180,light green blue,#56fca2
 181,warm pink,#fb5581
-182,dodger blue,#3e82fc
+182,dodger blue,#1e90ff
 183,gross green,#a0bf16
 184,ice,#d6fffa
 185,metallic blue,#4f738e
 186,pale salmon,#ffb19a
-187,sap green,#5c8b15
+187,sap green,#507d2a
 188,algae,#54ac68
 189,bluey grey,#89a0b0
 190,greeny grey,#7ea07a
 191,highlighter green,#1bfc06
 192,light light blue,#cafffb
 193,light mint,#b6ffbb
-194,raw umber,#a75e09
+194,raw umber,#826644
 195,vivid blue,#152eff
 196,deep lavender,#8d5eb7
 197,dull teal,#5f9e8f
@@ -207,11 +207,11 @@
 205,rosa,#fe86a4
 206,lipstick,#d5174e
 207,pale mauve,#fed0fc
-208,claret,#680018
-209,dandelion,#fedf08
+208,claret,#7f1734
+209,dandelion,#fed85d
 210,orangered,#fe420f
 211,poop green,#6f7c00
-212,ruby,#ca0147
+212,ruby,#e0115f
 213,dark,#1b2431
 214,greenish turquoise,#00fbb0
 215,pastel red,#db5856
@@ -223,12 +223,12 @@
 221,reddy brown,#6e1005
 222,blush pink,#fe828c
 223,camouflage green,#4b6113
-224,lawn green,#4da409
+224,lawn green,#7cfc00
 225,putty,#beae8a
 226,vibrant blue,#0339f8
 227,dark sand,#a88f59
 228,purple/blue,#5d21d0
-229,saffron,#feb209
+229,saffron,#f4c430
 230,twilight,#4e518b
 231,warm brown,#964e02
 232,bluegrey,#85a3b2
@@ -246,8 +246,8 @@
 244,light blue grey,#b7c9e2
 245,dried blood,#4b0101
 246,lightish purple,#a552e6
-247,rusty red,#af2f0d
-248,lavender blue,#8b88f8
+247,rusty red,#da2c43
+248,lavender blue,#ccccff
 249,light grass green,#9af764
 250,light mint green,#a6fbb2
 251,sunflower,#ffc512
@@ -256,7 +256,7 @@
 254,lightish red,#fe2f4a
 255,pure blue,#0203e2
 256,twilight blue,#0a437a
-257,violet red,#a50055
+257,violet red,#f75394
 258,yellowy brown,#ae8b0c
 259,carnation,#fd798f
 260,muddy yellow,#bfac05
@@ -268,7 +268,7 @@
 266,purple/pink,#d725de
 267,brown yellow,#b29705
 268,purple brown,#673a3f
-269,wisteria,#a87dc2
+269,wisteria,#c9a0dc
 270,banana yellow,#fafe4b
 271,lipstick red,#c0022f
 272,water blue,#0e87cc
@@ -281,7 +281,7 @@
 279,cool green,#33b864
 280,pale,#fff9d0
 281,blue/grey,#758da3
-282,hot magenta,#f504c9
+282,hot magenta,#ff1dce
 283,greyblue,#77a1b5
 284,purpley,#8756e4
 285,baby shit green,#889717
@@ -290,19 +290,19 @@
 288,diarrhea,#9f8303
 289,light mustard,#f7d560
 290,pale sky blue,#bdf6fe
-291,turtle green,#75b84f
+291,turtle green,#8a9a5b
 292,bright olive,#9cbb04
 293,dark grey blue,#29465b
 294,greeny brown,#696006
 295,lemon green,#adf802
-296,light periwinkle,#c1c6fc
+296,light periwinkle,#c5cbe1
 297,seaweed green,#35ad6b
 298,sunshine yellow,#fffd37
 299,ugly purple,#a442a0
 300,medium pink,#f36196
 301,puke brown,#947706
 302,very light pink,#fff4f2
-303,viridian,#1e9167
+303,viridian,#40826d
 304,bile,#b5c306
 305,faded yellow,#feff7f
 306,very pale green,#cffdbc
@@ -318,8 +318,8 @@
 316,heather,#a484ac
 317,rust orange,#c45508
 318,dirty blue,#3f829d
-319,fern green,#548d44
-320,bright lilac,#c95efb
+319,fern green,#4f7942
+320,bright lilac,#d891ef
 321,weird green,#3ae57f
 322,peacock blue,#016795
 323,avocado green,#87a922
@@ -327,13 +327,13 @@
 325,grape purple,#5d1451
 326,hot green,#25ff29
 327,lime yellow,#d0fe1d
-328,mango,#ffa62b
-329,shamrock,#01b44c
+328,mango,#fdbe02
+329,shamrock,#33cc99
 330,bubblegum,#ff6cb5
 331,purplish brown,#6b4247
 332,vomit yellow,#c7c10c
 333,pale cyan,#b7fffa
-334,key lime,#aeff6e
+334,key lime,#e8f48c
 335,tomato red,#ec2d01
 336,lightgreen,#76ff7b
 337,merlot,#730039
@@ -342,7 +342,7 @@
 340,apple,#6ecb3c
 341,baby poop green,#8f9805
 342,green apple,#5edc1f
-343,heliotrope,#d94ff5
+343,heliotrope,#df73ff
 344,yellow/green,#c8fd3d
 345,almost black,#070d0d
 346,cool blue,#4984b8
@@ -357,21 +357,21 @@
 355,kiwi,#9cef43
 356,seaweed,#18d17b
 357,navy green,#35530a
-358,ultramarine blue,#1805db
-359,iris,#6258c4
+358,ultramarine blue,#4166f5
+359,iris,#5a4fcf
 360,pastel orange,#ff964f
 361,yellowish orange,#ffab0f
 362,perrywinkle,#8f8ce7
 363,tealish,#24bca8
 364,dark plum,#3f012c
-365,pear,#cbf85f
+365,pear,#d1e231
 366,pinkish orange,#ff724c
 367,midnight purple,#280137
 368,light urple,#b36ff6
 369,dark mint,#48c072
 370,greenish tan,#bccb7a
 371,light burgundy,#a8415b
-372,turquoise blue,#06b1c4
+372,turquoise blue,#6cdae7
 373,ugly pink,#cd7584
 374,sandy,#f1da7a
 375,electric pink,#ff0490
@@ -380,25 +380,25 @@
 378,greyish,#a8a495
 379,neon yellow,#cfff04
 380,banana,#ffff7e
-381,carnation pink,#ff7fa7
-382,tomato,#ef4026
+381,carnation pink,#ffa6c9
+382,tomato,#ff6347
 383,sea,#3c9992
 384,muddy brown,#886806
-385,turquoise green,#04f489
-386,buff,#fef69e
-387,fawn,#cfaf7b
+385,turquoise green,#a0d6b4
+386,buff,#f0dc82
+387,fawn,#e5aa70
 388,muted blue,#3b719f
 389,pale rose,#fdc1c5
 390,dark mint green,#20c073
-391,amethyst,#9b5fc0
+391,amethyst,#9966cc
 392,blue/green,#0f9b8e
-393,chestnut,#742802
+393,chestnut,#954535
 394,sick green,#9db92c
 395,pea,#a4bf20
 396,rusty orange,#cd5909
 397,stone,#ada587
-398,rose red,#be013c
-399,pale aqua,#b8ffeb
+398,rose red,#c21e56
+399,pale aqua,#bcd4e6
 400,deep orange,#dc4d01
 401,earth,#a2653e
 402,mossy green,#638b27
@@ -406,7 +406,7 @@
 404,pale lime green,#b1ff65
 405,light grey blue,#9dbcd4
 406,pale grey,#fdfdfe
-407,asparagus,#77ab56
+407,asparagus,#87a96b
 408,blueberry,#464196
 409,purple red,#990147
 410,pale lime,#befd73
@@ -424,21 +424,21 @@
 422,light beige,#fffeb6
 423,butter yellow,#fffd74
 424,dusky purple,#895b7b
-425,french blue,#436bad
+425,french blue,#0072bb
 426,ugly yellow,#d0c101
 427,greeny yellow,#c6f808
 428,orangish red,#f43605
-429,shamrock green,#02c14d
+429,shamrock green,#009e60
 430,orangish brown,#b25f03
 431,tree green,#2a7e19
 432,deep violet,#490648
-433,gunmetal,#536267
+433,gunmetal,#2a3439
 434,blue/purple,#5a06ef
 435,cherry,#cf0234
-436,sandy brown,#c4a661
+436,sandy brown,#f4a460
 437,warm grey,#978a84
 438,dark indigo,#1f0954
-439,midnight,#03012d
+439,midnight,#702670
 440,bluey green,#2bb179
 441,grey pink,#c3909b
 442,soft purple,#a66fb5
@@ -448,12 +448,12 @@
 446,berry,#990f4b
 447,poo,#8f7303
 448,purpley pink,#c83cb9
-449,light salmon,#fea993
+449,light salmon,#ffa07a
 450,snot,#acbb0d
 451,easter purple,#c071fe
 452,light yellow green,#ccfd7f
 453,dark navy blue,#00022e
-454,drab,#828344
+454,drab,#967117
 455,light rose,#ffc5cb
 456,rouge,#ab1239
 457,purplish red,#b0054b
@@ -473,23 +473,23 @@
 471,kermit green,#5cb200
 472,brownish purple,#76424e
 473,murky green,#6c7a0e
-474,wheat,#fbdd7e
+474,wheat,#f5deb3
 475,very dark purple,#2a0134
-476,bottle green,#044a05
+476,bottle green,#006a4e
 477,watermelon,#fd4659
-478,deep sky blue,#0d75f8
-479,fire engine red,#fe0002
+478,deep sky blue,#00bfff
+479,fire engine red,#ce2029
 480,yellow ochre,#cb9d06
 481,pumpkin orange,#fb7d07
 482,pale olive,#b9cc81
 483,light lilac,#edc8ff
 484,lightish green,#61e160
-485,carolina blue,#8ab8fe
-486,mulberry,#920a4e
-487,shocking pink,#fe02a2
-488,auburn,#9a3001
+485,carolina blue,#56a0d3
+486,mulberry,#c8509b
+487,shocking pink,#fc0fc0
+488,auburn,#a52a2a
 489,bright lime green,#65fe08
-490,celadon,#befdb7
+490,celadon,#ace1af
 491,pinkish brown,#b17261
 492,poo brown,#885f01
 493,bright sky blue,#02ccfe
@@ -497,20 +497,20 @@
 495,dirt brown,#836539
 496,strawberry,#fb2943
 497,dark lime,#84b701
-498,copper,#b66325
+498,copper,#da8a67
 499,medium brown,#7f5112
 500,muted green,#5fa052
 501,robin's egg,#6dedfd
 502,bright aqua,#0bf9ea
 503,bright lavender,#c760ff
-504,ivory,#ffffcb
+504,ivory,#fffff0
 505,very light purple,#f6cefc
 506,light navy,#155084
 507,pink red,#f5054f
 508,olive brown,#645403
 509,poop brown,#7a5901
 510,mustard green,#a8b504
-511,ocean green,#3d9973
+511,ocean green,#48bf91
 512,very dark blue,#000133
 513,dusty green,#76a973
 514,light navy blue,#2e5a88
@@ -520,65 +520,65 @@
 518,jade green,#2baf6a
 519,bright light blue,#26f7fd
 520,light lime,#aefd6c
-521,dark khaki,#9b8f55
-522,orange yellow,#ffad01
-523,ochre,#bf9005
-524,maize,#f4d054
+521,dark khaki,#bdb76b
+522,orange yellow,#f8d568
+523,ochre,#cc7722
+524,maize,#fbec5d
 525,faded pink,#de9dac
-526,british racing green,#05480d
+526,british racing green,#004225
 527,sandstone,#c9ae74
 528,mud brown,#60460f
-529,light sea green,#98f6b0
-530,robin egg blue,#8af1fe
+529,light sea green,#20b2aa
+530,robin egg blue,#00cccc
 531,aqua marine,#2ee8bb
-532,dark sea green,#11875d
+532,dark sea green,#8fbc8f
 533,soft pink,#fdb0c0
 534,orangey brown,#b16002
 535,cherry red,#f7022a
 536,burnt yellow,#d5ab09
 537,brownish grey,#86775f
-538,camel,#c69f59
+538,camel,#c19a6b
 539,purplish grey,#7a687f
 540,marine,#042e60
 541,greyish pink,#c88d94
 542,pale turquoise,#a5fbd5
 543,pastel yellow,#fffe71
 544,bluey purple,#6241c7
-545,canary yellow,#fffe40
+545,canary yellow,#ffef00
 546,faded red,#d3494e
-547,sepia,#985e2b
-548,coffee,#a6814c
+547,sepia,#9e5b40
+548,coffee,#6f4e37
 549,bright magenta,#ff08e8
 550,mocha,#9d7651
-551,ecru,#feffca
+551,ecru,#c2b280
 552,purpleish,#98568d
 553,cranberry,#9e003a
 554,darkish green,#287c37
 555,brown orange,#b96902
 556,dusky rose,#ba6873
-557,melon,#ff7855
+557,melon,#febaad
 558,sickly green,#94b21c
-559,silver,#c5c9c7
+559,silver,#c9c0bb
 560,purply blue,#661aee
 561,purpleish blue,#6140ef
 562,hospital green,#9be5aa
 563,shit brown,#7b5804
 564,mid blue,#276ab3
-565,amber,#feb308
+565,amber,#ffbf00
 566,easter green,#8cfd7e
 567,soft blue,#6488ea
-568,cerulean blue,#056eee
-569,golden brown,#b27a01
+568,cerulean blue,#339acc
+569,golden brown,#996515
 570,bright turquoise,#0ffef9
 571,red pink,#fa2a55
-572,red purple,#820747
+572,red purple,#e40078
 573,greyish brown,#7a6a4f
-574,vermilion,#f4320c
-575,russet,#a13905
+574,vermilion,#e34234
+575,russet,#80461b
 576,steel grey,#6f828a
 577,lighter purple,#a55af4
 578,bright violet,#ad0afd
-579,prussian blue,#004577
+579,prussian blue,#003153
 580,slate green,#658d6d
 581,dirty pink,#ca7b80
 582,dark blue green,#005249
@@ -589,25 +589,25 @@
 587,darkish blue,#014182
 588,dull red,#bb3f3f
 589,pinky red,#fc2647
-590,bronze,#a87900
+590,bronze,#cd7f32
 591,pale teal,#82cbb2
 592,military green,#667c3e
-593,barbie pink,#fe46a5
+593,barbie pink,#da1884
 594,bubblegum pink,#fe83cc
 595,pea soup green,#94a617
 596,dark mustard,#a88905
 597,shit,#7f5f00
-598,medium purple,#9e43a2
+598,medium purple,#9370db
 599,very dark green,#062e03
 600,dirt,#8a6e45
 601,dusky pink,#cc7a8b
-602,red violet,#9e0168
-603,lemon yellow,#fdff38
-604,pistachio,#c0fa8b
+602,red violet,#c71585
+603,lemon yellow,#ffff9f
+604,pistachio,#93c572
 605,dull yellow,#eedc5b
 606,dark lime green,#7ebd01
-607,denim blue,#3b5b92
-608,teal blue,#01889f
+607,denim blue,#2243b6
+608,teal blue,#367588
 609,lightish blue,#3d7afd
 610,purpley blue,#5f34e7
 611,light indigo,#6d5acf
@@ -625,34 +625,34 @@
 623,bordeaux,#7b002c
 624,light mauve,#c292a1
 625,ocean,#017b92
-626,marigold,#fcc006
+626,marigold,#eaa221
 627,muddy green,#657432
 628,dull orange,#d8863b
 629,steel,#738595
-630,electric purple,#aa23ff
+630,electric purple,#bf00ff
 631,fluorescent green,#08ff08
 632,yellowish brown,#9b7a01
-633,blush,#f29e8e
+633,blush,#de5d83
 634,soft green,#6fc276
 635,bright orange,#ff5b00
-636,lemon,#fdff52
+636,lemon,#fff700
 637,purple grey,#866f85
-638,acid green,#8ffe09
+638,acid green,#b0bf1a
 639,pale lavender,#eecffe
-640,violet blue,#510ac9
+640,violet blue,#766ec8
 641,light forest green,#4f9153
 642,burnt red,#9f2305
 643,khaki green,#728639
-644,cerise,#de0c62
+644,cerise,#de3163
 645,faded purple,#916e99
-646,apricot,#ffb16d
-647,dark olive green,#3c4d03
+646,apricot,#fdd5b1
+647,dark olive green,#556b2f
 648,grey brown,#7f7053
 649,green grey,#77926f
-650,true blue,#010fcc
+650,true blue,#2d68c4
 651,pale violet,#ceaefa
 652,periwinkle blue,#8f99fb
-653,light sky blue,#c6fcff
+653,light sky blue,#87cefa
 654,blurple,#5539cc
 655,green brown,#544e03
 656,bluegreen,#017a79
@@ -661,7 +661,7 @@
 659,pea soup,#929901
 660,forest,#0b5509
 661,barney purple,#a00498
-662,ultramarine,#2000b1
+662,ultramarine,#3f00ff
 663,purplish,#94568c
 664,puke yellow,#c2be0e
 665,bluish grey,#748b97
@@ -670,41 +670,41 @@
 668,reddish,#c44240
 669,light maroon,#a24857
 670,dusty purple,#825f87
-671,terra cotta,#c9643b
-672,avocado,#90b134
+671,terra cotta,#e2725b
+672,avocado,#568203
 673,marine blue,#01386a
 674,teal green,#25a36f
 675,slate grey,#59656d
 676,lighter green,#75fd63
-677,electric green,#21fc0d
+677,electric green,#00ff00
 678,dusty blue,#5a86ad
-679,golden yellow,#fec615
+679,golden yellow,#ffdf00
 680,bright yellow,#fffd01
-681,umber,#b26400
+681,umber,#635147
 682,poop,#7f5e00
 683,dark peach,#de7e5d
-684,jungle green,#048243
-685,eggshell,#ffffd4
-686,denim,#3b638c
+684,jungle green,#29ab87
+685,eggshell,#f0ead6
+686,denim,#1560bd
 687,yellow brown,#b79400
 688,dull purple,#84597e
 689,chocolate brown,#411900
 690,wine red,#7b0323
-691,neon blue,#04d9ff
+691,neon blue,#4666ff
 692,dirty green,#667e2c
 693,light tan,#fbeeac
 694,ice blue,#d7fffe
-695,cadet blue,#4e7496
+695,cadet blue,#a9b2c3
 696,dark mauve,#874c62
 697,very light blue,#d5ffff
 698,grey purple,#826d8c
-699,pastel pink,#ffbacd
+699,pastel pink,#dea5a4
 700,very light green,#d1ffbd
-701,dark sky blue,#448ee4
+701,dark sky blue,#8cbed6
 702,evergreen,#05472a
 703,dull pink,#d5869d
 704,aubergine,#3d0734
-705,mahogany,#4a0100
+705,mahogany,#ca3435
 706,reddish orange,#f8481c
 707,deep green,#02590f
 708,vomit green,#89a203
@@ -721,7 +721,7 @@
 719,emerald green,#028f1e
 720,pale brown,#b1916e
 721,dull blue,#49759c
-722,burnt umber,#a0450e
+722,burnt umber,#8a3324
 723,medium green,#39ad48
 724,clay,#b66a50
 725,light aqua,#8cffdb
@@ -729,1155 +729,1716 @@
 727,brownish orange,#cb7723
 728,dark aqua,#05696b
 729,purplish pink,#ce5dae
-730,dark salmon,#c85a53
+730,dark salmon,#e9967a
 731,greenish grey,#96ae8d
-732,jade,#1fa774
+732,jade,#00a86b
 733,ugly green,#7a9703
 734,dark beige,#ac9362
-735,emerald,#01a049
+735,emerald,#50c878
 736,pale red,#d9544d
 737,light magenta,#fa5ff7
 738,sky,#82cafc
-739,light cyan,#acfffc
-740,yellow orange,#fcb001
+739,light cyan,#e0ffff
+740,yellow orange,#ffae42
 741,reddish purple,#910951
 742,reddish pink,#fe2c54
-743,orchid,#c875c4
+743,orchid,#e29cd2
 744,dirty yellow,#cdc50a
-745,orange red,#fd411e
+745,orange red,#ff681f
 746,deep red,#9a0200
 747,orange brown,#be6400
-748,cobalt blue,#030aa7
+748,cobalt blue,#8c90c8
 749,neon pink,#fe019a
-750,rose pink,#f7879a
+750,rose pink,#ff66cc
 751,greyish purple,#887191
-752,raspberry,#b00149
+752,raspberry,#e30b5d
 753,aqua green,#12e193
-754,salmon pink,#fe7b7c
-755,tangerine,#ff9408
+754,salmon pink,#ff91a4
+755,tangerine,#f28500
 756,brownish green,#6a6e09
 757,red brown,#8b2e16
 758,greenish brown,#696112
-759,pumpkin,#e17701
-760,pine green,#0a481e
-761,charcoal,#343837
-762,baby pink,#ffb7ce
-763,cornflower,#6a79f7
-764,blue violet,#5d06e9
+759,pumpkin,#ff7518
+760,pine green,#01796f
+761,charcoal,#36454f
+762,baby pink,#f4c2c2
+763,cornflower,#93ccea
+764,blue violet,#8a2be2
 765,chocolate,#3d1c02
 766,greyish green,#82a67d
-767,scarlet,#be0119
-768,green yellow,#c9ff27
+767,scarlet,#ff2400
+768,green yellow,#f1e788
 769,dark olive,#373e02
-770,sienna,#a9561e
+770,sienna,#882d17
 771,pastel purple,#caa0ff
 772,aqua blue,#02d8e9
 773,sage green,#88b378
-774,blood red,#980002
-775,deep pink,#cb0162
+774,blood red,#660000
+775,deep pink,#ff1493
 776,grass,#5cac2d
 777,moss,#769958
 778,pastel blue,#a2bffe
 779,bluish green,#10a674
-780,green blue,#06b48b
+780,green blue,#2887c8
 781,dark tan,#af884a
 782,greenish blue,#0b8b87
 783,pale orange,#ffa756
 784,vomit,#a2a415
 785,forrest green,#154406
 786,dark lavender,#856798
-787,dark violet,#34013f
+787,dark violet,#9400d3
 788,purple blue,#632de9
-789,dark cyan,#0a888a
-790,olive drab,#6f7632
+789,dark cyan,#008b8b
+790,olive drab,#7
 791,pinkish,#d46a7e
 792,cobalt,#1e488f
 793,neon purple,#bc13fe
 794,light turquoise,#7ef4cc
-795,apple green,#76cd26
+795,apple green,#8db600
 796,dull green,#74a662
-797,wine,#80013f
-798,powder blue,#b1d1fc
+797,wine,#722f37
+798,powder blue,#b0e0e6
 799,off white,#ffffe4
-800,electric blue,#0652ff
-801,dark turquoise,#045c5a
+800,electric blue,#7df9ff
+801,dark turquoise,#00ced1
 802,blue purple,#5729ce
-803,azure,#069af3
+803,azure,#007fff
 804,bright red,#ff000d
 805,pinkish red,#f10c45
-806,cornflower blue,#5170d7
+806,cornflower blue,#6495ed
 807,light olive,#acbf69
 808,grape,#6c3461
 809,greyish blue,#5e819d
 810,purplish blue,#601ef9
 811,yellowish green,#b0dd16
 812,greenish yellow,#cdfd02
-813,medium blue,#2c6fbb
+813,medium blue,#0000cd
 814,dusty rose,#c0737a
 815,light violet,#d6b4fc
-816,midnight blue,#020035
+816,midnight blue,#191970
 817,bluish purple,#703be7
-818,red orange,#fd3c06
-819,dark magenta,#960056
+818,red orange,#ff681f
+819,dark magenta,#8b008b
 820,greenish,#40a368
-821,ocean blue,#03719c
-822,coral,#fc5a50
-823,cream,#ffffc2
+821,ocean blue,#4f42b5
+822,coral,#ff7f50
+823,cream,#fffdd0
 824,reddish brown,#7f2b0a
-825,burnt sienna,#b04e0f
+825,burnt sienna,#e97451
 826,brick,#a03623
-827,sage,#87ae73
+827,sage,#bcb88a
 828,grey green,#789b73
 829,white,#ffffff
-830,robin's egg blue,#98eff9
-831,moss green,#658b38
-832,steel blue,#5a7d9a
-833,eggplant,#380835
-834,light yellow,#fffe7a
+830,robin's egg blue,#00cccc
+831,moss green,#8a9a5b
+832,steel blue,#4682b4
+833,eggplant,#614051
+834,light yellow,#ffffe0
 835,leaf green,#5ca904
 836,light grey,#d8dcd6
 837,puke,#a5a502
 838,pinkish purple,#d648d7
 839,sea blue,#047495
 840,pale purple,#b790d4
-841,slate blue,#5b7c99
+841,slate blue,#6a5acd
 842,blue grey,#607c8e
-843,hunter green,#0b4008
-844,fuchsia,#ed0dd9
-845,crimson,#8c000f
+843,hunter green,#355e3b
+844,fuchsia,#ff00ff
+845,crimson,#dc143c
 846,pale yellow,#ffff84
 847,mustard yellow,#d2bd0a
 848,light red,#ff474c
-849,cerulean,#0485d1
-850,pale pink,#ffcfdc
+849,cerulean,#02a4d3
+850,pale pink,#fadadd
 851,deep blue,#040273
-852,rust,#a83c09
+852,rust,#b7410e
 853,light teal,#90e4c1
 854,slate,#516572
-855,goldenrod,#fac205
+855,goldenrod,#fcd667
 856,dark yellow,#d5b60a
 857,dark grey,#363737
-858,army green,#4b5d16
+858,army green,#4b5320
 859,grey blue,#6b8ba4
 860,seafoam,#80f9ad
-861,puce,#a57e52
-862,spring green,#a9f971
-863,dark orange,#c65102
-864,sand,#e2ca76
+861,puce,#cc8899
+862,spring green,#ecebbd
+863,dark orange,#ff8c00
+864,sand,#c2b280
 865,pastel green,#b0ff9d
-866,mint,#9ffeb0
-867,light orange,#fdaa48
+866,mint,#3eb489
+867,light orange,#fed8b1
 868,bright pink,#fe01b1
 869,chartreuse,#c1f80a
 870,deep purple,#36013f
-871,dark brown,#341c02
-872,taupe,#b9a281
+871,dark brown,#654321
+872,taupe,#483c32
 873,pea green,#8eab12
 874,puke green,#9aae07
-875,kelly green,#02ab2e
+875,kelly green,#4cbb17
 876,seafoam green,#7af9ab
-877,blue green,#137e6d
+877,blue green,#0d98ba
 878,khaki,#aaa662
-879,burgundy,#610023
+879,burgundy,#800020
 880,dark teal,#014d4e
-881,brick red,#8f1402
-882,royal purple,#4b006e
-883,plum,#580f41
-884,mint green,#8fff9f
-885,gold,#dbb40c
-886,baby blue,#a2cffe
-887,yellow green,#c0fb2d
+881,brick red,#cb4154
+882,royal purple,#7851a9
+883,plum,#8e4585
+884,mint green,#98ff98
+885,gold,#a57c00
+886,baby blue,#89cff0
+887,yellow green,#c5e17a
 888,bright purple,#be03fd
-889,dark red,#840000
+889,dark red,#8b0000
 890,pale blue,#d0fefe
 891,grass green,#3f9b0b
 892,navy,#01153e
-893,aquamarine,#04d8b2
-894,burnt orange,#c04e01
-895,neon green,#0cff0c
+893,aquamarine,#95e0e8
+894,burnt orange,#ff7034
+895,neon green,#39ff14
 896,bright blue,#0165fc
-897,rose,#cf6275
-898,light pink,#ffd1df
-899,mustard,#ceb301
-900,indigo,#380282
+897,rose,#ff007f
+898,light pink,#ffb6c1
+899,mustard,#ffdb58
+900,indigo,#4f69c6
 901,lime,#aaff32
-902,sea green,#53fca1
-903,periwinkle,#8e82fe
+902,sea green,#93dfb8
+903,periwinkle,#ccccff
 904,dark pink,#cb416b
-905,olive green,#677a04
-906,peach,#ffb07c
+905,olive green,#b5b35c
+906,peach,#ffe5b4
 907,pale green,#c7fdb5
 908,light brown,#ad8150
-909,hot pink,#ff028d
+909,hot pink,#ff69b4
 910,black,#000000
-911,lilac,#cea2fd
-912,navy blue,#001146
+911,lilac,#c8a2c8
+912,navy blue,#0066cc
 913,royal blue,#0504aa
-914,beige,#e6daa6
-915,salmon,#ff796c
-916,olive,#6e750e
-917,maroon,#650021
-918,bright green,#01ff07
-919,dark purple,#35063e
-920,mauve,#ae7181
-921,forest green,#06470c
-922,aqua,#13eac9
+914,beige,#f5f5dc
+915,salmon,#ff91a4
+916,olive,#808000
+917,maroon,#c32148
+918,bright green,#66ff00
+919,dark purple,#301934
+920,mauve,#e0b0ff
+921,forest green,#5fa777
+922,aqua,#00ffff
 923,cyan,#00ffff
-924,tan,#d1b26f
+924,tan,#fa9d5a
 925,dark blue,#00035b
 926,lavender,#c79fef
-927,turquoise,#06c2ac
-928,dark green,#033500
-929,violet,#9a0eea
+927,turquoise,#40e0d0
+928,dark green,#013220
+929,violet,#8f00ff
 930,light purple,#bf77f6
-931,lime green,#89fe05
+931,lime green,#32cd32
 932,grey,#929591
-933,sky blue,#75bbfd
-934,yellow,#ffff14
-935,magenta,#c20078
-936,light green,#96f97b
-937,orange,#f97306
-938,teal,#029386
-939,light blue,#95d0fc
-940,red,#e50000
-941,brown,#653700
-942,pink,#ff81c0
-943,blue,#0343df
-944,green,#15b01a
-945,purple,#7e1e9c
-946,blank,white
-947,blanch,white
-948,paper white,white
-949,candid,white
-950,whitish,white
-951,whitelike,white
-952,albid,white
-953,incandent,white
-954,all white,white
-955,dead white,ghostwhite
-956,snow white,snow
-957,snowish,snow
-958,snowy,snow
-959,nixious,snow
-960,snow like,snow
-961,snow,snow
-962,milk white,white
-963,milkish,white
-964,milky,white
-965,milk,white
-966,milken,white
-967,lacteal,white
-968,lacteous,white
-969,lactaceous,white
-970,lactean,white
-971,lactescent,white
-972,bone,ivory
-973,ivory white,ivory
-974,eburnean,ivory
-975,eburnine,ivory
-976,bone white,ivory
-977,ivorine,ivory
-978,ivoried,ivory
-979,bone coloured,ivory
-980,lily white,floralwhite
-981,lily,floralwhite
-982,lily whited,floralwhite
-983,lily wristed,floralwhite
-984,lily like,floralwhite
-985,lily coloured,floralwhite
-986,chalk white,white
-987,chalky,white
-988,chalkish,white
-989,ermine,white
-990,ermined,white
-991,marble,white
-992,alabaster,white
-993,alabastrine,white
-994,marmorean,white
-995,marbly,white
-996,marmoreal,white
-997,pearly,seashell
-998,swan white,white
-999,ice white,white
-1000,pearl white,seashell
-1001,lint white,white
-1002,wool white,white
-1003,fish belly,white
-1004,wax white,white
-1005,cottonary,white
-1006,cottonous,white
-1007,cottony,white
-1008,sheep hued,oldlace
-1009,natural coloured,oldlace
-1010,oysterous,whitesmoke
-1011,oyster,whitesmoke
-1012,silverish,silver
-1013,argentine,silver
-1014,argent,silver
-1015,silver coloured,silver
-1016,silver white,silver
-1017,silver like,silver
-1018,silvery,silver
-1019,argenteous,silver
-1020,silvern,silver
-1021,flatten,aliceblue
-1022,fleeten,aliceblue
-1023,blue white,aliceblue
-1024,blush white,misty rose
-1025,cream coloured,ivory
-1026,creamy,ivory
-1027,blok,black
-1028,neger,black
-1029,sable,black
-1030,black coloured,black
-1031,sable coloured,black
-1032,ebon,black
-1033,ethiop,black
-1034,torrid,black
-1035,atred,black
-1036,pullous,black
-1037,nigricant,black
-1038,nigrific,black
-1039,negro,black
-1040,nigritudinous,black
-1041,nigrine,black
-1042,blackish,black
-1043,blacky,black
-1044,nigrescent,black
-1045,bigresceous,black
-1046,for black,black
-1047,self black,black
-1048,nigrous,black
-1049,all black,black
-1050,jet black,black
-1051,jetty,black
-1052,jetty black,black
-1053,jettish,black
-1054,jet,black
-1055,coal black,black
-1056,as black as coal,black
-1057,coaly,black
-1058,night black,black
-1059,night dark,black
-1060,ravenish,black
-1061,raven black,black
-1062,raven coloured,black
-1063,raven,black
-1064,inky,black
-1065,sepian,black
-1066,atramental,black
-1067,atramentous,black
-1068,chalcanthous,black
-1069,atramentitious,black
-1070,inkish,black
-1071,atramentaceous,black
-1072,atramentarious,black
-1073,black as pitch,black
-1074,pitchy,black
-1075,pitch black,black
-1076,pitch coloured,black
-1077,pitchy black,black
-1078,piceous,black
-1079,picescent,black
-1080,sooty,black
-1081,fuliginated,black
-1082,fuliginous,black
-1083,pit black,black
-1084,bible black,black
-1085,fusco piceous,black
-1086,brownish black,darkbrown
-1087,brown black,darkbrown
-1088,pukish,midnightblue
-1089,blue black,midnightblue
-1090,sloe black,midnightblue
-1091,black rimmed,midnightblue
-1092,blacked edged,midnightblue
-1093,black bordered,midnightblue
-1094,smutting,black
-1095,blackening,black
-1096,nigricanting,black
-1097,forswarted,black
-1098,bletchy,black
-1099,blackened,black
-1100,well blacked,black
-1101,collied,black
-1102,blacked,black
-1103,lamp blacked,black
-1104,corked,black
-1105,burnt corked,black
-1106,sootied,black
-1107,fire swart,black
-1108,charred,black
-1109,blackleaded,black
-1110,plumbagoed,black
-1111,unblacked,black
-1112,reod,red
-1113,ruddy,red
-1114,reddy,red
-1115,redly,red
-1116,gules,red
-1117,red coloured,red
-1118,guly,red
-1119,blushing,red
-1120,rubric,red
-1121,nacarine,red
-1122,minious,red
-1123,rubriform,red
-1124,carbuncly,red
-1125,blushful,red
-1126,envermeiled,red
-1127,ablush,red
-1128,flammulated,red
-1129,rubrical,red
-1130,redward,red
-1131,rubicund,red
-1132,ruddish,red
-1133,ruddyish,red
-1134,rutilous,red
-1135,flushy,red
-1136,rubescent,red
-1137,rufescent,red
-1138,rufulous,red
-1139,rufous,darkred
-1140,inred,red
-1141,foxy,darkred
-1142,angered,red
-1143,puniceous,red
-1144,vermeil,red
-1145,punic,red
-1146,orient,red
-1147,wax red,red
-1148,punical,red
-1149,coralline,red
-1150,scarleted,red
-1151,coccineous,red
-1152,cinnabrian,red
-1153,poppy coloured,red
-1154,miniaceous,red
-1155,phoeniceous,red
-1156,cherry coloured,red
-1157,coral red,red
-1158,cherried,red
-1159,punicean,red
-1160,cinnabar,red
-1161,geraniumed,red
-1162,miniatous,red
-1163,vermilion coloured,red
-1164,geranium coloured,red
-1165,lobster red,red
-1166,phoenicean,red
-1167,cardinal,red
-1168,scarlet vermilion,red
-1169,canellia red,red
-1170,miniate,red
-1171,nasturtium red,red
-1172,sealing wax red,red
-1173,bloody,crimson
-1174,purpurine,purple
-1175,sanguine,crimson
-1176,tuly,crimson
-1177,murrey,crimson
-1178,purpure,purple
-1179,sanguinolent,crimson
-1180,cramoisy,crimson
-1181,ruby red,crimson
-1182,sanguineous,crimson
-1183,sanguine coloured,crimson
-1184,blood coloured,crimson
-1185,rubied,crimson
-1186,incarnadine,crimson
-1187,tyrian,crimson
-1188,rubious,crimson
-1189,murrey coloured,crimson
-1190,haematine,crimson
-1191,vinaceous,crimson
-1192,claret coloured,crimson
-1193,ensanguined,crimson
-1194,peony,crimson
-1195,sanguinaceous,crimson
-1196,gory,crimson
-1197,crimsony,crimson
-1198,vinous,crimson
-1199,laky,crimson
-1200,grenat,crimson
-1201,madder,crimson
-1202,wine dark,crimson
-1203,poppy crimson,crimson
-1204,alizarin,crimson
-1205,rusty,darkred
-1206,hepatic,darkred
-1207,horse flesh,darkred
-1208,rubiginous,darkred
-1209,iron,lightslategrey
-1210,sand red,darkred
-1211,ferruginous,darkred
-1212,lateritious,darkred
-1213,blood bay,darkred
-1214,testaceous,firebrick
-1215,rust coloured,darkred
-1216,brick coloured,darkred
-1217,rusted,darkred
-1218,worm red,darkred
-1219,rush,darkred
-1220,brickdust like,darkred
-1221,brickdusty,darkred
-1222,chestnut red,darkred
-1223,copper red,darkred
-1224,bricky,darkred
-1225,brickish,darkred
-1226,fox red,darkred
-1227,oxblood,darkred
-1228,tony,darkred
-1229,mahogany red,darkred
-1230,roan,lightsalmon
-1231,sherry red,lightsalmon
-1232,port winey,lightsalmon
-1233,fire red,orangered
-1234,flame red,orangered
-1235,flammid,orangered
-1236,flammeous,orangered
-1237,pimento,orangered
-1238,pimiento,orangered
-1239,flame,orangered
-1240,rosen,pink
-1241,rosy,pink
-1242,roseate,pink
-1243,roset,pink
-1244,rosing,pink
-1245,rose coloured,pink
-1246,rose like,pink
-1247,roseal,pink
-1248,rosal,pink
-1249,rosy fingered,pink
-1250,red rose,pink
-1251,damask,pink
-1252,rosied,red
-1253,damasked,pink
-1254,roseac,pink
-1255,rosaceous,pink
-1256,rose tinted,pink
-1257,blush rose,pink
-1258,incarnate,pink
-1259,fleshy,pink
-1260,incarnation,pink
-1261,pallet,pink
-1262,bepurfurate,pink
-1263,peachy,pink
-1264,peach coloured,pink
-1265,pink coloured,pink
-1266,blush coloured,pink
-1267,blushy,pink
-1268,gridelin,plum
-1269,carnationed,red
-1270,carneous,pink
-1271,peach blossom,pink
-1272,flesh coloured,pink
-1273,flesh colour,pink
-1274,mushroom coloured,pink
-1275,salmon coloured,pink
-1276,blush tinted,pink
-1277,flesh red,pink
-1278,naturelle,pink
-1279,flesh pink,pink
-1280,lilac pink,pink
-1281,nude,pink
-1282,magnolia pink,pink
-1283,salmony,pink
-1284,magnolia,pink
-1285,poppy pink,pink
-1286,raspberry red,red
-1287,pomegranate,red
-1288,framboise,red
-1289,crushed raspberry,red
-1290,pink washed,red
-1291,rubent,red
-1292,reddening,red
-1293,erubescent,red
-1294,rubifying,red
-1295,rubificative,red
-1296,rubific,red
-1297,red making,red
-1298,rubified,red
-1299,reddened,red
-1300,empurpled,purple
-1301,crimsoned,red
-1302,ruddied,red
-1303,incarnadined,red
-1304,purpured,purple
-1305,in grain,red
-1306,purpled,purple
-1307,engored,red
-1308,encrimsoned,red
-1309,vermeiled,red
-1310,raddled,red
-1311,ruddled,red
-1312,vermilioned,red
-1313,incrimsoned,red
-1314,incarmined,red
-1315,carmined,red
-1316,rosed,red
-1317,pinkified,red
-1318,rubricate,red
-1319,rubricated,red
-1320,rubricked,red
-1321,brazil,red
-1322,pelagian,red
-1323,verdant,green
-1324,verdurant,green
-1325,sinople,green
-1326,vernant,green
-1327,viricund,green
-1328,virid,green
-1329,virideous,green
-1330,virent,green
-1331,herbish,green
-1332,watchet,lightblue
-1333,willowish,green
-1334,greeny,green
-1335,viridescent,green
-1336,greensome,green
-1337,greenery,green
-1338,smaragdine,mediumseagreen
-1339,emeraldine,mediumseagreen
-1340,twig green,mediumseagreen
-1341,steel green,darkgreen
-1342,corbeau,darkgreen
-1343,rifle green,darkgreen
-1344,spinach green,darkgreen
-1345,malachite,darkgreen
-1346,beryl,lightgreen
-1347,water,cadetblue
-1348,berylline,lightgreen
-1349,chlorine,lightgreen
-1350,peppermint,lightgreen
-1351,reseda,lightgreen
-1352,lily green,lightgreen
-1353,pepperminty,lightgreen
-1354,grassy,lawngreen
-1355,prasine,mediumseagreen
-1356,leeky,mediumseagreen
-1357,leekish,mediumseagreen
-1358,porraceous,mediumseagreen
-1359,leek green,mediumseagreen
-1360,gaudy green,yellowgreen
-1361,gosling colour,yellowgreen
-1362,gosling green,yellowgreen
-1363,chrysoprase,yellowgreen
-1364,tilleul,yellowgreen
-1365,olive coloured,darkkhaki
-1366,olivaceous,yellowgreen
-1367,olive greenish,yellowgreen
-1368,olivescent,yellowgreen
-1369,glaucy,lightseagreen
-1370,wave green,lightseagreen
-1371,aeruginous,green
-1372,glaucous,lightseagreen
-1373,eruginary,lightseagreen
-1374,verdazurine,lightseagreen
-1375,caesious,lightseagreen
-1376,verditer,turquoise
-1377,verd asure,lightseagreen
-1378,verdigrisy,lightseagreen
-1379,glass,lightseagreen
-1380,sage coloured,lightseagreen
-1381,sage greeny,lightseagreen
-1382,beech green,green
-1383,viper green,green
-1384,lettuce green,green
-1385,kendal green,green
-1386,lizard green,green
-1387,greening,green
-1388,virescent,green
-1389,greenable,green
-1390,chlorophyllous,green
-1391,chlorophyllian,green
-1392,chlorophyllaceous,green
-1393,verdigris,green
-1394,blayk,yellow
-1395,jaune,yellow
-1396,flaw,yellow
-1397,jaundiced,yellow
-1398,flaxed,yellow
-1399,flave,yellow
-1400,flavous,yellow
-1401,blake,yellow
-1402,gambogian,yellow
-1403,saffronish,yellow
-1404,jaunish,yellow
-1405,sanded,yellow
-1406,saffrony,yellow
-1407,yellowy,yellow
-1408,sallow,yellow
-1409,sallowish,yellow
-1410,flavescent,yellow
-1411,sandyish,yellow
-1412,flavicant,yellow
-1413,chromy,yellow
-1414,sunnish,yellow
-1415,sunny,yellow
-1416,buttercup,yellow
-1417,nasturtium yellow,yellow
-1418,topazine,gold
-1419,topaz tinted,gold
-1420,topas coloured,gold
-1421,gull,lightyellow
-1422,flaxen,
-1423,palew,lightyellow
-1424,straw coloured,lightyellow
-1425,branlie,lightyellow
-1426,straw colour,lightyellow
-1427,flaxy,lightyellow
-1428,festucine,lightyellow
-1429,sulphureous,lightyellow
-1430,flaxenish,lightyellow
-1431,strawy,lightyellow
-1432,straw yellow,lightyellow
-1433,bomycinous,lightyellow
-1434,sulphur coloured,lightyellow
-1435,sherry yellow,lightyellow
-1436,sulphur yellow,lightyellow
-1437,bombasic,lightyellow
-1438,wax coloured,lightyellow
-1439,stramineous,lightyellow
-1440,maize coloured,lightyellow
-1441,daffodil,lightyellow
-1442,daw,lightyellow
-1443,flax,lightyellow
-1444,sherry coloured,lightyellow
-1445,mastic,lightyellow
-1446,sulpho chromic,lightyellow
-1447,ochroid,lightyellow
-1448,wheat coloured,lightyellow
-1449,sulphurous,lightyellow
-1450,sulphury,lightyellow
-1451,tea rose,lightyellow
-1452,straw pale,lightyellow
-1453,subcitrine,lightyellow
-1454,citrine,lightyellow
-1455,citron coloured,lightyellow
-1456,primrose coloured,lightyellow
-1457,lemon coloured,lightyellow
-1458,primrose,lightyellow
-1459,citron hued,lightyellow
-1460,primrosy,lightyellow
-1461,citron,lightyellow
-1462,dory,gold
-1463,goldish,gold
-1464,goldly,gold
-1465,aureate,gold
-1466,goldy,gold
-1467,gilden,gold
-1468,scorn gold,gold
-1469,pactolian,gold
-1470,aureal,gold
-1471,gilded,gold
-1472,gold coloured,gold
-1473,spun gold,gold
-1474,aurulent,gold
-1475,aurelian,gold
-1476,deaurated,gold
-1477,tuscan,gold
-1478,corn coloured,gold
-1479,aureoline,gold
-1480,tuscan coloured,gold
-1481,guinea gold,gold
-1482,spun golden,gold
-1483,brazen,gold
-1484,brassy,gold
-1485,aeneous,gold
-1486,brass coloured,gold
-1487,red yellow,peachpuff
-1488,red gold,peachpuff
-1489,saffron hued,peachpuff
-1490,saffron coloured,peachpuff
-1491,crocean,peachpuff
-1492,croceal,peachpuff
-1493,croceous,peachpuff
-1494,croceate,peachpuff
-1495,saffronic,peachpuff
-1496,fallow,peachpuff
-1497,favel,peachpuff
-1498,fulvid,peachpuff
-1499,fulve,peachpuff
-1500,fulvous,peachpuff
-1501,fallow coloured,peachpuff
-1502,flavid,peachpuff
-1503,fox coloured,peachpuff
-1504,fulvescent,peachpuff
-1505,meline,khaki
-1506,gangrenous,khaki
-1507,greenery yallery,khaki
-1508,ochry,darkkhaki
-1509,sand coloured,darkkhaki
-1510,shammy,darkkhaki
-1511,buff coloured,darkkhaki
-1512,ochreish,darkkhaki
-1513,ochreous,darkkhaki
-1514,ochraceous,darkkhaki
-1515,buff colour,darkkhaki
-1516,buffish,darkkhaki
-1517,mustard coloured,darkkhaki
-1518,nankeen,darkkhaki
-1519,buffy,darkkhaki
-1520,ochre coloured,darkkhaki
-1521,mustardy,darkkhaki
-1522,ochrous,darkkhaki
-1523,buff yellow,darkkhaki
-1524,buff washed,darkkhaki
-1525,sahara,goldenrod
-1526,wheaten,darkkhaki
-1527,pinkish yellow,papayawhip
-1528,champagne,papayawhip
-1529,greyish yellow,darkkhaki
-1530,vitelline,lightsalmon
-1531,luteous,lightsalmon
-1532,orange buff,lightsalmon
-1533,honey yellow,yellow
-1534,gamboge,yellow
-1535,honey gold,yellow
-1536,lily yellow,yellow
-1537,apple yellow,yellow
-1538,butter coloured,yellow
-1539,mimosa,yellow
-1540,yellowing,yellow
-1541,saffroned,yellow
-1542,saffred,yellow
-1543,yellowed,yellow
-1544,xanthophyllic,yellow
-1545,turner,yellow
-1546,inde,blue
-1547,blae,dodgerblue
-1548,glawke,cadetblue
-1549,blusih,blue
-1550,azury,blue
-1551,bluey,blue
-1552,blue bleak,blue
-1553,sapphirine,aqua
-1554,sapphire hued,aqua
-1555,sapphire coloured,aqua
-1556,sapphiric,aqua
-1557,sapphire blue,aqua
-1558,pirate blue,aqua
-1559,blue brilliant,aqua
-1560,mazarine,
-1561,cyaneous,
-1562,poweder blue,
-1563,smalt blue,
-1564,lazuline,
-1565,smalt,
-1566,gentian,
-1567,blewebis,darkblue
-1568,sloe blue,darkblue
-1569,oxford blue,darkblue
-1570,coal blue,darkblue
-1571,lead blue,darkblue
-1572,azurine,lightblue
-1573,watchet coloured,lightblue
-1574,watercoloured,lightblue
-1575,eton blue,lightblue
-1576,opal blue,lightblue
-1577,watchet hued,lightblue
-1578,azured,blue
-1579,sky colour,skyblue
-1580,sky coloured,skyblue
-1581,ceruleous,skyblue
-1582,cerule,skyblue
-1583,sky like,skyblue
-1584,ceruleal,skyblue
-1585,azurne,skyblue
-1586,cerulous,skyblue
-1587,lazure,skyblue
-1588,skyey,skyblue
-1589,azure blue,skyblue
-1590,cerulescent,skyblue
-1591,azurean,skyblue
-1592,pavonaceous,turquoise
-1593,peacock,turquoise
-1594,plunket,cadetblue
-1595,perse,cadetblue
-1596,iron blue,cadetblue
-1597,smoke blue,cadetblue
-1598,gunpowder,cadetblue
-1599,slaty blue,cadetblue
-1600,silurian,cadetblue
-1601,hyacinthine,mediumslateblue
-1602,violaceous,mediumslateblue
-1603,violacean,mediumslateblue
-1604,lilac blue,mediumslateblue
-1605,hyacinthian,mediumslateblue
-1606,hyacinth,orangered
-1607,metallic,steelblue
-1608,chalybeous,steelblue
-1609,wan,slategrey
-1610,blo,dodgerblue
-1611,haw,dodgerblue
-1612,livid,dodgerblue
-1613,lividous,dodgerblue
-1614,blue in the face,dodgerblue
-1615,swart,mediumblue
-1616,mourning,blue
-1617,beryl blue,blue
-1618,wedgwood,blue
-1619,scale blue,blue
-1620,whale blue,blue
-1621,ceruleated,blue
-1622,sapphired,blue
-1623,blue washed,blue
-1624,cerulific,blue
-1625,ultramarinish,blue
-1626,indigotic,blue
-1627,brown coloured,brown
-1628,browny,brown
-1629,brownish coloured,brown
-1630,burnet,sienna
-1631,fusk,sienna
-1632,fusky,sienna
-1633,chocolate coloured,sienna
-1634,brunneous,sienna
-1635,ustulate,sienna
-1636,scorched,sienna
-1637,fuscescent,sienna
-1638,forest brown,sienna
-1639,burnt coloured,sienna
-1640,jacobean,sienna
-1641,whited brown,burlywood
-1642,whitey brown,burlywood
-1643,coffee coloured,burlywood
-1644,dust coloured,burlywood
-1645,ochre brown,burlywood
-1646,blonde,burlywood
-1647,mousy,burlywood
-1648,toast coloured,burlywood
-1649,dun,peru
-1650,dunned,peru
-1651,dunny,peru
-1652,dunnish,peru
-1653,drab coloured,peru
-1654,sorrel,firebrick
-1655,berry brown,firebrick
-1656,sored,firebrick
-1657,russetish,firebrick
-1658,chelidonian,firebrick
-1659,weaselled coloured,firebrick
-1660,deer coloured,firebrick
-1661,spadiceous,firebrick
-1662,russeted,firebrick
-1663,russety,firebrick
-1664,fusco testaceous,firebrick
-1665,mahogany brown,firebrick
-1666,persimmon,firebrick
-1667,nut brown,firebrick
-1668,chestnut coloured,firebrick
-1669,hazeled,firebrick
-1670,chestnut brown,firebrick
-1671,castaneous,firebrick
-1672,nutty brown,firebrick
-1673,chestnutty,firebrick
-1674,nutmeg,firebrick
-1675,liver hued,firebrick
-1676,liver coloured,firebrick
-1677,liver,firebrick
-1678,beveren,firebrick
-1679,beaver hued,firebrick
-1680,beaver coloured,firebrick
-1681,musk colour,firebrick
-1682,musk coloured,firebrick
-1683,copper coloured,firebrick
-1684,copperish,firebrick
-1685,coppery,firebrick
-1686,cupreous,firebrick
-1687,copper brown,firebrick
-1688,bayard,firebrick
-1689,bay,firebrick
-1690,bayed,firebrick
-1691,bay coloured,firebrick
-1692,bullace bay,firebrick
-1693,bayish,firebrick
-1694,bay brown,firebrick
-1695,brown bay,firebrick
-1696,honey coloured,goldenrod
-1697,cinnamon coloured,goldenrod
-1698,lurid,goldenrod
-1699,rhubarb,goldenrod
-1700,tomabac brown,goldenrod
-1701,sherry bay,goldenrod
-1702,khaki coloured,goldenrod
-1703,rhubarby,goldenrod
-1704,crotal,goldenrod
-1705,brown gold,goldenrod
-1706,safari,goldenrod
-1707,mud coloured,dimgrey
-1708,smoke brown,dimgrey
-1709,mud colour,dimgrey
-1710,lead brown,dimgrey
-1711,bluish brown,rosybrown
-1712,damson brown,rosybrown
-1713,lavender brown,rosybrown
-1714,bronzine,darkgoldenrod
-1715,bronzy,darkgoldenrod
-1716,bronze golden,darkgoldenrod
-1717,wainscot,brown
-1718,turd coloured,brown
-1719,honey brown,brown
-1720,snuff coloured,brown
-1721,snuffy,brown
-1722,moorit,brown
-1723,umbery,brown
-1724,sienna brown,brown
-1725,oily brown,brown
-1726,seal brown,brown
-1727,tabac,brown
-1728,glandaceous,brown
-1729,cigar brown,brown
-1730,bead brown,brown
-1731,toffee brown,brown
-1732,toffee,brown
-1733,sludgy,brown
-1734,browning,brown
-1735,embrowning,brown
-1736,umbered,brown
-1737,well browned,brown
-1738,embrowned,brown
-1739,browned,brown
-1740,adusted,brown
-1741,sunburnt,brown
-1742,staneraw,brown
-1743,bistred,brown
-1744,russeting,brown
-1745,bronzing,brown
-1746,bronzed,brown
-1747,gris,grey
-1748,grizzle,grey
-1749,grison,grey
-1750,kennet colour,grey
-1751,grisy,grey
-1752,grizzly,grey
-1753,grisard,grey
-1754,grysande,grey
-1755,grizzlish,grey
-1756,slaty,cadetblue
-1757,peppery,grey
-1758,sabelline,darkgrey
-1759,shadow grey,darkgrey
-1760,walnyed,lightgrey
-1761,canvas,lightgrey
-1762,hoar,gainsboro
-1763,for hoar,gainsboro
-1764,hoarsih,gainsboro
-1765,hoary,gainsboro
-1766,incanescent,gainsboro
-1767,crane,dimgrey
-1768,crane coloured,dimgrey
-1769,crane feather,dimgrey
-1770,ash colour,dimgrey
-1771,subcineritious,dimgrey
-1772,cinereous,dimgrey
-1773,cinereal,dimgrey
-1774,smoky,whitesmoke
-1775,smoked,whitesmoke
-1776,smoke,whitesmoke
-1777,iron grey,lightslategrey
-1778,steely,lightslategrey
-1779,leaden,slategrey
-1780,leasih,slategrey
-1781,leady,slategrey
-1782,plumby,slategrey
-1783,plumbine,slategrey
-1784,leaden coloured,slategrey
-1785,lead coloured,slategrey
-1786,plumbean,slategrey
-1787,plumbeous,slategrey
-1788,lead grey,slategrey
-1789,leaden hued,slategrey
-1790,quaker coloured,dimgrey
-1791,prison grey,dimgrey
-1792,flinty,dimgrey
-1793,pearl coloured,seashell
-1794,pearl shell,seashell
-1795,pearl,seashell
-1796,pearled,seashell
-1797,pearl hued,seashell
-1798,pearlish,seashell
-1799,pewter,silver
-1800,mouse coloured,darkkhaki
-1801,mouse colour,darkkhaki
-1802,mouse dun,darkkhaki
-1803,putty coloured,darkkhaki
-1804,beige coloured,darkkhaki
-1805,greige,darkkhaki
-1806,bice,dimgrey
-1807,butter nut,dimgrey
-1808,stone coloured,dimgrey
-1809,ficelle coloured,dimgrey
-1810,oatmeal,dimgrey
-1811,moleskin coloured,dimgrey
-1812,browny grey,dimgrey
-1813,mole grey,dimgrey
-1814,mole,dimgrey
-1815,stony,dimgrey
-1816,waterish,cadetblue
-1817,blunket,cadetblue
-1818,slate coloured,cadetblue
-1819,griseous,cadetblue
-1820,neutral,cadetblue
-1821,schistous,cadetblue
-1822,slatish,cadetblue
-1823,comumbine,lavender
-1824,columbe,lavender
-1825,dove colour,lavender
-1826,dove coloured,lavender
-1827,lavender grey,lavender
-1828,lilac grey,lavender
-1829,dove,lavender
-1830,pinko grey,lavender
-1831,pearl grey,seashell
-1832,elephant,grey
-1833,desert grey,grey
-1834,greying,grey
-1835,purpurate,purple
-1836,purple coloured,purple
-1837,porphyrite,purple
-1838,purpurean,purple
-1839,blattean,purple
-1840,purpureal,purple
-1841,porphyrous,purple
-1842,babylonian,purple
-1843,jacinthinous,darkmagenta
-1844,damson,darkmagenta
-1845,lilac coloured,plum
-1846,lilac tinted,plum
-1847,lilaceous,plum
-1848,lilacky,plum
-1849,lilac purple,plum
-1850,prune coloured,magenta
-1851,prune dark,magenta
-1852,puce coloured,maroon
-1853,violet coloured,blueviolet
-1854,ianthine,blueviolet
-1855,amethystine,blueviolet
-1856,pansy purple,blueviolet
-1857,violety,blueviolet
-1858,violescent,blueviolet
-1859,violetish,blueviolet
-1860,pansy coloured,blueviolet
-1861,mulberry coloured,purple
-1862,plum coloured,purple
-1863,mauve colour,purple
-1864,mauve coloured,purple
-1865,amarantine,purple
-1866,mauvish,purple
-1867,pontifical,purple
-1868,plummy,purple
-1869,petunia,purple
-1870,palatinate,purple
-1871,empurpling,purple
-1872,meliboean,purple
-1873,oranged,orange
-1874,orange coloured,orange
-1875,orange tawny,orange
-1876,orangey,orange
-1877,flame coloured,tomato
-1878,tangerine coloured,darkorange
-1879,gingerish,moccasin
-1880,hennaed,chocolate
-1881,shadow,#1b2431
+933,sky blue,#87ceeb
+934,yellow,#ffff00
+935,magenta,#ff00ff
+936,light green,#90ee90
+937,orange,#ff8833
+938,teal,#008080
+939,light blue,#add8e6
+940,red,#ff0000
+941,brown,#af593e
+942,pink,#ffc0cb
+943,blue,#0000ff
+944,green,#3aa655
+945,purple,#6a0dad
+946,blank,#ffffff
+947,blanch,#ffffff
+948,paper white,#ffffff
+949,candid,#ffffff
+950,whitish,#ffffff
+951,whitelike,#ffffff
+952,albid,#ffffff
+953,incandent,#ffffff
+954,all white,#ffffff
+955,dead white,#f8f8ff
+956,snow white,#fffafa
+957,snowish,#fffafa
+958,snowy,#fffafa
+959,nixious,#fffafa
+960,snow like,#fffafa
+961,snow,#fffafa
+962,milk white,#ffffff
+963,milkish,#ffffff
+964,milky,#ffffff
+965,milk,#ffffff
+966,milken,#ffffff
+967,lacteal,#ffffff
+968,lacteous,#ffffff
+969,lactaceous,#ffffff
+970,lactean,#ffffff
+971,lactescent,#ffffff
+972,bone,#e3dac9
+973,ivory white,#fffff0
+974,eburnean,#fffff0
+975,eburnine,#fffff0
+976,bone white,#fffff0
+977,ivorine,#fffff0
+978,ivoried,#fffff0
+979,bone coloured,#fffff0
+980,lily white,#fffaf0
+981,lily,#fffaf0
+982,lily whited,#fffaf0
+983,lily wristed,#fffaf0
+984,lily like,#fffaf0
+985,lily coloured,#fffaf0
+986,chalk white,#ffffff
+987,chalky,#ffffff
+988,chalkish,#ffffff
+989,ermine,#ffffff
+990,ermined,#ffffff
+991,marble,#ffffff
+992,alabaster,#edeae0
+993,alabastrine,#ffffff
+994,marmorean,#ffffff
+995,marbly,#ffffff
+996,marmoreal,#ffffff
+997,pearly,#fff5ee
+998,swan white,#ffffff
+999,ice white,#ffffff
+1000,pearl white,#fff5ee
+1001,lint white,#ffffff
+1002,wool white,#ffffff
+1003,fish belly,#ffffff
+1004,wax white,#ffffff
+1005,cottonary,#ffffff
+1006,cottonous,#ffffff
+1007,cottony,#ffffff
+1008,sheep hued,#fdf5e6
+1009,natural coloured,#fdf5e6
+1010,oysterous,#f5f5f5
+1011,oyster,#f5f5f5
+1012,silverish,#c0c0c0
+1013,argentine,#c0c0c0
+1014,argent,#c0c0c0
+1015,silver coloured,#c0c0c0
+1016,silver white,#c0c0c0
+1017,silver like,#c0c0c0
+1018,silvery,#c0c0c0
+1019,argenteous,#c0c0c0
+1020,silvern,#c0c0c0
+1021,flatten,#f0f8ff
+1022,fleeten,#f0f8ff
+1023,blue white,#f0f8ff
+1024,blush white,#ffe4e1
+1025,cream coloured,#fffff0
+1026,creamy,#fffff0
+1027,blok,#000000
+1028,neger,#000000
+1029,sable,#000000
+1030,black coloured,#000000
+1031,sable coloured,#000000
+1032,ebon,#000000
+1033,ethiop,#000000
+1034,torrid,#000000
+1035,atred,#000000
+1036,pullous,#000000
+1037,nigricant,#000000
+1038,nigrific,#000000
+1039,negro,#000000
+1040,nigritudinous,#000000
+1041,nigrine,#000000
+1042,blackish,#000000
+1043,blacky,#000000
+1044,nigrescent,#000000
+1045,bigresceous,#000000
+1046,for black,#000000
+1047,self black,#000000
+1048,nigrous,#000000
+1049,all black,#000000
+1050,jet black,#000000
+1051,jetty,#000000
+1052,jetty black,#000000
+1053,jettish,#000000
+1054,jet,#343434
+1055,coal black,#000000
+1056,as black as coal,#000000
+1057,coaly,#000000
+1058,night black,#000000
+1059,night dark,#000000
+1060,ravenish,#000000
+1061,raven black,#000000
+1062,raven coloured,#000000
+1063,raven,#000000
+1064,inky,#000000
+1065,sepian,#000000
+1066,atramental,#000000
+1067,atramentous,#000000
+1068,chalcanthous,#000000
+1069,atramentitious,#000000
+1070,inkish,#000000
+1071,atramentaceous,#000000
+1072,atramentarious,#000000
+1073,black as pitch,#000000
+1074,pitchy,#000000
+1075,pitch black,#000000
+1076,pitch coloured,#000000
+1077,pitchy black,#000000
+1078,piceous,#000000
+1079,picescent,#000000
+1080,sooty,#000000
+1081,fuliginated,#000000
+1082,fuliginous,#000000
+1083,pit black,#000000
+1084,bible black,#000000
+1085,fusco piceous,#000000
+1086,brownish black,#654321
+1087,brown black,#654321
+1088,pukish,#191970
+1089,blue black,#191970
+1090,sloe black,#191970
+1091,black rimmed,#191970
+1092,blacked edged,#191970
+1093,black bordered,#191970
+1094,smutting,#000000
+1095,blackening,#000000
+1096,nigricanting,#000000
+1097,forswarted,#000000
+1098,bletchy,#000000
+1099,blackened,#000000
+1100,well blacked,#000000
+1101,collied,#000000
+1102,blacked,#000000
+1103,lamp blacked,#000000
+1104,corked,#000000
+1105,burnt corked,#000000
+1106,sootied,#000000
+1107,fire swart,#000000
+1108,charred,#000000
+1109,blackleaded,#000000
+1110,plumbagoed,#000000
+1111,unblacked,#000000
+1112,reod,#ff0000
+1113,ruddy,#ff0000
+1114,reddy,#ff0000
+1115,redly,#ff0000
+1116,gules,#ff0000
+1117,red coloured,#ff0000
+1118,guly,#ff0000
+1119,blushing,#ff0000
+1120,rubric,#ff0000
+1121,nacarine,#ff0000
+1122,minious,#ff0000
+1123,rubriform,#ff0000
+1124,carbuncly,#ff0000
+1125,blushful,#ff0000
+1126,envermeiled,#ff0000
+1127,ablush,#ff0000
+1128,flammulated,#ff0000
+1129,rubrical,#ff0000
+1130,redward,#ff0000
+1131,rubicund,#ff0000
+1132,ruddish,#ff0000
+1133,ruddyish,#ff0000
+1134,rutilous,#ff0000
+1135,flushy,#ff0000
+1136,rubescent,#ff0000
+1137,rufescent,#ff0000
+1138,rufulous,#ff0000
+1139,rufous,#a81c07
+1140,inred,#ff0000
+1141,foxy,#8b0000
+1142,angered,#ff0000
+1143,puniceous,#ff0000
+1144,vermeil,#ff0000
+1145,punic,#ff0000
+1146,orient,#ff0000
+1147,wax red,#ff0000
+1148,punical,#ff0000
+1149,coralline,#ff0000
+1150,scarleted,#ff0000
+1151,coccineous,#ff0000
+1152,cinnabrian,#ff0000
+1153,poppy coloured,#ff0000
+1154,miniaceous,#ff0000
+1155,phoeniceous,#ff0000
+1156,cherry coloured,#ff0000
+1157,coral red,#ff0000
+1158,cherried,#ff0000
+1159,punicean,#ff0000
+1160,cinnabar,#e34234
+1161,geraniumed,#ff0000
+1162,miniatous,#ff0000
+1163,vermilion coloured,#ff0000
+1164,geranium coloured,#ff0000
+1165,lobster red,#ff0000
+1166,phoenicean,#ff0000
+1167,cardinal,#c41e3a
+1168,scarlet vermilion,#ff0000
+1169,canellia red,#ff0000
+1170,miniate,#ff0000
+1171,nasturtium red,#ff0000
+1172,sealing wax red,#ff0000
+1173,bloody,#dc143c
+1174,purpurine,#800080
+1175,sanguine,#dc143c
+1176,tuly,#dc143c
+1177,murrey,#dc143c
+1178,purpure,#800080
+1179,sanguinolent,#dc143c
+1180,cramoisy,#dc143c
+1181,ruby red,#9b111e
+1182,sanguineous,#dc143c
+1183,sanguine coloured,#dc143c
+1184,blood coloured,#dc143c
+1185,rubied,#dc143c
+1186,incarnadine,#dc143c
+1187,tyrian,#dc143c
+1188,rubious,#dc143c
+1189,murrey coloured,#dc143c
+1190,haematine,#dc143c
+1191,vinaceous,#dc143c
+1192,claret coloured,#dc143c
+1193,ensanguined,#dc143c
+1194,peony,#dc143c
+1195,sanguinaceous,#dc143c
+1196,gory,#dc143c
+1197,crimsony,#dc143c
+1198,vinous,#dc143c
+1199,laky,#dc143c
+1200,grenat,#dc143c
+1201,madder,#dc143c
+1202,wine dark,#dc143c
+1203,poppy crimson,#dc143c
+1204,alizarin,#dc143c
+1205,rusty,#8b0000
+1206,hepatic,#8b0000
+1207,horse flesh,#8b0000
+1208,rubiginous,#8b0000
+1209,iron,#778899
+1210,sand red,#8b0000
+1211,ferruginous,#8b0000
+1212,lateritious,#8b0000
+1213,blood bay,#8b0000
+1214,testaceous,#b22222
+1215,rust coloured,#8b0000
+1216,brick coloured,#8b0000
+1217,rusted,#8b0000
+1218,worm red,#8b0000
+1219,rush,#8b0000
+1220,brickdust like,#8b0000
+1221,brickdusty,#8b0000
+1222,chestnut red,#8b0000
+1223,copper red,#cb6d51
+1224,bricky,#8b0000
+1225,brickish,#8b0000
+1226,fox red,#8b0000
+1227,oxblood,#800020
+1228,tony,#8b0000
+1229,mahogany red,#8b0000
+1230,roan,#ffa07a
+1231,sherry red,#ffa07a
+1232,port winey,#ffa07a
+1233,fire red,#ff4500
+1234,flame red,#ff4500
+1235,flammid,#ff4500
+1236,flammeous,#ff4500
+1237,pimento,#ff4500
+1238,pimiento,#ff4500
+1239,flame,#e25822
+1240,rosen,#ffc0cb
+1241,rosy,#ffc0cb
+1242,roseate,#ffc0cb
+1243,roset,#ffc0cb
+1244,rosing,#ffc0cb
+1245,rose coloured,#ffc0cb
+1246,rose like,#ffc0cb
+1247,roseal,#ffc0cb
+1248,rosal,#ffc0cb
+1249,rosy fingered,#ffc0cb
+1250,red rose,#ffc0cb
+1251,damask,#ffc0cb
+1252,rosied,#ff0000
+1253,damasked,#ffc0cb
+1254,roseac,#ffc0cb
+1255,rosaceous,#ffc0cb
+1256,rose tinted,#ffc0cb
+1257,blush rose,#ffc0cb
+1258,incarnate,#ffc0cb
+1259,fleshy,#ffc0cb
+1260,incarnation,#ffc0cb
+1261,pallet,#ffc0cb
+1262,bepurfurate,#ffc0cb
+1263,peachy,#ffc0cb
+1264,peach coloured,#ffc0cb
+1265,pink coloured,#ffc0cb
+1266,blush coloured,#ffc0cb
+1267,blushy,#ffc0cb
+1268,gridelin,#dda0dd
+1269,carnationed,#ff0000
+1270,carneous,#ffc0cb
+1271,peach blossom,#ffc0cb
+1272,flesh coloured,#ffc0cb
+1273,flesh colour,#ffc0cb
+1274,mushroom coloured,#ffc0cb
+1275,salmon coloured,#ffc0cb
+1276,blush tinted,#ffc0cb
+1277,flesh red,#ffc0cb
+1278,naturelle,#ffc0cb
+1279,flesh pink,#ffc0cb
+1280,lilac pink,#ffc0cb
+1281,nude,#ffc0cb
+1282,magnolia pink,#ffc0cb
+1283,salmony,#ffc0cb
+1284,magnolia,#f8f4ff
+1285,poppy pink,#ffc0cb
+1286,raspberry red,#ff0000
+1287,pomegranate,#ff0000
+1288,framboise,#ff0000
+1289,crushed raspberry,#ff0000
+1290,pink washed,#ff0000
+1291,rubent,#ff0000
+1292,reddening,#ff0000
+1293,erubescent,#ff0000
+1294,rubifying,#ff0000
+1295,rubificative,#ff0000
+1296,rubific,#ff0000
+1297,red making,#ff0000
+1298,rubified,#ff0000
+1299,reddened,#ff0000
+1300,empurpled,#800080
+1301,crimsoned,#ff0000
+1302,ruddied,#ff0000
+1303,incarnadined,#ff0000
+1304,purpured,#800080
+1305,in grain,#ff0000
+1306,purpled,#800080
+1307,engored,#ff0000
+1308,encrimsoned,#ff0000
+1309,vermeiled,#ff0000
+1310,raddled,#ff0000
+1311,ruddled,#ff0000
+1312,vermilioned,#ff0000
+1313,incrimsoned,#ff0000
+1314,incarmined,#ff0000
+1315,carmined,#ff0000
+1316,rosed,#ff0000
+1317,pinkified,#ff0000
+1318,rubricate,#ff0000
+1319,rubricated,#ff0000
+1320,rubricked,#ff0000
+1321,brazil,#ff0000
+1322,pelagian,#ff0000
+1323,verdant,#008000
+1324,verdurant,#008000
+1325,sinople,#008000
+1326,vernant,#008000
+1327,viricund,#008000
+1328,virid,#008000
+1329,virideous,#008000
+1330,virent,#008000
+1331,herbish,#008000
+1332,watchet,#add8e6
+1333,willowish,#008000
+1334,greeny,#008000
+1335,viridescent,#008000
+1336,greensome,#008000
+1337,greenery,#008000
+1338,smaragdine,#3cb371
+1339,emeraldine,#3cb371
+1340,twig green,#3cb371
+1341,steel green,#006400
+1342,corbeau,#006400
+1343,rifle green,#444c38
+1344,spinach green,#006400
+1345,malachite,#0bda51
+1346,beryl,#90ee90
+1347,water,#5f9ea0
+1348,berylline,#90ee90
+1349,chlorine,#90ee90
+1350,peppermint,#90ee90
+1351,reseda,#90ee90
+1352,lily green,#90ee90
+1353,pepperminty,#90ee90
+1354,grassy,#7cfc00
+1355,prasine,#3cb371
+1356,leeky,#3cb371
+1357,leekish,#3cb371
+1358,porraceous,#3cb371
+1359,leek green,#3cb371
+1360,gaudy green,#9acd32
+1361,gosling colour,#9acd32
+1362,gosling green,#9acd32
+1363,chrysoprase,#9acd32
+1364,tilleul,#9acd32
+1365,olive coloured,#bdb76b
+1366,olivaceous,#9acd32
+1367,olive greenish,#9acd32
+1368,olivescent,#9acd32
+1369,glaucy,#20b2aa
+1370,wave green,#20b2aa
+1371,aeruginous,#008000
+1372,glaucous,#6082b6
+1373,eruginary,#20b2aa
+1374,verdazurine,#20b2aa
+1375,caesious,#20b2aa
+1376,verditer,#40e0d0
+1377,verd asure,#20b2aa
+1378,verdigrisy,#20b2aa
+1379,glass,#20b2aa
+1380,sage coloured,#20b2aa
+1381,sage greeny,#20b2aa
+1382,beech green,#008000
+1383,viper green,#008000
+1384,lettuce green,#008000
+1385,kendal green,#008000
+1386,lizard green,#008000
+1387,greening,#008000
+1388,virescent,#008000
+1389,greenable,#008000
+1390,chlorophyllous,#008000
+1391,chlorophyllian,#008000
+1392,chlorophyllaceous,#008000
+1393,verdigris,#43b3ae
+1394,blayk,#ffff00
+1395,jaune,#ffff00
+1396,flaw,#ffff00
+1397,jaundiced,#ffff00
+1398,flaxed,#ffff00
+1399,flave,#ffff00
+1400,flavous,#ffff00
+1401,blake,#ffff00
+1402,gambogian,#ffff00
+1403,saffronish,#ffff00
+1404,jaunish,#ffff00
+1405,sanded,#ffff00
+1406,saffrony,#ffff00
+1407,yellowy,#ffff00
+1408,sallow,#ffff00
+1409,sallowish,#ffff00
+1410,flavescent,#ffff00
+1411,sandyish,#ffff00
+1412,flavicant,#ffff00
+1413,chromy,#ffff00
+1414,sunnish,#ffff00
+1415,sunny,#ffff00
+1416,buttercup,#ffff00
+1417,nasturtium yellow,#ffff00
+1418,topazine,#ffd700
+1419,topaz tinted,#ffd700
+1420,topas coloured,#ffd700
+1421,gull,#ffffe0
+1422,palew,#ffffe0
+1423,straw coloured,#ffffe0
+1424,branlie,#ffffe0
+1425,straw colour,#ffffe0
+1426,flaxy,#ffffe0
+1427,festucine,#ffffe0
+1428,sulphureous,#ffffe0
+1429,flaxenish,#ffffe0
+1430,strawy,#ffffe0
+1431,straw yellow,#ffffe0
+1432,bomycinous,#ffffe0
+1433,sulphur coloured,#ffffe0
+1434,sherry yellow,#ffffe0
+1435,sulphur yellow,#ffffe0
+1436,bombasic,#ffffe0
+1437,wax coloured,#ffffe0
+1438,stramineous,#ffffe0
+1439,maize coloured,#ffffe0
+1440,daffodil,#ffffe0
+1441,daw,#ffffe0
+1442,flax,#eedc82
+1443,sherry coloured,#ffffe0
+1444,mastic,#ffffe0
+1445,sulpho chromic,#ffffe0
+1446,ochroid,#ffffe0
+1447,wheat coloured,#ffffe0
+1448,sulphurous,#ffffe0
+1449,sulphury,#ffffe0
+1450,tea rose,#f88379
+1451,straw pale,#ffffe0
+1452,subcitrine,#ffffe0
+1453,citrine,#e4d00a
+1454,citron coloured,#ffffe0
+1455,primrose coloured,#ffffe0
+1456,lemon coloured,#ffffe0
+1457,primrose,#ffffe0
+1458,citron hued,#ffffe0
+1459,primrosy,#ffffe0
+1460,citron,#9fa91f
+1461,dory,#ffd700
+1462,goldish,#ffd700
+1463,goldly,#ffd700
+1464,aureate,#ffd700
+1465,goldy,#ffd700
+1466,gilden,#ffd700
+1467,scorn gold,#ffd700
+1468,pactolian,#ffd700
+1469,aureal,#ffd700
+1470,gilded,#ffd700
+1471,gold coloured,#ffd700
+1472,spun gold,#ffd700
+1473,aurulent,#ffd700
+1474,aurelian,#ffd700
+1475,deaurated,#ffd700
+1476,tuscan,#fad6a5
+1477,corn coloured,#ffd700
+1478,aureoline,#ffd700
+1479,tuscan coloured,#ffd700
+1480,guinea gold,#ffd700
+1481,spun golden,#ffd700
+1482,brazen,#ffd700
+1483,brassy,#ffd700
+1484,aeneous,#ffd700
+1485,brass coloured,#ffd700
+1486,red yellow,#ffdab9
+1487,red gold,#ffdab9
+1488,saffron hued,#ffdab9
+1489,saffron coloured,#ffdab9
+1490,crocean,#ffdab9
+1491,croceal,#ffdab9
+1492,croceous,#ffdab9
+1493,croceate,#ffdab9
+1494,saffronic,#ffdab9
+1495,fallow,#c19a6b
+1496,favel,#ffdab9
+1497,fulvid,#ffdab9
+1498,fulve,#ffdab9
+1499,fulvous,#e48400
+1500,fallow coloured,#ffdab9
+1501,flavid,#ffdab9
+1502,fox coloured,#ffdab9
+1503,fulvescent,#ffdab9
+1504,meline,#f0e68c
+1505,gangrenous,#f0e68c
+1506,greenery yallery,#f0e68c
+1507,ochry,#bdb76b
+1508,sand coloured,#bdb76b
+1509,shammy,#bdb76b
+1510,buff coloured,#bdb76b
+1511,ochreish,#bdb76b
+1512,ochreous,#bdb76b
+1513,ochraceous,#bdb76b
+1514,buff colour,#bdb76b
+1515,buffish,#bdb76b
+1516,mustard coloured,#bdb76b
+1517,nankeen,#bdb76b
+1518,buffy,#bdb76b
+1519,ochre coloured,#bdb76b
+1520,mustardy,#bdb76b
+1521,ochrous,#bdb76b
+1522,buff yellow,#bdb76b
+1523,buff washed,#bdb76b
+1524,sahara,#daa520
+1525,wheaten,#bdb76b
+1526,pinkish yellow,#ffefd5
+1527,champagne,#f7e7ce
+1528,greyish yellow,#bdb76b
+1529,vitelline,#ffa07a
+1530,luteous,#ffa07a
+1531,orange buff,#ffa07a
+1532,honey yellow,#ffff00
+1533,gamboge,#e49b0f
+1534,honey gold,#ffff00
+1535,lily yellow,#ffff00
+1536,apple yellow,#ffff00
+1537,butter coloured,#ffff00
+1538,mimosa,#ffff00
+1539,yellowing,#ffff00
+1540,saffroned,#ffff00
+1541,saffred,#ffff00
+1542,yellowed,#ffff00
+1543,xanthophyllic,#ffff00
+1544,turner,#ffff00
+1545,inde,#0000ff
+1546,blae,#1e90ff
+1547,glawke,#5f9ea0
+1548,blusih,#0000ff
+1549,azury,#0000ff
+1550,bluey,#0000ff
+1551,blue bleak,#0000ff
+1552,sapphirine,#00ffff
+1553,sapphire hued,#00ffff
+1554,sapphire coloured,#00ffff
+1555,sapphiric,#00ffff
+1556,sapphire blue,#0067a5
+1557,pirate blue,#00ffff
+1558,blue brilliant,#00ffff
+1559,blewebis,#00008b
+1560,sloe blue,#00008b
+1561,oxford blue,#002147
+1562,coal blue,#00008b
+1563,lead blue,#00008b
+1564,azurine,#add8e6
+1565,watchet coloured,#add8e6
+1566,watercoloured,#add8e6
+1567,eton blue,#96c8a2
+1568,opal blue,#add8e6
+1569,watchet hued,#add8e6
+1570,azured,#0000ff
+1571,sky colour,#87ceeb
+1572,sky coloured,#87ceeb
+1573,ceruleous,#87ceeb
+1574,cerule,#87ceeb
+1575,sky like,#87ceeb
+1576,ceruleal,#87ceeb
+1577,azurne,#87ceeb
+1578,cerulous,#87ceeb
+1579,lazure,#87ceeb
+1580,skyey,#87ceeb
+1581,azure blue,#87ceeb
+1582,cerulescent,#87ceeb
+1583,azurean,#87ceeb
+1584,pavonaceous,#40e0d0
+1585,peacock,#40e0d0
+1586,plunket,#5f9ea0
+1587,perse,#5f9ea0
+1588,iron blue,#5f9ea0
+1589,smoke blue,#5f9ea0
+1590,gunpowder,#5f9ea0
+1591,slaty blue,#5f9ea0
+1592,silurian,#5f9ea0
+1593,hyacinthine,#7b68ee
+1594,violaceous,#7b68ee
+1595,violacean,#7b68ee
+1596,lilac blue,#7b68ee
+1597,hyacinthian,#7b68ee
+1598,hyacinth,#ff4500
+1599,metallic,#4682b4
+1600,chalybeous,#4682b4
+1601,wan,#708090
+1602,blo,#1e90ff
+1603,haw,#1e90ff
+1604,livid,#6699cc
+1605,lividous,#1e90ff
+1606,blue in the face,#1e90ff
+1607,swart,#0000cd
+1608,mourning,#0000ff
+1609,beryl blue,#0000ff
+1610,wedgwood,#0000ff
+1611,scale blue,#0000ff
+1612,whale blue,#0000ff
+1613,ceruleated,#0000ff
+1614,sapphired,#0000ff
+1615,blue washed,#0000ff
+1616,cerulific,#0000ff
+1617,ultramarinish,#0000ff
+1618,indigotic,#0000ff
+1619,brown coloured,#a52a2a
+1620,browny,#a52a2a
+1621,brownish coloured,#a52a2a
+1622,burnet,#a0522d
+1623,fusk,#a0522d
+1624,fusky,#a0522d
+1625,chocolate coloured,#a0522d
+1626,brunneous,#a0522d
+1627,ustulate,#a0522d
+1628,scorched,#a0522d
+1629,fuscescent,#a0522d
+1630,forest brown,#a0522d
+1631,burnt coloured,#a0522d
+1632,jacobean,#a0522d
+1633,whited brown,#deb887
+1634,whitey brown,#deb887
+1635,coffee coloured,#deb887
+1636,dust coloured,#deb887
+1637,ochre brown,#deb887
+1638,blonde,#deb887
+1639,mousy,#deb887
+1640,toast coloured,#deb887
+1641,dun,#cd853f
+1642,dunned,#cd853f
+1643,dunny,#cd853f
+1644,dunnish,#cd853f
+1645,drab coloured,#cd853f
+1646,sorrel,#b22222
+1647,berry brown,#b22222
+1648,sored,#b22222
+1649,russetish,#b22222
+1650,chelidonian,#b22222
+1651,weaselled coloured,#b22222
+1652,deer coloured,#b22222
+1653,spadiceous,#b22222
+1654,russeted,#b22222
+1655,russety,#b22222
+1656,fusco testaceous,#b22222
+1657,mahogany brown,#b22222
+1658,persimmon,#ec5800
+1659,nut brown,#b22222
+1660,chestnut coloured,#b22222
+1661,hazeled,#b22222
+1662,chestnut brown,#b22222
+1663,castaneous,#b22222
+1664,nutty brown,#b22222
+1665,chestnutty,#b22222
+1666,nutmeg,#b22222
+1667,liver hued,#b22222
+1668,liver coloured,#b22222
+1669,liver,#674c47
+1670,beveren,#b22222
+1671,beaver hued,#b22222
+1672,beaver coloured,#b22222
+1673,musk colour,#b22222
+1674,musk coloured,#b22222
+1675,copper coloured,#b22222
+1676,copperish,#b22222
+1677,coppery,#b22222
+1678,cupreous,#b22222
+1679,copper brown,#b22222
+1680,bayard,#b22222
+1681,bay,#b22222
+1682,bayed,#b22222
+1683,bay coloured,#b22222
+1684,bullace bay,#b22222
+1685,bayish,#b22222
+1686,bay brown,#b22222
+1687,brown bay,#b22222
+1688,honey coloured,#daa520
+1689,cinnamon coloured,#daa520
+1690,lurid,#daa520
+1691,rhubarb,#daa520
+1692,tomabac brown,#daa520
+1693,sherry bay,#daa520
+1694,khaki coloured,#daa520
+1695,rhubarby,#daa520
+1696,crotal,#daa520
+1697,brown gold,#daa520
+1698,safari,#daa520
+1699,mud coloured,#696969
+1700,smoke brown,#696969
+1701,mud colour,#696969
+1702,lead brown,#696969
+1703,bluish brown,#bc8f8f
+1704,damson brown,#bc8f8f
+1705,lavender brown,#bc8f8f
+1706,bronzine,#b8860b
+1707,bronzy,#b8860b
+1708,bronze golden,#b8860b
+1709,wainscot,#a52a2a
+1710,turd coloured,#a52a2a
+1711,honey brown,#a52a2a
+1712,snuff coloured,#a52a2a
+1713,snuffy,#a52a2a
+1714,moorit,#a52a2a
+1715,umbery,#a52a2a
+1716,sienna brown,#a52a2a
+1717,oily brown,#a52a2a
+1718,seal brown,#59260b
+1719,tabac,#a52a2a
+1720,glandaceous,#a52a2a
+1721,cigar brown,#a52a2a
+1722,bead brown,#a52a2a
+1723,toffee brown,#a52a2a
+1724,toffee,#a52a2a
+1725,sludgy,#a52a2a
+1726,browning,#a52a2a
+1727,embrowning,#a52a2a
+1728,umbered,#a52a2a
+1729,well browned,#a52a2a
+1730,embrowned,#a52a2a
+1731,browned,#a52a2a
+1732,adusted,#a52a2a
+1733,sunburnt,#a52a2a
+1734,staneraw,#a52a2a
+1735,bistred,#a52a2a
+1736,russeting,#a52a2a
+1737,bronzing,#a52a2a
+1738,bronzed,#a52a2a
+1739,gris,#808080
+1740,grizzle,#808080
+1741,grison,#808080
+1742,kennet colour,#808080
+1743,grisy,#808080
+1744,grizzly,#808080
+1745,grisard,#808080
+1746,grysande,#808080
+1747,grizzlish,#808080
+1748,slaty,#5f9ea0
+1749,peppery,#808080
+1750,sabelline,#a9a9a9
+1751,shadow grey,#a9a9a9
+1752,walnyed,#d3d3d3
+1753,canvas,#d3d3d3
+1754,hoar,#dcdcdc
+1755,for hoar,#dcdcdc
+1756,hoarsih,#dcdcdc
+1757,hoary,#dcdcdc
+1758,incanescent,#dcdcdc
+1759,crane,#696969
+1760,crane coloured,#696969
+1761,crane feather,#696969
+1762,ash colour,#696969
+1763,subcineritious,#696969
+1764,cinereous,#98817b
+1765,cinereal,#696969
+1766,smoky,#f5f5f5
+1767,smoked,#f5f5f5
+1768,smoke,#f5f5f5
+1769,iron grey,#778899
+1770,steely,#778899
+1771,leaden,#708090
+1772,leasih,#708090
+1773,leady,#708090
+1774,plumby,#708090
+1775,plumbine,#708090
+1776,leaden coloured,#708090
+1777,lead coloured,#708090
+1778,plumbean,#708090
+1779,plumbeous,#708090
+1780,lead grey,#708090
+1781,leaden hued,#708090
+1782,quaker coloured,#696969
+1783,prison grey,#696969
+1784,flinty,#696969
+1785,pearl coloured,#fff5ee
+1786,pearl shell,#fff5ee
+1787,pearl,#fff5ee
+1788,pearled,#fff5ee
+1789,pearl hued,#fff5ee
+1790,pearlish,#fff5ee
+1791,pewter,#c0c0c0
+1792,mouse coloured,#bdb76b
+1793,mouse colour,#bdb76b
+1794,mouse dun,#bdb76b
+1795,putty coloured,#bdb76b
+1796,beige coloured,#bdb76b
+1797,greige,#bdb76b
+1798,bice,#696969
+1799,butter nut,#696969
+1800,stone coloured,#696969
+1801,ficelle coloured,#696969
+1802,oatmeal,#696969
+1803,moleskin coloured,#696969
+1804,browny grey,#696969
+1805,mole grey,#696969
+1806,mole,#696969
+1807,stony,#696969
+1808,waterish,#5f9ea0
+1809,blunket,#5f9ea0
+1810,slate coloured,#5f9ea0
+1811,griseous,#5f9ea0
+1812,neutral,#5f9ea0
+1813,schistous,#5f9ea0
+1814,slatish,#5f9ea0
+1815,comumbine,#e6e6fa
+1816,columbe,#e6e6fa
+1817,dove colour,#e6e6fa
+1818,dove coloured,#e6e6fa
+1819,lavender grey,#e6e6fa
+1820,lilac grey,#e6e6fa
+1821,dove,#e6e6fa
+1822,pinko grey,#e6e6fa
+1823,pearl grey,#fff5ee
+1824,elephant,#808080
+1825,desert grey,#808080
+1826,greying,#808080
+1827,purpurate,#800080
+1828,purple coloured,#800080
+1829,porphyrite,#800080
+1830,purpurean,#800080
+1831,blattean,#800080
+1832,purpureal,#800080
+1833,porphyrous,#800080
+1834,babylonian,#800080
+1835,jacinthinous,#8b008b
+1836,damson,#8b008b
+1837,lilac coloured,#dda0dd
+1838,lilac tinted,#dda0dd
+1839,lilaceous,#dda0dd
+1840,lilacky,#dda0dd
+1841,lilac purple,#dda0dd
+1842,prune coloured,#ff00ff
+1843,prune dark,#ff00ff
+1844,puce coloured,#800000
+1845,violet coloured,#8a2be2
+1846,ianthine,#8a2be2
+1847,amethystine,#8a2be2
+1848,pansy purple,#78184a
+1849,violety,#8a2be2
+1850,violescent,#8a2be2
+1851,violetish,#8a2be2
+1852,pansy coloured,#8a2be2
+1853,mulberry coloured,#800080
+1854,plum coloured,#800080
+1855,mauve colour,#800080
+1856,mauve coloured,#800080
+1857,amarantine,#800080
+1858,mauvish,#800080
+1859,pontifical,#800080
+1860,plummy,#800080
+1861,petunia,#800080
+1862,palatinate,#800080
+1863,empurpling,#800080
+1864,meliboean,#800080
+1865,oranged,#ffa500
+1866,orange coloured,#ffa500
+1867,orange tawny,#ffa500
+1868,orangey,#ffa500
+1869,flame coloured,#ff6347
+1870,tangerine coloured,#ff8c00
+1871,gingerish,#ffe4b5
+1872,hennaed,#d2691e
+1873,shadow,#8a795d
+1874,absolute zero,#0048ba
+1875,aero,#7cb9e8
+1876,aero blue,#c9ffe5
+1877,african violet,#b284be
+1878,air superiority blue,#72a0c1
+1879,alice blue,#f0f8ff
+1880,alloy orange,#c46210
+1881,almond,#efdecd
+1882,amaranth,#e52b50
+1883,amaranth pink,#f19cbb
+1884,amaranth purple,#ab274f
+1885,amaranth red,#d3212d
+1886,amazon,#3b7a57
+1887,android green,#a4c639
+1888,antique brass,#cd9575
+1889,antique bronze,#665d1e
+1890,antique fuchsia,#915c83
+1891,antique ruby,#841b2d
+1892,antique white,#faebd7
+1893,arctic lime,#d0ff14
+1894,artichoke,#8f9779
+1895,arylide yellow,#e9d66b
+1896,ash gray,#b2beb5
+1897,atomic tangerine,#ff9966
+1898,aureolin,#fdee00
+1899,baby blue eyes,#a1caf1
+1900,baby powder,#fefefa
+1901,baker miller pink,#ff91af
+1902,banana mania,#fbe7b2
+1903,barn red,#7c0a02
+1904,beau blue,#bcd4e6
+1905,beaver,#9f8170
+1906,bedazzled blue,#2e5894
+1907,big dip o’ruby,#9c2542
+1908,bisque,#ffe4c4
+1909,bistre,#3d2b1f
+1910,bistre brown,#967117
+1911,bitter lemon,#cae00d
+1912,bitter lime,#bfff00
+1913,bittersweet,#fe6f5e
+1914,bittersweet shimmer,#bf4f51
+1915,black bean,#3d0c02
+1916,black chocolate,#1b1811
+1917,black coffee,#3b2f2f
+1918,black coral,#54626f
+1919,black olive,#3b3c36
+1920,black shadows,#bfafb2
+1921,blanched almond,#ffebcd
+1922,blast off bronze,#a57164
+1923,bleu de france,#318ce7
+1924,blizzard blue,#ace5ee
+1925,blond,#faf0be
+1926,blue bell,#a2a2d0
+1927,blue gray,#c8c8cd
+1928,blue jeans,#5dadec
+1929,blue sapphire,#126180
+1930,blue yonder,#5072a7
+1931,bluetiful,#3c69e7
+1932,bole,#79443b
+1933,brandy,#87413f
+1934,bright maroon,#c32148
+1935,bright navy blue,#1974d2
+1936,brilliant rose,#ff55a3
+1937,brink pink,#fb607f
+1938,brown sugar,#af6e4d
+1939,brunswick green,#1b4d3e
+1940,bud green,#7bb661
+1941,burlywood,#deb887
+1942,burnished brown,#a17a74
+1943,byzantine,#bd33a4
+1944,byzantium,#702963
+1945,cadet,#536872
+1946,cadet grey,#91a3b0
+1947,cadmium green,#006b3c
+1948,cadmium orange,#ed872d
+1949,cadmium red,#e30022
+1950,cadmium yellow,#fff600
+1951,café au lait,#a67b5b
+1952,café noir,#4b3621
+1953,cambridge blue,#a3c1ad
+1954,cameo pink,#efbbcc
+1955,candy apple red,#ff0800
+1956,capri,#00bfff
+1957,caput mortuum,#592720
+1958,caribbean green,#00cc99
+1959,carnelian,#b31b1b
+1960,carrot orange,#ed9121
+1961,castleton green,#00563f
+1962,catawba,#703642
+1963,cedar chest,#c95a49
+1964,celadon blue,#007ba7
+1965,celadon green,#2f847c
+1966,celeste,#b2ffff
+1967,celestial blue,#7070cc
+1968,celtic blue,#246bce
+1969,cerulean frost,#6d9bc3
+1970,cg blue,#007aa5
+1971,cg red,#e03c31
+1972,champagne pink,#f1ddcf
+1973,charcoal gray,#736a62
+1974,charleston green,#232b2b
+1975,charm pink,#e68fac
+1976,cherry blossom pink,#ffb7c5
+1977,china pink,#de6fa1
+1978,china rose,#a8516e
+1979,chinese red,#aa381e
+1980,chinese violet,#856088
+1981,chinese yellow,#ffb200
+1982,chrome yellow,#ffa700
+1983,cinnamon satin,#cd607e
+1984,cocoa brown,#d2691e
+1985,columbia blue,#b9d9eb
+1986,congo pink,#f88379
+1987,copper penny,#ad6f69
+1988,copper rose,#996666
+1989,coquelicot,#ff3800
+1990,cordovan,#893f45
+1991,corn,#fbec5d
+1992,cornsilk,#fff8dc
+1993,cosmic cobalt,#2e2d88
+1994,cosmic latte,#fff8e7
+1995,cotton candy,#ffbcd9
+1996,coyote brown,#81613c
+1997,cultured,#f5f5f5
+1998,cyber grape,#58427c
+1999,cyber yellow,#ffd300
+2000,cyclamen,#f56fa1
+2001,dark blue gray,#666699
+2002,dark byzantium,#5d3954
+2003,dark cornflower blue,#26428b
+2004,dark electric blue,#536878
+2005,dark goldenrod,#b8860b
+2006,dark jungle green,#1a2421
+2007,dark lava,#483c32
+2008,dark liver,#534b4f
+2009,dark moss green,#4a5d23
+2010,dark orchid,#9932cc
+2011,dark sienna,#3c1414
+2012,dark slate gray,#2f4f4f
+2013,dark spring green,#177245
+2014,dark venetian red,#b33b24
+2015,dartmouth green,#00703c
+2016,davy's grey,#555555
+2017,deep cerise,#da3287
+2018,deep champagne,#fad6a5
+2019,deep chestnut,#b94e48
+2020,deep jungle green,#004b49
+2021,deep saffron,#ff9933
+2022,deep space sparkle,#4a646c
+2023,deep taupe,#7e5e60
+2024,desert sand,#edc9af
+2025,dim gray,#696969
+2026,dogwood rose,#d71868
+2027,duke blue,#00009c
+2028,dutch white,#efdfbb
+2029,earth yellow,#e1a95f
+2030,ebony,#555d50
+2031,eerie black,#1b1b1b
+2032,egyptian blue,#1034a6
+2033,electric indigo,#6f00ff
+2034,electric violet,#8f00ff
+2035,eminence,#6c3082
+2036,english green,#1b4d3e
+2037,english lavender,#b48395
+2038,english red,#ab4b52
+2039,english vermilion,#cc474b
+2040,english vermillion,#cc474b
+2041,english violet,#563c5c
+2042,erin,#00ff40
+2043,falu red,#801818
+2044,fandango,#b53389
+2045,fandango pink,#de5285
+2046,fashion fuchsia,#f400a1
+2047,feldgrau,#4d5d53
+2048,field drab,#6c541e
+2049,fiery rose,#ff5470
+2050,fire opal,#e95c4b
+2051,firebrick,#b22222
+2052,flickr blue,#0063dc
+2053,flickr pink,#fb0081
+2054,flirt,#a2006d
+2055,floral white,#fffaf0
+2056,fluorescent blue,#15f4ee
+2057,french beige,#a67b5b
+2058,french bistre,#856d4d
+2059,french fuchsia,#fd3f92
+2060,french lilac,#86608e
+2061,french lime,#9efd38
+2062,french mauve,#d473d4
+2063,french pink,#fd6c9e
+2064,french raspberry,#c72c48
+2065,french rose,#f64a8a
+2066,french sky blue,#77b5fe
+2067,french violet,#8806ce
+2068,frostbite,#e936a7
+2069,fuchsia purple,#cc397b
+2070,fuchsia rose,#c74375
+2071,fuzzy wuzzy,#cc6666
+2072,gainsboro,#dcdcdc
+2073,generic viridian,#007f66
+2074,ghost white,#f8f8ff
+2075,glossy grape,#ab92b3
+2076,go green,#00ab66
+2077,gold fusion,#85754e
+2078,golden poppy,#fcc200
+2079,granite gray,#676767
+2080,granny smith apple,#a8e4a0
+2081,gray,#8b8680
+2082,green cyan,#009966
+2083,green lizard,#a7f432
+2084,green sheen,#6eaea1
+2085,grullo,#a99a86
+2086,han blue,#446ccf
+2087,han purple,#5218fa
+2088,hansa yellow,#e9d66b
+2089,harlequin,#3fff00
+2090,harvest gold,#da9100
+2091,heat wave,#ff7a00
+2092,heliotrope gray,#aa98a9
+2093,hollywood cerise,#f400a1
+2094,honeydew,#f0fff0
+2095,honolulu blue,#006db0
+2096,hooker's green,#49796b
+2097,iceberg,#71a6d2
+2098,icterine,#fcf75e
+2099,illuminating emerald,#319177
+2100,imperial red,#ed2939
+2101,inchworm,#b2ec5d
+2102,independence,#4c516d
+2103,india green,#138808
+2104,indian yellow,#e3a857
+2105,indigo dye,#00416a
+2106,international klein blue,#002fa7
+2107,irresistible,#b3446c
+2108,isabelline,#f4f0ec
+2109,italian sky blue,#b2ffff
+2110,jasmine,#f8de7e
+2111,jazzberry jam,#a50b5e
+2112,jonquil,#f4ca16
+2113,june bud,#bdda57
+2114,keppel,#3ab09e
+2115,kobe,#882d17
+2116,kobi,#e79fc4
+2117,kobicha,#6b4423
+2118,kombu green,#354230
+2119,ksu purple,#512888
+2120,languid lavender,#d6cadd
+2121,lapis lazuli,#26619c
+2122,laser lemon,#ffff66
+2123,laurel green,#a9ba9d
+2124,lava,#cf1020
+2125,lavender blush,#fff0f5
+2126,lavender gray,#c4c3d0
+2127,lemon chiffon,#fffacd
+2128,lemon curry,#cca01d
+2129,lemon glacier,#fdff00
+2130,lemon meringue,#f6eabe
+2131,liberty,#545aa7
+2132,light chrome green,#bee64b
+2133,light coral,#f08080
+2134,light cornflower blue,#93ccea
+2135,light french beige,#c8ad7f
+2136,light goldenrod yellow,#fafad2
+2137,light gray,#d3d3d3
+2138,light slate gray,#778899
+2139,light steel blue,#b0c4de
+2140,light venetian red,#e6735c
+2141,lilac luster,#ae98aa
+2142,lincoln green,#195905
+2143,linen,#faf0e6
+2144,lion,#c19a6b
+2145,liseran purple,#de6fa1
+2146,little boy blue,#6ca0dc
+2147,liver chestnut,#987456
+2148,madder lake,#cc3336
+2149,magenta haze,#9f4576
+2150,magic mint,#aaf0d1
+2151,majorelle blue,#6050dc
+2152,manatee,#979aaa
+2153,mandarin,#f37a48
+2154,mango tango,#ff8243
+2155,mantis,#74c365
+2156,mardi gras,#880085
+2157,mauve taupe,#915f6d
+2158,mauvelous,#f091a9
+2159,maximum blue,#47abcc
+2160,maximum blue green,#30bfbf
+2161,maximum blue purple,#acace6
+2162,maximum green,#5e8c31
+2163,maximum green yellow,#d9e650
+2164,maximum purple,#733380
+2165,maximum red,#d92121
+2166,maximum red purple,#a63a79
+2167,maximum yellow,#fafa37
+2168,maximum yellow red,#f2ba49
+2169,may green,#4c9141
+2170,maya blue,#73c2fb
+2171,medium aquamarine,#66ddaa
+2172,medium candy apple red,#e2062c
+2173,medium carmine,#af4035
+2174,medium champagne,#f3e5ab
+2175,medium chrome green,#6ca67c
+2176,medium orchid,#ba55d3
+2177,medium rose,#d96cbe
+2178,medium sea green,#3cb371
+2179,medium slate blue,#7b68ee
+2180,medium spring green,#00fa9a
+2181,medium turquoise,#48d1cc
+2182,medium violet,#8f47b3
+2183,medium violet red,#c71585
+2184,mellow apricot,#f8b878
+2185,mellow yellow,#f8de7e
+2186,metallic gold,#d3af37
+2187,metallic seaweed,#0a7e8c
+2188,metallic sunburst,#9c7c38
+2189,mexican pink,#e4007c
+2190,middle blue,#7ed4e6
+2191,middle blue green,#8dd9cc
+2192,middle blue purple,#8b72be
+2193,middle green,#4d8c57
+2194,middle green yellow,#acbf60
+2195,middle grey,#8b8680
+2196,middle purple,#d982b5
+2197,middle red,#e58e73
+2198,middle red purple,#a55353
+2199,middle yellow,#ffeb00
+2200,middle yellow red,#ecb176
+2201,mikado yellow,#ffc40c
+2202,mimi pink,#ffdae9
+2203,mindaro,#e3f988
+2204,ming,#36747d
+2205,minion yellow,#f5e050
+2206,mint cream,#f5fffa
+2207,misty moss,#bbb477
+2208,misty rose,#ffe4e1
+2209,mode beige,#967117
+2210,morning blue,#8da399
+2211,mountain meadow,#30ba8f
+2212,mountbatten pink,#997a8d
+2213,msu green,#18453b
+2214,myrtle green,#317873
+2215,mystic,#d65282
+2216,mystic maroon,#ad4379
+2217,nadeshiko pink,#f6adc6
+2218,naples yellow,#fada5e
+2219,navajo white,#ffdead
+2220,new york pink,#d7837f
+2221,nickel,#727472
+2222,non photo blue,#a4dded
+2223,nyanza,#e9ffdb
+2224,old burgundy,#43302e
+2225,old gold,#cfb53b
+2226,old lace,#fdf5e6
+2227,old lavender,#796878
+2228,old mauve,#673147
+2229,old silver,#848482
+2230,olivine,#9ab973
+2231,onyx,#353839
+2232,opal,#a8c3bc
+2233,opera mauve,#b784a7
+2234,orange peel,#ff9f00
+2235,orange soda,#fa5b3d
+2236,orchid pink,#f2bdcd
+2237,ou crimson red,#841617
+2238,outer space,#2d383a
+2239,outrageous orange,#ff6e4a
+2240,pacific blue,#1ca9c9
+2241,pakistan green,#006600
+2242,palatinate purple,#682860
+2243,pale cerulean,#9bc4e2
+2244,pale silver,#c9c0bb
+2245,pale spring bud,#ecebbd
+2246,paolo veronese green,#009b7d
+2247,papaya whip,#ffefd5
+2248,paradise pink,#e63e62
+2249,paris green,#50c878
+2250,patriarch,#800080
+2251,payne's grey,#536878
+2252,peach puff,#ffdab9
+2253,pearly purple,#b768a2
+2254,permanent geranium lake,#e12c2c
+2255,persian blue,#1c39bb
+2256,persian green,#00a693
+2257,persian indigo,#32127a
+2258,persian orange,#d99058
+2259,persian pink,#f77fbe
+2260,persian plum,#701c1c
+2261,persian red,#cc3333
+2262,persian rose,#fe28a2
+2263,pewter blue,#8ba8b7
+2264,phlox,#df00ff
+2265,phthalo blue,#000f89
+2266,phthalo green,#123524
+2267,picotee blue,#2e2787
+2268,pictorial carmine,#c30b4e
+2269,piggy pink,#fddde6
+2270,pine tree,#2a2f23
+2271,pink flamingo,#fc74fd
+2272,pink lace,#ffddf4
+2273,pink lavender,#d8b2d1
+2274,pink sherbert,#f7a38e
+2275,pink sherbet,#f78fa7
+2276,platinum,#e5e4e2
+2277,plump purple,#5946b2
+2278,polished pine,#5da493
+2279,pomp and power,#86608e
+2280,popstar,#be4f62
+2281,portland orange,#ff5a36
+2282,princeton orange,#f58025
+2283,prune,#701c1c
+2284,psychedelic purple,#df00ff
+2285,purple heart,#652dc1
+2286,purple mountain majesty,#9678b6
+2287,purple mountains' majesty,#d6aedd
+2288,purple navy,#4e5180
+2289,purple pizzazz,#fe4eda
+2290,purple plum,#9c51b6
+2291,purpureus,#9a4eae
+2292,queen blue,#436b95
+2293,queen pink,#e8ccd7
+2294,quick silver,#a6a6a6
+2295,quinacridone magenta,#8e3a59
+2296,radical red,#ff355e
+2297,raisin black,#242124
+2298,rajah,#fbab60
+2299,raspberry glace,#915f6d
+2300,raspberry rose,#b3446c
+2301,razzle dazzle rose,#ff33cc
+2302,razzmatazz,#e3256b
+2303,razzmic berry,#8d4e85
+2304,rebecca purple,#663399
+2305,red salsa,#fd3a4a
+2306,redwood,#a45a52
+2307,resolution blue,#002387
+2308,rhythm,#777696
+2309,rich black,#004040
+2310,rocket metallic,#8a7f80
+2311,roman silver,#838996
+2312,rose bonbon,#f9429e
+2313,rose dust,#9e5e6f
+2314,rose ebony,#674846
+2315,rose madder,#e32636
+2316,rose quartz,#aa98a9
+2317,rose taupe,#905d5d
+2318,rose vale,#ab4e52
+2319,rosewood,#65000b
+2320,rosso corsa,#d40000
+2321,rosy brown,#bc8f8f
+2322,royal yellow,#fada5e
+2323,ruber,#ce4676
+2324,rubine red,#d10056
+2325,russian green,#679267
+2326,russian violet,#32174d
+2327,sacramento state green,#043927
+2328,saddle brown,#8b4513
+2329,safety orange,#ff7800
+2330,safety yellow,#eed202
+2331,sand dune,#967117
+2332,satin sheen gold,#cba135
+2333,schauss pink,#ff91af
+2334,school bus yellow,#ffd800
+2335,screamin' green,#66ff66
+2336,seashell,#fff5ee
+2337,selective yellow,#ffba00
+2338,shadow blue,#778ba5
+2339,sheen green,#8fd400
+2340,shimmering blush,#d98695
+2341,shiny shamrock,#5fa778
+2342,silver chalice,#acacac
+2343,silver pink,#c4aead
+2344,silver sand,#bfc1c2
+2345,sinopia,#cb410b
+2346,sizzling red,#ff3855
+2347,sizzling sunrise,#ffdb00
+2348,skobeloff,#007474
+2349,sky magenta,#cf71af
+2350,slate gray,#708090
+2351,slimy green,#299617
+2352,smitten,#c84186
+2353,smoky black,#100c08
+2354,solid pink,#893843
+2355,sonic silver,#757575
+2356,space cadet,#1d2951
+2357,spanish bistre,#807532
+2358,spanish blue,#0070b8
+2359,spanish carmine,#d10047
+2360,spanish gray,#989898
+2361,spanish green,#009150
+2362,spanish orange,#e86100
+2363,spanish pink,#f7bfbe
+2364,spanish red,#e60026
+2365,spanish sky blue,#00ffff
+2366,spanish violet,#4c2882
+2367,spanish viridian,#007f5c
+2368,spring bud,#a7fc00
+2369,spring frost,#87ff2a
+2370,st. patrick's blue,#23297a
+2371,star command blue,#007bb8
+2372,steel pink,#cc33cc
+2373,steel teal,#5f8a8b
+2374,stil de grain yellow,#fada5e
+2375,sugar plum,#914e75
+2376,sunglow,#ffcc33
+2377,sunray,#e3ab57
+2378,sunset,#fad6a5
+2379,sunset orange,#fe4c40
+2380,super pink,#cf6ba9
+2381,sweet brown,#a83731
+2382,tango pink,#e4717a
+2383,tart orange,#fb4d46
+2384,taupe gray,#8b8589
+2385,telemagenta,#cf3476
+2386,thistle,#ebb0d7
+2387,thulian pink,#de6fa1
+2388,tickle me pink,#fc89ac
+2389,timberwolf,#dbd7d2
+2390,titanium yellow,#eee600
+2391,tropical rain forest,#00755e
+2392,trypan blue,#1c05b3
+2393,tufts blue,#3e8ede
+2394,tumbleweed,#deaa88
+2395,tuscan brown,#6f4e37
+2396,tuscan red,#7c4848
+2397,tuscan tan,#a67b5b
+2398,tuscany,#c09999
+2399,twilight lavender,#8a496b
+2400,tyrian purple,#66023c
+2401,ua blue,#0033aa
+2402,ua red,#d9004c
+2403,ultra pink,#ff6fff
+2404,ultra red,#fc6c85
+2405,unbleached silk,#ffddca
+2406,united nations blue,#5b92e5
+2407,unmellow yellow,#ffff66
+2408,up forest green,#014421
+2409,up maroon,#7b1113
+2410,upsdell red,#ae2029
+2411,uranian blue,#afdbf5
+2412,usafa blue,#004f98
+2413,van dyke brown,#664228
+2414,vanilla,#f3e5ab
+2415,vanilla ice,#f38fa9
+2416,vegas gold,#c5b358
+2417,venetian red,#cc553d
+2418,veronica,#a020f0
+2419,viridian green,#009698
+2420,vivid burgundy,#9f1d35
+2421,vivid sky blue,#00ccff
+2422,vivid tangerine,#ffa089
+2423,vivid violet,#9f00ff
+2424,volt,#ceff00
+2425,warm black,#004242
+2426,wild blue yonder,#a2add0
+2427,wild orchid,#d470a2
+2428,wild strawberry,#ff43a4
+2429,wild watermelon,#fc6c85
+2430,windsor tan,#a75502
+2431,wine dregs,#673147
+2432,winter sky,#ff007c
+2433,wintergreen dream,#56887d
+2434,wood brown,#c19a6b
+2435,xanadu,#738678
+2436,xanthic,#eeed09
+2437,xiketic,#0c020f
+2438,yale blue,#0f4d92
+2439,yellow sunshine,#fff700
+2440,yinmn blue,#2e5090
+2441,zaffre,#0014a8
+2442,zomp,#39a78e
