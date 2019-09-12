@@ -20,7 +20,6 @@
 \usepackage{float}
 \usepackage{geometry}
 \usepackage{graphicx}
-\usepackage[hidelinks]{hyperref}
 % % *must* be loaded after hyperref
 % \usepackage[toc, acronym, numberedsection=nameref]{glossaries}
 % % hex #184c9a
@@ -32,7 +31,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 \usepackage{mathtools}
-\usepackage[cache=true]{minted}
+\usepackage[cache=true, outputdir=build]{minted}
 \definecolor{__minted_background_color}{rgb}{0.95, 0.95, 0.98}
 \definecolor{__minted_highlight_color}{rgb}{0.88, 0.88, 1.0}
 \setminted{autogobble=true,
@@ -50,6 +49,7 @@
 
 \usepackage{scalerel}
 \usepackage{subcaption}
+\usepackage{subfiles}
 \usepackage{textcomp}
 \usepackage{tikz}
 \usetikzlibrary{arrows, shapes, positioning}
@@ -99,3 +99,6 @@
 % Use \ceil*{} or \floor*{}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+% Hyperref should be the last packaged included.
+\usepackage[hidelinks, bookmarksopen=true]{hyperref}

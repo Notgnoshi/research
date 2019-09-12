@@ -4,8 +4,11 @@ PAPERS_DIR := $(realpath ..)
 BIB_FILE := $(PAPERS_DIR)/bibliography.bib
 STYLE_FILE := $(PAPERS_DIR)/research.sty
 BUILD_DIR := build
+CHAPTERS_DIR := chapters
+CHAPTERS := $(shell ls $(CHAPTERS_DIR)/*.tex)
+CHAPTER_TARGETS := $(CHAPTERS:%.tex=$(BUILD_DIR)/%.pdf)
 
-OUT_DOC := $(BUILD_DIR)/$(TEX_ROOT:.tex=.pdf)
+THESIS_DOC := $(BUILD_DIR)/$(TEX_ROOT:%.tex=%.pdf)
 SRC := $(shell find . -name '*.tex') $(BIB_FILE) $(STYLE_FILE)
 
 .DEFAULT_GOAL := all
@@ -48,32 +51,63 @@ help:
 		}' \
 		$(MAKEFILE_LIST)
 
-## Build the thesis document and any supporting matter.
+## Building the document.
+
+## Build the entire thesis document and any supporting matter.
 .PHONY: all
 all: warn-todos
-all: $(OUT_DOC)
+all: $(SRC) $(THESIS_DOC)
 
-$(OUT_DOC): $(SRC)
-	@# bibtex is ran inside the build directory, so use an absolute path.
-	BIBINPUTS=$(PAPERS_DIR) latexmk -pdf -outdir=$(BUILD_DIR) -bibtex --synctex=1 -file-line-error -interaction=batchmode -shell-escape  $(TEX_ROOT)
+## Build all chapters individually.
+.PHONY: chapters
+chapters: $(CHAPTER_TARGETS)
+
+## Build the Introduction chapter.
+.PHONY: introduction
+introduction: $(BUILD_DIR)/$(CHAPTERS_DIR)/introduction.pdf
+
+## Build the Literature Review chapter.
+.PHONY: literature-review
+literature-review: $(BUILD_DIR)/$(CHAPTERS_DIR)/literature-review.pdf
+
+## Build the Methodology chapter.
+.PHONY: methodology
+methodology: $(BUILD_DIR)/$(CHAPTERS_DIR)/methodology.pdf
+
+## Build the Results chapter.
+.PHONY: results
+results: $(BUILD_DIR)/$(CHAPTERS_DIR)/results.pdf
+
+## Build the Conclusions chapter.
+.PHONY: conclusions
+conclusions: $(BUILD_DIR)/$(CHAPTERS_DIR)/conclusions.pdf
+
+$(BUILD_DIR)/%.pdf: %.tex $(SRC)
+	@# Use -outdir=$(@D) for nested directories, but then the subfile paths are relative to build output.
+	BIBINPUTS=$(PAPERS_DIR) latexmk -pdf -outdir=$(@D) -bibtex --synctex=1 -file-line-error -interaction=batchmode -shell-escape $<
+
+## LaTeX Utilities
 
 ## Attempt building the document without latexmk to help determine the source of build errors.
 .PHONY: error
 error:
 	pdflatex -shell-escape -file-line-error $(TEX_ROOT)
 
+## Clean all generated files.
+.PHONY: clean-all
+clean-all:
+	rm -rf $(BUILD_DIR)/*
+
 ## Clean any auxiliary files.
 .PHONY: clean
 clean:
-	latexmk -outdir=$(BUILD_DIR) -c
-	rm -f *.synctex\(busy\)
-	rm -f *.synctex.gz
-	rm -rf _minted-* $(BUILD_DIR)/*.{bbl,nav,snm,vrb,tdo}
+	rm -rf $(BUILD_DIR)/_minted-*
+	find $(BUILD_DIR) -type f -not -name '*.pdf' -delete
 
 ## Open the document in a PDF viewer.
 .PHONY: view
 view:
-	1>/dev/null 2>/dev/null xdg-open $(OUT_DOC) &
+	1>/dev/null 2>/dev/null xdg-open $(THESIS_DOC) &
 
 ## Parse LaTeX source code looking for TODO comments.
 ## TODO: Expand to include \todo checking too?
