@@ -4,3 +4,7 @@
 [submodule "depends/textgenrnn"]
 	path = depends/textgenrnn
 	url = git@github.com:Notgnoshi/textgenrnn.git
+[submodule "papers/sdsmt-thesis"]
+	path = papers/sdsmt-thesis
+	url = git@gitlab.mcs.sdsmt.edu:lpyeatt/sdsmt-thesis.git
+	branch = master
