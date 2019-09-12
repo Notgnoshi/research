@@ -10,7 +10,11 @@
 % \usepackage{mathptm}
 
 \input{../research.sty}
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\notinsubfile}[1]{}
 
+\newcommand{\subfilefrontmatter}{\maketitle\preliminaries{}\tableofcontents\body{}}
+\newcommand{\subfilebackmatter}{\supplementaries{}\bibliography{bibliography}}
 
 %% Uncomment the following two lines and comment out the third one
 %% if you want to use the Chicago Manual based bibliography.
@@ -44,6 +48,8 @@
 \signatureline{Dean of Graduate Education --- Maribeth Price, Ph.D.}
 
 \begin{document}
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
 \maketitle
 
 %% Comment the next line to remove the copyright notice.  Read the
@@ -75,12 +81,11 @@
 \body{}
 
 %% TODO: Concretize the chapter structure.
-%% TODO: Look into using the subfile package or similar?
-\chapter{Introduction}
-\chapter{Previous Work}
-\chapter{Methods}
-\chapter{Results}
-\chapter{Conclusions}
+\subfile{chapters/introduction.tex}
+\subfile{chapters/literature-review.tex}
+\subfile{chapters/methodology.tex}
+\subfile{chapters/results.tex}
+\subfile{chapters/conclusions.tex}
 
 %% End of \body.
 \supplementaries{}
