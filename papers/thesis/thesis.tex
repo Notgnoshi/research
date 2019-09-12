@@ -1,0 +1,115 @@
+\documentclass[12pt]{../sdsmt-thesis/thesis}
+
+%% The default font is Computer Modern Roman for text and math. Uncomment
+%% one of the following to choose a different font set.
+% \usepackage{mathptmx} % Times New Roman with math fonts
+% \usepackage{newcent}  % new century schoolbook font
+% \usepackage{bookman}  % bookman font
+% \usepackage{fourier}  % Utopia (text) and Fourier (math) font
+% \usepackage{times}
+% \usepackage{mathptm}
+
+\input{../research.sty}
+
+
+%% Uncomment the following two lines and comment out the third one
+%% if you want to use the Chicago Manual based bibliography.
+% \usepackage{thesiscitations}
+% \bibliographystyle{thesis}
+\bibliographystyle{ieeetr}
+
+%% Uncomment next line to print a double-spaced draft version
+% \dsdraft
+
+%% Uncomment next line to print a single-spaced draft version
+\ssdraft{}
+
+\doctype{thesis}
+
+%% TODO: Find a title.
+\title{Something About Haiku}
+\author{Austin Gill}
+\degree{Master of Science in Computational Sciences and Robotics}
+%% TODO: Change defense date.
+\defensedate{May 42, 2020}
+\gradyear{2020}
+\department{Computer Science and Engineering}
+
+% The following commands add a signature line for each person who needs
+% to sign the thesis/dissertation
+\signatureline{Major Professor --- Christer Karlsson, Ph.D., Department of Computer Science and Engineering}
+\signatureline{Graduate Division Representative --- Rodney Rice, Ph.D., Department of Humanities}
+\signatureline{Committee Member --- Karen Braman, Ph.D., Department of Mathematics}
+\signatureline{Head of the Computer Science and Engineering Department --- Jeff McGough, Ph.D.}
+\signatureline{Dean of Graduate Education --- Maribeth Price, Ph.D.}
+
+\begin{document}
+\maketitle
+
+%% Comment the next line to remove the copyright notice.  Read the
+%% section on copyright in the Thesis and Dissertation Writing
+%% Instructions. The copyright must go BEFORE \preliminaries
+\makecopyright{}
+\preliminaries{}
+
+%% TODO: Add an abstract.
+\begin{abstract}
+
+\end{abstract}
+
+%% TODO: Add acknowledgments.
+\begin{acknowledgments}
+
+\end{acknowledgments}
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+%% TODO: Add preface.
+\begin{preface}
+
+\end{preface}
+
+%% End of \preliminaries.
+\body{}
+
+%% TODO: Concretize the chapter structure.
+%% TODO: Look into using the subfile package or similar?
+\chapter{Introduction}
+\chapter{Previous Work}
+\chapter{Methods}
+\chapter{Results}
+\chapter{Conclusions}
+
+%% End of \body.
+\supplementaries{}
+\bibliography{bibliography}
+
+\begin{appendices}
+    %% TODO: Add notebooks/source code?
+    \appendix{Appendix A}
+\end{appendices}
+
+%% TODO: Add vita
+\begin{vita}
+    Format the vita page according to the following graduate school requirements:
+
+    A vita page, not over one page in length, is to be included as the
+    last page of all theses and dissertations deposited in the Devereaux
+    Library. The vita is to be written in the third person using
+    professional style and could contain the following information
+    (although you may wish to omit A and B if concerned about identity
+    theft):
+    \begin{enumerate}[label=\Alph*.]
+        \item Place and date of birth.
+        \item Place and date of high school graduation.
+        \item Place and date of college graduation—with degree and major.
+        \item Place and date of receipt of master’s degree—with major.
+        \item Vocational and professional experience (not summer jobs)—including dates, nature of position, and school or organization.
+        \item Military experience, with indication of professional relevance—if any.
+        \item Scholarly publications, exhibits of creative work, membership in professional organizations and honorary societies.
+    \end{enumerate}
+\end{vita}
+
+\end{document}
