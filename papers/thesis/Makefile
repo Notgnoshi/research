@@ -55,7 +55,6 @@ help:
 
 ## Build the entire thesis document and any supporting matter.
 .PHONY: all
-all: warn-todos
 all: $(SRC) $(THESIS_DOC)
 
 ## Build all chapters individually.
@@ -85,6 +84,7 @@ conclusions: $(BUILD_DIR)/$(CHAPTERS_DIR)/conclusions.pdf
 $(BUILD_DIR)/%.pdf: %.tex $(SRC)
 	@# Use -outdir=$(@D) for nested directories, but then the subfile paths are relative to build output.
 	BIBINPUTS=$(PAPERS_DIR) latexmk -pdf -outdir=$(@D) -bibtex --synctex=1 -file-line-error -interaction=batchmode -shell-escape $<
+	@$(MAKE) --no-print-directory warn-todos
 
 ## LaTeX Utilities
 
@@ -109,14 +109,13 @@ clean:
 view:
 	1>/dev/null 2>/dev/null xdg-open $(THESIS_DOC) &
 
-## Parse LaTeX source code looking for TODO comments.
-## TODO: Expand to include \todo checking too?
+## Parse LaTeX source code looking for TODO comments and macros.
 .PHONY: warn-todos
 warn-todos:
 	@BOLD=$$(tput bold);                                                                           \
 	RED=$$(tput setaf 1);                                                                          \
 	RESET=$$(tput sgr0);                                                                           \
-	grep -irn --include "*.tex" --include "*.sty" --include "Makefile" "[%,#] TODO:" &&            \
+	grep --color=always -irn --include "*.tex" --include "*.sty" "\([%,#] TODO:\|\\\TODO{\|\\\FIXME{\|\\\CITE{\)" && \
 	echo "$${RED}===============================================================" &&               \
 	echo "$${BOLD}Warning:$${RESET}$${RED} TODO comment(s) found." &&                              \
 	echo "$${RED}===============================================================$${RESET}" || true
