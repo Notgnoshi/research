@@ -65,10 +65,6 @@ chapters: $(CHAPTER_TARGETS)
 .PHONY: introduction
 introduction: $(BUILD_DIR)/$(CHAPTERS_DIR)/introduction.pdf
 
-## Build the Literature Review chapter.
-.PHONY: literature-review
-literature-review: $(BUILD_DIR)/$(CHAPTERS_DIR)/literature-review.pdf
-
 ## Build the Methodology chapter.
 .PHONY: methodology
 methodology: $(BUILD_DIR)/$(CHAPTERS_DIR)/methodology.pdf
