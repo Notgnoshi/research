@@ -17,6 +17,7 @@
 \usepackage{chngcntr}
 \usepackage{color}
 \usepackage{eqparbox}
+\usepackage{etoolbox}
 \usepackage[nowatermark]{fixmetodonotes}
 \usepackage{float}
 \usepackage{geometry}
@@ -31,6 +32,20 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{manyfoot}
+\DeclareNewFootnote{Sarcasm}[roman]
+\setlength{\skip\footinsSarcasm}{0pt}
+
+\newtoggle{sarcasm_toggle}
+\toggletrue{sarcasm_toggle}
+%% TODO: Toggle sarcasm before submission.
+% \togglefalse{sarcasm_toggle}
+\iftoggle{sarcasm_toggle}{%
+    \newcommand{\sarcasm}[1]{\footnoteSarcasm{#1}}
+}{%
+    \newcommand{\sarcasm}[1]{}
+}
+
 \usepackage{mathtools}
 \usepackage[cache=true, outputdir=build]{minted}
 \definecolor{__minted_background_color}{rgb}{0.95, 0.95, 0.98}
@@ -45,6 +60,7 @@
 }
 \providecommand*{\listingautorefname}{Listing}
 
+\usepackage{parskip}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
 
@@ -101,5 +117,6 @@
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 
+%% TODO: Un-color links before submission.
 % Hyperref should be the last packaged included.
-\usepackage[hidelinks, bookmarksopen=true]{hyperref}
+\usepackage[hidelinks, colorlinks=true, bookmarksopen=true]{hyperref}
