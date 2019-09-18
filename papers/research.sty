@@ -60,6 +60,8 @@
 }
 \providecommand*{\listingautorefname}{Listing}
 
+%% TODO: There's a bug with the thesis class that causes paragraphs to uniformly fill the page,
+%% rather than using a fixed separation distance between each paragraph.
 \usepackage{parskip}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
@@ -69,7 +71,7 @@
 \usepackage{subfiles}
 \usepackage{textcomp}
 \usepackage{tikz}
-\usetikzlibrary{arrows, shapes, positioning}
+\usetikzlibrary{arrows, automata, shapes, positioning}
 
 % Disabled for compilation speed.
 % \usepackage[textsize=small]{todonotes}
@@ -116,7 +118,9 @@
 % Use \ceil*{} or \floor*{}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+% \DeclareMathOperator{\countf}{count}
+\newcommand{\countf}[1]{\operatorname{count}\left(#1\right)}
 
 %% TODO: Un-color links before submission.
 % Hyperref should be the last packaged included.
-\usepackage[hidelinks, colorlinks=true, bookmarksopen=true]{hyperref}
+\usepackage[bookmarksopen=true]{hyperref}

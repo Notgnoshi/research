@@ -102,7 +102,7 @@ warn-todos:
 	@BOLD=$$(tput bold);                                                                           \
 	RED=$$(tput setaf 1);                                                                          \
 	RESET=$$(tput sgr0);                                                                           \
-	grep --color=always -irn --include "*.tex" --include "*.sty" "\([%,#] TODO:\|\\\TODO{\|\\\FIXME{\|\\\CITE{\)" && \
+	grep --color=always -irn --include "*.tex" --include "*.sty" "\([%,#] TODO:\|\\\TODO{\|\\\FIXME{\)" && \
 	echo "$${RED}===============================================================" &&               \
 	echo "$${BOLD}Warning:$${RESET}$${RED} TODO comment(s) found." &&                              \
 	echo "$${RED}===============================================================$${RESET}" || true
