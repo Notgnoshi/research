@@ -1,15 +1,16 @@
 TEX_ROOT := thesis.tex
 # Where to find the bibliography.
 PAPERS_DIR := $(realpath ..)
-BIB_FILE := $(PAPERS_DIR)/bibliography.bib
+BIB_DIR := $(PAPERS_DIR)/bibliography
 STYLE_FILE := $(PAPERS_DIR)/research.sty
 BUILD_DIR := build
 CHAPTERS_DIR := chapters
+BIB_FILES := $(shell ls $(BIB_DIR)/*.bib)
 CHAPTERS := $(shell ls $(CHAPTERS_DIR)/*.tex)
 CHAPTER_TARGETS := $(CHAPTERS:%.tex=$(BUILD_DIR)/%.pdf)
 
 THESIS_DOC := $(BUILD_DIR)/$(TEX_ROOT:%.tex=%.pdf)
-SRC := $(shell find . -name '*.tex') $(BIB_FILE) $(STYLE_FILE)
+SRC := $(shell find . -name '*.tex') $(BIB_FILES) $(STYLE_FILE)
 
 .DEFAULT_GOAL := all
 
@@ -79,7 +80,7 @@ conclusions: $(BUILD_DIR)/$(CHAPTERS_DIR)/conclusions.pdf
 
 $(BUILD_DIR)/%.pdf: %.tex $(SRC)
 	@# Use -outdir=$(@D) for nested directories, but then the subfile paths are relative to build output.
-	BIBINPUTS=$(PAPERS_DIR) latexmk -pdf -outdir=$(@D) -bibtex --synctex=1 -file-line-error -interaction=batchmode -shell-escape $<
+	BIBINPUTS=$(BIB_DIR) latexmk -pdf -outdir=$(@D) -bibtex --synctex=1 -file-line-error -interaction=batchmode -shell-escape $<
 	@$(MAKE) --no-print-directory warn-todos
 
 ## LaTeX Utilities
