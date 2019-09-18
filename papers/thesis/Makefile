@@ -84,26 +84,16 @@ $(BUILD_DIR)/%.pdf: %.tex $(SRC)
 
 ## LaTeX Utilities
 
-## Attempt building the document without latexmk to help determine the source of build errors.
-.PHONY: error
-error:
-	pdflatex -shell-escape -file-line-error $(TEX_ROOT)
-
-## Clean all generated files.
-.PHONY: clean-all
-clean-all:
-	rm -rf $(BUILD_DIR)/*
-
 ## Clean any auxiliary files.
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)/_minted-*
 	find $(BUILD_DIR) -type f -not -name '*.pdf' -delete
 
-## Open the document in a PDF viewer.
-.PHONY: view
-view:
-	1>/dev/null 2>/dev/null xdg-open $(THESIS_DOC) &
+## Clean all generated files.
+.PHONY: clean-all
+clean-all:
+	rm -rf $(BUILD_DIR)/*
 
 ## Parse LaTeX source code looking for TODO comments and macros.
 .PHONY: warn-todos
@@ -115,3 +105,30 @@ warn-todos:
 	echo "$${RED}===============================================================" &&               \
 	echo "$${BOLD}Warning:$${RESET}$${RED} TODO comment(s) found." &&                              \
 	echo "$${RED}===============================================================$${RESET}" || true
+
+## Open the documents in a PDF viewer.
+
+## Open the whole thesis in a PDF viewer.
+.PHONY: view
+view:
+	1>/dev/null 2>/dev/null xdg-open $(THESIS_DOC) &
+
+## Open the Introduction chapter individually in a PDF viewer.
+.PHONY: view-introduction
+view-introduction:
+	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(CHAPTERS_DIR)/introduction.pdf &
+
+## Open the Methodology chapter individually in a PDF viewer.
+.PHONY: view-methodology
+view-methodology:
+	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(CHAPTERS_DIR)/methodology.pdf &
+
+## Open the Results chapter individually in a PDF viewer.
+.PHONY: view-results
+view-results:
+	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(CHAPTERS_DIR)/results.pdf &
+
+## Open the Conclusions chapter individually in a PDF viewer.
+.PHONY: view-conclusions
+view-conclusions:
+	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(CHAPTERS_DIR)/conclusions.pdf &
