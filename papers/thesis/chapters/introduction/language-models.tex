@@ -1,8 +1,61 @@
 % !TeX root = .//.tex
 \section{Modeling Natural Language}\label{sec:introduction:language-models}
-\TODO{Describe what a language model is, and its use in the generation of natural language.}
 
-\subsection{Markov Chain Models}
+Natural language in its textual form may be represented as a sequence of tokens.
+The specific granularity of these token sequences varies from the coarsest word level, to individual characters, to different variations of subword morphemes, token metadata tags (like its grammatical part of speech), and punctuation.
+A Language Model (LM) is a statistical model of natural language that generates a probability distribution for these sequences \cite{pappas_meyer_2012,goldberg_2017}.
+
+In particular, given a sequence of words $w_{1:n}$, we wish to estimate the probability $P(w_{1:n})$. In the general case, we can use the probability chain rule
+\begin{equation}
+    P(w_{1:n}) = P(w_n \mid w_{1:n - 1}) \cdot P(w_{n - 1} \mid w_{1:n - 2}) \cdots P(w_2 \mid w_1) \cdot P(w_1)\label{eq:language-models:chain-rule}
+\end{equation}
+to confirm our intuition that a language model's understanding of a given word in a sequence relies on an understanding of the full context from the current word all the back to the first word in the sequence.
+That is, understanding future tokens in a sequence requires understanding not only the present, but also the entire past history of the sequence.
+
+\subsection{Markov Models}\label{sec:language-models:markov}
+
+A simple approach to language modeling, useful for motivating the rest of our discussion, is to use a Markov chain to model the probability that one word follows another in a given sequence.
+A key property of Markov models is that they are stateless, or memoryless \cite{gagniuc_2017}.
+That is, that the probability of a transition to a future state depends only on the current state, and not on the history of previous states.
+\begin{equation}
+    P(w_{i + 1} \mid w_{1:i}) \approx P(w_{i+1} \mid w_i) \label{eq:language-models:markov-chain}
+\end{equation}
+This means that, as stated, Markov chain models are unsuited to modeling textual data due to their lack of observance of the large amount of context needed to understand natural language.
+
+Traditional approaches to building language models relaxes the general requirement of retaining the full history of a sequence \cite{mikolov2012statistical}, but not as far as the Markov chain model presented in \autoref{eq:language-models:markov-chain}.
+These traditional approaches assume the $k$th order Markov property \cite{goldberg_2017} --- that the next word in a sequence depends on only the last $k$ words of the sequence instead of the full $n$.
+\begin{equation}
+    P(w_{i+1} \mid w_{1:i}) \approx P(w_{i+1} \mid w_{i:i-k}) \label{eq:language-models:k-order-markov}
+\end{equation}
+Under this assumption, we can estimate a sequence's probability as
+\begin{equation}
+    P(w_{1:n}) \approx \prod_{i=1}^n P(w_i \mid w_{i-k:i-1}) \label{eq:language-models:k-order-sequence-probability}
+\end{equation}
+
+One method of producing this estimate is to use the maximum likelihood estimate (MLE)
+\begin{equation}
+    \hat p (w_{i+1} \mid w_{i-k:i}) = \frac{\countf{w_{i-k:i+1}}}{\countf{w_{i-k:i}}} \label{eq:language-models:mle}
+\end{equation}
+for each subsequence $w_{i-k:i}$ in the corpus.
+
+However, one limitation of this approach is its lack of creative capacity.
+\sarcasm{Similarly, one limitation of this thesis is its lack of creativity.}
+That is, if a subsequence $w_{i-k:i+1}$ was never observed in the corpus, then its estimated probability is zero \cite{goldberg_2017}.
+
+At first, this does not seem to pose a problem.
+If a sequence was not observed in a training corpus, we ought not expect a language model that understands that sequence.
+However, due to the compositional nature of natural language, it is likely that there are many more sequences that make sense than there are sequences in the training corpus.
+Thus, if we want an understanding of natural language as a whole we must be able to extrapolate meaning from sequence we have never seen before.
+
+There are several approaches to avoiding these zero events.
+One family of approaches is called \textit{smoothing}, where every possible sequence is provided some small probability mass.
+An example of smoothing is called \textit{additive smoothing} \cite{chen_goodman_1999,goodman_2001} where zero probabilities are avoided by assuming that each event occurs at least $\alpha$ times in addition to its observed occurrences in the corpus.
+The MLE estimate is modified as
+\begin{equation}
+    \hat p (w_{i+1} \mid w_{i-k:i}) = \frac{\countf{w_{i-k:i+1}} + \alpha}{\countf{w_i-k:i} + \alpha v} \label{eq:language-models:alpha-smoothing}
+\end{equation}
+where $v$ is the size of the token vocabulary and $0 < \alpha \leq 1$. Another family of approaches is using \textit{back-off}, where if a sequence $w_{i-k:i}$ is not observed, the model falls back to using $w_{i-k-1:i}$\cite{chen_goodman_1999,goodman_2001,JelMer80}.
+
 \subsection{Recurrent Neural Networks}\label{sec:language-models:rnns}
 \subsection{Linear Short Term Memory Models}\label{sec:language-models:lstms}
 
