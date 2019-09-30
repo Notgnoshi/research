@@ -52,12 +52,66 @@ One family of approaches is called \textit{smoothing}, where every possible sequ
 An example of smoothing is called \textit{additive smoothing} \cite{chen_goodman_1999,goodman_2001} where zero probabilities are avoided by assuming that each event occurs at least $\alpha$ times in addition to its observed occurrences in the corpus.
 The MLE estimate is modified as
 \begin{equation}
-    \hat p (w_{i+1} \mid w_{i-k:i}) = \frac{\countf{w_{i-k:i+1}} + \alpha}{\countf{w_i-k:i} + \alpha v} \label{eq:language-models:alpha-smoothing}
+    \hat p (w_{i+1} \mid w_{i-k:i}) = \frac{\countf{w_{i-k:i+1}} + \alpha}{\countf{w_{i-k:i}} + \alpha v} \label{eq:language-models:alpha-smoothing}
 \end{equation}
 where $v$ is the size of the token vocabulary and $0 < \alpha \leq 1$. Another family of approaches is using \textit{back-off}, where if a sequence $w_{i-k:i}$ is not observed, the model falls back to using $w_{i-k-1:i}$\cite{chen_goodman_1999,goodman_2001,JelMer80}.
 
-\subsection{Recurrent Neural Networks}\label{sec:language-models:rnns}
-\subsection{Linear Short Term Memory Models}\label{sec:language-models:lstms}
+\subsection{Feed-Forward Neural Network Models}\label{sec:language-models:ffnns}
+Using feed-forward neural networks were first seriously applied to modeling natural language by Yoshua Bengio in 2003 \cite{bengio2003}.
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[
+            node distance=2.6cm,
+            >=stealth,
+            layer/.style={draw, minimum width=1.5cm},
+            word_vect/.style={draw, dashed, minimum height=2cm}
+        ]
+
+        \node[word_vect] (w1) {$C(w_1)$};
+        \node[word_vect, below=1mm of w1, anchor=north] (w2) {$C(w_2)$};
+
+        \node[below=3mm of w2, anchor=north] (ellipsis) {$\vdots$};
+
+        \node[word_vect, below= 3mm of ellipsis, anchor=north] (wk) {$C(w_k)$};
+
+        \node[left=1cm of w1] (w1_label) {$w_1$};
+        \node[left=1cm of w2] (w2_label) {$w_2$};
+        \node[left=1cm of wk] (wk_label) {$w_k$};
+
+        \node[layer, fit={(w1) (w2) (ellipsis) (wk)}, label=below:{$\vec x \in \R^{km}$}] (input) {};
+
+        \node[layer, label=below:{$\tanh$}, right of=input, minimum height=5cm] (hidden) {};
+        \node[layer, label=below:{softmax}, right of=hidden, minimum height=10cm] (softmax) {};
+        \node[right=1.2cm of softmax] (output) {$P(w_{k+1} \mid w_{1:k})$};
+
+        \draw[->, shorten >=1mm] (w1_label) -- (w1);
+        \draw[->, shorten >=1mm] (w2_label) -- (w2);
+        \draw[->, shorten >=1mm] (wk_label) -- (wk);
+
+        \draw[->] (input) -- (hidden);
+        \draw[->] (hidden) -- (softmax);
+        \draw[->] (softmax) -- (output);
+    \end{tikzpicture}
+    \caption{Bengio's FFNNLM architecture}\label{fig:language-models:ffnns}
+\end{figure}
+Bengio used a feed-forward network, where each word in the vocabulary is mapped to a $m$-dimensional vector in a continuous vector space.
+\sarcasm{The paper~\cite{bengio2003} is light on the details of the mapping $C : V \to \R^m$.
+    \cite{pappas_meyer_2012} fills in some of the details, but still doesn't explain how $C$ is constructed.
+    It seems to indicate that $C$ is \textit{learned} at the same time as the rest of the network?
+    So does that means that the actual inputs are the word indices?}
+Then each word in the sequence $w_{i-k:i}$ is mapped to their corresponding vectors, which are then concatenated to form the $k \cdot m$-dimensional input vector for the neural network.
+
+The softmax output layer shown in \autoref{fig:language-models:ffnns} is the most computational aspect of Bengio's language model ---
+given a vocabulary of size $v$, one softmax computation requires a matrix-vector multiplication with a matrix sized $d_\text{hidden} \times v$, followed by $v$ exponentiations.
+This makes using large vocabularies prohibitively expensive~\cite{goldberg_2017}.
+
+\subsection{Recurrent Neural Network Models}\label{sec:language-models:rnns}
+
+\TODO{See \url{https://arxiv.org/pdf/1906.03591.pdf} and \url{http://publications.idiap.ch/downloads/reports/2012/Pappas_Idiap-RR-32-2012.pdf}, and find the Mikolov source.}
+
+\subsection{Long Short Term Memory Models}\label{sec:language-models:lstms}
+
+\TODO{See \url{https://dspace5.zcu.cz/bitstream/11025/16981/1/SoutnerD_2013_ApplicationofLSTM.pdf}}
 
 \subsection{Word Embeddings}\label{sec:language-models:word-embeddings}
 \subsection{word2vec}\label{sec:language-models:word2vec}
