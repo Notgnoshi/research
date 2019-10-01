@@ -1,5 +1,6 @@
 ## Editor settings
-.vscode/
+.vscode/*
+!.vscode/settings.json
 
 ## Ignore everything in the data directory, except a whitelist of files.
 data/*
@@ -331,7 +332,6 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv/

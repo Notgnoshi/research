@@ -1,5 +1,4 @@
-% !TeX root = ../thesis.tex
-\documentclass[../../thesis.tex]{subfiles}
+\documentclass[thesis.tex]{subfiles}
 
 \begin{document}
 \onlyinsubfile{\setcounter{chapter}{0}}
@@ -7,10 +6,10 @@
 \chapter{Introduction}\label{sec:introduction}
 
 %% File paths are relative to the output PDF in the build directory, but only when building with subfiles...
-\input{\onlyinsubfile{../../}chapters/introduction/language-models.tex}
-\input{\onlyinsubfile{../../}chapters/introduction/text-generation.tex}
-\input{\onlyinsubfile{../../}chapters/introduction/computational-poetry.tex}
-\input{\onlyinsubfile{../../}chapters/introduction/the-haiku-form.tex}
+\input{chapters/introduction/language-models.tex}
+\input{chapters/introduction/text-generation.tex}
+\input{chapters/introduction/computational-poetry.tex}
+\input{chapters/introduction/the-haiku-form.tex}
 
 \onlyinsubfile{\subfilebackmatter}
 \end{document}
