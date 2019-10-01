@@ -8,6 +8,9 @@ CHAPTERS_DIR := chapters
 BIB_FILES := $(shell ls $(BIB_DIR)/*.bib)
 CHAPTERS := $(shell ls $(CHAPTERS_DIR)/*.tex)
 CHAPTER_TARGETS := $(CHAPTERS:%.tex=$(BUILD_DIR)/%.pdf)
+TEX_DIRS := $(PAPERS_DIR) $(PAPERS_DIR)/sdsmt-thesis $(PAPETS_DIR)/thesis
+TEX_DIRS := $(shell readlink -f $(TEX_DIRS))
+TEX_DIRS := $(shell echo $(TEX_DIRS) | sed "s/ \+/:/g")
 
 THESIS_DOC := $(BUILD_DIR)/$(TEX_ROOT:%.tex=%.pdf)
 SRC := $(shell find . -name '*.tex') $(BIB_FILES) $(STYLE_FILE)
@@ -80,7 +83,7 @@ conclusions: $(BUILD_DIR)/$(CHAPTERS_DIR)/conclusions.pdf
 
 $(BUILD_DIR)/%.pdf: %.tex $(SRC)
 	@# Use -outdir=$(@D) for nested directories, but then the subfile paths are relative to build output.
-	BIBINPUTS=$(BIB_DIR) latexmk -pdf -outdir=$(@D) -bibtex --synctex=1 -file-line-error -interaction=batchmode -shell-escape $<
+	BIBINPUTS="$(BIB_DIR)" TEXINPUTS="$(TEX_DIRS):$$TEXINPUTS" latexmk -pdf -outdir=$(@D) -bibtex --synctex=1 -file-line-error -interaction=batchmode -shell-escape $<
 	@$(MAKE) --no-print-directory warn-todos
 
 ## LaTeX Utilities
@@ -90,6 +93,8 @@ $(BUILD_DIR)/%.pdf: %.tex $(SRC)
 clean:
 	rm -rf $(BUILD_DIR)/_minted-*
 	find $(BUILD_DIR) -type f -not -name '*.pdf' -delete
+	@# Building the subfiles through VS Code places the build directory in the wrong location
+	find $(CHAPTERS_DIR)/build -type f -not -name '*.pdf' -delete
 
 ## Clean all generated files.
 .PHONY: clean-all

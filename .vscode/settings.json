@@ -1,0 +1,33 @@
+{
+    "python.pythonPath": ".venv/bin/python",
+    "latex-workshop.latex.bibDirs": [
+        "/home/nots/Documents/school/research/papers/bibliography"
+    ],
+    "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": false,
+    "latex-workshop.latex.texDirs": [
+        "/home/nots/Documents/school/research/papers/sdsmt-thesis",
+        "/home/nots/Documents/school/research/papers",
+        "/home/nots/Documents/school/research/papers/thesis"
+    ],
+    // Cannot use ${workspaceFolder} or $HOME here...
+    "latex-workshop.latex.outDir": "%DIR%/build",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-shell-escape",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {
+                "TEXINPUTS": "$HOME/Documents/school/research/papers/sdsmt-thesis:$HOME/Documents/school/research/papers:$HOME/Documents/school/research/papers/thesis:",
+                "BIBINPUTS": "$HOME/Documents/school/research/papers/bibliography:"
+            }
+        }
+    ]
+}
