@@ -5,12 +5,15 @@ Natural language in its textual form may be represented as a sequence of tokens.
 The specific granularity of these token sequences varies from the coarsest word level, to individual characters, to different variations of subword morphemes, token metadata tags (like its grammatical part of speech), and punctuation.
 A Language Model (LM) is a statistical model of natural language that generates a probability distribution for these sequences \cite{pappas_meyer_2012,goldberg_2017}.
 
-In particular, given a sequence of words $w_{1:n}$, we wish to estimate the probability $P(w_{1:n})$. In the general case, we can use the probability chain rule
+In particular, given a sequence of words $w_{1:n}$, we wish to estimate the probability $P(w_{1:n})$.
+In the general case, we can use the probability chain rule
 \begin{equation}
     P(w_{1:n}) = P(w_n \mid w_{1:n - 1}) \cdot P(w_{n - 1} \mid w_{1:n - 2}) \cdots P(w_2 \mid w_1) \cdot P(w_1)\label{eq:language-models:chain-rule}
 \end{equation}
 to confirm our intuition that a language model's understanding of a given word in a sequence relies on an understanding of the full context from the current word all the back to the first word in the sequence.
 That is, understanding future tokens in a sequence requires understanding not only the present, but also the entire past history of the sequence.
+
+\TODO{Add a discussion on how perplexity can be used to score language models.}
 
 \subsection{Markov Models}\label{sec:language-models:markov}
 
@@ -62,7 +65,7 @@ Using feed-forward neural networks were first seriously applied to modeling natu
     \centering
     \begin{tikzpicture}[
             node distance=2.6cm,
-            >=stealth,
+            >={Stealth[length=2mm]},
             layer/.style={draw, minimum width=1.5cm},
             word_vect/.style={draw, dashed, minimum height=2cm}
         ]
@@ -84,15 +87,15 @@ Using feed-forward neural networks were first seriously applied to modeling natu
         \node[layer, label=below:{softmax}, right of=hidden, minimum height=10cm] (softmax) {};
         \node[right=1.2cm of softmax] (output) {$P(w_{k+1} \mid w_{1:k})$};
 
-        \draw[->, shorten >=1mm] (w1_label) -- (w1);
-        \draw[->, shorten >=1mm] (w2_label) -- (w2);
-        \draw[->, shorten >=1mm] (wk_label) -- (wk);
+        \draw[->] (w1_label) -- (w1);
+        \draw[->] (w2_label) -- (w2);
+        \draw[->] (wk_label) -- (wk);
 
         \draw[->] (input) -- (hidden);
         \draw[->] (hidden) -- (softmax);
         \draw[->] (softmax) -- (output);
     \end{tikzpicture}
-    \caption{Bengio's FFNNLM architecture}\label{fig:language-models:ffnns}
+    \caption{Bengio's feed-forward language model architecture}\label{fig:language-models:ffnnlm}
 \end{figure}
 Bengio used a feed-forward network, where each word in the vocabulary is mapped to a $m$-dimensional vector in a continuous vector space.
 \sarcasm{The paper~\cite{bengio2003} is light on the details of the mapping $C : V \to \R^m$.
@@ -101,13 +104,56 @@ Bengio used a feed-forward network, where each word in the vocabulary is mapped 
     So does that means that the actual inputs are the word indices?}
 Then each word in the sequence $w_{i-k:i}$ is mapped to their corresponding vectors, which are then concatenated to form the $k \cdot m$-dimensional input vector for the neural network.
 
-The softmax output layer shown in \autoref{fig:language-models:ffnns} is the most computational aspect of Bengio's language model ---
+The softmax output layer shown in \autoref{fig:language-models:ffnnlm} is the most computational aspect of Bengio's language model ---
 given a vocabulary of size $v$, one softmax computation requires a matrix-vector multiplication with a matrix sized $d_\text{hidden} \times v$, followed by $v$ exponentiations.
 This makes using large vocabularies prohibitively expensive~\cite{goldberg_2017}.
 
 \subsection{Recurrent Neural Network Models}\label{sec:language-models:rnns}
 
-\TODO{See \url{https://arxiv.org/pdf/1906.03591.pdf} and \url{http://publications.idiap.ch/downloads/reports/2012/Pappas_Idiap-RR-32-2012.pdf}, and find the Mikolov source.}
+For several years, Bengio's feed-forward language model shown in \autoref{fig:language-models:ffnnlm} was the state-of-the-art neural network language model.
+Then in 2010, Tomas Mikolov~\cite{Mikolov2010RecurrentNN,Mikolov2011RecurrentNN,Mikolov2012ContextDR} proposed a recurrent neural network (RNN) architecture that made major advancements in model performance.
+
+The use of a recurrent network over the standard feed-forward models has several advantages~\cite{goldberg_2017}.
+Importantly, they allow representing arbitrary-length sequences as fixed-size vectors.
+This is of particular importance in modeling natural language, where the lengths of sentences are quite varied.
+RNNs also abandon the $k$-th order Markov assumption in \autoref{eq:language-models:k-order-sequence-probability} that Bengio's FFNN language model follows.
+The use of recurrent networks allows the output probabilities of a neural network language model to be conditioned on the \textit{entire} preceding context, instead of a fixed $k$ number of preceding tokens.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[
+        node distance=3cm,
+        >={Stealth[length=2mm]},
+        layer/.style={draw, minimum width=1.8cm},
+    ]
+        \node[draw, dashed, minimum width=1.8cm, minimum height=6cm] (input) {$x(t)$};
+        \node[draw, dashed, minimum width=1.8cm, minimum height=3cm, below=3mm of input] (prev_context) {$C(t-1)$};
+
+        \node[layer, fit={(input) (prev_context)}] (input_layer) {};
+        \node[layer, minimum height=3cm, right of=input_layer, label=below:{sigmoid}] (context) {$C(t)$};
+        \node[layer, minimum height=8cm, right of=context, label=below:{softmax}] (softmax) {$y(t)$};
+
+        \node[left=1.2cm of input] (input_label) {$w(t)$};
+        \node[right=1.2cm of softmax] (output_label) {$P(w(t+1) \mid w(t), C(t-1))$};
+
+        \draw[->] (input_label) -- (input);
+        \draw[->] (input_layer) -- (context);
+        \draw[->] (context) -- (softmax);
+        \draw[->] (context.east) to [out=350, in=0, looseness=1.6] (prev_context);
+        \draw[->] (softmax) -- (output_label);
+    \end{tikzpicture}
+    \caption{Mikolov's recurrent language model architecture}\label{fig:language-models:rnnlm}
+\end{figure}
+
+Mikolov's architecture is shown in \autoref{fig:language-models:rnnlm}.
+The word $W(t)$ is converted to a one-hot encoding\footnote{One-hot encoding is a strategy that uses a boolean vector with an index for each word in the vocabulary.
+To represent the word $w$ from vocabulary $V$ with index $i$ in a one-hot encoded vector $x$, we set $x_i = 1$, and every other index is set to zero.}
+$x(t)$, which is then concatenated with the context $C(t-1)$ from the previous time step\footnote{As with all recurrence relations, care should be taken with the initial conditions.
+Mikolov set $C(0)$ to a vector of small real values close to 0.1.},
+and used as the input to a hidden context layer.
+The context layer is then fed to the next iteration's input and the current iteration's softmax output layer to output a probability distribution for the next word $W(t+1)$.
+Mikolov notes that the size of the hidden context layer should be proportional to the size of the data set.
+This results in training times that increase more than linearly with the size of the training set.
 
 \subsection{Long Short Term Memory Models}\label{sec:language-models:lstms}
 
