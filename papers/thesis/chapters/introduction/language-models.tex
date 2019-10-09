@@ -13,7 +13,43 @@ In the general case, we can use the probability chain rule
 to confirm our intuition that a language model's understanding of a given word in a sequence relies on an understanding of the full context from the current word all the back to the first word in the sequence.
 That is, understanding future tokens in a sequence requires understanding not only the present, but also the entire past history of the sequence.
 
-\TODO{Add a discussion on how perplexity can be used to score language models.}
+Of course, with any probabilistic model, we must have a method of scoring the model.\sarcasm{The best intuitive explanations of perplexity and its relation to entropy are \url{https://leimao.github.io/blog/Entropy-Perplexity/} and \url{https://stats.stackexchange.com/questions/10302/what-is-perplexity}}
+In Shannon's seminal work on information theory \cite{Shannon1948} he discussed modeling an information source inherent information using entropy.
+In the discrete case, \textit{Shannon entropy} is defined as
+\begin{equation}
+    \entropy(p) = - \sum_{i=1}^n p(x_i) \log_b p(x_i) \label{eq:language-models:entropy}
+\end{equation}
+where $p(x_i)$ is the probability of state $x_i$, and $\sum_i p(x_i) = 1$.
+Entropy can be interpreted as the information content of the modeled information source.
+
+Then the \textit{cross entropy} of two distributions $p$ and $q$ can be defined in the discrete case as
+\begin{equation}
+    \entropy(p, q) =  - \sum_{i=1}^n p(x_i) \log_b q(x_i) \label{eq:language-models:cross-entropy}
+\end{equation}
+\CITE{Cross entropy can be thought of as a measure of the difference between two probability distributions.}
+Thus, cross entropy is often used as an objective function in optimization tasks, because we want to minimize the difference between the probability distribution of the training set (as an estimate of the \textit{true} probability distribution of the whole), and the distribution of the statistical model's output.
+
+\CITE{\textit{Perplexity} is defined as}
+\begin{equation}
+    \perplexity(p) = b^{- \sum_{i=1}^n p(x_i) \log_b p(x_i)} \label{eq:language-models:perplexity-defn}
+\end{equation}
+which is precisely $b^{\entropy(p)}$, or the exponentiation of Shannon entropy!
+
+However, when scoring a language model, we rarely (if ever) know the true probability distribution of the language a dataset it sampled from.
+So we modify \autoref{eq:language-models:perplexity-defn} to approximate the perplexity of a language model from the training set probability distribution $\tilde p$, and the language model's output distribution
+\begin{equation}
+    \widetilde{\perplexity}(\tilde p, \model)  = b^{- \sum_{i=1}^{n} \tilde{p}(w_i) \log_b \model(w_i)}\label{eq:language-models:perplexity-p-model}
+\end{equation}
+where our training dataset is formed of $n$ words $w_1, \dots, w_n$.
+But the word $w_i$ is sampled uniformly from the dataset, so $\tilde p(w_i) = \frac{1}{n}$, which results in the definition of perplexity that \cite{goldberg_2017} gives.
+\begin{equation}
+    \perplexity(\model) = 2^{-\frac{1}{n}\sum_{i=1}^n \log_2 \model(w_i \mid w_{1:i-1})} \label{eq:language-models:perplexity}
+\end{equation}
+
+Notice that the worst possible language model would be a random choice of the next token in a sequence with a uniform distribution.
+Such a model would have each $\model(w_i \mid w_{1:i-1}) = \frac{1}{n}$, which would result in a high perplexity score.
+A good language model --- one that is reflective of ``real'' language --- will assign high probabilities to observed events in the test corpus, which results in minimizing the perplexity score \cite{goldberg_2017}.
+Notice, however, that perplexities are corpus specific --- rendering it impossible to compare scores between two language models trained on different datasets.
 
 \subsection{Markov Models}\label{sec:language-models:markov}
 
@@ -64,10 +100,10 @@ Using feed-forward neural networks were first seriously applied to modeling natu
 \begin{figure}[h]
     \centering
     \begin{tikzpicture}[
-            node distance=2.6cm,
-            >={Stealth[length=2mm]},
-            layer/.style={draw, minimum width=1.5cm},
-            word_vect/.style={draw, dashed, minimum height=2cm}
+        node distance=2.6cm,
+        >={Stealth[length=2mm]},
+        layer/.style={draw, minimum width=1.5cm},
+        word_vect/.style={draw, dashed, minimum height=2cm}
         ]
 
         \node[word_vect] (w1) {$C(w_1)$};
@@ -125,7 +161,7 @@ The use of recurrent networks allows the output probabilities of a neural networ
         node distance=3cm,
         >={Stealth[length=2mm]},
         layer/.style={draw, minimum width=1.8cm},
-    ]
+        ]
         \node[draw, dashed, minimum width=1.8cm, minimum height=6cm] (input) {$x(t)$};
         \node[draw, dashed, minimum width=1.8cm, minimum height=3cm, below=3mm of input] (prev_context) {$C(t-1)$};
 
@@ -146,10 +182,12 @@ The use of recurrent networks allows the output probabilities of a neural networ
 \end{figure}
 
 Mikolov's architecture is shown in \autoref{fig:language-models:rnnlm}.
-The word $W(t)$ is converted to a one-hot encoding\footnote{One-hot encoding is a strategy that uses a boolean vector with an index for each word in the vocabulary.
-To represent the word $w$ from vocabulary $V$ with index $i$ in a one-hot encoded vector $x$, we set $x_i = 1$, and every other index is set to zero.}
-$x(t)$, which is then concatenated with the context $C(t-1)$ from the previous time step\footnote{As with all recurrence relations, care should be taken with the initial conditions.
-Mikolov set $C(0)$ to a vector of small real values close to 0.1.},
+The word $W(t)$ is converted to a one-hot encoding\footnote{
+    One-hot encoding is a strategy that uses a boolean vector with an index for each word in the vocabulary.
+    To represent the word $w$ from vocabulary $V$ with index $i$ in a one-hot encoded vector $x$, we set $x_i = 1$, and every other index is set to zero.}
+$x(t)$, which is then concatenated with the context $C(t-1)$ from the previous time step\footnote{
+    As with all recurrence relations, care should be taken with the initial conditions.
+    Mikolov set $C(0)$ to a vector of small real values close to 0.1.},
 and used as the input to a hidden context layer.
 The context layer is then fed to the next iteration's input and the current iteration's softmax output layer to output a probability distribution for the next word $W(t+1)$.
 Mikolov notes that the size of the hidden context layer should be proportional to the size of the data set.
