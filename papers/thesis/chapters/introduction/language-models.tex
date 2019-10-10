@@ -13,7 +13,10 @@ In the general case, we can use the probability chain rule
 to confirm our intuition that a language model's understanding of a given word in a sequence relies on an understanding of the full context from the current word all the back to the first word in the sequence.
 That is, understanding future tokens in a sequence requires understanding not only the present, but also the entire past history of the sequence.
 
-Of course, with any probabilistic model, we must have a method of scoring the model.\sarcasm{The best intuitive explanations of perplexity and its relation to entropy are \url{https://leimao.github.io/blog/Entropy-Perplexity/} and \url{https://stats.stackexchange.com/questions/10302/what-is-perplexity}}
+Of course, with any probabilistic model, we must have a method of scoring the model.\sarcasm{
+    The best intuitive explanations of perplexity and its relation to entropy are \url{https://leimao.github.io/blog/Entropy-Perplexity/} and \url{https://stats.stackexchange.com/questions/10302/what-is-perplexity}}\sarcasm{
+    Footnotes marked with roman numerals are for personal remarks by the author, and will be removed before submission.
+}
 In Shannon's seminal work on information theory \cite{Shannon1948} he discussed modeling an information source inherent information using entropy.
 In the discrete case, \textit{Shannon entropy} is defined as
 \begin{equation}
@@ -26,14 +29,15 @@ Then the \textit{cross entropy} of two distributions $p$ and $q$ can be defined 
 \begin{equation}
     \entropy(p, q) =  - \sum_{i=1}^n p(x_i) \log_b q(x_i) \label{eq:language-models:cross-entropy}
 \end{equation}
-\CITE{Cross entropy can be thought of as a measure of the difference between two probability distributions.}
+Cross entropy can be thought of as a measure of the difference between two probability distributions \cite{ManningSchuetze99}.
 Thus, cross entropy is often used as an objective function in optimization tasks, because we want to minimize the difference between the probability distribution of the training set (as an estimate of the \textit{true} probability distribution of the whole), and the distribution of the statistical model's output.
 
-\CITE{\textit{Perplexity} is defined as}
+\textit{Perplexity} is defined \cite{ManningSchuetze99} as
 \begin{equation}
     \perplexity(p) = b^{- \sum_{i=1}^n p(x_i) \log_b p(x_i)} \label{eq:language-models:perplexity-defn}
 \end{equation}
-which is precisely $b^{\entropy(p)}$, or the exponentiation of Shannon entropy!
+which is precisely $b^{\entropy(p)}$, or the exponentiation of Shannon entropy!\sarcasm{
+    Due to its similarity, \cite{ManningSchuetze99} supposes that perplexity is preferred over cross-entropy as a performance metric due to the more impressive nature of being able to claim large reductions in perplexity as opposed to a cross-entropy loss of a fraction of a bit.}
 
 However, when scoring a language model, we rarely (if ever) know the true probability distribution of the language a dataset it sampled from.
 So we modify \autoref{eq:language-models:perplexity-defn} to approximate the perplexity of a language model from the training set probability distribution $\tilde p$, and the language model's output distribution
