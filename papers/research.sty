@@ -22,6 +22,9 @@
 \usepackage{float}
 \usepackage{geometry}
 \usepackage{graphicx}
+%% I had no end of problems with specifying a relative path, especially since "relative to what?"
+%% changes when building subfiles with make, building subfiles with VS Code, and building the whole document.
+\graphicspath{{/home/nots/Documents/school/research/papers/figures/}{/home/student/7314636/Documents/school/research/papers/figures/}}
 % % *must* be loaded after hyperref
 % \usepackage[toc, acronym, numberedsection=nameref]{glossaries}
 % % hex #184c9a
@@ -123,6 +126,7 @@
 \DeclareMathOperator{\entropy}{H}
 \DeclareMathOperator{\perplexity}{PP}
 \DeclareMathOperator{\model}{LM}
+\DeclareMathOperator{\softmax}{softmax}
 
 %% TODO: Un-color links before submission.
 % Hyperref should be the last packaged included.
