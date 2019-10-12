@@ -131,3 +131,13 @@
 %% TODO: Un-color links before submission.
 % Hyperref should be the last packaged included.
 \usepackage[bookmarksopen=true]{hyperref}
+
+% \renewcommand{\sectionautorefname}{\S}
+% \renewcommand{\subsectionautorefname}{\S}
+% \renewcommand{\subsubsectionautorefname}{\S}
+
+\addto\extrasenglish{%
+    \def\sectionautorefname{\S}%
+    \def\subsectionautorefname{\S}%
+    \def\subsubsectionautorefname{\S}%
+}

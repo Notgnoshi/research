@@ -2,8 +2,8 @@
 \section{Modeling Natural Language}\label{sec:introduction:language-models}
 
 Natural language in its textual form may be represented as a sequence of tokens.
-The specific granularity of these token sequences varies from the coarsest word level, to individual characters, to different variations of subword morphemes, token metadata tags (like its grammatical part of speech), and punctuation.
-A Language Model (LM) is a statistical model of natural language that generates a probability distribution for these sequences \cite{pappas_meyer_2012,goldberg_2017}.
+The specific granularity of the tokens in these sequences varies from the coarsest word level, to individual characters, to different variations of subword morphemes, token metadata tags, and punctuation.
+A Language Model (LM) is a statistical model of natural language that generates a probability distribution for these sequences \cite{goldberg_2017, pappas_meyer_2012}.
 
 In particular, given a sequence of words $w_{1:n}$, we wish to estimate the probability $P(w_{1:n})$.
 In the general case, we can use the probability chain rule
@@ -17,7 +17,7 @@ Of course, with any probabilistic model, we must have a method of scoring the mo
     The best intuitive explanations of perplexity and its relation to entropy are \url{https://leimao.github.io/blog/Entropy-Perplexity/} and \url{https://stats.stackexchange.com/questions/10302/what-is-perplexity}}\sarcasm{
     Footnotes marked with roman numerals are for personal remarks by the author, and will be removed before submission.
 }
-In Shannon's seminal work on information theory \cite{Shannon1948} he discussed modeling an information source inherent information using entropy.
+In Shannon's seminal work on information theory he discussed modeling an information source inherent information using entropy \cite{Shannon1948}.
 In the discrete case, \textit{Shannon entropy} is defined as
 \begin{equation}
     \entropy(p) = - \sum_{i=1}^n p(x_i) \log_b p(x_i) \label{eq:language-models:entropy}
@@ -32,11 +32,11 @@ Then the \textit{cross entropy} of two distributions $p$ and $q$ can be defined 
 Cross entropy can be thought of as a measure of the difference between two probability distributions \cite{ManningSchuetze99}.
 Thus, cross entropy is often used as an objective function in optimization tasks, because we want to minimize the difference between the probability distribution of the training set (as an estimate of the \textit{true} probability distribution of the whole), and the distribution of the statistical model's output.
 
-\textit{Perplexity} is defined \cite{ManningSchuetze99} as
+\textit{Perplexity} is defined as
 \begin{equation}
     \perplexity(p) = b^{- \sum_{i=1}^n p(x_i) \log_b p(x_i)} \label{eq:language-models:perplexity-defn}
 \end{equation}
-which is precisely $b^{\entropy(p)}$, or the exponentiation of Shannon entropy!\sarcasm{
+which is precisely $b^{\entropy(p)}$, or the exponentiation of Shannon entropy \cite{ManningSchuetze99}!\sarcasm{
     Due to its similarity, \cite{ManningSchuetze99} supposes that perplexity is preferred over cross-entropy as a performance metric due to the more impressive nature of being able to claim large reductions in perplexity as opposed to a cross-entropy loss of a fraction of a bit.}
 
 However, when scoring a language model, we rarely (if ever) know the true probability distribution of the language a dataset it sampled from.
@@ -54,6 +54,7 @@ Notice that the worst possible language model would be a random choice of the ne
 Such a model would have each $\model(w_i \mid w_{1:i-1}) = \frac{1}{n}$, which would result in a high perplexity score.
 A good language model --- one that is reflective of ``real'' language --- will assign high probabilities to observed events in the test corpus, which results in minimizing the perplexity score \cite{goldberg_2017}.
 Notice, however, that perplexities are corpus specific --- rendering it impossible to compare scores between two language models trained on different datasets.
+\TODO{Provide example language model output and compare perplexities? Possibly just give an example of ``I'm going out to dinner with my...''.}
 
 \subsection{Markov Models}\label{sec:language-models:markov}
 
@@ -65,8 +66,8 @@ That is, that the probability of a transition to a future state depends only on 
 \end{equation}
 This means that, as stated, Markov chain models are unsuited to modeling textual data due to their lack of observance of the large amount of context needed to understand natural language.
 
-Traditional approaches to building language models relaxes the general requirement of retaining the full history of a sequence \cite{mikolov2012statistical}, but not as far as the Markov chain model presented in \autoref{eq:language-models:markov-chain}.
-These traditional approaches assume the $k$th order Markov property \cite{goldberg_2017} --- that the next word in a sequence depends on only the last $k$ words of the sequence instead of the full $n$.
+Traditional approaches to building language models relaxes the general requirement of retaining the full history of a sequence, but not as far as the Markov chain model presented in \autoref{eq:language-models:markov-chain} \cite{mikolov2012statistical}.
+These traditional approaches assume the $k$th order Markov property --- that the next word in a sequence depends on only the last $k$ words of the sequence instead of the full $n$ \cite{goldberg_2017}.
 \begin{equation}
     P(w_{i+1} \mid w_{1:i}) \approx P(w_{i+1} \mid w_{i:i-k}) \label{eq:language-models:k-order-markov}
 \end{equation}
@@ -139,7 +140,7 @@ Using feed-forward neural networks were first seriously applied to modeling natu
 \end{figure}
 Bengio used a feed-forward network, where each word in the vocabulary is mapped to a $m$-dimensional vector in a continuous vector space.
 \sarcasm{The paper~\cite{bengio2003} is light on the details of the mapping $C : V \to \R^m$.
-    \cite{pappas_meyer_2012} fills in some of the details, but still doesn't explain how $C$ is constructed.
+    \cite{pappas_meyer_2012} fills in some of the details, but still doesn't explicitly explain how $C$ is constructed.
     It seems to indicate that $C$ is \textit{learned} at the same time as the rest of the network?
     So does that means that the actual inputs are the word indices?}
 Then each word in the sequence $w_{i-k:i}$ is mapped to their corresponding vectors, which are then concatenated to form the $k \cdot m$-dimensional input vector for the neural network.
@@ -158,6 +159,9 @@ Importantly, they allow representing arbitrary-length sequences as fixed-size ve
 This is of particular importance in modeling natural language, where the lengths of sentences are quite varied.
 RNNs also abandon the $k$-th order Markov assumption in \autoref{eq:language-models:k-order-sequence-probability} that Bengio's FFNN language model follows.
 The use of recurrent networks allows the output probabilities of a neural network language model to be conditioned on the \textit{entire} preceding context, instead of a fixed $k$ number of preceding tokens.
+
+Recurrent architectures are able to do by by inputting \textit{a single word at a time} to the network, rather than a collection of $k$-words as in \autoref{fig:language-models:ffnnlm}.
+Doing so allows recurrent networks to consider the past context of any words previously input to the network by storing internal context vectors, and then using the last word's context as an input to the network, in addition to the next word.
 
 \begin{figure}[h]
     \centering
@@ -196,22 +200,189 @@ and used as the input to a hidden context layer.
 The context layer is then fed to the next iteration's input and the current iteration's softmax output layer to output a probability distribution for the next word $W(t+1)$.
 Mikolov notes that the size of the hidden context layer should be proportional to the size of the data set.
 This results in training times that increase more than linearly with the size of the training set.
+Another problem with RNN language models is that the gradients in RNN models tend to vanish and explode during training \cite{jing_survey}.
 
 \subsection{Long Short Term Memory Models}\label{sec:language-models:lstms}
 
-\TODO{See \url{https://dspace5.zcu.cz/bitstream/11025/16981/1/SoutnerD_2013_ApplicationofLSTM.pdf}}
+In light of the vanishing gradients of RNN models, the use of a Long Short Term Memory (LSTM) network architecture has been found to be effective \cite{lstm}.
+LSTM models are a class of recurrent networks.
+\autoref{fig:language-models:rnn-layer} shows the basic structure of one layer in a recurrent neural network.
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[
+        node distance=3cm,
+        >={Stealth[length=2mm]},
+        layer/.style={draw, minimum width=1.8cm},
+        ]
+        \node[draw, dashed, minimum width=1.8cm, minimum height=4cm] (x) {$x(t)$};
+        \node[draw, dashed, minimum width=1.8cm, minimum height=2cm, below=3mm of x] (context) {$y(t-1)$};
+        \node[draw, fit={(x) (context)}] (input) {};
+
+        \node[left of=x] (x_label) {$x(t)$};
+
+        \node[draw, label=below:{activation}, right of=input] (activation) {$f$};
+        \node[right=5mm of activation] (phantom) {};
+        \node[draw, label=below:{RNN layer}, fit={(input) (activation) (phantom)}, inner sep=5mm] (layer) {};
+
+        \node[right=1cm of layer] (output) {$y(t)$};
+
+        \draw[->] (x_label) -- (x);
+        \draw[->] (input) -- node[midway, above] {$W$} (activation);
+        \draw[->] (activation) -- (output);
+        \draw[->] (activation.east) to [in=0, out=350, looseness=2.2] (context.east);
+
+    \end{tikzpicture}
+    \caption{The basic RNN layer}\label{fig:language-models:rnn-layer}
+\end{figure}
+Notice that the architecture is now temporal --- each input and output is labeled with a timestep --- and that the key difference from the basic layers of \autoref{fig:neural-networks:multilayer-perceptron} is that the recurrent layer also considers $y(t-1)$ in addition to the input values $x(t)$ when producing $y(t)$.
+
+As \autoref{fig:language-models:lstm-layer} shows, LSTM layers have many of the same characteristics --- a single vector $x(t)$ input, a single vector $y(t)$ output, and the general recurrent property that internal context wraps back around as input for the next time step.
+
+In an RNN model, the context that wraps around is the output vector $y(t)$, but in LSTM models, both the output $y(t)$ \textit{and} a new, hidden context vector $c(t)$ wraps around.
+LSTM models also differ in the addition of several gates to control how much context to remember, when it should forget the context, and when it should output the value of the activation function.
+As this is a slightly more involved architecture, some amount of explanatory remarks are necessary.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[>={Stealth[length=2mm]}]
+        \node[draw] (forget) {forget gate};
+        \node[draw, right=5mm of forget] (input) {input gate};
+        \node[draw, right=5mm of input] (features) {new features};
+        \node[draw, right=5mm of features] (output) {output gate};
+
+        \node[draw, circle, above=2.5cm of forget] (forget_mult) {$\times$};
+        \node[draw, circle, above=1cm of input]  (input_mult)  {$\times$};
+        \node[draw, circle, above=1cm of output] (output_mult) {$\times$};
+        \node[draw, ellipse, left=0.8cm of output_mult] (state_tanh) {$\tanh$};
+        \node[draw, circle] (input_add) at (forget_mult -| input_mult)  {$+$};
+
+        \node[below of=forget, inner sep=0, outer sep=0, xshift=4mm] (y_input_phantom) {};
+        \node[below=1.5cm of forget, inner sep=0, outer sep=0] (x_input_phantom) {};
+        \node[circle, fill, inner sep=1.5pt] (state_tanh_phantom) at (input_add -| state_tanh) {};
+
+        \node[left=2.2cm of forget_mult] (c_prev) {$c(t-1)$};
+        \node (y_prev) at (y_input_phantom -| c_prev) {$y(t-1)$};
+        \node[right=8.4cm of input_add] (c_next) {$c(t)$};
+
+        \node (y_next) at (y_prev -| c_next) {$y(t)$};
+        \node[above=3.5cm of output_mult, label=above:{\scriptsize to next layer}] (y) {$y(t)$};
+        \node[below=1.5cm of x_input_phantom, label=below:{\scriptsize from previous layer}] (x) {$x(t)$};
+
+        \draw[->, dashed] (c_prev) -- (forget_mult);
+        \draw[->] (forget_mult) -- (input_add);
+        \draw[->] (input_add) -- (c_next);
+
+        \draw[->] (forget) -- (forget_mult);
+        \draw[->] (input) -- (input_mult);
+        \draw[->] (input_mult) -- (input_add);
+        \draw[->] (state_tanh_phantom) -- (state_tanh);
+        \draw[->] (state_tanh) -- (output_mult);
+        \draw[->] (output) -- (output_mult);
+
+        \node[left=1cm of y_next, inner sep=0, outer sep=0] (output_bend_phantom) {};
+
+        \draw[->] (output_mult) -| (output_bend_phantom) -- (y_next);
+
+        \draw[->] (output_mult) -- (y);
+        \draw[->] (features) to [in=0, out=90] (input_mult);
+
+        \draw[->] (x) -- (x_input_phantom) node[circle, fill, inner sep=1.5pt] {} -| (output);
+        \draw[->] (x_input_phantom -| features) node[circle, fill, inner sep=1.5pt] {} -| (features);
+        \draw[->] (x_input_phantom -| input) node[circle, fill, inner sep=1.5pt] {} -| (input);
+        \draw[->] (x_input_phantom) node[circle, fill, inner sep=1.5pt] {} -- (forget);
+
+        \draw[->, dashed] (y_prev) -- (y_input_phantom) node[circle, fill, inner sep=1.5pt] {} -| (output.320);
+        \draw[->, dashed] (y_input_phantom -| input.320) node[circle, fill, inner sep=1.5pt] {} -| (input.320);
+        \draw[->, dashed] (y_input_phantom -| features.320) node[circle, fill, inner sep=1.5pt] {} -| (features.320);
+        \draw[->, dashed] (y_input_phantom -| forget.320) node[circle, fill, inner sep=1.5pt] {} -| (forget.320);
+
+        \node[draw, fit={(forget) (input) (features) (output) (forget_mult)
+                (input_mult) (output_mult) (y_input_phantom) (x_input_phantom)},
+        inner sep=1cm, label=below:{LSTM layer}] (layer) {};
+    \end{tikzpicture}
+    \caption{An LSTM layer}\label{fig:language-models:lstm-layer}
+\end{figure}
+
+LSTM networks have an internal state called $c(t)$, and an output $y(t)$.
+The internal state is recurrently passed from the output of the layer to its input on the next time step, as is the output $y(t)$.
+However, the output is also passed to the next layer in the network.
+
+The internal state can be modified by the network, in a manner that is controlled by several different \textit{gates}.
+Each gate, is a normal feed-forward network layer with a sigmoid activation function.
+The layer to learn new features is a normal feed-forward layer too, but its activation function is most often the hyperbolic tangent.
+
+Since the sigmoid function outputs values between 0 and 1, and each of the gates are immediately followed by an element-wise multiplication ($\otimes$), the gates are aptly named --- as they control how much of a signal passes.
+The forget gate controls how much of the previous timestep's internal state is remembered, while the input gate controls how much of the new features are added element-wise ($\oplus$) to the internal state.
+Finally, the internal state is passed element-wise through a hyperbolic tangent activation function before being multiplied by the results of the output gate.
+
+We can formalize this architecture mathematically as
+\begin{align}
+    f_g(t) & = \sigma\left(W_f \cdot [y(t-1), x(t)] + b_f\right)                          & \text{forget gate}  \nonumber \\
+    i_g(t) & = \sigma\left(W_i \cdot [y(t-1), x(t)] + b_i\right)                          & \text{input gate}   \nonumber \\
+    o_g(t) & = \sigma\left(W_o \cdot [y(t-1), x(t)] + b_o\right)                          & \text{output gate}  \nonumber \\
+    g(t)   & = \tanh \left(U   \cdot [y(t-1), x(t)] + d  \right)                          & \text{new features} \nonumber \\
+    c(t)   & = \left(f_g(t) \otimes c(t-1)\right) \oplus \left(i_g(t) \otimes g(t)\right) & \text{internal state}         \\
+    y(t)   & = o_g(t) \otimes \tanh\left(c(t)\right)                                      & \text{output}
+\end{align}
+where $[y(t-1), x(t)]$ is the concatenation of the $y(t-1)$ and $x(t)$ vectors, $\otimes$ and $\oplus$ are element-wise multiplication and addition respectively, $W_f, W_i, W_o$, and $U$ are weight matrices, and $b_f, b_i, b_o$, and $d$ are bias vectors \cite{jing_survey}.
+
+The application of LSTM networks to modeling natural language is a relatively recent development \cite{Sundermeyer2012LSTMNN}.
+\autoref{fig:language-models:lstm-lm} shows the proposed neural network topology.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[
+        node distance=2.6cm,
+        >={Stealth[length=2mm]},
+        layer/.style={draw, minimum width=1.5cm},
+        ]
+
+        \node[layer, minimum height=10cm, label=below:{input}] (input) {$\vec x$};
+        \node[layer, label=below:{dense}, right of=input, minimum height=5cm] (dense) {};
+        \node[layer, label=below:{LSTM}, right of=dense, minimum height=6cm] (lstm) {};
+        \node[layer, label=below:{softmax}, right of=lstm, minimum height=10cm] (softmax) {};
+        \node[right=1.2cm of softmax] (output) {$P(w_{k+1} \mid w_{1:k})$};
+
+        \draw[->] (input) -- (dense);
+        \draw[->] (dense) -- (lstm);
+        \draw[->] (lstm) -- (softmax);
+        \draw[->] (softmax) -- (output);
+
+        \draw[->] (lstm) to [in=95, out=85, looseness=6] node[midway, above] {\scriptsize context} (lstm);
+    \end{tikzpicture}
+    \caption{The LSTM language model architecture proposed by \cite{Sundermeyer2012LSTMNN}}\label{fig:language-models:lstm-lm}
+\end{figure}
+
+The input vector $\vec x$ is one-hot encoded, which means that, given a vocabulary of size $n$, $\vec x$ is $n$-dimensional and zero everywhere except for the index corresponding to the word $\vec x$ represents where its value is one.
+This is a common word representation for neural network models, and in the implementations of the network training and computation the supporting linear algebra and optimization libraries are free to abuse the sparse nature of the input vector.
+
+The first hidden layer, in effect, projects the one-hot encoded input vector to a continuous vector space.
+Then this continuous word representation is passed through the LSTM network that is able to keep track of the context between different $\vec x$ vectors (each representing a word in the vocabulary) fed to the network.
+Finally, note that the softmax output layer outputs a probability value for each word in the vocabulary, making it the dominating computational factor in the network training \cite{Sundermeyer2012LSTMNN}.
 
 %% TODO: Wrap in a "Data Representation" section?
 \subsection{Word Embeddings}\label{sec:language-models:word-embeddings}
+%% TODO: Remove this blurb.
+Sections \autoref{sec:language-models:markov} through \autoref{sec:language-models:lstms} form an introduction to neural network language modeling.
+Until recently, the LSTM approaches from \autoref{sec:language-models:lstms} were the state-of-the-art, however large advances have been made recently, in the use of continuous word representations (\autoref{sec:language-models:word-embeddings}), attention (\autoref{sec:language-models:attention}), transformers (\autoref{sec:language-models:transformers}), BERT (\autoref{sec:language-models:bert}), and GPT-2 (\autoref{sec:language-models:gpt-2}).
+
+\TODO{See chapter 14 of \cite{eisenstein_2019}.}
+
 \subsection{word2vec}\label{sec:language-models:word2vec}
 \subsection{Global Vectors for Word Representation}\label{sec:language-models:glove}
 \subsection{doc2vec}\label{sec:language-models:doc2vec}
 
 \subsection{Encoders and Decoders}\label{sec:language-models:encoders-decoders}
+\TODO{See \cite{eisenstein_2019}.}
 \subsection{seq2seq}\label{sec:language-models:seq2seq}
+\TODO{See \cite{eisenstein_2019}.}
 
 \subsection{Attention}\label{sec:language-models:attention}
+
+\TODO{See section 18.3.1 of \cite{eisenstein_2019}}
+
 \subsection{Transformers}\label{sec:language-models:transformers}
+\TODO{See \cite{eisenstein_2019}.}
 %% TODO: Move up to word embeddings?
 \subsection{Byte Pair Encodings}\label{sec:language-models:bpe}
 

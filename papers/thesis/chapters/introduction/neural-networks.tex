@@ -18,16 +18,16 @@ Of course, our intent is not to emulate, nor is it to simulate a collection of b
 We simply wish to motivate a mathematical discussion of a statistical model that has proved useful in data analysis, modeling, and prediction.
 In this spirit, we note that it is well beyond the scope of this paper to provide a biologically correct description of the hugely complex field of neuroscience.
 In fact, it would be reasonable to present neural networks devoid of any biological motivation simply as a mathematical model that has proven to be useful.
-
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{biological_neuron}
     \caption{A biological neuron \cite{bio_neuron}}\label{fig:neural-networks:biological-neuron}
 \end{figure}
-
 \autoref{fig:neural-networks:biological-neuron} shows a ``typical'' neuron (of course there is no such thing) with various labeled components.
-In the most general sense, a neuron takes in input through its dendrites, processes the received information, and under the right conditions emits a signal through its axon to the dendrites of an adjacent neuron \cite{bio_neuron}.
+In the most general sense, a neuron takes electrical stimulation through its dendrites, processes the received information, and under the right conditions emits a signal through its axon to the dendrites of an adjacent neuron \cite{bio_neuron}.
 Somehow, through an organization of many such neurons, intelligent behavior emerges \cite{castro_2006}.
+
+\subsection{An Artificial Neuron}\label{sec:neural-networks:artificial-neuron}
 
 Even such a grossly simplified treatment of a neuron provides motivation for the artificial neuron shown in \autoref{fig:neural-networks:artificial-neuron}.
 \begin{figure}[h]
@@ -58,10 +58,8 @@ Even such a grossly simplified treatment of a neuron provides motivation for the
     \caption{An artificial neuron}\label{fig:neural-networks:artificial-neuron}
 \end{figure}
 The artificial neuron, called a \textit{unit}, takes a fixed number of inputs $x_0, \dots, x_n$, multiplies each with its corresponding weight, and adds the weighted inputs together before piping the result through the activation function $f$.
-Note that if the inputs are treated as a column vector $\vec x$, and the weights as a vector $\vec w$, the output is the result of the operation
-\begin{equation*}
-    y = f(\vec w \cdot \vec x)
-\end{equation*}
+Note that if the inputs are treated as a column vector $\vec x$, and the weights as a vector $\vec w$, the output is the result of the operation $y = f(\vec w \cdot \vec x)$.
+
 Often it is useful to add a bias term $b$
 \begin{equation}
     y = f(\vec w \cdot \vec x + b) \label{eq:neural-networks:ffnn-unit}
@@ -95,6 +93,8 @@ This allows us to treat the bias term exactly like one of the weights when assem
     \end{tikzpicture}
     \caption{An artificial neuron with a unitary bias input}\label{fig:neural-networks:artificial-neuron-bias}
 \end{figure}
+
+\subsection{Assembling Neurons into Networks}\label{sec:neural-networks:assembling-neurons}
 
 Presumably then, the intelligence of a neural network has something to do with how the units are assembled together, and with the magical weight values associated with each unit.
 Unlike the chaotic and organic layout in the human body, we assemble the artificial neurons into sequential layers, and connect the outputs of the previous layer to the inputs of the next.
@@ -195,3 +195,4 @@ That is, the vector $y$ sums to 1.
 The softmax activation function is often used in neural networks whose output is to be treated as a probability, and will be used extensively in language modeling.
 
 \TODO{Add a \textit{brief} discussion on datasets, objective functions, and optimization methods.}
+\TODO{See also \cite{eisenstein_2019} for a brief but rigorous mathematical introduction to neural networks.}
