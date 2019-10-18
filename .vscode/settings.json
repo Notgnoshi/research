@@ -1,13 +1,17 @@
 {
     "python.pythonPath": ".venv/bin/python",
     "latex-workshop.latex.bibDirs": [
-        "/home/nots/Documents/school/research/papers/bibliography"
+        "/home/nots/Documents/school/research/papers/bibliography",
+        "/home/student/7314636/Documents/school/research/papers/bibliography",
     ],
     "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": false,
     "latex-workshop.latex.texDirs": [
         "/home/nots/Documents/school/research/papers/sdsmt-thesis",
         "/home/nots/Documents/school/research/papers",
-        "/home/nots/Documents/school/research/papers/thesis"
+        "/home/nots/Documents/school/research/papers/thesis",
+        "/home/student/7314636/Documents/school/research/papers/sdsmt-thesis",
+        "/home/student/7314636/Documents/school/research/papers",
+        "/home/student/7314636/Documents/school/research/papers/thesis",
     ],
     // Cannot use ${workspaceFolder} or $HOME here...
     "latex-workshop.latex.outDir": "%DIR%/build",
