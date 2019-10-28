@@ -67,7 +67,7 @@
 %% rather than using a fixed separation distance between each paragraph.
 \usepackage{parskip}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
+\pgfplotsset{compat=newest}
 
 \usepackage{scalerel}
 \usepackage{subcaption}
@@ -141,3 +141,6 @@
     \def\subsectionautorefname{\S}%
     \def\subsubsectionautorefname{\S}%
 }
+
+%% Never allow footnotes to span pages.
+\interfootnotelinepenalty=\@M
