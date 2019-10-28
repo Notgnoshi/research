@@ -188,7 +188,7 @@ where $\vec{b_1}$ and $\vec{b_2}$ are the implicit bias vectors, and $W_1$ and $
 
 Here, the softmax activation function
 \begin{equation}
-    \softmax(\vec x)_i = \frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}} \quad \text{for each $i=1, \dots, n$} \label{eq:neural-networks:softmax}
+    \softmax(\vec x) = \frac{\exp\left(\vec x\right)}{\sum\exp\left(\vec x\right)} \label{eq:neural-networks:softmax}
 \end{equation}
 is applied element-wise to the vector $\vec x$, and produces the vector $\vec y$ which can be treated as a probability distribution over $n$ values.
 That is, the vector $y$ sums to 1.
