@@ -74,6 +74,7 @@ docker-shell: docker-build
 		--interactive \
 		--tty \
 		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
 		bash
 
@@ -91,6 +92,7 @@ train: $(REPO_INIT_TRIGGER)
 		--interactive \
 		--tty \
 		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
 		$(WORKSPACE)/haikulib/scripts/markov.py --train --config=$(WORKSPACE)/$(CONFIG)
 
@@ -106,6 +108,7 @@ generate: $(REPO_INIT_TRIGGER)
 		--interactive \
 		--tty \
 		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
 		$(WORKSPACE)/haikulib/scripts/markov.py --generate --config=$(WORKSPACE)/$(CONFIG)
 
@@ -125,6 +128,7 @@ $(REPO_INIT_TRIGGER): haikulib/data/initialization.py
 		--interactive \
 		--tty \
 		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
 		$(WORKSPACE)/haikulib/scripts/initialize.py
 
@@ -161,3 +165,56 @@ check: $(REPO_INIT_TRIGGER)
 		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
 		pytest
+
+## Fine-tune GPT-2
+## Using CUDA requires more memory than I have.
+.PHONY: gpt2
+gpt2: $(REPO_INIT_TRIGGER)
+	cut -d , -f2 data/haiku.csv | tail -n +2 | sed 's|^\(.*\)$$|^ \1 $$|g' | shuf > data/raw.txt
+	head -n -5000 data/raw.txt > data/train.txt
+	tail -n 5000 data/raw.txt > data/eval.txt
+
+	docker run \
+		--user $(shell id -u):$(shell id -g) \
+		--gpus all \
+		--rm \
+		--interactive \
+		--tty \
+		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		--workdir=$(WORKSPACE) \
+		$(DOCKER_RESEARCH_TAG) \
+		python3 $(WORKSPACE)/haikulib/scripts/run_language_modeling.py \
+			--should_continue \
+			--overwrite_output_dir \
+			--cache_dir=$(WORKSPACE)/data/cache \
+			--output_dir=$(WORKSPACE)/data/models/gpt2-orig \
+			--model_type=gpt2 \
+			--model_name_or_path=gpt2 \
+			--line_by_line \
+			--seed=$(shell echo $$RANDOM) \
+			--no_cuda \
+			--do_train \
+			--train_data_file=$(WORKSPACE)/data/train.txt \
+			--do_eval \
+			--eval_data_file=$(WORKSPACE)/data/eval.txt
+
+## Generate w/ GPT-2
+.PHONY: gpt2-generate
+gpt2-generate:
+	docker run \
+		--user $(shell id -u):$(shell id -g) \
+		--gpus all \
+		--rm \
+		--interactive \
+		--tty \
+		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		--workdir=$(WORKSPACE) \
+		$(DOCKER_RESEARCH_TAG) \
+		python3 $(WORKSPACE)/haikulib/scripts/run_generation.py \
+			--model_type=gpt2 \
+			--model_name_or_path=$(WORKSPACE)/data/models/gpt2-orig \
+			--prompt="^ i" \
+			--stop_token="$$" \
+			--seed=$(shell echo $$RANDOM) \
+			--no_cuda \
+			--num_return_sequences=20
