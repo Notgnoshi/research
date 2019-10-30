@@ -4,6 +4,7 @@ The purpose of these functions is to avoid saving the haiku in a very large CSV 
 control. The CSV file is prone to change often, both in size and structure, due to different
 metadata fields being added as exploratory data analysis is completed.
 """
+import nltk
 import pandas as pd
 
 from haikulib.data import get_data_dir
@@ -49,3 +50,11 @@ def init_csv():
 
     df = pd.DataFrame(rows)
     df.to_csv(get_data_dir() / "haiku.csv")
+
+
+def init_nltk():
+    """Ensure NLTK dependencies have been downloaded."""
+    nltk.download('stopwords')
+    nltk.download('wordnet')
+    nltk.download('averaged_perceptron_tagger')
+    nltk.download('punkt')
