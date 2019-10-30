@@ -10,9 +10,10 @@ DATA_DIR = REPO_DIR / "data"
 sys.path.append(str(REPO_DIR))
 
 from haikulib.data import get_df
-from haikulib.data.initialization import init_csv
+from haikulib.data.initialization import init_csv, init_nltk
 
 if __name__ == "__main__":
+    init_nltk()
     init_csv()
     df = get_df()
     print(df.tail())
