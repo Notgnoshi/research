@@ -16,7 +16,9 @@ def get_data_dir() -> pathlib.Path:
 def get_df() -> pd.DataFrame:
     """Get the dataset in a nicely structured DataFrame."""
     return pd.read_csv(
-        get_data_dir() / "haiku.csv", index_col=0, converters={"colors": ast.literal_eval}
+        get_data_dir() / "haiku.csv",
+        index_col=0,
+        converters={"colors": ast.literal_eval, "syllables": ast.literal_eval},
     )
 
 

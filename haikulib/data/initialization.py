@@ -9,6 +9,7 @@ import pandas as pd
 
 from haikulib.data import get_data_dir
 from haikulib.eda.colors import find_colors
+from haikulib.eda.syllables import estimate_syllables
 from haikulib.nlp import pos_tag, preprocess
 
 
@@ -43,10 +44,16 @@ def init_csv():
     haiku = read_from_file()
     haiku = (preprocess(h) for h in haiku)
     # Removes duplicates in a manner that preserves order. Requires Python 3.6+
+    print("Preprocessing...")
     haiku = list(dict.fromkeys(haiku))
+    print("Counting lines...")
     lines = [h.count("/") + 1 for h in haiku]
+    print("Finding colors...")
+    colors = [find_colors(pos_tag(h)) for h in haiku]
+    print("Counting syllables...")
+    syllables = [estimate_syllables(h) for h in haiku]
 
-    rows = {"haiku": haiku, "colors": [find_colors(pos_tag(h)) for h in haiku], "lines": lines}
+    rows = {"haiku": haiku, "colors": colors, "lines": lines, "syllables": syllables}
 
     df = pd.DataFrame(rows)
     df.to_csv(get_data_dir() / "haiku.csv")
@@ -54,7 +61,7 @@ def init_csv():
 
 def init_nltk():
     """Ensure NLTK dependencies have been downloaded."""
-    nltk.download('stopwords')
-    nltk.download('wordnet')
-    nltk.download('averaged_perceptron_tagger')
-    nltk.download('punkt')
+    nltk.download("stopwords")
+    nltk.download("wordnet")
+    nltk.download("averaged_perceptron_tagger")
+    nltk.download("punkt")
