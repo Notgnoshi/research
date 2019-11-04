@@ -8,4 +8,4 @@ def estimate_syllables(haiku: str):
     for line in lines:
         words = line.strip(" \t\n#").split()
         counts.append(sum(syllables.estimate(w) for w in words))
-    return counts
+    return tuple(counts)
