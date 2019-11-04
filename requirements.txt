@@ -28,6 +28,7 @@ spacy[cuda100]>=2.1.8
 syllables>=0.1.0
 sympy>=1.4
 tensorflow-gpu>=2.0.0-rc0
+tensorflow-hub>=0.7.0
 textblob>=0.15.3
 webcolors>=1.9.1
 wordcloud>=1.5.0
