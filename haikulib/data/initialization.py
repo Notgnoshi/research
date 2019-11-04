@@ -52,8 +52,15 @@ def init_csv():
     colors = [find_colors(pos_tag(h)) for h in haiku]
     print("Counting syllables...")
     syllables = [estimate_syllables(h) for h in haiku]
+    total_syllables = [sum(s) for s in syllables]
 
-    rows = {"haiku": haiku, "colors": colors, "lines": lines, "syllables": syllables}
+    rows = {
+        "haiku": haiku,
+        "colors": colors,
+        "lines": lines,
+        "syllables": syllables,
+        "total_syllables": total_syllables,
+    }
 
     df = pd.DataFrame(rows)
     df.to_csv(get_data_dir() / "haiku.csv")
