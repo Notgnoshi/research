@@ -1,95 +1,40 @@
-\documentclass[12pt]{thesis}
-
-%% The default font is Computer Modern Roman for text and math. Uncomment
-%% one of the following to choose a different font set.
-% \usepackage{mathptmx} % Times New Roman with math fonts
-% \usepackage{newcent}  % new century schoolbook font
-% \usepackage{bookman}  % bookman font
-% \usepackage{fourier}  % Utopia (text) and Fourier (math) font
-% \usepackage{times}
-% \usepackage{mathptm}
+\documentclass[12pt]{article}
 
 \input{research.sty}
+
 \newcommand{\onlyinsubfile}[1]{#1}
 \newcommand{\notinsubfile}[1]{}
 
-\newcommand{\subfilefrontmatter}{\maketitle\preliminaries{}\tableofcontents\body{}}
-\newcommand{\subfilebackmatter}{\supplementaries{}\bibliography{computational-poetry,datasets,language-models,misc,text-generation,the-haiku-form}}
+\newcommand{\subfilefrontmatter}{\maketitle\tableofcontents\newpage}
+\newcommand{\subfilebackmatter}{\newpage\bibliography{computational-poetry,datasets,language-models,misc,text-generation,the-haiku-form}}
 
-%% Computer Science theses should use ACM or IEEE citations.
 \bibliographystyle{acm}
 % \bibliographystyle{ieeetr}
 
-%% Uncomment next line to print a double-spaced draft version
-% \dsdraft
-
-%% Uncomment next line to print a single-spaced draft version
-\ssdraft{}
-
-\doctype{thesis}
 %% TODO: Find a title.
 \title{Something About Haiku}
 \author{Austin Gill}
-\degree{Master of Science in Computational Sciences and Robotics}
-\defensedate{\FIXME{May 42, 2020}}
-\gradyear{2020}
-\department{Computer Science and Engineering}
-
-% The following commands add a signature line for each person who needs
-% to sign the thesis/dissertation
-\signatureline{Major Professor --- Christer Karlsson, Ph.D., Department of Computer Science and Engineering}
-\signatureline{Graduate Division Representative --- Rodney Rice, Ph.D., Department of Humanities}
-\signatureline{Committee Member --- Karen Braman, Ph.D., Department of Mathematics}
-\signatureline{Head of the Computer Science and Engineering Department --- Jeff McGough, Ph.D.}
-\signatureline{Dean of Graduate Education --- Maribeth Price, Ph.D.}
 
 \begin{document}
 \renewcommand{\onlyinsubfile}[1]{}
 \renewcommand{\notinsubfile}[1]{#1}
 \maketitle
 
-%% Comment the next line to remove the copyright notice.  Read the
-%% section on copyright in the Thesis and Dissertation Writing
-%% Instructions. The copyright must go BEFORE \preliminaries
-\makecopyright{}
-\preliminaries{}
-
 \begin{abstract}
     \input{abstract.tex}
 \end{abstract}
 
-\begin{acknowledgments}
-    \input{acknowledgments.tex}
-\end{acknowledgments}
-
 \tableofcontents
-\listoftables
-\listoffigures
 
-\begin{preface}
-    \input{preface.tex}
-\end{preface}
-
-%% End of \preliminaries.
-\body{}
-
+\newpage
 \subfile{chapters/introduction.tex}
 \subfile{chapters/methodology.tex}
 \subfile{chapters/results.tex}
 \subfile{chapters/conclusions.tex}
 
-%% End of \body.
-\supplementaries{}
-%% TODO: There's an entire page gap between the bibliography heading an the start of the bibliography.
+\newpage
 \bibliography{computational-poetry,datasets,language-models,misc,text-generation,the-haiku-form}
 
-\begin{appendices}
-    \appendix{Appendix A}
-    \TODO{Come up with a good way to convert notebooks to \LaTeX{} and include them here.}
-\end{appendices}
-
-\begin{vita}
-    \input{vita.tex}
-\end{vita}
+%% TODO: Are appendices necessary?
 
 \end{document}

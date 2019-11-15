@@ -8,7 +8,7 @@ CHAPTERS_DIR := chapters
 BIB_FILES := $(shell ls $(BIB_DIR)/*.bib)
 CHAPTERS := $(shell ls $(CHAPTERS_DIR)/*.tex)
 CHAPTER_TARGETS := $(CHAPTERS:%.tex=$(BUILD_DIR)/%.pdf)
-TEX_DIRS := $(PAPERS_DIR) $(PAPERS_DIR)/sdsmt-thesis $(PAPETS_DIR)/thesis
+TEX_DIRS := $(PAPERS_DIR) $(PAPETS_DIR)/thesis
 TEX_DIRS := $(shell readlink -f $(TEX_DIRS))
 TEX_DIRS := $(shell echo $(TEX_DIRS) | sed "s/ \+/:/g")
 
@@ -92,14 +92,15 @@ $(BUILD_DIR)/%.pdf: %.tex $(SRC)
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)/_minted-*
-	find $(BUILD_DIR) -type f -not -name '*.pdf' -delete
+	[ -d "$(BUILD_DIR)" ] && find $(BUILD_DIR) -type f -not -name '*.pdf' -delete || true
 	@# Building the subfiles through VS Code places the build directory in the wrong location
-	find $(CHAPTERS_DIR)/build -type f -not -name '*.pdf' -delete
+	[ -d "$(CHAPTERS_DIR)/build" ] && find $(CHAPTERS_DIR)/build -type f -not -name '*.pdf' -delete || true
 
 ## Clean all generated files.
 .PHONY: clean-all
 clean-all:
 	rm -rf $(BUILD_DIR)/*
+	rm -rf $(CHAPTERS_DIR)/build/*
 
 ## Parse LaTeX source code looking for TODO comments and macros.
 .PHONY: warn-todos
