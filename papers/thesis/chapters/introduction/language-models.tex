@@ -1,5 +1,5 @@
 % !TeX root = ../introduction.tex
-\section{Modeling Natural Language}\label{sec:introduction:language-models}
+\subsection{Modeling Natural Language}\label{sec:introduction:language-models}
 
 Natural language in its textual form may be represented as a sequence of tokens.
 The specific granularity of the tokens in these sequences varies from the coarsest word level, to individual characters, to different variations of subword morphemes, token metadata tags, and punctuation.
@@ -56,7 +56,7 @@ A good language model --- one that is reflective of ``real'' language --- will a
 Notice, however, that perplexities are corpus specific --- rendering it impossible to compare scores between two language models trained on different datasets.
 \TODO{Provide example language model output and compare perplexities? Possibly just give an example of ``I'm going out to dinner with my...''.}
 
-\subsection{Markov Models}\label{sec:language-models:markov}
+\subsubsection{Markov Models}\label{sec:language-models:markov}
 
 A simple approach to language modeling, useful for motivating the rest of our discussion, is to use a Markov chain to model the probability that one word follows another in a given sequence.
 A key property of Markov models is that they are stateless, or memoryless \cite{gagniuc_2017}.
@@ -100,7 +100,7 @@ The MLE estimate is modified as
 \end{equation}
 where $v$ is the size of the token vocabulary and $0 < \alpha \leq 1$. Another family of approaches is using \textit{back-off}, where if a sequence $w_{i-k:i}$ is not observed, the model falls back to using $w_{i-k-1:i}$\cite{chen_goodman_1999,goodman_2001,JelMer80}.
 
-\subsection{Feed-Forward Neural Network Models}\label{sec:language-models:ffnns}
+\subsubsection{Feed-Forward Neural Network Models}\label{sec:language-models:ffnns}
 Using feed-forward neural networks were first seriously applied to modeling natural language by Yoshua Bengio in 2003 \cite{bengio2003}.
 \begin{figure}[h]
     \centering
@@ -149,7 +149,7 @@ The softmax output layer shown in \autoref{fig:language-models:ffnnlm} is the mo
 given a vocabulary of size $v$, one softmax computation requires a matrix-vector multiplication with a matrix sized $d_\text{hidden} \times v$, followed by $v$ exponentiations.
 This makes using large vocabularies prohibitively expensive~\cite{goldberg_2017}.
 
-\subsection{Recurrent Neural Network Models}\label{sec:language-models:rnns}
+\subsubsection{Recurrent Neural Network Models}\label{sec:language-models:rnns}
 
 For several years, Bengio's feed-forward language model shown in \autoref{fig:language-models:ffnnlm} was the state-of-the-art neural network language model.
 Then in 2010, Tomas Mikolov~\cite{Mikolov2010RecurrentNN,Mikolov2011RecurrentNN,Mikolov2012ContextDR} proposed a recurrent neural network (RNN) architecture that made major advancements in model performance.
@@ -202,7 +202,7 @@ Mikolov notes that the size of the hidden context layer should be proportional t
 This results in training times that increase more than linearly with the size of the training set.
 Another problem with RNN language models is that the gradients in RNN models tend to vanish and explode during training \cite{jing_survey}.
 
-\subsection{Long Short Term Memory Models}\label{sec:language-models:lstms}
+\subsubsection{Long Short Term Memory Models}\label{sec:language-models:lstms}
 
 In light of the vanishing gradients of RNN models, the use of a Long Short Term Memory (LSTM) network architecture has been found to be effective \cite{lstm}.
 LSTM models are a class of recurrent networks.
@@ -361,32 +361,32 @@ Then this continuous word representation is passed through the LSTM network that
 Finally, note that the softmax output layer outputs a probability value for each word in the vocabulary, making it the dominating computational factor in the network training \cite{Sundermeyer2012LSTMNN}.
 
 %% TODO: Wrap in a "Data Representation" section?
-\subsection{Word Representations}\label{sec:language-models:word-representations}
+\subsubsection{Word Representations}\label{sec:language-models:word-representations}
 %% TODO: Remove this blurb.
 Sections \autoref{sec:language-models:markov} through \autoref{sec:language-models:lstms} form an introduction to neural network language modeling.
 Until recently, the LSTM approaches from \autoref{sec:language-models:lstms} were the state-of-the-art, however large advances have been made recently, in the use of continuous word representations (\autoref{sec:language-models:word-representations}), attention (\autoref{sec:language-models:attention}), transformers (\autoref{sec:language-models:transformers}), BERT (\autoref{sec:language-models:bert}), and GPT-2 (\autoref{sec:language-models:gpt-2}).
 
 \TODO{See chapter 14 of \cite{eisenstein_2019}.}
 
-\subsection{word2vec}\label{sec:language-models:word2vec}
-\subsection{Global Vectors for Word Representation}\label{sec:language-models:glove}
-\subsection{doc2vec}\label{sec:language-models:doc2vec}
+\subsubsection{word2vec}\label{sec:language-models:word2vec}
+\subsubsection{Global Vectors for Word Representation}\label{sec:language-models:glove}
+\subsubsection{doc2vec}\label{sec:language-models:doc2vec}
 
-\subsection{Encoders and Decoders}\label{sec:language-models:encoders-decoders}
+\subsubsection{Encoders and Decoders}\label{sec:language-models:encoders-decoders}
 \TODO{See \cite{eisenstein_2019}.}
-\subsection{seq2seq}\label{sec:language-models:seq2seq}
+\subsubsection{seq2seq}\label{sec:language-models:seq2seq}
 \TODO{See \cite{eisenstein_2019}.}
 
-\subsection{Attention}\label{sec:language-models:attention}
+\subsubsection{Attention}\label{sec:language-models:attention}
 
 \TODO{See section 18.3.1 of \cite{eisenstein_2019}}
 
-\subsection{Transformers}\label{sec:language-models:transformers}
+\subsubsection{Transformers}\label{sec:language-models:transformers}
 \TODO{See \cite{eisenstein_2019}.}
 %% TODO: Move up to word embeddings?
-\subsection{Byte Pair Encodings}\label{sec:language-models:bpe}
+\subsubsection{Byte Pair Encodings}\label{sec:language-models:bpe}
 
 %% Specific Language Models
-\subsection{Bidirectional Encoder Representations from Transformers}\label{sec:language-models:bert}
-\subsection{Generative Pre-Training (I)}\label{sec:language-models:gpt}
-\subsection{Generative Pre-Training (II)}\label{sec:language-models:gpt-2}
+\subsubsection{Bidirectional Encoder Representations from Transformers}\label{sec:language-models:bert}
+\subsubsection{Generative Pre-Training (I)}\label{sec:language-models:gpt}
+\subsubsection{Generative Pre-Training (II)}\label{sec:language-models:gpt-2}

@@ -63,8 +63,6 @@
 }
 \providecommand*{\listingautorefname}{Listing}
 
-%% TODO: There's a bug with the thesis class that causes paragraphs to uniformly fill the page,
-%% rather than using a fixed separation distance between each paragraph.
 \usepackage{parskip}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
@@ -128,9 +126,8 @@
 \DeclareMathOperator{\model}{LM}
 \DeclareMathOperator{\softmax}{softmax}
 
-%% TODO: Un-color links before submission.
 % Hyperref should be the last packaged included.
-\usepackage[bookmarksopen=true]{hyperref}
+\usepackage[bookmarksopen=true, colorlinks=true]{hyperref}
 
 % \renewcommand{\sectionautorefname}{\S}
 % \renewcommand{\subsectionautorefname}{\S}
@@ -143,4 +140,4 @@
 }
 
 %% Never allow footnotes to span pages.
-\interfootnotelinepenalty=\@M
+% \interfootnotelinepenalty=\@M

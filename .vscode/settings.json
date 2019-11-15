@@ -6,10 +6,8 @@
     ],
     "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": false,
     "latex-workshop.latex.texDirs": [
-        "/home/nots/Documents/school/research/papers/sdsmt-thesis",
         "/home/nots/Documents/school/research/papers",
         "/home/nots/Documents/school/research/papers/thesis",
-        "/home/student/7314636/Documents/school/research/papers/sdsmt-thesis",
         "/home/student/7314636/Documents/school/research/papers",
         "/home/student/7314636/Documents/school/research/papers/thesis",
     ],
@@ -29,7 +27,7 @@
                 "%DOC%"
             ],
             "env": {
-                "TEXINPUTS": "$HOME/Documents/school/research/papers/sdsmt-thesis:$HOME/Documents/school/research/papers:$HOME/Documents/school/research/papers/thesis:",
+                "TEXINPUTS": "$HOME/Documents/school/research/papers:$HOME/Documents/school/research/papers/thesis:",
                 "BIBINPUTS": "$HOME/Documents/school/research/papers/bibliography:"
             }
         }

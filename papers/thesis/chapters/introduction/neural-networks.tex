@@ -1,5 +1,5 @@
 % !TeX root = ../introduction.tex
-\section{Neural Networks}\label{sec:introduction:neural-networks}
+\subsection{Neural Networks}\label{sec:introduction:neural-networks}
 
 Much of the future discussion on neural network language models will require at least an intuitive understanding of neural networks.
 This section aims to provide enough background and vocabulary to facilitate discussion of neural networks as a concept without becoming bogged down in a nontrivial amount of detail.
@@ -11,7 +11,7 @@ This section aims to provide enough background and vocabulary to facilitate disc
 There are many other excellent introductions to neural networks that provide much more detail such as \cite{goodfellow_bengio_courville_2016} for a general mathematical treatment, or \cite{goldberg_2017} for a treatment specific to processing natural language.
 \TODO{This information is provided purely to ensure a consistent vocabulary, and has been produced without reference material. It should be fact-checked and appropriately cited.}
 
-\subsection{A Biological Metaphor}\label{sec:neural-networks-biological-metaphor}
+\subsubsection{A Biological Metaphor}\label{sec:neural-networks-biological-metaphor}
 
 If our intent is to produce intelligent, sophisticated statistical models, it is useful to motivate our model with the biological metaphor of a single neuron.
 Of course, our intent is not to emulate, nor is it to simulate a collection of biological neurons.
@@ -27,7 +27,7 @@ In fact, it would be reasonable to present neural networks devoid of any biologi
 In the most general sense, a neuron takes electrical stimulation through its dendrites, processes the received information, and under the right conditions emits a signal through its axon to the dendrites of an adjacent neuron \cite{bio_neuron}.
 Somehow, through an organization of many such neurons, intelligent behavior emerges \cite{castro_2006}.
 
-\subsection{An Artificial Neuron}\label{sec:neural-networks:artificial-neuron}
+\subsubsection{An Artificial Neuron}\label{sec:neural-networks:artificial-neuron}
 
 Even such a grossly simplified treatment of a neuron provides motivation for the artificial neuron shown in \autoref{fig:neural-networks:artificial-neuron}.
 \begin{figure}[h]
@@ -94,7 +94,7 @@ This allows us to treat the bias term exactly like one of the weights when assem
     \caption{An artificial neuron with a unitary bias input}\label{fig:neural-networks:artificial-neuron-bias}
 \end{figure}
 
-\subsection{Assembling Neurons into Networks}\label{sec:neural-networks:assembling-neurons}
+\subsubsection{Assembling Neurons into Networks}\label{sec:neural-networks:assembling-neurons}
 
 Presumably then, the intelligence of a neural network has something to do with how the units are assembled together, and with the magical weight values associated with each unit.
 Unlike the chaotic and organic layout in the human body, we assemble the artificial neurons into sequential layers, and connect the outputs of the previous layer to the inputs of the next.
