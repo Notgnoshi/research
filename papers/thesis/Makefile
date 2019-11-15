@@ -4,10 +4,10 @@ PAPERS_DIR := $(realpath ..)
 BIB_DIR := $(PAPERS_DIR)/bibliography
 STYLE_FILE := $(PAPERS_DIR)/research.sty
 BUILD_DIR := build
-CHAPTERS_DIR := chapters
+SECTIONS_DIR := sections
 BIB_FILES := $(shell ls $(BIB_DIR)/*.bib)
-CHAPTERS := $(shell ls $(CHAPTERS_DIR)/*.tex)
-CHAPTER_TARGETS := $(CHAPTERS:%.tex=$(BUILD_DIR)/%.pdf)
+SECTIONS := $(shell ls $(SECTIONS_DIR)/*.tex)
+SECTION_TARGETS := $(SECTIONS:%.tex=$(BUILD_DIR)/%.pdf)
 TEX_DIRS := $(PAPERS_DIR) $(PAPETS_DIR)/thesis
 TEX_DIRS := $(shell readlink -f $(TEX_DIRS))
 TEX_DIRS := $(shell echo $(TEX_DIRS) | sed "s/ \+/:/g")
@@ -61,25 +61,25 @@ help:
 .PHONY: all
 all: $(SRC) $(THESIS_DOC)
 
-## Build all chapters individually.
-.PHONY: chapters
-chapters: $(CHAPTER_TARGETS)
+## Build all sections individually.
+.PHONY: sections
+sections: $(SECTION_TARGETS)
 
-## Build the Introduction chapter.
+## Build the Introduction section.
 .PHONY: introduction
-introduction: $(BUILD_DIR)/$(CHAPTERS_DIR)/introduction.pdf
+introduction: $(BUILD_DIR)/$(SECTIONS_DIR)/introduction.pdf
 
-## Build the Methodology chapter.
+## Build the Methodology section.
 .PHONY: methodology
-methodology: $(BUILD_DIR)/$(CHAPTERS_DIR)/methodology.pdf
+methodology: $(BUILD_DIR)/$(SECTIONS_DIR)/methodology.pdf
 
-## Build the Results chapter.
+## Build the Results section.
 .PHONY: results
-results: $(BUILD_DIR)/$(CHAPTERS_DIR)/results.pdf
+results: $(BUILD_DIR)/$(SECTIONS_DIR)/results.pdf
 
-## Build the Conclusions chapter.
+## Build the Conclusions section.
 .PHONY: conclusions
-conclusions: $(BUILD_DIR)/$(CHAPTERS_DIR)/conclusions.pdf
+conclusions: $(BUILD_DIR)/$(SECTIONS_DIR)/conclusions.pdf
 
 $(BUILD_DIR)/%.pdf: %.tex $(SRC)
 	@# Use -outdir=$(@D) for nested directories, but then the subfile paths are relative to build output.
@@ -94,13 +94,13 @@ clean:
 	rm -rf $(BUILD_DIR)/_minted-*
 	[ -d "$(BUILD_DIR)" ] && find $(BUILD_DIR) -type f -not -name '*.pdf' -delete || true
 	@# Building the subfiles through VS Code places the build directory in the wrong location
-	[ -d "$(CHAPTERS_DIR)/build" ] && find $(CHAPTERS_DIR)/build -type f -not -name '*.pdf' -delete || true
+	[ -d "$(SECTIONS_DIR)/build" ] && find $(SECTIONS_DIR)/build -type f -not -name '*.pdf' -delete || true
 
 ## Clean all generated files.
 .PHONY: clean-all
 clean-all:
 	rm -rf $(BUILD_DIR)/*
-	rm -rf $(CHAPTERS_DIR)/build/*
+	rm -rf $(SECTIONS_DIR)/build/*
 
 ## Parse LaTeX source code looking for TODO comments and macros.
 .PHONY: warn-todos
@@ -123,19 +123,19 @@ view:
 ## Open the Introduction chapter individually in a PDF viewer.
 .PHONY: view-introduction
 view-introduction:
-	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(CHAPTERS_DIR)/introduction.pdf &
+	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(SECTIONS_DIR)/introduction.pdf &
 
 ## Open the Methodology chapter individually in a PDF viewer.
 .PHONY: view-methodology
 view-methodology:
-	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(CHAPTERS_DIR)/methodology.pdf &
+	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(SECTIONS_DIR)/methodology.pdf &
 
 ## Open the Results chapter individually in a PDF viewer.
 .PHONY: view-results
 view-results:
-	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(CHAPTERS_DIR)/results.pdf &
+	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(SECTIONS_DIR)/results.pdf &
 
 ## Open the Conclusions chapter individually in a PDF viewer.
 .PHONY: view-conclusions
 view-conclusions:
-	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(CHAPTERS_DIR)/conclusions.pdf &
+	1>/dev/null 2>/dev/null xdg-open $(BUILD_DIR)/$(SECTIONS_DIR)/conclusions.pdf &
