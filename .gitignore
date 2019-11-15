@@ -9,9 +9,9 @@ data/*
 !data/flora.txt
 !data/fauna.txt
 !data/colors.csv
-!data/color_names.csv
-!data/rgb.txt
-!data/speclist.txt
+
+## Ignore jupyter notebooks. Instead, use Jupytext and track the corresponding markdown documents.
+*.ipynb
 
 .noseids
 
