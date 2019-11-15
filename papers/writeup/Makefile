@@ -1,4 +1,4 @@
-TEX_ROOT := thesis.tex
+TEX_ROOT := writeup.tex
 # Where to find the bibliography.
 PAPERS_DIR := $(realpath ..)
 BIB_DIR := $(PAPERS_DIR)/bibliography
@@ -8,11 +8,11 @@ SECTIONS_DIR := sections
 BIB_FILES := $(shell ls $(BIB_DIR)/*.bib)
 SECTIONS := $(shell ls $(SECTIONS_DIR)/*.tex)
 SECTION_TARGETS := $(SECTIONS:%.tex=$(BUILD_DIR)/%.pdf)
-TEX_DIRS := $(PAPERS_DIR) $(PAPETS_DIR)/thesis
+TEX_DIRS := $(PAPERS_DIR) $(PAPETS_DIR)/writeup
 TEX_DIRS := $(shell readlink -f $(TEX_DIRS))
 TEX_DIRS := $(shell echo $(TEX_DIRS) | sed "s/ \+/:/g")
 
-THESIS_DOC := $(BUILD_DIR)/$(TEX_ROOT:%.tex=%.pdf)
+WRITEUP_DOC := $(BUILD_DIR)/$(TEX_ROOT:%.tex=%.pdf)
 SRC := $(shell find . -name '*.tex') $(BIB_FILES) $(STYLE_FILE)
 
 .DEFAULT_GOAL := all
@@ -57,9 +57,9 @@ help:
 
 ## Building the document.
 
-## Build the entire thesis document and any supporting matter.
+## Build the entire writeup document and any supporting matter.
 .PHONY: all
-all: $(SRC) $(THESIS_DOC)
+all: $(SRC) $(WRITEUP_DOC)
 
 ## Build all sections individually.
 .PHONY: sections
@@ -118,7 +118,7 @@ warn-todos:
 ## Open the whole thesis in a PDF viewer.
 .PHONY: view
 view:
-	1>/dev/null 2>/dev/null xdg-open $(THESIS_DOC) &
+	1>/dev/null 2>/dev/null xdg-open $(WRITEUP_DOC) &
 
 ## Open the Introduction chapter individually in a PDF viewer.
 .PHONY: view-introduction
