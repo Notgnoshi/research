@@ -78,7 +78,7 @@ experiment_dir.mkdir(parents=True, exist_ok=True)
 
 pd.set_option("display.latex.repr", True)
 pd.set_option("display.latex.longtable", True)
-pd.set_option('display.max_colwidth', -1)
+pd.set_option("display.max_colwidth", -1)
 
 # plt.rcParams has no effect if in the same cell as the matplotlib import.
 # See: https://github.com/ipython/ipython/issues/11098
@@ -108,10 +108,7 @@ As expected, the distribution of the total number of syllables is roughly normal
 
 ```python
 sns.distplot(
-    df["total_syllables"],
-    bins=np.arange(5, 25),
-    kde_kws={"bw": 0.4},
-    hist_kws={"align": "left"},
+    df["total_syllables"], bins=np.arange(5, 25), kde_kws={"bw": 0.4}, hist_kws={"align": "left"}
 )
 plt.title("Haiku total syllable count")
 plt.xlabel("syllables")
@@ -138,8 +135,7 @@ df[df["total_syllables"] <= 4]
 df[df["total_syllables"] >= 26]
 ```
 
-The outliers on both sides seem subjectively reasonable, if strict adherence to the traditional seventeen-syllable structure is abandonded.
-They each 
+The outliers on both sides seem subjectively reasonable, if strict adherence to the traditional seventeen-syllable structure is abandoned.
 
 **Note:** This outlier analysis revealed the presence of the following zero-syllable haiku in the corpus:
 
@@ -167,28 +163,9 @@ bins = np.arange(1, 10)
 kde_kws = {"bw": 0.4}
 hist_kws = {"align": "left"}
 
-
-sns.distplot(
-    one,
-    label="first",
-    bins=bins,
-    kde_kws=kde_kws,
-    hist_kws=hist_kws,
-)
-sns.distplot(
-    two,
-    label="second",
-    bins=bins,
-    kde_kws=kde_kws,
-    hist_kws=hist_kws,
-)
-sns.distplot(
-    three,
-    label="third",
-    bins=bins,
-    kde_kws=kde_kws,
-    hist_kws=hist_kws,
-)
+sns.distplot(one, label="first", bins=bins, kde_kws=kde_kws, hist_kws=hist_kws)
+sns.distplot(two, label="second", bins=bins, kde_kws=kde_kws, hist_kws=hist_kws)
+sns.distplot(three, label="third", bins=bins, kde_kws=kde_kws, hist_kws=hist_kws)
 
 plt.title("Haiku syllables per line")
 plt.legend()
@@ -200,7 +177,6 @@ plt.show()
 We can see that there is a clear distinction between the distributions of the middle and surrounding lines.
 This agrees with my expectations, but it is surprising to find that the middle distribution is centered on five, not seven, syllables.
 It's also interesting to note that the distributions of the first and last lines are similar, yet the distribution of the third line's syllables is slightly skewed higher.
-
 
 # Common Syllable Structures
 

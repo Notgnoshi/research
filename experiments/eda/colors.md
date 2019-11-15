@@ -61,7 +61,9 @@ from IPython.display import Image
 
 import haikulib.eda.colors
 from haikulib import data, nlp, utils
+```
 
+```python
 data_dir = data.get_data_dir() / "experiments" / "eda" / "colors"
 data_dir.mkdir(parents=True, exist_ok=True)
 pd.set_option("display.latex.repr", True)
@@ -86,9 +88,7 @@ corpus = []
 for haiku in df["haiku"]:
     corpus.append(" ".join(line.strip(" #") for line in haiku.split("/")))
 
-color_names = {
-    r["color"]: r["hex"] for _, r in haikulib.eda.colors.get_colors().iterrows()
-}
+color_names = {r["color"]: r["hex"] for _, r in haikulib.eda.colors.get_colors().iterrows()}
 ```
 
 ```python
@@ -120,7 +120,6 @@ naive_color_counts.head(10)
 ```
 
 # Parsing Colors using Part-Of-Speech Tagging
-
 
 Rather than implement the color parsing as a part of this notebook, it is performed as a part of the `haikulib.eda` library so that the color parsing can be done *on creation* of the `haiku.csv` cleaned data file.
 This enables using the results of this analysis in other exploration.
@@ -218,12 +217,11 @@ naive_color_counts.head(10)
 
 There are a number of palette visualization techniques we could use.
 We will visualize the haiku color palette using
+
 * Word cloud
 * Histogram
 * Pie Chart
-* Ordered Grid
 * Spectrum
-
 
 ## Word Cloud
 
@@ -288,12 +286,7 @@ background = plt.bar(
     alpha=0.8,
 )
 foreground = plt.bar(
-    range(len(colors)),
-    height=colors["count"],
-    width=3,
-    linewidth=0,
-    color="black",
-    log=True,
+    range(len(colors)), height=colors["count"], width=3, linewidth=0, color="black", log=True
 )
 plt.savefig(data_dir / "histogram-spectrum-background.pdf")
 plt.show()
@@ -339,12 +332,7 @@ widths = np.array(list(pairwise_difference(thetas)))
 radii = np.log(used_colors["count"])
 
 _ = ax.bar(
-    x=thetas,
-    height=radii,
-    width=widths,
-    color=used_colors["rgb"],
-    linewidth=0,
-    align="edge",
+    x=thetas, height=radii, width=widths, color=used_colors["rgb"], linewidth=0, align="edge"
 )
 plt.savefig(data_dir / "count-proportional-theta-radii-width.eps")
 plt.show()
@@ -388,12 +376,7 @@ widths = 4 * np.pi / len(used_colors)
 radii = np.log(used_colors["count"])
 
 _ = ax.bar(
-    x=thetas,
-    height=radii,
-    width=widths,
-    color=used_colors["rgb"],
-    linewidth=0,
-    align="edge",
+    x=thetas, height=radii, width=widths, color=used_colors["rgb"], linewidth=0, align="edge"
 )
 plt.savefig(data_dir / "hue-proportional-radii-fixed-theta-width.eps")
 plt.show()
@@ -407,14 +390,7 @@ thetas = np.array(list(accumulate(thetas)))
 widths = np.array(list(pairwise_difference(thetas)))
 radii = np.log(used_colors["count"])
 
-_ = ax.bar(
-    x=thetas,
-    height=1,
-    width=widths,
-    color=used_colors["rgb"],
-    linewidth=0,
-    align="edge",
-)
+_ = ax.bar(x=thetas, height=1, width=widths, color=used_colors["rgb"], linewidth=0, align="edge")
 plt.savefig(data_dir / "hue-proportional-theta-width-fixed-radii.eps")
 plt.show()
 ```
@@ -423,19 +399,11 @@ plt.show()
 ax = plt.subplot(111, projection="polar")
 
 _ = ax.bar(
-    x=thetas,
-    height=radii,
-    width=widths,
-    color=used_colors["rgb"],
-    linewidth=0,
-    align="edge",
+    x=thetas, height=radii, width=widths, color=used_colors["rgb"], linewidth=0, align="edge"
 )
 plt.savefig(data_dir / "hue-proportional-theta-radii-width.eps")
 plt.show()
 ```
-
-## Chronological Grid
-
 
 ## Color Adjacency Graph
 

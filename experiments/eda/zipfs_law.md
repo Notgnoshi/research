@@ -55,8 +55,8 @@ from haikulib import data, utils, nlp
 
 ```python
 _nlp = spacy.load("en", disable=["parser", "ner"])
-pd.set_option('display.latex.repr', True)
-pd.set_option('display.latex.longtable', True)
+pd.set_option("display.latex.repr", True)
+pd.set_option("display.latex.longtable", True)
 plt.rcParams["figure.figsize"] = (16 * 0.6, 9 * 0.6)
 
 sns.set()
@@ -127,7 +127,7 @@ freq_table.head()
 Plotting the ranks of each word vs their frequency on a log-log scale reveals that Zipf's law does seem to hold for most of the dataset.
 
 ```python
-plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), '.', markersize=3)
+plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
 
 plt.title("Haiku Word Frequency")
 plt.xlabel("$\log(rank)$")
@@ -155,20 +155,14 @@ interesting.head(7)
 Unfortunately this, and much of the subsequent work involves a fair amount of manual tweaking.
 
 ```python
-plt.plot(
-    np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3
-)
+plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
 
 # This should be a crime.
 x_adjust = np.array([0.1, -0.6, 0.15, -0.6, 0.2, -0.6, 0.0])
 y_adjust = np.array([1.0, -1.2, 1.0, -1.3, 1.0, -1.3, 1.0])
 
 for word, freq, rank, xa, ya in zip(
-    interesting["word"],
-    interesting["frequency"],
-    interesting["rank"],
-    x_adjust,
-    y_adjust,
+    interesting["word"], interesting["frequency"], interesting["rank"], x_adjust, y_adjust
 ):
     plt.annotate(
         word,
@@ -203,9 +197,7 @@ freq_table = get_freq_table(bag)
 ```
 
 ```python
-plt.plot(
-    np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3
-)
+plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
 
 plt.title("Haiku Word Frequency")
 plt.xlabel("$\log(rank)$")
@@ -222,26 +214,24 @@ freq_table.head(15)
 ```
 
 ```python
-indices = get_indices(freq_table, "word", ["moon", "rain", "day", "night", "snow", "winter", "summer", "spring", "autumn"])
+indices = get_indices(
+    freq_table,
+    "word",
+    ["moon", "rain", "day", "night", "snow", "winter", "summer", "spring", "autumn"],
+)
 
 interesting = freq_table.loc[indices]
 ```
 
 ```python
-plt.plot(
-    np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3
-)
+plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
 
 # This should also be a crime.
 x_adjust = np.array([-0.35, -0.9, -0.23, -0.9, -0.1, -0.7, 0.3, -0.7, 0.4])
 y_adjust = np.array([1.0, -1.0, 1.1, -1.1, 1.1, -1.4, 1.0, -1.45, 1.0])
 
 for word, freq, rank, xa, ya in zip(
-    interesting["word"],
-    interesting["frequency"],
-    interesting["rank"],
-    x_adjust,
-    y_adjust,
+    interesting["word"], interesting["frequency"], interesting["rank"], x_adjust, y_adjust
 ):
     plt.annotate(
         word,
@@ -265,7 +255,6 @@ But as exploratory data analysis undertaken to understand the haiku dataset, it 
 
 We can immediately tell that weather and seasons are major themes in haiku.
 
-
 # Word Frequencies After Stemming/Lemmatization
 
 There are two computational approaches for getting the root form of a word - stemming and lemmatization.
@@ -282,7 +271,7 @@ It is a more sophisticated technique that returns the word to its base dictionar
 Lemmatization is much more costly than stemming, and is often performed using a machine learning model.
 
 ```python
-bag = data.get_bag_of(kind='words')
+bag = data.get_bag_of(kind="words")
 
 for stopword in nlp.STOPWORDS:
     if stopword in bag:
@@ -332,24 +321,21 @@ for word, frequency in zip(freq_table["word"], freq_table["frequency"]):
 Each of the stemmers produce similar results.
 
 ```python
-print("Original: length:", len(bag), "common words:", bag.most_common(15), "\n\n",)
-print(
-    "Porter: length:",
-    len(porter_stems),
-    "common stems:",
-    porter_stems.most_common(15), "\n\n",
-)
+print("Original: length:", len(bag), "common words:", bag.most_common(15), "\n\n")
+print("Porter: length:", len(porter_stems), "common stems:", porter_stems.most_common(15), "\n\n")
 print(
     "Lancaster: length:",
     len(lancaster_stems),
     "common stems:",
-    lancaster_stems.most_common(15), "\n\n",
+    lancaster_stems.most_common(15),
+    "\n\n",
 )
 print(
     "Snowball: length:",
     len(snowball_stems),
     "common stems:",
-    snowball_stems.most_common(15), "\n\n",
+    snowball_stems.most_common(15),
+    "\n\n",
 )
 ```
 
@@ -358,9 +344,7 @@ So we use the Lancaster stems to plot the same frequency curve as before.
 
 ```python
 freq_table = get_freq_table(lancaster_stems)
-plt.plot(
-    np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3
-)
+plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
 
 plt.title("Haiku Stem Frequency")
 plt.xlabel("$\log(rank)$")
@@ -372,7 +356,6 @@ The shape of the curve does not appear to have changed much from the frequency p
 Perhaps there just aren't that many variants of each word.
 Or perhaps Zipf's law holds on natural language word stems as well as the words themselves.
 I think that is more likely.
-
 
 ## Lemmatization
 
@@ -404,12 +387,7 @@ for word, frequency in zip(freq_table["word"], freq_table["frequency"]):
 ```python
 def get_pos(word):
     tag = nltk.pos_tag([word])[0][1][0].upper()
-    tags = {
-        "J": wordnet.ADJ,
-        "N": wordnet.NOUN,
-        "V": wordnet.VERB,
-        "R": wordnet.ADV,
-    }
+    tags = {"J": wordnet.ADJ, "N": wordnet.NOUN, "V": wordnet.VERB, "R": wordnet.ADV}
     # Default to a noun if the POS is unknown.
     return tags.get(tag, wordnet.NOUN)
 ```
@@ -443,25 +421,16 @@ for word, frequency in zip(freq_table["word"], freq_table["frequency"]):
 ```
 
 ```python
-print("original: length:", len(bag), "most common:", bag.most_common(15), "\n\n",)
-print(
-    "WordNet: length:",
-    len(wn_lemmas),
-    "most common:",
-    wn_lemmas.most_common(15), "\n\n",
-)
+print("original: length:", len(bag), "most common:", bag.most_common(15), "\n\n")
+print("WordNet: length:", len(wn_lemmas), "most common:", wn_lemmas.most_common(15), "\n\n")
 print(
     "WordNet with POS: length:",
     len(wn_pos_lemmas),
     "most common:",
-    wn_pos_lemmas.most_common(15), "\n\n",
+    wn_pos_lemmas.most_common(15),
+    "\n\n",
 )
-print(
-    "spaCy: length:",
-    len(spacy_lemmas),
-    "most common:",
-    spacy_lemmas.most_common(15), "\n\n",
-)
+print("spaCy: length:", len(spacy_lemmas), "most common:", spacy_lemmas.most_common(15), "\n\n")
 ```
 
 Note that each of the lemmatizers identifies the same most common lemmas, but with different frequencies.
@@ -470,12 +439,7 @@ The SpaCy lemmatizer does the most compression, so plot the same frequency curve
 ```python
 freq_table = get_freq_table(spacy_lemmas)
 
-plt.plot(
-    np.log(freq_table["rank"]),
-    np.log(freq_table["frequency"]),
-    ".",
-    markersize=3,
-)
+plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
 
 plt.title("Haiku Lemma Frequency")
 plt.xlabel("$\log(rank)$")
@@ -484,7 +448,6 @@ plt.show()
 ```
 
 The pattern is the same as before.
-
 
 # Conclusion
 

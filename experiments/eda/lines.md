@@ -7,9 +7,9 @@ jupyter:
       format_version: '1.1'
       jupytext_version: 1.2.4
   kernelspec:
-    display_name: Python 3
+    display_name: research
     language: python
-    name: python3
+    name: research
 ---
 
 # Exploratory Data Analysis - Lines
