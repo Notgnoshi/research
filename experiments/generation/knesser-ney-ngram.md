@@ -28,7 +28,9 @@ import pandas as pd
 import seaborn as sns
 
 from haikulib import data, nlp, utils
+```
 
+```python
 data_dir = data.get_data_dir() / "experiments" / "generation" / "knesser-ney"
 data_dir.mkdir(parents=True, exist_ok=True)
 pd.set_option("display.latex.repr", True)
@@ -62,8 +64,4 @@ while next_word != "#":
     haiku.append(next_word)
 
 print(haiku)
-```
-
-```python
-
 ```

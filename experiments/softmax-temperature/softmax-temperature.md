@@ -21,6 +21,9 @@ import matplotlib.pyplot as plt
 import tikzplotlib
 import scipy as sp
 import seaborn as sns
+```
+
+```python
 sns.set()
 plt.rcParams["figure.figsize"] = (16 * 0.7, 9 * 0.7)
 plt.rcParams['text.latex.preamble']=[r"\usepackage{amsmath}"]
@@ -40,7 +43,7 @@ def sample(values, temperature=1.0):
 
 ```python
 x = np.linspace(start=0, stop=1, num=500)
-# relative likilihoods
+# relative likelihoods
 likelihoods = sp.stats.argus.pdf(x, chi=1, loc=0, scale=1)
 # Add random noise
 likelihoods1 = likelihoods + np.random.normal(loc=0, scale=0.005, size=len(likelihoods))
@@ -60,7 +63,7 @@ plt.show()
 
 ```python
 x = np.linspace(start=0, stop=1, num=100)
-# relative likilihoods
+# relative likelihoods
 likelihoods = sp.stats.argus.pdf(x, chi=1, loc=0, scale=1)
 # Add random noise
 likelihoods = likelihoods + np.random.normal(loc=0, scale=0.005, size=len(likelihoods))
@@ -74,6 +77,6 @@ plt.plot(x, softmax(likelihoods, temperature=0.6), label=r"$\mathrm{softmax}(\ve
 plt.title("Softmax and temperature sampling")
 plt.legend()
 plt.tick_params(labelbottom=False)
-tikzplotlib.save("softmax-temperature.tikz", figurewidth=r"\textwidth")
+# tikzplotlib.save("softmax-temperature.tikz", figurewidth=r"\textwidth")
 plt.show()
 ```

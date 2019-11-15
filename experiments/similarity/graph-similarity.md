@@ -41,7 +41,9 @@ import pandas as pd
 import seaborn as sns
 
 from haikulib import data, nlp, utils
+```
 
+```python
 data_dir = data.get_data_dir() / "experiments" / "similarity"
 data_dir.mkdir(parents=True, exist_ok=True)
 pd.set_option("display.latex.repr", True)
@@ -113,7 +115,7 @@ plt.show()
 for query_graph, query in zip(gen_graphs, generated["haiku"]):
     graph_kernel.fit([query_graph])
     kernel = graph_kernel.transform(corpus_graphs)
-    
+
     # number of similar haiku to find
     n = 3
     indices = np.argsort(kernel[:, 0])[-n:]

@@ -39,7 +39,9 @@ from wordcloud import WordCloud
 
 import haikulib.eda.colors
 from haikulib import data, nlp, utils
+```
 
+```python
 data_dir = data.get_data_dir() / "experiments" / "eda" / "word_clouds"
 data_dir.mkdir(parents=True, exist_ok=True)
 ```
@@ -110,12 +112,8 @@ animals = Counter()
 
 for haiku in corpus:
     # Update the counts for this haiku.
-    flowers.update(
-        nlp.count_tokens_from(haiku, flower_names, ngrams=[1, 2, 3])
-    )
-    animals.update(
-        nlp.count_tokens_from(haiku, animal_names, ngrams=[1, 2, 3])
-    )
+    flowers.update(nlp.count_tokens_from(haiku, flower_names, ngrams=[1, 2, 3]))
+    animals.update(nlp.count_tokens_from(haiku, animal_names, ngrams=[1, 2, 3]))
 ```
 
 # Flora Word Cloud
@@ -149,8 +147,9 @@ def color_words(word, *args, **kwargs):
         rgb = color_values["snow"]
     elif word in {"black", "raven", "shadow"}:
         rgb = color_values["dark"]
-        
+
     return rgb
+
 
 wordcloud = WordCloud(
     max_words=500,
@@ -159,7 +158,7 @@ wordcloud = WordCloud(
     mode="RGBA",
     background_color=None,
     min_font_size=7,
-    color_func=color_words
+    color_func=color_words,
 ).generate_from_frequencies(color_counts)
 
 wordcloud.to_file(data_dir / "colors.png")
