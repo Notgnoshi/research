@@ -1,6 +1,3 @@
-[submodule "depends/PlotNeuralNet"]
-	path = depends/PlotNeuralNet
-	url = git@github.com:HarisIqbal88/PlotNeuralNet.git
 [submodule "depends/textgenrnn"]
 	path = depends/textgenrnn
 	url = git@github.com:Notgnoshi/textgenrnn.git

@@ -4,7 +4,7 @@ from nltk.corpus import stopwords as nltk_stop_words
 from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS as sklearn_stop_words
 from spacy.lang.en.stop_words import STOP_WORDS as spacy_stop_words
 
-from haikulib.utils.nlp import STOPWORDS, lemmatize, remove_stopwords
+from haikulib.nlp import STOPWORDS, lemmatize, remove_stopwords
 
 
 class NlpTest(unittest.TestCase):
@@ -46,7 +46,7 @@ class NlpTest(unittest.TestCase):
             "-PRON- would rather not meet",
             "read the stock future",
             "the leave still cling",
-            "beehive beneath kiwifruit vine",
+            "beehives beneath kiwifruit vine",
             # TODO: Why does "i'd" lemmatize to "-PRON- would" but "i" lemmatize to "i"?
             "warm winter rain / the beach and i / collect sea glass",
         ]
