@@ -1,7 +1,7 @@
 import string
 import unittest
 
-from haikulib.utils.data import preprocess, tokenize
+from haikulib.data import preprocess
 
 
 class TestPreprocess(unittest.TestCase):
@@ -43,17 +43,3 @@ class TestPreprocess(unittest.TestCase):
 
     def test_punctuation(self):
         self.assertEqual(preprocess(string.punctuation), "#' /")
-
-    def test_tokenize(self):
-        haiku = "the day hides itself / within a grove of aspen / thunder pursues it #"
-        word_tokens = haiku.split()
-        char_tokens = list(haiku)
-
-        self.assertSequenceEqual(word_tokens, tokenize(haiku, method="words"))
-        self.assertSequenceEqual(char_tokens, tokenize(haiku, method="characters"))
-
-        self.assertTrue(all(len(t) >= 1 for t in tokenize(haiku, method="words")))
-        self.assertTrue(all(len(t) == 1 for t in tokenize(haiku, method="characters")))
-
-        self.assertRaises(ValueError, tokenize, haiku, method="Words")
-        self.assertRaises(ValueError, tokenize, haiku, method="asdfdf")
