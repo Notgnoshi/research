@@ -22,6 +22,17 @@ def get_df() -> pd.DataFrame:
     )
 
 
+def get_generated_df(path: pathlib.Path = None) -> pd.DataFrame:
+    """Get the generated haiku."""
+    if path is None:
+        path = get_data_dir() / "generated.csv"
+
+    if not path.exists():
+        return None
+
+    return pd.read_csv(path, index_col=0)
+
+
 def __get_bag_of_words(df: pd.DataFrame) -> collections.Counter:
     bag = collections.Counter()
     for haiku in df["haiku"]:
