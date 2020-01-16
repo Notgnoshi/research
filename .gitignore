@@ -1,6 +1,6 @@
 ## Editor settings
 .vscode/*
-!.vscode/settings.json
+.docker-build-trigger
 
 ## Ignore everything in the data directory, except a whitelist of files.
 data/*
