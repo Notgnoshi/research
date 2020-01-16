@@ -19,7 +19,7 @@ def read_from_file() -> list:
     Each haiku is a single string, with lines separated by `/`, and an end-of-haiku symbol `#`.
     """
     haikus = []
-    with open(get_data_dir() / "haiku.txt", "r") as datafile:
+    with open(get_data_dir() / "haiku.txt", "r", encoding="utf-8") as datafile:
         haiku = ""
         for line in datafile:
             line = line.strip()

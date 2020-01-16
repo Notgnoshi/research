@@ -83,6 +83,8 @@ RUN mkdir -p "$HOME/.jupyter" \
     && echo "c.NotebookApp.contents_manager_class = 'jupytext.TextFileContentsManager'" >> "$HOME/.jupyter/jupyter_notebook_config.py" \
     && echo 'c.ContentsManager.default_jupytext_formats = "ipynb,md"' >> "$HOME/.jupyter/jupyter_notebook_config.py"
 
+ENV PYTHONPATH=/home/nots/research
+
 # TODO: Install latex stuff?
 # TODO: This is a *massive* image. Try to cut down its size by adding another layer?
 # TODO: Add a volume for the pip cache dir so it doesn't have to redownload everything every time.
