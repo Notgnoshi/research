@@ -1,5 +1,6 @@
 DOCKER_RESEARCH_TAG := notgnoshi/research
 DOCKER_BUILD_TRIGGER := .docker-build-trigger
+REPO_INIT_TRIGGER := .repo-init-trigger
 JUPYTER_PORT := 8888
 
 ## View this help message
@@ -46,7 +47,7 @@ help:
 .PHONY: docker-build
 docker-build: $(DOCKER_BUILD_TRIGGER)
 
-$(DOCKER_BUILD_TRIGGER):
+$(DOCKER_BUILD_TRIGGER): Dockerfile
 	docker build --tag $(DOCKER_RESEARCH_TAG) .
 	touch $(DOCKER_BUILD_TRIGGER)
 
@@ -56,26 +57,59 @@ docker-rebuild:
 	rm -f $(DOCKER_BUILD_TRIGGER)
 	$(MAKE) build
 
+## Run a shell in a fresh, new container.
+## Useful for debugging, but since there are *no* bugs, I don't forsee this being used.
+.PHONY: docker-shell
+docker-shell: docker-build
+	docker run \
+		--user $(shell id -u):$(shell id -g) \
+		--gpus all \
+		--rm \
+		--interactive \
+		--tty \
+		$(DOCKER_RESEARCH_TAG) \
+		bash
+
 ## Run the project deliverables
 
 ## TODO: Add target for training LM(s)
 .PHONY: train
-train:
+train: $(REPO_INIT_TRIGGER)
 	## Note that it will essentially be impossible (without pain) to pass arguments to the train and generate
 	## targets from the commandline in a natural way. I think the best way will be to use a JSON config file.
 	echo "TODO: Add target for training LM(s)"
 
 ## TODO: Add target for generating haiku
 .PHONY: generate
-generate:
+generate: $(REPO_INIT_TRIGGER)
 	echo "TODO: Add target for generating haiku"
 
-## Docker Utilities
+## Utilities
+
+## Initialize the repository data
+.PHONY: init-data
+init-data: $(REPO_INIT_TRIGGER)
+
+$(REPO_INIT_TRIGGER): $(DOCKER_BUILD_TRIGGER)
+$(REPO_INIT_TRIGGER): haikulib/scripts/initialize.py
+$(REPO_INIT_TRIGGER): haikulib/data/initialization.py
+	docker run \
+		--user $(shell id -u):$(shell id -g) \
+		--gpus all \
+		--rm \
+		--interactive \
+		--tty \
+		--mount "type=bind,source=$(shell pwd),target=/home/nots/research" \
+		--publish $(JUPYTER_PORT):$(JUPYTER_PORT) \
+		$(DOCKER_RESEARCH_TAG) \
+		/home/nots/research/haikulib/scripts/initialize.py
+
+	touch $(REPO_INIT_TRIGGER)
 
 ## Run Jupyter Lab from the Docker image.
 ## Uses actual voodoo to open Jupyter Lab in a webbrowser.
 .PHONY: jupyter
-jupyter: docker-build
+jupyter: $(REPO_INIT_TRIGGER)
 	docker run \
 		--user $(shell id -u):$(shell id -g) \
 		--gpus all \
@@ -89,16 +123,3 @@ jupyter: docker-build
 		| tee --output-error=warn /dev/tty \
 		| grep --only-matching --max-count=1 "http://127\.0\.0\.1:$(JUPYTER_PORT)/?token=[0-9a-f]*" \
 		| xargs xdg-open
-
-## Run a shell in a fresh, new container.
-## Useful for debugging, but since there are *no* bugs, I don't forsee this being used.
-.PHONY: shell
-shell: docker-build
-	docker run \
-		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
-		--rm \
-		--interactive \
-		--tty \
-		$(DOCKER_RESEARCH_TAG) \
-		bash

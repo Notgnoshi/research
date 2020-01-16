@@ -13,7 +13,8 @@ from haikulib.data import get_df
 from haikulib.data.initialization import init_csv, init_nltk
 
 if __name__ == "__main__":
-    init_nltk()
+    # Downloading the NLTK data is done in the Docker image.
+    # init_nltk()
     init_csv()
     df = get_df()
     print(df.tail())

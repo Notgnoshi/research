@@ -10,7 +10,7 @@ from nltk.corpus import stopwords as nltk_stop_words
 from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS as sklearn_stop_words
 from spacy.lang.en.stop_words import STOP_WORDS as spacy_stop_words
 
-nlp = spacy.load("en", disable=["parser", "ner"])
+nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
 # Preserve alphabetic, numeric, spaces, and single quotes.
 ALPHABET = frozenset(string.ascii_lowercase + " " + "'" + "/" + "#" + string.digits)
 

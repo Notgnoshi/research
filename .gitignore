@@ -1,6 +1,8 @@
 ## Editor settings
-.vscode/*
+.vscode/
+.devcontainer/
 .docker-build-trigger
+.repo-init-trigger
 
 ## Ignore everything in the data directory, except a whitelist of files.
 data/*
