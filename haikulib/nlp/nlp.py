@@ -11,7 +11,7 @@ from spacy.lang.en.stop_words import STOP_WORDS as spacy_stop_words
 
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
 # Preserve alphabetic, numeric, spaces, and single quotes.
-ALPHABET = frozenset(string.ascii_lowercase + " " + "'" + "/" + "#" + string.digits)
+ALPHABET = frozenset(string.ascii_lowercase + " " + "'" + "/" + string.digits)
 
 
 def __stop_words():
@@ -38,7 +38,7 @@ def pos_tag(text: str) -> Iterable[Tuple[str, str]]:
 
     :param text: The text to tag
     """
-    return nltk.pos_tag([w for w in text.split() if w not in {"/", "#"}])
+    return nltk.pos_tag([w for w in text.split() if w not in {"/"}])
 
 
 def count_tokens_from(text: str, sentinels: Union[Set, Dict], ngrams: Sequence = None):
