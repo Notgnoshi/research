@@ -1,0 +1,25 @@
+{
+    // A unique model name. Generated haiku will be saved in $name.csv
+    "name": "default-markov",
+    // The type of model.
+    "type": "markov",
+    // Whether to use "words" tokenization, or "characters".
+    "tokenization": "words",
+    // If set, seed the random number generator with a specific uint32_t seed. Otherwise a random one will be used.
+    "seed": null,
+    // Whether to add ^...$ tags to the beginning and end of each haiku.
+    "tags": false,
+    // The Markov order.
+    "order": 3,
+    // null, "kneser-ney", or TODO: more smoothing types.
+    "smoothing": "kneser-ney",
+    // The maximum number of tokens to generate per haiku. If tags are used, stop when you hit the first end tag.
+    "max_tokens": 20,
+    // Seed the generation with the following seeds. If no seeds are given, a random one will be chosen.
+    "seed_tokens": [
+        "summer",
+        "rainy"
+    ],
+    // The number of haiku to generate. If this number does not match the number of seeds, random seeds will be chosen to supplement.
+    "number": 2
+}

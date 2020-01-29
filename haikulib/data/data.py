@@ -33,16 +33,18 @@ def get_generated_df(path: pathlib.Path = None) -> pd.DataFrame:
     return pd.read_csv(path, index_col=0)
 
 
+def __get_bag_of_characters(df: pd.DataFrame) -> collections.Counter:
+    bag = collections.Counter()
+    for haiku in df["haiku"]:
+        bag.update(haiku)
+    return bag
+
+
 def __get_bag_of_words(df: pd.DataFrame) -> collections.Counter:
     bag = collections.Counter()
     for haiku in df["haiku"]:
         # The /'s are separated by space on each side, so they get tokenized as their own symbol.
         bag.update(haiku.split())
-
-    # Do not count the line or haiku separators as a words.
-    if "/" in bag:
-        del bag["/"]
-
     return bag
 
 
@@ -56,13 +58,20 @@ def __get_bag_of_lines(df: pd.DataFrame) -> collections.Counter:
     return collections.Counter(lines)
 
 
-def get_bag_of(kind: str) -> collections.Counter:
+def get_bag_of(kind: str, add_tags: bool) -> collections.Counter:
     """Get a bag of 'kind' representation of the dataset.
 
     :param kind: The kind of bag. One of 'words' or 'lines'.
     """
     df = get_df()
 
+    if add_tags:
+        for idx, row in df.iterrows():
+            haiku = "^ " + row["haiku"] + " $"
+            df.at[idx, "haiku"] = haiku
+
+    if kind == "characters":
+        return __get_bag_of_characters(df)
     if kind == "words":
         return __get_bag_of_words(df)
     if kind == "lines":

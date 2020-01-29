@@ -11,8 +11,8 @@ data/*
 !data/fauna.txt
 !data/colors.csv
 
-!data/*.json
-!data/*.jsonc
+!data/models/default-*.json
+!data/models/default-*.jsonc
 
 ## Ignore jupyter notebooks. Instead, use Jupytext and track the corresponding markdown documents.
 *.ipynb
