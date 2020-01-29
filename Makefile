@@ -123,3 +123,17 @@ jupyter: $(REPO_INIT_TRIGGER)
 		| tee --output-error=warn /dev/tty \
 		| grep --only-matching --max-count=1 "http://127\.0\.0\.1:$(JUPYTER_PORT)/?token=[0-9a-f]*" \
 		| xargs xdg-open
+
+## Run unit tests.
+.PHONY: check
+check: $(REPO_INIT_TRIGGER)
+	docker run \
+		--user $(shell id -u):$(shell id -g) \
+		--gpus all \
+		--rm \
+		--interactive \
+		--tty \
+		--mount "type=bind,source=$(shell pwd),target=/workspaces/research" \
+		--workdir=/workspaces/research \
+		$(DOCKER_RESEARCH_TAG) \
+		pytest
