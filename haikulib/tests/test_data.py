@@ -19,11 +19,11 @@ class TestPreprocess(unittest.TestCase):
         )
 
     def test_dashes(self):
-        tshirt = "t-shirts out in force #"
+        tshirt = "t-shirts out in force"
         coffee = "fresh-ground french-pressed coffee"
         war = "bright clouds bleed a war–red"
         # NOTE: t-shirt *should* get parsed as tshirt.
-        self.assertEqual(preprocess(tshirt), "t shirts out in force #")
+        self.assertEqual(preprocess(tshirt), "t shirts out in force")
         self.assertEqual(preprocess(coffee), "fresh ground french pressed coffee")
         self.assertEqual(preprocess(war), "bright clouds bleed a war red")
 
@@ -42,4 +42,4 @@ class TestPreprocess(unittest.TestCase):
         self.assertEqual(preprocess(r"'\""), "'")
 
     def test_punctuation(self):
-        self.assertEqual(preprocess(string.punctuation), "#' /")
+        self.assertEqual(preprocess(string.punctuation), "' /")

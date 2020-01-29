@@ -68,7 +68,8 @@ def adjacency_graph(corpus):
 df = data.get_df()
 
 doc = _nlp(" ".join(nlp.remove_stopwords(h) for h in df["haiku"])[:500])
-lemmatized_corpus = " ".join(token.lemma_ for token in doc)
+# Need some separator token. '#' is as good as any.
+lemmatized_corpus = "#".join(token.lemma_ for token in doc)
 graph = adjacency_graph(lemmatized_corpus)
 
 nx.write_gexf(graph, str(DATA_DIR / "partial-adjacencies.gexf"))

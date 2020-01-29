@@ -54,13 +54,13 @@ lm.fit([ngrams], vocabulary_text=tokens)
 ```python
 next_word = None
 # TODO: Pick a random seed word.
-# TODO: Consider using start-of-haiku symbols like '<s>'...'</s>'.
+# TODO: Consider using start-of-haiku symbols like '<h>'...'</h>'.
 haiku = ["summer"]
 seed = random.randint(0, 2**32 - 1)
 print(f"Generating with seed: {seed}")
 
-while next_word != "#":
-    next_word = lm.generate(random_seed=seed, text_seed=haiku) if len(haiku) < 50 else "#"
+while next_word != "</h>":
+    next_word = lm.generate(random_seed=seed, text_seed=haiku) if len(haiku) < 50 else "</h>"
     haiku.append(next_word)
 
 print(haiku)

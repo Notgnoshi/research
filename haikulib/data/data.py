@@ -42,8 +42,6 @@ def __get_bag_of_words(df: pd.DataFrame) -> collections.Counter:
     # Do not count the line or haiku separators as a words.
     if "/" in bag:
         del bag["/"]
-    if "#" in bag:
-        del bag["#"]
 
     return bag
 
@@ -52,7 +50,7 @@ def __get_bag_of_lines(df: pd.DataFrame) -> collections.Counter:
     all_lines = []
     for haiku in df["haiku"]:
         lines = haiku.split("/")
-        lines = [l.strip(" \t\n#") for l in lines]
+        lines = [l.strip(" \t\n") for l in lines]
         all_lines += lines
 
     return collections.Counter(lines)
