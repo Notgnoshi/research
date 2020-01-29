@@ -7,7 +7,6 @@ from typing import Dict, Generator, Iterable, Sequence, Set, Tuple, Union
 import nltk
 import spacy
 from nltk.corpus import stopwords as nltk_stop_words
-from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS as sklearn_stop_words
 from spacy.lang.en.stop_words import STOP_WORDS as spacy_stop_words
 
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
@@ -16,8 +15,8 @@ ALPHABET = frozenset(string.ascii_lowercase + " " + "'" + "/" + "#" + string.dig
 
 
 def __stop_words():
-    """Combine the list of stop words from Spacy, NLTK, and Sklearn."""
-    return frozenset().union(nltk_stop_words.words("english"), sklearn_stop_words, spacy_stop_words)
+    """Combine the list of stop words from Spacy and NLTK."""
+    return frozenset().union(nltk_stop_words.words("english"), spacy_stop_words)
 
 
 STOPWORDS = __stop_words()
