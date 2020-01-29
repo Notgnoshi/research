@@ -67,6 +67,7 @@ docker-shell: docker-build
 		--rm \
 		--interactive \
 		--tty \
+		--mount "type=bind,source=$(shell pwd),target=/workspaces/research" \
 		$(DOCKER_RESEARCH_TAG) \
 		bash
 
@@ -99,15 +100,14 @@ $(REPO_INIT_TRIGGER): haikulib/data/initialization.py
 		--rm \
 		--interactive \
 		--tty \
-		--mount "type=bind,source=$(shell pwd),target=/home/nots/research" \
-		--publish $(JUPYTER_PORT):$(JUPYTER_PORT) \
+		--mount "type=bind,source=$(shell pwd),target=/workspaces/research" \
 		$(DOCKER_RESEARCH_TAG) \
-		/home/nots/research/haikulib/scripts/initialize.py
+		/workspaces/research/haikulib/scripts/initialize.py
 
 	touch $(REPO_INIT_TRIGGER)
 
 ## Run Jupyter Lab from the Docker image.
-## Uses actual voodoo to open Jupyter Lab in a webbrowser.
+## Uses actual witchcraft to open Jupyter Lab in a webbrowser.
 .PHONY: jupyter
 jupyter: $(REPO_INIT_TRIGGER)
 	docker run \
@@ -116,10 +116,10 @@ jupyter: $(REPO_INIT_TRIGGER)
 		--rm \
 		--interactive \
 		--tty \
-		--mount "type=bind,source=$(shell pwd),target=/home/nots/research" \
+		--mount "type=bind,source=$(shell pwd),target=/workspaces/research" \
 		--publish $(JUPYTER_PORT):$(JUPYTER_PORT) \
 		$(DOCKER_RESEARCH_TAG) \
-		jupyter lab --ip=0.0.0.0 --no-browser --port=$(JUPYTER_PORT) /home/nots/research 2>&1 \
+		jupyter lab --ip=0.0.0.0 --no-browser --port=$(JUPYTER_PORT) /workspaces/research 2>&1 \
 		| tee --output-error=warn /dev/tty \
 		| grep --only-matching --max-count=1 "http://127\.0\.0\.1:$(JUPYTER_PORT)/?token=[0-9a-f]*" \
 		| xargs xdg-open
