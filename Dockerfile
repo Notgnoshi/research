@@ -6,7 +6,8 @@ RUN apt-get update -qq && apt-get install -yqq \
     nodejs \
     npm \
     python3 \
-    python3-pip
+    python3-pip \
+    git
 
 # Add a user to do everything inside of.
 RUN useradd -ms /bin/bash nots
@@ -74,6 +75,11 @@ RUN jupyter labextension install @ryantam626/jupyterlab_code_formatter
 RUN jupyter serverextension enable --user --py jupyterlab_code_formatter
 RUN jupyter lab build
 
+RUN pip3 install --no-cache-dir --user --upgrade \
+    annoy \
+    commentjson \
+    jsonschema
+
 # Fix https://github.com/psf/black/issues/1223
 RUN mkdir -p "$HOME/.cache/black/19.10b0"
 
@@ -85,6 +91,6 @@ RUN mkdir -p "$HOME/.jupyter" \
 
 ENV PYTHONPATH=/workspaces/research
 
-# TODO: Install latex stuff?
 # TODO: This is a *massive* image. Try to cut down its size by adding another layer?
 # TODO: Add a volume for the pip cache dir so it doesn't have to redownload everything every time.
+# TODO: Do things as root?
