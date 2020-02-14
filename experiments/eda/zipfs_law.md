@@ -4,20 +4,20 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.3.3
   kernelspec:
-    display_name: research
+    display_name: Python 3
     language: python
-    name: research
+    name: python3
 ---
 
-```
+<!-- #raw -->
 \author{Austin Gill}
 \title{Exploratory Data Analysis -- Zipf's Law}
 \maketitle
 \tableofcontents
-```
+<!-- #endraw -->
 
 The goal of this notebook is to get comfortable with the Jupyter notebook workflow in the context of this project, as well as an opportunity to build some of the scaffolding around the haiku dataset.
 There are a number of intricacies that have changed since I last used Jupyter, such as `nbconvert` attempting to use Inkscape to convert SVG images to PDFs before exporting the notebook to PDF!

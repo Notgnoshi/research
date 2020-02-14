@@ -5,20 +5,20 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.3.3
   kernelspec:
-    display_name: research
+    display_name: Python 3
     language: python
-    name: research
+    name: python3
 ---
 
-```
+<!-- #raw -->
 \author{Austin Gill}
 \title{Exploratory Data Analysis -- Color}
 \maketitle
 \tableofcontents
-```
+<!-- #endraw -->
 
 The goal of this notebook is to build a color palette of my haiku dataset in the same vein as a PyCon 2017 conference talk titled [Gothic Colors: Using Python to understand color in nineteenth century literature](https://www.youtube.com/watch?v=3dDtACSYVx0).
 

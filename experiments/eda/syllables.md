@@ -4,20 +4,20 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.3.3
   kernelspec:
-    display_name: research
+    display_name: Python 3
     language: python
-    name: research
+    name: python3
 ---
 
-```
+<!-- #raw -->
 \author{Austin Gill}
 \title{Exploratory Data Analysis -- The Syllabic Structure of Haiku}
 \maketitle
 \tableofcontents
-```
+<!-- #endraw -->
 
 # The Haiku Form
 
