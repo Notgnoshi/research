@@ -4,6 +4,10 @@ REPO_INIT_TRIGGER := .repo-init-trigger
 JUPYTER_PORT := 8888
 # Use bash shell so that we use the `time` builtin rather than /usr/bin/time.
 SHELL := bash
+# The repository root directory inside the docker container
+WORKSPACE := /workspaces/research
+# The model configuration file. The path must be relative to the repository root.
+CONFIG := data/models/markov-character.jsonc
 
 ## View this help message
 .PHONY: help
@@ -69,23 +73,41 @@ docker-shell: docker-build
 		--rm \
 		--interactive \
 		--tty \
-		--mount "type=bind,source=$(shell pwd),target=/workspaces/research" \
+		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
 		$(DOCKER_RESEARCH_TAG) \
 		bash
 
 ## Run the project deliverables
 
-## TODO: Add target for training LM(s)
+## Train and serialize the default Markov LM.
+## Define CONFIG to specify which model to use.
+## E.g., make CONFIG=data/models/markov-character.jsonc
 .PHONY: train
 train: $(REPO_INIT_TRIGGER)
-	## Note that it will essentially be impossible (without pain) to pass arguments to the train and generate
-	## targets from the commandline in a natural way. I think the best way will be to use a JSON config file.
-	echo "TODO: Add target for training LM(s)"
+	time docker run \
+		--user $(shell id -u):$(shell id -g) \
+		--gpus all \
+		--rm \
+		--interactive \
+		--tty \
+		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		$(DOCKER_RESEARCH_TAG) \
+		$(WORKSPACE)/haikulib/scripts/markov.py --train --config=$(WORKSPACE)/$(CONFIG)
 
-## TODO: Add target for generating haiku
+## Generate haiku using the deserialized default Markov LM.
+## Define CONFIG to specify which model to use.
+## E.g., make CONFIG=data/models/markov-character.jsonc
 .PHONY: generate
 generate: $(REPO_INIT_TRIGGER)
-	echo "TODO: Add target for generating haiku"
+	time docker run \
+		--user $(shell id -u):$(shell id -g) \
+		--gpus all \
+		--rm \
+		--interactive \
+		--tty \
+		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		$(DOCKER_RESEARCH_TAG) \
+		$(WORKSPACE)/haikulib/scripts/markov.py --generate --config=$(WORKSPACE)/$(CONFIG)
 
 ## Utilities
 
@@ -96,15 +118,15 @@ init-data: $(REPO_INIT_TRIGGER)
 $(REPO_INIT_TRIGGER): $(DOCKER_BUILD_TRIGGER)
 $(REPO_INIT_TRIGGER): haikulib/scripts/initialize.py
 $(REPO_INIT_TRIGGER): haikulib/data/initialization.py
-	docker run \
+	time docker run \
 		--user $(shell id -u):$(shell id -g) \
 		--gpus all \
 		--rm \
 		--interactive \
 		--tty \
-		--mount "type=bind,source=$(shell pwd),target=/workspaces/research" \
+		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
 		$(DOCKER_RESEARCH_TAG) \
-		/workspaces/research/haikulib/scripts/initialize.py
+		$(WORKSPACE)/haikulib/scripts/initialize.py
 
 	touch $(REPO_INIT_TRIGGER)
 
@@ -118,10 +140,10 @@ jupyter: $(REPO_INIT_TRIGGER)
 		--rm \
 		--interactive \
 		--tty \
-		--mount "type=bind,source=$(shell pwd),target=/workspaces/research" \
+		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
 		--publish $(JUPYTER_PORT):$(JUPYTER_PORT) \
 		$(DOCKER_RESEARCH_TAG) \
-		jupyter lab --ip=0.0.0.0 --no-browser --port=$(JUPYTER_PORT) /workspaces/research 2>&1 \
+		jupyter lab --ip=0.0.0.0 --no-browser --port=$(JUPYTER_PORT) $(WORKSPACE) 2>&1 \
 		| tee --output-error=warn /dev/tty \
 		| grep --only-matching --max-count=1 "http://127\.0\.0\.1:$(JUPYTER_PORT)/?token=[0-9a-f]*" \
 		| xargs xdg-open
@@ -135,7 +157,7 @@ check: $(REPO_INIT_TRIGGER)
 		--rm \
 		--interactive \
 		--tty \
-		--mount "type=bind,source=$(shell pwd),target=/workspaces/research" \
-		--workdir=/workspaces/research \
+		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
+		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
 		pytest
