@@ -2,6 +2,8 @@ DOCKER_RESEARCH_TAG := notgnoshi/research
 DOCKER_BUILD_TRIGGER := .docker-build-trigger
 REPO_INIT_TRIGGER := .repo-init-trigger
 JUPYTER_PORT := 8888
+# Use bash shell so that we use the `time` builtin rather than /usr/bin/time.
+SHELL := bash
 
 ## View this help message
 .PHONY: help
@@ -48,7 +50,7 @@ help:
 docker-build: $(DOCKER_BUILD_TRIGGER)
 
 $(DOCKER_BUILD_TRIGGER): Dockerfile
-	docker build --tag $(DOCKER_RESEARCH_TAG) .
+	time docker build --tag $(DOCKER_RESEARCH_TAG) .
 	touch $(DOCKER_BUILD_TRIGGER)
 
 ## Force a container rebuild. Docker can still choose to cache as many things as it wants. That's fine.
