@@ -93,7 +93,9 @@ class LanguageModel(abc.ABC):
 
         with open(filename, "a") as f:
             # Only add the header if the file is empty
-            df.to_csv(f, mode="a", header=(f.tell() == 0))
+            # Don't use an index column, so that we can append at will to the csv.
+            # Requires index_col=False passed to pd.read_csv.
+            df.to_csv(f, mode="a", header=(f.tell() == 0), index=False)
 
     def deserialize(self, filename: Union[pathlib.Path, str] = None):
         """Load a trained language model from a file."""
