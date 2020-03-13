@@ -2,9 +2,8 @@ FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04 AS prerequisites
 
 # Necessary for jupyter extensions
 RUN apt-get update -qq && apt-get install -yqq \
+    wget \
     gcc-7 \
-    nodejs \
-    npm \
     python3 \
     python3-pip \
     git
@@ -21,6 +20,7 @@ ENV PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 
 # Install intensive libraries
 RUN pip3 install --no-cache-dir --user --upgrade 'tensorflow-gpu>=2.0.0b1'
+RUN pip3 install --no-cache-dir --user --upgrade torch torchvision transformers
 RUN pip3 install --no-cache-dir --user --upgrade spacy[cuda]
 
 # Install development tools
@@ -67,6 +67,9 @@ RUN pip3 install --no-cache-dir --user --upgrade \
 
 RUN python3 -m nltk.downloader stopwords wordnet averaged_perceptron_tagger punkt
 RUN pip3 install --no-cache-dir --user --upgrade https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz#egg=en_core_web_sm==2.2.5
+
+RUN wget -qO- https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz | tar -xJ
+ENV PATH="$HOME/node-v12.16.1-linux-x64/bin${PATH:+:${PATH}}"
 
 RUN python3 -m nb_pdf_template.install
 RUN jupyter nbextension install --user --py jupytext
