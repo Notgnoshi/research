@@ -11,7 +11,8 @@ from ..data import get_bag_of, get_df
 
 logger = logging.getLogger(__name__)
 
-class ModelValidationError(Exception):
+
+class ConfigValidationError(Exception):
     pass
 
 
@@ -23,7 +24,7 @@ class LanguageModel(abc.ABC):
 
         try:
             self._validate(config)
-        except ModelValidationError:
+        except ConfigValidationError:
             raise ValueError("Provided model configuration is invalid.")
 
         self.config = config
@@ -92,6 +93,7 @@ class LanguageModel(abc.ABC):
             logger.info(df)
 
         # TODO: Validate the DataFrame before appending to an existing CSV file.
+        # TODO: It might be necessary to read in the file into a DataFrame before appending.
 
         with open(filename, "a") as f:
             # Only add the header if the file is empty
@@ -116,7 +118,7 @@ class LanguageModel(abc.ABC):
         """Read a JSON-with-comments configuration file from disk."""
         path = pathlib.Path(path)
         if not path.exists():
-            raise ModelValidationError(f"Model configuration '{path}' not found.")
+            raise ConfigValidationError(f"Model configuration '{path}' not found.")
         with open(path, "r") as file:
             config = commentjson.load(file)
 
@@ -133,8 +135,19 @@ class LanguageModel(abc.ABC):
 
         Throws an exception if the configuration parameters aren't valid.
 
+        TODO: Override in the base classes.
+
         :param config: The model parameters
         """
-        # TODO: Use jsonschema to validate. Wait till markov model is fleshed out.
-        print("Validating config...")
-        pprint.pprint(config)
+        logger.info(pprint.pformat(config))
+
+        if config["type"] == "markov":
+            if "tokenization" not in config:
+                raise ConfigValidationError("Markov models must specify tokenization")
+            if config["tokenization"] not in ("words", "characters"):
+                raise ConfigValidationError("Tokenization must be one of 'words' or 'characters'")
+        if config["type"] == "transformer":
+            if "model" not in config:
+                raise ConfigValidationError("Transformer models must specify the specific model.")
+            if config["model"] not in ("gpt", "gpt2", "bert", "distilbert", "camembert", "roberta"):
+                raise ConfigValidationError("Unknown transformer model.")
