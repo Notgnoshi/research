@@ -55,28 +55,19 @@ class LanguageModel(abc.ABC):
         """
 
     @abc.abstractmethod
-    def _serialize(self, filename: pathlib.Path):
+    def _serialize(self, directory: pathlib.Path):
         """Model-specific serialization to disk."""
 
     @abc.abstractmethod
-    def _deserialize(self, filename: pathlib.Path):
+    def _deserialize(self, directory: pathlib.Path):
         """Model-specific deserialization from disk."""
 
-    def __model_path(self) -> pathlib.Path:
-        """Figure out the path to save/load the model to."""
-        return self.config["path"] / (self.config["name"] + ".model")
-
-    def __generated_path(self) -> pathlib.Path:
-        """Figure out the path to save the generated content to."""
-        return self.config["path"] / (self.config["name"] + ".csv")
-
-    def serialize(self, filename: Union[pathlib.Path, str] = None):
+    def serialize(self, directory: Union[pathlib.Path, str] = None):
         """Save a trained language model to a file."""
-        if filename is None:
-            filename = self.__model_path()
+        directory = directory or self.config["output_directory"]
         if not self.quiet:
-            logger.info("Saving model to %s...", filename)
-        success = self._serialize(pathlib.Path(filename))
+            logger.info("Saving model to %s...", directory)
+        success = self._serialize(pathlib.Path(directory))
         if not success and not self.quiet:
             logger.info("Failed to save model.")
         elif not self.quiet:
@@ -84,8 +75,8 @@ class LanguageModel(abc.ABC):
 
     def save(self, df: pd.DataFrame, filename: Union[pathlib.Path, str] = None):
         """Save the generated content to a file."""
-        if filename is None:
-            filename = self.__generated_path()
+        filename = filename or self.config["generated_path"]
+
         if not self.quiet:
             logger.info("Saving generated text to %s...", filename)
             logger.info(df)
@@ -99,13 +90,12 @@ class LanguageModel(abc.ABC):
             # Requires index_col=False passed to pd.read_csv.
             df.to_csv(f, mode="a", header=(f.tell() == 0), index=False)
 
-    def deserialize(self, filename: Union[pathlib.Path, str] = None):
+    def deserialize(self, directory: Union[pathlib.Path, str] = None):
         """Load a trained language model from a file."""
-        if filename is None:
-            filename = self.__model_path()
+        directory = directory or self.config["output_directory"]
         if not self.quiet:
-            logger.info("Loading model from %s...", filename)
-        success = self._deserialize(pathlib.Path(filename))
+            logger.info("Loading model from %s...", directory)
+        success = self._deserialize(pathlib.Path(directory))
         if not success and not self.quiet:
             logger.info("Failed to load model.")
         elif not self.quiet:
@@ -120,10 +110,21 @@ class LanguageModel(abc.ABC):
         with open(path, "r") as file:
             config = commentjson.load(file)
 
-        if "path" not in config:
-            config["path"] = path.resolve().parent
+        path = path.resolve()
+
+        if "output_directory" not in config:
+            config["output_directory"] = path.parent
+        else:
+            config["output_directory"] = pathlib.Path(config["output_directory"]).resolve()
+
         if "name" not in config:
             config["name"] = path.stem
+
+        if "generated_path" not in config or config["generated_path"] is None:
+            config["generated_path"] = config["output_directory"] / (config["name"] + "csv")
+            config["generated_path"] = config["generated_path"].resolve()
+        else:
+            config["generated_path"] = pathlib.Path(config["generated_path"]).resolve()
 
         return config
 

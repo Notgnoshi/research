@@ -25,14 +25,16 @@ class MarkovModel(LanguageModel):
         self.vocab = nltk.lm.Vocabulary(self.bag)
         self.model = nltk.lm.models.KneserNeyInterpolated(order=self.order, vocabulary=self.vocab)
 
-    def _serialize(self, filename: pathlib.Path):
+    def _serialize(self, directory: pathlib.Path):
         """Save the trained model to disk."""
+        filename = directory / (self.name + ".model")
         with open(filename, "wb") as fd:
             pickle.dump(self.model, fd)
         return True
 
-    def _deserialize(self, filename: pathlib.Path):
+    def _deserialize(self, directory: pathlib.Path):
         """Load the trained model from disk."""
+        filename = directory / (self.name + ".model")
         with open(filename, "rb") as fd:
             self.model = pickle.load(fd)
         return True

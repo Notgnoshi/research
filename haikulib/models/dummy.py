@@ -31,9 +31,11 @@ class DummyModel(LanguageModel):
         }
         return pd.DataFrame(columns)
 
-    def _serialize(self, filename: pathlib.Path):
+    def _serialize(self, directory: pathlib.Path):
+        filename = directory / (self.name + "model")
         filename.touch()
         return filename.exists()
 
-    def _deserialize(self, filename: pathlib.Path):
+    def _deserialize(self, directory: pathlib.Path):
+        filename = directory / (self.name + "model")
         return filename.exists()

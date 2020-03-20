@@ -1,8 +1,8 @@
 {
-    // A unique model name. Generated haiku will be saved in $name.csv
-    "name": "markov-character",
     // The type of model.
     "type": "markov",
+    // Path relative to this file to save generated output, if set. Otherwise save output in $name.csv
+    "generated_path": "../../generated.csv",
     // Whether to use "words" tokenization, or "characters".
     "tokenization": "characters",
     // If set, seed the random number generator with a specific uint32_t seed. Otherwise a random one will be used and saved.
