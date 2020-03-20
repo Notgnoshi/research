@@ -26,6 +26,7 @@ class DummyModel(LanguageModel):
             "model": model,
             "type": model_type,
             "seed": [self.seed or random.randint(0, 2 ** 32 - 1) for _ in range(len(haiku))],
+            "prompt": [self.prompt] * len(haiku),
             "haiku": haiku,
         }
         return pd.DataFrame(columns)

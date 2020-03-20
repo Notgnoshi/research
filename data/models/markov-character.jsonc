@@ -15,16 +15,7 @@
     "max_tokens": 70,
     // The token sequence to to seed the generated haiku with.
     // A list of characters or strings based on the value of "tokenization".
-    "seed_tokens": [
-        "^",
-        " ",
-        "c",
-        "h",
-        "e",
-        "r",
-        "r",
-        "y"
-    ],
+    "prompt": "^ cherry",
     // The number of haiku to generate.
     "number": 10
 }

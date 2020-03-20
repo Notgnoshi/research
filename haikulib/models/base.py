@@ -7,7 +7,7 @@ from typing import Union
 import commentjson
 import pandas as pd
 
-from ..data import get_bag_of, get_df
+from ..data import get_df
 
 logger = logging.getLogger(__name__)
 
@@ -29,14 +29,12 @@ class LanguageModel(abc.ABC):
 
         self.config = config
         self.name = config["name"]
-        self.type = config["type"]
+        self.prompt = config["prompt"]
         self.seed = config["seed"]
-
-        self.tokenization = config["tokenization"]
-        self.bag = get_bag_of(kind=self.tokenization, add_tags=config["tags"])
+        self.tags = config["tags"]
+        self.type = config["type"]
 
         self.df = get_df()
-        self.corpus = " ".join(self.df["haiku"])
 
         # The number of haiku to generate.
         self.number = config["number"]
