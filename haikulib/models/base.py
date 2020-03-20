@@ -1,4 +1,5 @@
 import abc
+import logging
 import pathlib
 import pprint
 from typing import Union
@@ -8,6 +9,7 @@ import pandas as pd
 
 from ..data import get_bag_of, get_df
 
+logger = logging.getLogger(__name__)
 
 class ModelValidationError(Exception):
     pass
@@ -74,20 +76,20 @@ class LanguageModel(abc.ABC):
         if filename is None:
             filename = self.__model_path()
         if not self.quiet:
-            print(f"Saving model to {filename}...")
+            logger.info("Saving model to %s...", filename)
         success = self._serialize(pathlib.Path(filename))
         if not success and not self.quiet:
-            print("Failed to save model.")
+            logger.info("Failed to save model.")
         elif not self.quiet:
-            print("Saved model.")
+            logger.info("Saved model.")
 
     def save(self, df: pd.DataFrame, filename: Union[pathlib.Path, str] = None):
         """Save the generated content to a file."""
         if filename is None:
             filename = self.__generated_path()
         if not self.quiet:
-            print(f"Saving generated text to {filename}...")
-            print(df)
+            logger.info("Saving generated text to %s...", filename)
+            logger.info(df)
 
         # TODO: Validate the DataFrame before appending to an existing CSV file.
 
@@ -102,12 +104,12 @@ class LanguageModel(abc.ABC):
         if filename is None:
             filename = self.__model_path()
         if not self.quiet:
-            print(f"Loading model from {filename}...")
+            logger.info("Loading model from %s...", filename)
         success = self._deserialize(pathlib.Path(filename))
         if not success and not self.quiet:
-            print("Failed to load model.")
+            logger.info("Failed to load model.")
         elif not self.quiet:
-            print("Loaded model.")
+            logger.info("Loaded model.")
 
     @staticmethod
     def read_config(path: Union[pathlib.Path, str]):
