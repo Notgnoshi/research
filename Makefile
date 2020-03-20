@@ -7,7 +7,7 @@ SHELL := bash
 # The repository root directory inside the docker container
 WORKSPACE := /workspaces/research
 # The model configuration file. The path must be relative to the repository root.
-CONFIG := data/models/markov-character.jsonc
+CONFIG := data/models/markov-character/markov-character.jsonc
 
 ## View this help message
 .PHONY: help
