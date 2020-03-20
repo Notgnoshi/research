@@ -7,6 +7,7 @@ import nltk
 import nltk.lm
 import pandas as pd
 
+from ..data import get_bag_of
 from .base import LanguageModel
 
 logger = logging.getLogger(__name__)
@@ -18,7 +19,9 @@ class MarkovModel(LanguageModel):
     def __init__(self, config: dict, quiet=True):
         super().__init__(config, quiet)
         self.order = config["order"]
-        self.seed_tokens = config["seed_tokens"]
+        self.tokenization = config["tokenization"]
+
+        self.bag = get_bag_of(kind=self.tokenization, add_tags=config["tags"])
         self.vocab = nltk.lm.Vocabulary(self.bag)
         self.model = nltk.lm.models.KneserNeyInterpolated(order=self.order, vocabulary=self.vocab)
 
@@ -38,10 +41,12 @@ class MarkovModel(LanguageModel):
         if not self.quiet:
             logger.info("Training model...")
             logger.info("tokenizing...")
+
+        corpus = " ".join(self.df["haiku"])
         if self.tokenization == "words":
-            tokens = nltk.word_tokenize(self.corpus)
+            tokens = nltk.word_tokenize(corpus)
         elif self.tokenization == "characters":
-            tokens = list(self.corpus)
+            tokens = list(corpus)
         ngrams = nltk.everygrams(tokens, max_len=self.order)
         if not self.quiet:
             logger.info("fitting...")
@@ -52,7 +57,11 @@ class MarkovModel(LanguageModel):
     def _generate(self, seed) -> str:
         """Generate a sequence of tokens."""
         # Copy the seed tokens.
-        tokens = self.seed_tokens[:]
+        if self.tokenization == "words":
+            tokens = self.prompt.split()
+        elif self.tokenization == "characters":
+            tokens = list(self.prompt)
+
         next_token = None
         while len(tokens) < self.max_tokens and next_token != "$":
             next_token = self.model.generate(random_seed=seed, text_seed=tokens)
@@ -81,6 +90,7 @@ class MarkovModel(LanguageModel):
             "model": [self.name] * n,
             "type": [self.type] * n,
             "seed": seeds,
+            "prompt": [self.prompt] * n,
             "haiku": haiku,
         }
         return pd.DataFrame(columns)
