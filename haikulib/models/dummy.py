@@ -1,8 +1,12 @@
+import logging
 import pathlib
+import random
 
 import pandas as pd
 
 from .base import LanguageModel
+
+logger = logging.getLogger(__name__)
 
 
 class DummyModel(LanguageModel):
@@ -11,7 +15,7 @@ class DummyModel(LanguageModel):
         self.type = "dummy"
 
     def train(self):
-        print("trained.")
+        logger.info("trained.")
 
     def generate(self, n: int = None) -> pd.DataFrame:
         haiku = ["summer / all these extra prayers / at the dead puppies"]
