@@ -4,7 +4,7 @@ import argparse
 import pathlib
 
 import haikulib.data
-from haikulib.models import MarkovModel
+from haikulib.models import LanguageModel, MarkovModel, TransformerModel
 
 
 def parse_args():
@@ -41,8 +41,11 @@ def parse_args():
 
 
 def main(args):
-    config = MarkovModel.read_config(args.config)
-    model = MarkovModel(config, args.quiet)
+    # TODO: Parse the model from the config file.
+    # TODO: Rename this script.
+    config = LanguageModel.read_config(args.config)
+    # model = MarkovModel(config, args.quiet)
+    model = TransformerModel(config, args.quiet)
 
     if args.train:
         model.train()
