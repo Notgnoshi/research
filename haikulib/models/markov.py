@@ -40,9 +40,8 @@ class MarkovModel(LanguageModel):
         return True
 
     def train(self):
-        if not self.quiet:
-            logger.info("Training model...")
-            logger.info("tokenizing...")
+        logger.info("Training model...")
+        logger.info("tokenizing...")
 
         corpus = " ".join(self.df["haiku"])
         if self.tokenization == "words":
@@ -50,11 +49,9 @@ class MarkovModel(LanguageModel):
         elif self.tokenization == "characters":
             tokens = list(corpus)
         ngrams = nltk.everygrams(tokens, max_len=self.order)
-        if not self.quiet:
-            logger.info("fitting...")
+        logger.info("fitting...")
         self.model.fit([ngrams], vocabulary_text=self.vocab)
-        if not self.quiet:
-            logger.info("Trained model.")
+        logger.info("Trained model.")
 
     def _generate(self, seed) -> str:
         """Generate a sequence of tokens."""
@@ -76,14 +73,12 @@ class MarkovModel(LanguageModel):
         if next_token != "$":
             tokens += " $"
 
-        if not self.quiet:
-            logger.info(f"\t{tokens}")
+        logger.info(f"\t{tokens}")
 
         return tokens
 
     def generate(self, n: int = None) -> pd.DataFrame:
-        if not self.quiet:
-            logger.info("Generating haiku...")
+        logger.info("Generating haiku...")
         n = n or self.number
         seeds = [self.seed or random.randint(0, 2 ** 32 - 1) for _ in range(n)]
         haiku = [self._generate(s) for s in seeds]
