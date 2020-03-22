@@ -2,9 +2,11 @@ import abc
 import logging
 import pathlib
 import pprint
+import random
 from typing import Union
 
 import commentjson
+import numpy as np
 import pandas as pd
 
 from ..data import get_df
@@ -21,6 +23,11 @@ class LanguageModel(abc.ABC):
 
     def __init__(self, config: dict, quiet=True):
         self.quiet = quiet
+        logging.basicConfig(
+            format="%(asctime)s - %(levelname)s - %(name)s: %(message)s",
+            datefmt="%m/%d/%Y %H:%M:%S",
+            level=logging.INFO if not self.quiet else logging.WARN,
+        )
 
         try:
             self._validate(config)
@@ -29,10 +36,22 @@ class LanguageModel(abc.ABC):
 
         self.config = config
         self.name = config["name"]
+        self.output_directory = config["output_directory"]
+        self.generated_path = config["generated_path"]
         self.prompt = config["prompt"]
         self.seed = config["seed"]
-        self.tags = config["tags"]
         self.type = config["type"]
+        self.tags = config["tags"]
+
+        # Let the markov model set the seed itself.
+        # TODO: Avoid doing so -_-
+        if self.seed is None and self.type != "markov":
+            self.seed = random.randint(0, 2 ** 32 - 1)
+
+        if self.type != "markov":
+            logger.info("Using random seed: %d", self.seed)
+            random.seed(self.seed)
+            np.random.seed(self.seed)
 
         self.df = get_df()
 
@@ -65,21 +84,19 @@ class LanguageModel(abc.ABC):
     def serialize(self, directory: Union[pathlib.Path, str] = None):
         """Save a trained language model to a file."""
         directory = directory or self.config["output_directory"]
-        if not self.quiet:
-            logger.info("Saving model to %s...", directory)
+        logger.info("Saving model to %s...", directory)
         success = self._serialize(pathlib.Path(directory))
-        if not success and not self.quiet:
+        if not success:
             logger.info("Failed to save model.")
-        elif not self.quiet:
+        else:
             logger.info("Saved model.")
 
     def save(self, df: pd.DataFrame, filename: Union[pathlib.Path, str] = None):
         """Save the generated content to a file."""
         filename = filename or self.config["generated_path"]
 
-        if not self.quiet:
-            logger.info("Saving generated text to %s...", filename)
-            logger.info(df)
+        logger.info("Saving generated text to %s...", filename)
+        logger.info(df)
 
         # TODO: Validate the DataFrame before appending to an existing CSV file.
         # TODO: It might be necessary to read in the file into a DataFrame before appending.
@@ -93,12 +110,11 @@ class LanguageModel(abc.ABC):
     def deserialize(self, directory: Union[pathlib.Path, str] = None):
         """Load a trained language model from a file."""
         directory = directory or self.config["output_directory"]
-        if not self.quiet:
-            logger.info("Loading model from %s...", directory)
+        logger.info("Loading model from %s...", directory)
         success = self._deserialize(pathlib.Path(directory))
-        if not success and not self.quiet:
+        if not success:
             logger.info("Failed to load model.")
-        elif not self.quiet:
+        else:
             logger.info("Loaded model.")
 
     @staticmethod
@@ -146,7 +162,7 @@ class LanguageModel(abc.ABC):
             if config["tokenization"] not in ("words", "characters"):
                 raise ConfigValidationError("Tokenization must be one of 'words' or 'characters'")
         if config["type"] == "transformer":
-            if "model" not in config:
+            if "model_type" not in config:
                 raise ConfigValidationError("Transformer models must specify the specific model.")
-            if config["model"] not in ("gpt", "gpt2", "bert", "distilbert", "camembert", "roberta"):
+            if config["model_type"] not in ("gpt", "gpt2", "bert", "distilbert", "camembert", "roberta"):
                 raise ConfigValidationError("Unknown transformer model.")
