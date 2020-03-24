@@ -101,7 +101,7 @@ class LanguageModel(abc.ABC):
         # TODO: Validate the DataFrame before appending to an existing CSV file.
         # TODO: It might be necessary to read in the file into a DataFrame before appending.
 
-        with open(filename, "a") as f:
+        with open(filename, "a", encoding="utf-8", errors="ignore") as f:
             # Only add the header if the file is empty
             # Don't use an index column, so that we can append at will to the csv.
             # Requires index_col=False passed to pd.read_csv.
@@ -138,9 +138,10 @@ class LanguageModel(abc.ABC):
 
         if "generated_path" not in config or config["generated_path"] is None:
             config["generated_path"] = config["output_directory"] / (config["name"] + "csv")
-            config["generated_path"] = config["generated_path"].resolve()
         else:
-            config["generated_path"] = pathlib.Path(config["generated_path"]).resolve()
+            # TODO: Detect an absolute path?
+            config["generated_path"] = config["output_directory"] / config["generated_path"]
+        config["generated_path"] = config["generated_path"].resolve()
 
         return config
 
@@ -164,5 +165,5 @@ class LanguageModel(abc.ABC):
         if config["type"] == "transformer":
             if "model_type" not in config:
                 raise ConfigValidationError("Transformer models must specify the specific model.")
-            if config["model_type"] not in ("gpt", "gpt2", "bert", "distilbert", "camembert", "roberta"):
+            if config["model_type"] not in ("gpt", "gpt2"):
                 raise ConfigValidationError("Unknown transformer model.")
