@@ -73,7 +73,7 @@ class MarkovModel(LanguageModel):
         if next_token != "$":
             tokens += " $"
 
-        logger.info(f"\t{tokens}")
+        logger.info("Generated: %s", tokens)
 
         return tokens
 

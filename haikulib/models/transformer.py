@@ -108,6 +108,11 @@ class TransformerModel(LanguageModel):
         self.max_checkpoints = config["max_checkpoints"]
         self.cuda = config["cuda"]
 
+        self.temperature = config["temperature"]
+        self.repetition_penalty = config["repetition_penalty"]
+        self.top_k = config["k"]
+        self.top_p = config["p"]
+
         self.device = torch.device("cuda" if torch.cuda.is_available() and self.cuda else "cpu")
         torch.manual_seed(self.seed)
         torch.cuda.manual_seed_all(self.seed)
@@ -136,10 +141,10 @@ class TransformerModel(LanguageModel):
 
         self.model.to(self.device)
 
-    def _serialize(self, filename: pathlib.Path):
+    def _serialize(self, directory: pathlib.Path):
         """Save the trained model to disk."""
 
-    def _deserialize(self, filename: pathlib.Path):
+    def _deserialize(self, directory: pathlib.Path):
         """Load the trained model from disk."""
 
     def train(self):
@@ -298,6 +303,8 @@ class TransformerModel(LanguageModel):
         model_to_save.save_pretrained(self.output_directory)
         self.tokenizer.save_pretrained(self.output_directory)
         torch.save(self.config, self.output_directory / "self.config.bin")
+        torch.save(optimizer.state_dict(), str(checkpoint / "optimizer.bin"))
+        torch.save(scheduler.state_dict(), str(checkpoint / "scheduler.bin"))
 
         logger.info("Loading fine-tuned model and vocabulary from %s", self.output_directory)
         _, model_class, tokenizer_class = MODEL_CLASSES[self.model_type]
@@ -383,4 +390,43 @@ class TransformerModel(LanguageModel):
 
     def generate(self, n: int = None) -> pd.DataFrame:
         """Generate n sequences."""
-        # TODO: Generation
+        logger.info("Generating haiku...")
+        n = n or self.number
+        prompt = self.tokenizer.encode(self.prompt, add_special_tokens=False, return_tensors="pt")
+        prompt = prompt.to(self.device)
+
+        output_sequences = self.model.generate(
+            input_ids=prompt,
+            max_length=self.max_tokens + len(prompt[0]),
+            temperature=self.temperature,
+            top_k=self.top_k,
+            top_p=self.top_p,
+            repetition_penalty=self.repetition_penalty,
+            do_sample=True,
+            num_return_sequences=n,
+        )
+
+        # Remove the batch dimension when returning multiple sequences
+        if len(output_sequences) > 2:
+            output_sequences.squeeze_()
+
+        generated = []
+        # Decode the model output back into regular text.
+        for sequence in output_sequences:
+            sequence = sequence.tolist()
+            text = self.tokenizer.decode(sequence, clean_up_tokenization_spaces=True)
+            text = text[:text.find("$")]
+            text += self.prompt + text[len(self.tokenizer.decode(prompt[0], clean_up_tokenization_spaces=True)):]
+            if not text.endswith("$"):
+                text += " $"
+            generated.append(text)
+            logger.info("Generated: %s", text)
+
+        columns = {
+            "model": [self.name] * n,
+            "type": [f"{self.type}-{self.model_type}"]*n,
+            "seed": [self.seed] * n,
+            "prompt": [self.prompt] * n,
+            "haiku": generated,
+        }
+        return pd.DataFrame(columns)
