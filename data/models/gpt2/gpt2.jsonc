@@ -1,18 +1,12 @@
 {
+    "name": "gpt2-default",
     "type": "transformer",
     // If type is "transformer", specify which model to use. Options: "gpt", "gpt2"
     "model_type": "gpt2",
-    // Path to save any generated haiku relative to this file.
-    "generated_path": "../../generated.csv",
     // A uint32_t random seed.
     "seed": null,
     // Whether to add the ^...$ tags surrounding each haiku (recommended)
     "tags": true,
-    "max_tokens": 20,
-    // The prompt to use to generate haiku.
-    "prompt": "^ cherry",
-    // The number of haiku to generate with the above prompt.
-    "number": 10,
     // Batch size per GPU/CPU.
     "batch_size": 4,
     // Number of update steps to accumulate before performings a backward/update pass.
@@ -23,7 +17,7 @@
     "max_gradient_norm": 1.0,
     "num_train_epochs": 1,
     // Maximum number of training steps to perform, if set. Overrides "num_train_epochs"
-    "max_steps": 105,
+    "max_steps": null,
     // Use a linear warmpup over n steps.
     "warmup_steps": 0,
     // Proportion of the training set to use as evaluation data.
@@ -31,14 +25,30 @@
     // Run model evaluation at each logging step.
     "evaluate_during_training": true,
     // Log every n steps.
-    "logging_steps": 500,
+    "logging_steps": 1000,
     // Save a restorable checkpoint ever n steps.
-    "checkpoint_steps": 500,
+    "checkpoint_steps": 1000,
     // Restore and resume training from the given checkpoint, if given.
     // Path to the checkpoint directory is relative to this file.
     "resume_training_from": null,
     // Number of checkpoints to save. Oldest deleted first.
     "max_checkpoints": null,
     // Whether or not to use CUDA. The GPT-2 model doesn't fit on a GTX 1080.
-    "cuda": false
+    "cuda": false,
+    // Path to save any generated haiku relative to this file.
+    "generated_path": "../../generated.csv",
+    // Maximum number of tokens to generate.
+    "max_tokens": 20,
+    // The prompt to use to generate haiku.
+    "prompt": "^ cherry",
+    // The number of haiku to generate with the above prompt.
+    "number": 10,
+    // The temperature to sample the next token probability distribution. Must be positive.
+    "temperature": 1.0,
+    // Repetition penalty parameter. Between 1.0 (no penalty) and infinity.
+    "repetition_penalty": 1.0,
+    // The number of highest probability vocabulary tokens to keep for top-k filtering. Between 1 and infinity.
+    "k": 0,
+    // The cumulative probability of parameter highest probability vocabulary tokens to keep for nucleus sampling. Between 0 and 1.
+    "p": 0.9
 }
