@@ -184,7 +184,6 @@ gpt2: $(REPO_INIT_TRIGGER)
 		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
 		python3 $(WORKSPACE)/haikulib/scripts/run_language_modeling.py \
-			--should_continue \
 			--overwrite_output_dir \
 			--cache_dir=$(WORKSPACE)/data/cache \
 			--output_dir=$(WORKSPACE)/data/models/gpt2-orig \

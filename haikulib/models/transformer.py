@@ -143,9 +143,27 @@ class TransformerModel(LanguageModel):
 
     def _serialize(self, directory: pathlib.Path):
         """Save the trained model to disk."""
+        logger.info("Saving trained model to %s", directory)
+        try:
+            model_to_save = self.model.module if hasattr(self.model, "module") else self.model
+            model_to_save.save_pretrained(str(directory))
+            self.tokenizer.save_pretrained(str(directory))
+            torch.save(self.config, directory / "self.config.bin")
+        except:
+            return False
+        return True
 
     def _deserialize(self, directory: pathlib.Path):
         """Load the trained model from disk."""
+        logger.info("Loading fine-tuned model and vocabulary from %s", directory)
+        _, model_class, tokenizer_class = MODEL_CLASSES[self.model_type]
+        try:
+            self.model = model_class.from_pretrained(str(directory))
+            self.tokenizer = tokenizer_class.from_pretrained(str(directory))
+            self.model.to(self.device)
+        except:
+            return False
+        return True
 
     def train(self):
         """Use self.config parameters to train the model."""
@@ -277,16 +295,11 @@ class TransformerModel(LanguageModel):
                     if self.checkpoint_steps > 0 and global_step % self.checkpoint_steps == 0:
                         checkpoint: pathlib.Path = self.output_directory / f"checkpoint-{global_step}"
                         checkpoint.mkdir(exist_ok=True)
-                        model_to_save = (
-                            self.model.module if hasattr(self.model, "module") else self.model
-                        )
-                        model_to_save.save_pretrained(checkpoint)
-                        self.tokenizer.save_pretrained(checkpoint)
-                        torch.save(self.config, str(checkpoint / "self.config.bin"))
+                        logger.info("Saving checkpoint to %s", checkpoint)
+                        self.serialize(checkpoint)
                         torch.save(optimizer.state_dict(), str(checkpoint / "optimizer.bin"))
                         torch.save(scheduler.state_dict(), str(checkpoint / "scheduler.bin"))
 
-                        logger.info("Saving checkpoint to %s", checkpoint)
                         self.rotate_checkpoints()
 
                 if self.max_steps is not None and global_step > self.max_steps:
@@ -298,19 +311,11 @@ class TransformerModel(LanguageModel):
         logger.info("global_step:  %d", global_step)
         logger.info("average loss: %f", tr_loss / global_step)
 
-        logger.info("Saving trained model to %s", self.output_directory)
-        model_to_save = self.model.module if hasattr(self.model, "module") else self.model
-        model_to_save.save_pretrained(self.output_directory)
-        self.tokenizer.save_pretrained(self.output_directory)
-        torch.save(self.config, self.output_directory / "self.config.bin")
+        # We need to load the fine-tuned tokenizer, so we serialize, then deserialize.
+        self.serialize()
         torch.save(optimizer.state_dict(), str(checkpoint / "optimizer.bin"))
         torch.save(scheduler.state_dict(), str(checkpoint / "scheduler.bin"))
-
-        logger.info("Loading fine-tuned model and vocabulary from %s", self.output_directory)
-        _, model_class, tokenizer_class = MODEL_CLASSES[self.model_type]
-        self.model = model_class.from_pretrained(str(self.output_directory))
-        self.tokenizer = tokenizer_class.from_pretrained(str(self.output_directory))
-        self.model.to(self.device)
+        self.deserialize()
 
         logger.info("Final evaluation.")
         self.evaluate()
@@ -414,9 +419,19 @@ class TransformerModel(LanguageModel):
         # Decode the model output back into regular text.
         for sequence in output_sequences:
             sequence = sequence.tolist()
+
+            # Decode the model output into text.
             text = self.tokenizer.decode(sequence, clean_up_tokenization_spaces=True)
-            text = text[:text.find("$")]
-            text += self.prompt + text[len(self.tokenizer.decode(prompt[0], clean_up_tokenization_spaces=True)):]
+            logger.debug("Model output: %s", text)
+
+            # Remove all text after the $
+            text = text[: text.find("$")]
+            # Add the prompt to the beginning, and remove any excess text.
+            text = (
+                self.prompt
+                + text[len(self.tokenizer.decode(prompt[0], clean_up_tokenization_spaces=True)) :]
+            )
+            # Force the haiku to end with a $.
             if not text.endswith("$"):
                 text += " $"
             generated.append(text)
@@ -424,7 +439,7 @@ class TransformerModel(LanguageModel):
 
         columns = {
             "model": [self.name] * n,
-            "type": [f"{self.type}-{self.model_type}"]*n,
+            "type": [f"{self.type}-{self.model_type}"] * n,
             "seed": [self.seed] * n,
             "prompt": [self.prompt] * n,
             "haiku": generated,
