@@ -83,17 +83,17 @@ class LanguageModel(abc.ABC):
 
     def serialize(self, directory: Union[pathlib.Path, str] = None):
         """Save a trained language model to a file."""
-        directory = directory or self.config["output_directory"]
+        directory = directory or self.output_directory
         logger.info("Saving model to %s...", directory)
         success = self._serialize(pathlib.Path(directory))
         if not success:
-            logger.info("Failed to save model.")
+            logger.error("Failed to save model.")
         else:
             logger.info("Saved model.")
 
     def save(self, df: pd.DataFrame, filename: Union[pathlib.Path, str] = None):
         """Save the generated content to a file."""
-        filename = filename or self.config["generated_path"]
+        filename = filename or self.generated_path
 
         logger.info("Saving generated text to %s...", filename)
         logger.info(df)
@@ -109,11 +109,11 @@ class LanguageModel(abc.ABC):
 
     def deserialize(self, directory: Union[pathlib.Path, str] = None):
         """Load a trained language model from a file."""
-        directory = directory or self.config["output_directory"]
+        directory = directory or self.output_directory
         logger.info("Loading model from %s...", directory)
         success = self._deserialize(pathlib.Path(directory))
         if not success:
-            logger.info("Failed to load model.")
+            logger.error("Failed to load model.")
         else:
             logger.info("Loaded model.")
 
@@ -155,7 +155,8 @@ class LanguageModel(abc.ABC):
 
         :param config: The model parameters
         """
-        logger.info(pprint.pformat(config))
+        logger.info("Validating config...")
+        logger.debug(pprint.pformat(config))
 
         if config["type"] == "markov":
             if "tokenization" not in config:
