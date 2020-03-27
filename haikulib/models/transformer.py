@@ -33,6 +33,7 @@ from transformers import (
 )
 
 from ..data import get_data_dir, get_df
+from ..nlp import preprocess
 from .base import LanguageModel
 
 
@@ -431,9 +432,7 @@ class TransformerModel(LanguageModel):
                 self.prompt
                 + text[len(self.tokenizer.decode(prompt[0], clean_up_tokenization_spaces=True)) :]
             )
-            # Force the haiku to end with a $.
-            if not text.endswith("$"):
-                text += " $"
+            text = preprocess(text)
             generated.append(text)
             logger.info("Generated: %s", text)
 

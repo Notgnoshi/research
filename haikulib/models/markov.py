@@ -8,6 +8,7 @@ import nltk.lm
 import pandas as pd
 
 from ..data import get_bag_of
+from ..nlp import preprocess
 from .base import LanguageModel
 
 logger = logging.getLogger(__name__)
@@ -70,8 +71,8 @@ class MarkovModel(LanguageModel):
             tokens = "".join(tokens)
         elif self.tokenization == "words":
             tokens = " ".join(tokens)
-        if next_token != "$":
-            tokens += " $"
+
+        tokens = preprocess(tokens)
 
         logger.info("Generated: %s", tokens)
 
