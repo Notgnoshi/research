@@ -18,7 +18,7 @@ sudo usermod -aG docker $USER
 reboot
 ```
 
-```bash
+<!-- ```bash
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
@@ -26,7 +26,7 @@ sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
 sudo systemctl restart docker
 
 docker run --gpus all nvidia/cuda:10.1-base nvidia-smi
-```
+``` -->
 
 ## Set up Docker for this Project
 
@@ -72,7 +72,7 @@ plt.rcParams["figure.figsize"] = (16 * 0.6, 9 * 0.6)
 sns.set()
 ```
 
-### Checking Tensorflow-GPU for Proper Installation
+<!-- ### Checking Tensorflow-GPU for Proper Installation
 
 Test if `tensorflow-gpu` was installed correctly by running the following.
 
@@ -109,4 +109,4 @@ config.gpu_options.allow_growth = True
 config.gpu_options.visible_device_list = "0"
 
 set_session(tf.Session(config=config))
-```
+``` -->

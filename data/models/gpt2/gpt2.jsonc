@@ -33,8 +33,6 @@
     "resume_training_from": null,
     // Number of checkpoints to save. Oldest deleted first.
     "max_checkpoints": null,
-    // Whether or not to use CUDA. The GPT-2 model doesn't fit on a GTX 1080.
-    "cuda": false,
     // Path to save any generated haiku relative to this file.
     "generated_path": "../../generated.csv",
     // Maximum number of tokens to generate.

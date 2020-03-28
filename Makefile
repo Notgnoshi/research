@@ -7,7 +7,7 @@ SHELL := bash
 # The repository root directory inside the docker container
 WORKSPACE := /workspaces/research
 # The model configuration file. The path must be relative to the repository root.
-CONFIG := data/models/markov-character/markov-character.jsonc
+CONFIG := data/models/gpt2/gpt2.jsonc
 
 ## View this help message
 .PHONY: help
@@ -167,7 +167,6 @@ check: $(REPO_INIT_TRIGGER)
 		pytest
 
 ## Fine-tune GPT-2
-## Using CUDA requires more memory than I have.
 .PHONY: gpt2
 gpt2: $(REPO_INIT_TRIGGER)
 	cut -d , -f2 data/haiku.csv | tail -n +2 | sed 's|^\(.*\)$$|^ \1 $$|g' | shuf > data/raw.txt

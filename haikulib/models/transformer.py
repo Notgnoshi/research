@@ -6,12 +6,7 @@ import pprint
 import re
 import shutil
 import sys
-import warnings
 from typing import List
-
-# See: https://github.com/tensorflow/tensorflow/issues/30427
-# This is supposed to be fixed, but I guess it hasn't hit the released version yet?
-warnings.filterwarnings("ignore")
 
 import pandas as pd
 import torch
@@ -107,7 +102,9 @@ class TransformerModel(LanguageModel):
         self.checkpoint_steps = config["checkpoint_steps"]
         self.resume_training_from = config["resume_training_from"]
         self.max_checkpoints = config["max_checkpoints"]
-        self.cuda = config["cuda"]
+
+        # Disable CUDA because the GPT2 model doesn't fit on my GTX 1080, and it really inflates the size of the container.
+        self.cuda = False
 
         self.temperature = config["temperature"]
         self.repetition_penalty = config["repetition_penalty"]
