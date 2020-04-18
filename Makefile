@@ -1,3 +1,4 @@
+DOCKER_API_TAG := notgnoshi/api
 DOCKER_RESEARCH_TAG := notgnoshi/research
 DOCKER_BUILD_TRIGGER := .docker-build-trigger
 REPO_INIT_TRIGGER := .repo-init-trigger
@@ -52,8 +53,7 @@ help:
 ## Build the docker image for this repository. Takes about 3-4 CPU years and more than a few spare bytes.
 .PHONY: docker-build
 docker-build: $(DOCKER_BUILD_TRIGGER)
-
-$(DOCKER_BUILD_TRIGGER): Dockerfile
+	docker build --tag $(DOCKER_API_TAG) --file=Dockerfile-api .
 	time docker build --tag $(DOCKER_RESEARCH_TAG) .
 	touch $(DOCKER_BUILD_TRIGGER)
 
@@ -201,3 +201,20 @@ gpt2-generate:
 			--seed=$(shell echo $$RANDOM) \
 			--no_cuda \
 			--num_return_sequences=20
+
+## Run the REST API container as a daemon.
+## With jwilder/nginx-proxy running, visit http://api.localhost to access.
+## Otherwise, replace '--expose 80' with '--publish 8080:80' and visit http://localhost:8080
+.PHONY: api
+api: $(REPO_INIT_TRIGGER)
+	docker run \
+		--interactive \
+		--tty \
+		--name research-api \
+		--rm \
+		--mount "type=bind,source=$(shell pwd),target=/app" \
+		--workdir=/app \
+		--expose 80 \
+		--env HTTPS_METHOD=nohttp \
+		--env VIRTUAL_HOST=api.localhost \
+		$(DOCKER_API_TAG) /start-reload.sh
