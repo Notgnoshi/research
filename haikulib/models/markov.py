@@ -81,7 +81,11 @@ class MarkovModel(LanguageModel):
     def generate(self, n: int = None) -> pd.DataFrame:
         logger.info("Generating haiku...")
         n = n or self.number
-        seeds = [self.seed or random.randint(0, 2 ** 32 - 1) for _ in range(n)]
+        # The random number generator is seeded already at this point,
+        # but we want to avoid generating N of the same haiku.
+        # So we use the seeded generator to generate N seeds, and then generate N haiku from those seeds.
+        # This way the results are still reproducible.
+        seeds = [random.randint(0, 2 ** 32 - 1) for _ in range(n)]
         haiku = [self._generate(s) for s in seeds]
 
         columns = {
