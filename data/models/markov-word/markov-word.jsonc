@@ -7,15 +7,13 @@
     "tokenization": "words",
     // If set, seed the random number generator with a specific uint32_t seed. Otherwise a random one will be used and saved.
     "seed": null,
-    // Whether to add ^...$ tags to the beginning and end of each haiku.
-    "tags": true,
     // The Markov order.
     "order": 4,
-    // The maximum number of tokens to generate per haiku. If tags are used, stop when you hit the first end tag.
+    // The maximum number of tokens to generate per haiku.
     "max_tokens": 20,
     // The token sequence to to seed the generated haiku with.
     // A list of characters or strings based on the value of "tokenization".
-    "prompt": "^ cherry",
+    "prompt": "cherry",
     // The number of haiku to generate.
     "number": 10
 }
