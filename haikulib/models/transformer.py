@@ -42,24 +42,17 @@ MODEL_CLASSES = {
 
 class HaikuDataset(Dataset):
     def __init__(
-        self,
-        tokenizer: PreTrainedTokenizer,
-        add_tags=True,
-        evaluation=False,
-        eval_ratio=0.1,
-        block_size=512,
+        self, tokenizer: PreTrainedTokenizer, evaluation=False, eval_ratio=0.1, block_size=512,
     ):
         # Here, we do not cache the features, operating under the assumption
         # that we will soon use fast multithreaded tokenizers from the
         # `tokenizers` repo everywhere =)
         logger.info("Creating features from haiku dataset")
 
-        # TODO: Is there a faster way to do this?
         df = get_df()
-        if add_tags:
-            for idx, row in df.iterrows():
-                haiku = "^ " + row["haiku"] + " $"
-                df.at[idx, "haiku"] = haiku
+        for idx, row in df.iterrows():
+            haiku = "^ " + row["haiku"] + " $"
+            df.at[idx, "haiku"] = haiku
 
         logger.info("Shuffling and splitting dataset.")
         df = df.sample(frac=1).reset_index(drop=True)
@@ -165,9 +158,7 @@ class TransformerModel(LanguageModel):
 
     def train(self):
         """Use self.config parameters to train the model."""
-        dataset = HaikuDataset(
-            self.tokenizer, add_tags=self.tags, block_size=self.tokenizer.max_len
-        )
+        dataset = HaikuDataset(self.tokenizer, block_size=self.tokenizer.max_len)
 
         def collate(example: List[torch.Tensor]):
             if self.tokenizer._pad_token is None:
@@ -345,7 +336,6 @@ class TransformerModel(LanguageModel):
     def evaluate(self):
         dataset = HaikuDataset(
             self.tokenizer,
-            add_tags=self.tags,
             evaluation=True,
             eval_ratio=self.evaluation_proportion,
             block_size=self.tokenizer.max_len,
@@ -395,7 +385,10 @@ class TransformerModel(LanguageModel):
         """Generate n sequences."""
         logger.info("Generating haiku...")
         n = n or self.number
-        prompt = self.tokenizer.encode(self.prompt, add_special_tokens=False, return_tensors="pt")
+        # Manually insert the begin-of-haiku tag
+        prompt = self.tokenizer.encode(
+            "^ " + self.prompt, add_special_tokens=False, return_tensors="pt"
+        )
         prompt = prompt.to(self.device)
 
         output_sequences = self.model.generate(

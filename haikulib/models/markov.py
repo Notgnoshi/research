@@ -22,7 +22,7 @@ class MarkovModel(LanguageModel):
         self.order = config["order"]
         self.tokenization = config["tokenization"]
 
-        self.bag = get_bag_of(kind=self.tokenization, add_tags=config["tags"])
+        self.bag = get_bag_of(kind=self.tokenization, add_tags=True)
         self.vocab = nltk.lm.Vocabulary(self.bag)
         self.model = nltk.lm.models.KneserNeyInterpolated(order=self.order, vocabulary=self.vocab)
 

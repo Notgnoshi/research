@@ -41,7 +41,6 @@ class LanguageModel(abc.ABC):
         self.prompt = config["prompt"]
         self.seed = config["seed"]
         self.type = config["type"]
-        self.tags = config["tags"]
 
         if self.seed is None:
             self.seed = random.randint(0, 2 ** 32 - 1)
