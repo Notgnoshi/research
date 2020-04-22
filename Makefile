@@ -63,21 +63,6 @@ docker-rebuild:
 	rm -f $(DOCKER_BUILD_TRIGGER)
 	$(MAKE) build
 
-## Run a shell in a fresh, new container.
-## Useful for debugging, but since there are *no* bugs, I don't forsee this being used.
-.PHONY: docker-shell
-docker-shell: docker-build
-	docker run \
-		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
-		--rm \
-		--interactive \
-		--tty \
-		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
-		--workdir=$(WORKSPACE) \
-		$(DOCKER_RESEARCH_TAG) \
-		bash
-
 ## Run the project deliverables
 
 ## Train and serialize the default Markov LM.
@@ -166,9 +151,9 @@ check: $(REPO_INIT_TRIGGER)
 		$(DOCKER_RESEARCH_TAG) \
 		pytest
 
-## Fine-tune GPT-2
-.PHONY: gpt2
-gpt2: $(REPO_INIT_TRIGGER)
+## Use the transformers example script to fine-tune GPT-2 on haiku.
+.PHONY: gpt2-train
+gpt2-train: $(REPO_INIT_TRIGGER)
 	cut -d , -f2 data/haiku.csv | tail -n +2 | sed 's|^\(.*\)$$|^ \1 $$|g' | shuf > data/raw.txt
 	head -n -5000 data/raw.txt > data/train.txt
 	tail -n 5000 data/raw.txt > data/eval.txt
@@ -196,7 +181,7 @@ gpt2: $(REPO_INIT_TRIGGER)
 			--do_eval \
 			--eval_data_file=$(WORKSPACE)/data/eval.txt
 
-## Generate w/ GPT-2
+## Use the transformers example scripts to generate text using GPT-2.
 .PHONY: gpt2-generate
 gpt2-generate:
 	docker run \
