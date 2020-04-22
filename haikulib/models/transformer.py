@@ -126,6 +126,15 @@ class TransformerModel(LanguageModel):
         self.tokenizer: PreTrainedTokenizer = tokenizer_class.from_pretrained(
             model_name, cache_dir=cache
         )
+
+        self.train_dataset = HaikuDataset(self.tokenizer, block_size=self.tokenizer.max_len)
+        self.eval_dataset = HaikuDataset(
+            self.tokenizer,
+            evaluation=True,
+            eval_ratio=self.evaluation_proportion,
+            block_size=self.tokenizer.max_len,
+        )
+
         self.model: PreTrainedModel = model_class.from_pretrained(
             model_name, config=self.lm_config, cache_dir=cache
         )
@@ -158,7 +167,6 @@ class TransformerModel(LanguageModel):
 
     def train(self):
         """Use self.config parameters to train the model."""
-        dataset = HaikuDataset(self.tokenizer, block_size=self.tokenizer.max_len)
 
         def collate(example: List[torch.Tensor]):
             if self.tokenizer._pad_token is None:
@@ -167,9 +175,9 @@ class TransformerModel(LanguageModel):
                 example, batch_first=True, padding_value=self.tokenizer.pad_token_id
             )
 
-        sampler = RandomSampler(dataset)
+        sampler = RandomSampler(self.train_dataset)
         dataloader = DataLoader(
-            dataset, sampler=sampler, batch_size=self.batch_size, collate_fn=collate
+            self.train_dataset, sampler=sampler, batch_size=self.batch_size, collate_fn=collate
         )
 
         if self.max_steps is not None:
@@ -203,7 +211,7 @@ class TransformerModel(LanguageModel):
         )
 
         logger.info("===== Running training =====")
-        logger.info("  Examples:                    %d", len(dataset))
+        logger.info("  Examples:                    %d", len(self.train_dataset))
         logger.info("  Epochs:                      %d", self.num_train_epochs)
         logger.info("  Batch size:                  %d", self.batch_size)
         logger.info("  Gradient accumulation steps: %d", self.gradient_accumulation_steps)
@@ -334,13 +342,6 @@ class TransformerModel(LanguageModel):
             shutil.rmtree(checkpoint)
 
     def evaluate(self):
-        dataset = HaikuDataset(
-            self.tokenizer,
-            evaluation=True,
-            eval_ratio=self.evaluation_proportion,
-            block_size=self.tokenizer.max_len,
-        )
-
         def collate(examples: List[torch.tensor]):
             if self.tokenizer._pad_token is None:
                 return pad_sequence(examples, batch_first=True)
@@ -348,11 +349,11 @@ class TransformerModel(LanguageModel):
                 examples, batch_first=True, padding_value=self.tokenizer.pad_token_id
             )
 
-        sampler = SequentialSampler(dataset)
+        sampler = SequentialSampler(self.eval_dataset)
         dataloader = DataLoader(
-            dataset, sampler=sampler, batch_size=self.batch_size, collate_fn=collate
+            self.eval_dataset, sampler=sampler, batch_size=self.batch_size, collate_fn=collate
         )
-        logger.info("  examples: %d", len(dataset))
+        logger.info("  examples: %d", len(self.eval_dataset))
         logger.info("  batch size: %d", self.batch_size)
         loss = 0.0
         eval_steps = 0
