@@ -43,15 +43,12 @@ class LanguageModel(abc.ABC):
         self.type = config["type"]
         self.tags = config["tags"]
 
-        # Let the markov model set the seed itself.
-        # TODO: Avoid doing so -_-
-        if self.seed is None and self.type != "markov":
+        if self.seed is None:
             self.seed = random.randint(0, 2 ** 32 - 1)
 
-        if self.type != "markov":
-            logger.info("Using random seed: %d", self.seed)
-            random.seed(self.seed)
-            np.random.seed(self.seed)
+        logger.info("Using random seed: %d", self.seed)
+        random.seed(self.seed)
+        np.random.seed(self.seed)
 
         self.df = get_df()
 
