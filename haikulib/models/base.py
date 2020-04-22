@@ -9,7 +9,7 @@ import commentjson
 import numpy as np
 import pandas as pd
 
-from ..data import get_df
+from ..data import get_df, get_random_prompt
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +48,11 @@ class LanguageModel(abc.ABC):
         logger.info("Using random seed: %d", self.seed)
         random.seed(self.seed)
         np.random.seed(self.seed)
+
+        # Get a random prompt after seeding the RNG
+        if not self.prompt:
+            self.prompt = get_random_prompt()
+            logger.info("Picked random prompt: %s", self.prompt)
 
         self.df = get_df()
 

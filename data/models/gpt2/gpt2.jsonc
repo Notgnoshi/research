@@ -36,7 +36,7 @@
     // Maximum number of tokens to generate.
     "max_tokens": 20,
     // The prompt to use to generate haiku.
-    "prompt": "cherry",
+    "prompt": null,
     // The number of haiku to generate with the above prompt.
     "number": 10,
     // The temperature to sample the next token probability distribution. Must be positive.

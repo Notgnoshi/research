@@ -2,6 +2,7 @@
 import ast
 import collections
 import pathlib
+import random
 
 import pandas as pd
 
@@ -31,6 +32,15 @@ def get_generated_df(path: pathlib.Path = None) -> pd.DataFrame:
         return None
 
     return pd.read_csv(path, index_col=0)
+
+
+def get_random_prompt():
+    """Pick a random prompt from the haiku dataset."""
+    df = get_df()
+    prompts = []
+    for haiku in df["haiku"]:
+        prompts.append(haiku.split()[0])
+    return random.sample(prompts, 1)[0]
 
 
 def __get_bag_of_characters(df: pd.DataFrame) -> collections.Counter:
