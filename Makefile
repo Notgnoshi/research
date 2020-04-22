@@ -94,7 +94,7 @@ train: $(REPO_INIT_TRIGGER)
 		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
 		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
-		$(WORKSPACE)/haikulib/scripts/markov.py --train --config=$(WORKSPACE)/$(CONFIG)
+		$(WORKSPACE)/haikulib/scripts/haiku.py --train --config=$(WORKSPACE)/$(CONFIG)
 
 ## Generate haiku using the deserialized default Markov LM.
 ## Define CONFIG to specify which model to use.
@@ -110,7 +110,7 @@ generate: $(REPO_INIT_TRIGGER)
 		--mount "type=bind,source=$(shell pwd),target=$(WORKSPACE)" \
 		--workdir=$(WORKSPACE) \
 		$(DOCKER_RESEARCH_TAG) \
-		$(WORKSPACE)/haikulib/scripts/markov.py --generate --config=$(WORKSPACE)/$(CONFIG)
+		$(WORKSPACE)/haikulib/scripts/haiku.py --generate --config=$(WORKSPACE)/$(CONFIG)
 
 ## Utilities
 
