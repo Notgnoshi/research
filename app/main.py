@@ -1,9 +1,80 @@
+import logging
 import random
+from typing import Tuple
 
+import numpy as np
+import pandas as pd
+import torch
 from fastapi import FastAPI, HTTPException, Path, Query, status
 from fastapi.responses import PlainTextResponse, RedirectResponse
+from transformers import GPT2LMHeadModel, GPT2Tokenizer, PreTrainedModel, PreTrainedTokenizer
+
+from haikulib.data import get_data_dir, get_random_prompt
+from haikulib.nlp import preprocess
 
 app = FastAPI()
+logger = logging.getLogger(__name__)
+
+
+def load_model() -> Tuple[PreTrainedModel, PreTrainedTokenizer]:
+    # TODO: Set the model path more intelligently.
+    model_path = get_data_dir() / "models" / "gpt2"
+    model: PreTrainedModel = GPT2LMHeadModel.from_pretrained(str(model_path))
+    tokenizer: PreTrainedTokenizer = GPT2Tokenizer.from_pretrained(str(model_path))
+    return model, tokenizer
+
+
+# FastAPI uses both threads, processes, and async event loops to serve the API.
+# PyTorch models are thread-safe, but I don't know about transformers models.
+# In any case, I don't know what to do other than load it here (a per-process global)
+# and hope there's nothing too dangerous about concurrent uses.
+# If it's not thread-safe, I might need to add some synchronization?
+# Or FastAPI allows configuring the number of workers. I should set #workers = some small number.
+model, tokenizer = load_model()
+
+
+def generate(
+    prompt: str, seed: int, number: int, temperature: float, k: int, p: float, max_tokens: int
+) -> pd.DataFrame:
+    # TODO: Is this thread-safe? I doubt it...
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+
+    encoded_prompt = tokenizer.encode("^ " + prompt, add_special_tokens=False, return_tensors="pt")
+    output_sequences = model.generate(
+        input_ids=encoded_prompt,
+        max_length=max_tokens + len(encoded_prompt[0]),
+        temperature=temperature,
+        top_k=k,
+        top_p=p,
+        do_sample=True,
+        num_return_sequences=number,
+    )
+    if len(output_sequences) > 2:
+        output_sequences.squeeze_()
+
+    generated = []
+    for sequence in output_sequences:
+        sequence = sequence.tolist()
+        text = tokenizer.decode(sequence, clean_up_tokenization_spaces=True)
+        text = text[: text.find("$")]
+        text = (
+            prompt
+            + text[len(tokenizer.decode(encoded_prompt[0], clean_up_tokenization_spaces=True)) :]
+        )
+        text = preprocess(text)
+        generated.append(text)
+        logger.info("Generated: %s", text)
+
+    columns = {
+        "model": ["fastapi-gpt2"] * number,
+        "type": ["transformer-gpt2"] * number,
+        "seed": [seed] * number,
+        "prompt": [prompt] * number,
+        "haiku": generated,
+    }
+    return pd.DataFrame(columns)
 
 
 @app.get("/generate")
@@ -19,6 +90,7 @@ def generate_haiku(
         gt=0,
         lt=2 ** 32,
     ),
+    number: int = Query(5, description="The number of haiku to generate.", gt=0, le=20),
     temperature: float = Query(
         1.0,
         description="The temperature to use when generating the haiku. Higher temperatures result in more randomness.",
@@ -40,7 +112,18 @@ def generate_haiku(
     ),
 ):
     """Generate a random haiku based on the given prompt."""
-    return {"seed": seed, "prompt": prompt, "haiku": ["1", "2",]}
+    if prompt is None:
+        prompt = get_random_prompt()
+    if seed is None:
+        seed = random.randint(0, 2 ** 32 - 1)
+    df = generate(prompt, seed, number, temperature, k, p, max_tokens)
+    logger.debug("Saving generated DataFrame to data/generated.csv")
+    with open(get_data_dir() / "generated.csv", "a", encoding="utf-8", errors="ignore") as f:
+        df.to_csv(f, mode="a", header=(f.tell() == 0), index=False)
+
+    # TODO: This is a fairly expensive request. Profile and see what it would take to optimize.
+    # TODO: Return the index for each generated haiku so that they're retrievable from the /generated/{n} links
+    return {"seed": seed, "prompt": prompt, "haiku": df["haiku"]}
 
 
 @app.get("/generated")

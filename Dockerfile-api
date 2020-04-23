@@ -1,17 +1,18 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.6
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
 
 # We won't COPY ./app/ /app/. We'll instead mount the entire repository as /app/
 
-# RUN apt -qq update && apt -yqq install \
-#     python3-pip
-# RUN pip3 install --no-cache-dir torch==1.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
-# RUN pip3 install --no-cache-dir \
-#     transformers \
-#     pandas \
-#     commentjson \
-#     numpy \
-#     nltk \
-#     spacy \
-#     https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz#egg=en_core_web_sm==2.2.5 \
+RUN apt -qq update && apt -yqq install \
+    python3-pip
+RUN pip3 install --no-cache-dir torch==1.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+RUN pip3 install --no-cache-dir \
+    commentjson \
+    nltk \
+    numpy \
+    pandas \
+    spacy \
+    https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz#egg=en_core_web_sm==2.2.5 \
+    transformers
 
-# ENV PYTHONPATH=/app
+RUN python3 -m nltk.downloader stopwords wordnet averaged_perceptron_tagger punkt
+ENV PYTHONPATH=/app
