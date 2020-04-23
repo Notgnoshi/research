@@ -56,6 +56,8 @@ async def random_generated_haiku():
 @app.get("/generated/{n}", response_class=PlainTextResponse)
 def generated_haiku(n: int = Path(..., description="The haiku index", ge=0)):
     """Get the nth generated haiku."""
+    raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, detail="Not implemented.")
+
     # TODO Dynamically update the upper bound.
     if n > 1200:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="That haiku doesn't exist!")
@@ -74,6 +76,8 @@ async def random_training_set_haiku():
 @app.get("/data/{n}")
 def training_set_haiku(n: int = Path(..., description="The haiku index", ge=0)):
     """Get the nth human-written haiku from the training set."""
+    raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, detail="Not implemented.")
+
     # TODO: Update this value at API start time.
     if n > 55000:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="That haiku doesn't exist!")
