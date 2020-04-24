@@ -202,11 +202,11 @@ gpt2-generate:
 			--no_cuda \
 			--num_return_sequences=20
 
-## Run the REST API container as a daemon.
+## Run the REST API container in the foreground, with live reloading on source changes.
 ## With jwilder/nginx-proxy running, visit http://api.localhost to access.
 ## Otherwise, replace '--expose 80' with '--publish 8080:80' and visit http://localhost:8080
-.PHONY: api
-api: $(REPO_INIT_TRIGGER)
+.PHONY: api-dev
+api-dev: $(REPO_INIT_TRIGGER)
 	docker run \
 		--interactive \
 		--tty \
@@ -215,6 +215,22 @@ api: $(REPO_INIT_TRIGGER)
 		--mount "type=bind,source=$(shell pwd),target=/app" \
 		--workdir=/app \
 		--expose 80 \
-		--env HTTPS_METHOD=nohttp \
+		--env HTTPS_METHOD=nohttps \
 		--env VIRTUAL_HOST=api.localhost \
 		$(DOCKER_API_TAG) /start-reload.sh
+
+## Run the REST API container in the background.
+.PHONY: api
+api: $(REPO_INIT_TRIGGER)
+	docker run \
+		--interactive \
+		--tty \
+		--detach \
+		--name research-api \
+		--rm \
+		--mount "type=bind,source=$(shell pwd),target=/app" \
+		--workdir=/app \
+		--expose 80 \
+		--env HTTPS_METHOD=nohttps \
+		--env VIRTUAL_HOST=api.localhost \
+		$(DOCKER_API_TAG)
