@@ -222,7 +222,7 @@ api: $(REPO_INIT_TRIGGER)
 		--tty \
 		--detach \
 		--name research-api \
-		--rm \
+		--restart unless-stopped \
 		--mount "type=bind,source=$(shell pwd),target=/app" \
 		--workdir=/app \
 		--expose 80 \
