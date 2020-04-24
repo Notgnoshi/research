@@ -74,7 +74,6 @@ docker-rebuild:
 train: $(REPO_INIT_TRIGGER)
 	time docker run \
 		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
 		--rm \
 		--interactive \
 		--tty \
@@ -90,7 +89,6 @@ train: $(REPO_INIT_TRIGGER)
 generate: $(REPO_INIT_TRIGGER)
 	time docker run \
 		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
 		--rm \
 		--interactive \
 		--tty \
@@ -110,7 +108,6 @@ $(REPO_INIT_TRIGGER): haikulib/scripts/initialize.py
 $(REPO_INIT_TRIGGER): haikulib/data/initialization.py
 	time docker run \
 		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
 		--rm \
 		--interactive \
 		--tty \
@@ -127,7 +124,6 @@ $(REPO_INIT_TRIGGER): haikulib/data/initialization.py
 jupyter: $(REPO_INIT_TRIGGER)
 	docker run \
 		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
 		--rm \
 		--interactive \
 		--tty \
@@ -144,7 +140,6 @@ jupyter: $(REPO_INIT_TRIGGER)
 check: $(REPO_INIT_TRIGGER)
 	docker run \
 		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
 		--rm \
 		--interactive \
 		--tty \
@@ -162,7 +157,6 @@ gpt2-train: $(REPO_INIT_TRIGGER)
 
 	docker run \
 		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
 		--rm \
 		--interactive \
 		--tty \
@@ -188,7 +182,6 @@ gpt2-train: $(REPO_INIT_TRIGGER)
 gpt2-generate:
 	docker run \
 		--user $(shell id -u):$(shell id -g) \
-		--gpus all \
 		--rm \
 		--interactive \
 		--tty \
