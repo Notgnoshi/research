@@ -53,6 +53,8 @@ help:
 ## Build the docker image for this repository. Takes about 3-4 CPU years and more than a few spare bytes.
 .PHONY: docker-build
 docker-build: $(DOCKER_BUILD_TRIGGER)
+
+$(DOCKER_BUILD_TRIGGER):
 	docker build --tag $(DOCKER_API_TAG) --file=Dockerfile-api .
 	time docker build --tag $(DOCKER_RESEARCH_TAG) .
 	touch $(DOCKER_BUILD_TRIGGER)
