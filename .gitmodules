@@ -1,3 +1,0 @@
-[submodule "depends/textgenrnn"]
-	path = depends/textgenrnn
-	url = git@github.com:Notgnoshi/textgenrnn.git
