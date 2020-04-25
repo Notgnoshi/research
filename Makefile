@@ -221,11 +221,12 @@ api: $(REPO_INIT_TRIGGER)
 		--interactive \
 		--tty \
 		--detach \
-		--name research-api \
 		--restart unless-stopped \
+		--name research-api \
 		--mount "type=bind,source=$(shell pwd),target=/app" \
 		--workdir=/app \
 		--expose 80 \
+		--env WEB_CONCURRENCY=1 \
 		--env HTTPS_METHOD=nohttps \
 		--env VIRTUAL_HOST=api.localhost \
 		$(DOCKER_API_TAG)
