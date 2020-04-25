@@ -41,6 +41,7 @@ def generate(
     np.random.seed(seed)
     torch.manual_seed(seed)
 
+    prompt = preprocess(prompt)
     encoded_prompt = tokenizer.encode("^ " + prompt, add_special_tokens=False, return_tensors="pt")
     output_sequences = model.generate(
         input_ids=encoded_prompt,
