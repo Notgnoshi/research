@@ -93,7 +93,7 @@ def get_bag_of(kind: str, add_tags: bool) -> collections.Counter:
 def get_flowers() -> set:
     """Get a set of flower names."""
     path = get_data_dir() / "flora.txt"
-    with path.open("r") as f:
+    with path.open("r", encoding="ascii", errors="ignore") as f:
         flowers = set(preprocess(line) for line in f)
 
     return flowers
@@ -105,7 +105,7 @@ def get_animals() -> set:
     TODO: The fauna dataset has many flora species listed. Remove flora.
     """
     path = get_data_dir() / "fauna.txt"
-    with path.open("r") as f:
+    with path.open("r", encoding="ascii", errors="ignore") as f:
         animals = set(preprocess(line) for line in f)
 
     return animals

@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.3
+      jupytext_version: 1.4.2
   kernelspec:
     display_name: Python 3
     language: python
@@ -51,7 +51,7 @@ data_dir.mkdir(parents=True, exist_ok=True)
 If we build the word cloud without removing stop words, the results are less illuminating.
 
 ```python
-bag = data.get_bag_of("words")
+bag = data.get_bag_of("words", add_tags=False)
 wordcloud = WordCloud(
     max_words=500, width=1600, height=900, mode="RGBA", background_color=None
 ).generate_from_frequencies(bag)
@@ -91,7 +91,7 @@ df = data.get_df()
 corpus = []
 
 for haiku in df["haiku"]:
-    corpus.append(" ".join(line.strip(" #") for line in haiku.split("/")))
+    corpus.append(" ".join(haiku.split("/")))
 
 flower_names = data.get_flowers()
 animal_names = data.get_animals()

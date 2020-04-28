@@ -1,10 +1,16 @@
 FROM ubuntu:18.04
 
 # Necessary for jupyter extensions
-RUN apt-get update -qq && apt-get install -yqq \
+RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
     wget \
     python3 \
     python3-pip \
+    texlive \
+    texlive-base \
+    texlive-latex-extra \
+    texlive-fonts-recommended \
+    dvipng \
+    cm-super \
     git
 
 # Add a user to do everything inside of.

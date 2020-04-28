@@ -6,7 +6,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.3
+      jupytext_version: 1.4.2
   kernelspec:
     display_name: Python 3
     language: python
@@ -68,8 +68,9 @@ data_dir = data.get_data_dir() / "experiments" / "eda" / "colors"
 data_dir.mkdir(parents=True, exist_ok=True)
 pd.set_option("display.latex.repr", True)
 pd.set_option("display.latex.longtable", True)
+pd.set_option('display.max_colwidth', None)
 plt.rcParams["figure.figsize"] = (16, 9)
-sns.set()
+sns.set(style="whitegrid")
 ```
 
 # The Naive Approach
@@ -86,9 +87,11 @@ df = data.get_df()
 corpus = []
 
 for haiku in df["haiku"]:
-    corpus.append(" ".join(line.strip(" #") for line in haiku.split("/")))
+    corpus.append(" ".join(haiku.split("/")))
 
-color_names = {r["color"]: r["hex"] for _, r in haikulib.eda.colors.get_colors().iterrows()}
+color_names = {
+    r["color"]: r["hex"] for _, r in haikulib.eda.colors.get_colors().iterrows()
+}
 ```
 
 ```python
@@ -150,7 +153,7 @@ Now we can simply find all of the colors in a given haiku as follows.
 
 ```python
 # Modified to test colors of all three sizes.
-haiku = "dark blue lines / in a light olive green sea salt / dreams #"
+haiku = "dark blue lines / in a light olive green sea salt / dreams"
 haiku_colors = [
     tagged_word[0]
     for tagged_word in nlp.pos_tag(haiku)
@@ -184,7 +187,7 @@ utils.display_source("haikulib.data.initialization", "init_csv")
 
 ```python
 df = data.get_df()
-df.tail(6)
+df.tail(10)
 ```
 
 We can also produce a `DataFrame` containing the colors, their counts, and their HTML color codes as above.
@@ -255,7 +258,7 @@ _ = plt.bar(
     linewidth=0,
     log=True,
 )
-plt.savefig(data_dir / "histogram.eps")
+plt.savefig(data_dir / "histogram.svg")
 plt.show()
 ```
 
@@ -271,7 +274,7 @@ _ = plt.bar(
     linewidth=0,
     log=True,
 )
-plt.savefig(data_dir / "histogram-spectrum.eps")
+plt.savefig(data_dir / "histogram-spectrum.svg")
 plt.show()
 ```
 
@@ -286,9 +289,14 @@ background = plt.bar(
     alpha=0.8,
 )
 foreground = plt.bar(
-    range(len(colors)), height=colors["count"], width=3, linewidth=0, color="black", log=True
+    range(len(colors)),
+    height=colors["count"],
+    width=3,
+    linewidth=0,
+    color="black",
+    log=True,
 )
-plt.savefig(data_dir / "histogram-spectrum-background.pdf")
+plt.savefig(data_dir / "histogram-spectrum-background.svg")
 plt.show()
 ```
 
@@ -332,9 +340,14 @@ widths = np.array(list(pairwise_difference(thetas)))
 radii = np.log(used_colors["count"])
 
 _ = ax.bar(
-    x=thetas, height=radii, width=widths, color=used_colors["rgb"], linewidth=0, align="edge"
+    x=thetas,
+    height=radii,
+    width=widths,
+    color=used_colors["rgb"],
+    linewidth=0,
+    align="edge",
 )
-plt.savefig(data_dir / "count-proportional-theta-radii-width.eps")
+plt.savefig(data_dir / "count-proportional-theta-radii-width.svg")
 plt.show()
 ```
 
@@ -350,7 +363,7 @@ _ = ax.bar(
     linewidth=0,
     align="edge",
 )
-plt.savefig(data_dir / "count-proportional-theta-width-fixed-height.eps")
+plt.savefig(data_dir / "count-proportional-theta-width-fixed-height.svg")
 plt.show()
 ```
 
@@ -376,9 +389,14 @@ widths = 4 * np.pi / len(used_colors)
 radii = np.log(used_colors["count"])
 
 _ = ax.bar(
-    x=thetas, height=radii, width=widths, color=used_colors["rgb"], linewidth=0, align="edge"
+    x=thetas,
+    height=radii,
+    width=widths,
+    color=used_colors["rgb"],
+    linewidth=0,
+    align="edge",
 )
-plt.savefig(data_dir / "hue-proportional-radii-fixed-theta-width.eps")
+plt.savefig(data_dir / "hue-proportional-radii-fixed-theta-width.svg")
 plt.show()
 ```
 
@@ -390,8 +408,15 @@ thetas = np.array(list(accumulate(thetas)))
 widths = np.array(list(pairwise_difference(thetas)))
 radii = np.log(used_colors["count"])
 
-_ = ax.bar(x=thetas, height=1, width=widths, color=used_colors["rgb"], linewidth=0, align="edge")
-plt.savefig(data_dir / "hue-proportional-theta-width-fixed-radii.eps")
+_ = ax.bar(
+    x=thetas,
+    height=1,
+    width=widths,
+    color=used_colors["rgb"],
+    linewidth=0,
+    align="edge",
+)
+plt.savefig(data_dir / "hue-proportional-theta-width-fixed-radii.svg")
 plt.show()
 ```
 
@@ -399,9 +424,14 @@ plt.show()
 ax = plt.subplot(111, projection="polar")
 
 _ = ax.bar(
-    x=thetas, height=radii, width=widths, color=used_colors["rgb"], linewidth=0, align="edge"
+    x=thetas,
+    height=radii,
+    width=widths,
+    color=used_colors["rgb"],
+    linewidth=0,
+    align="edge",
 )
-plt.savefig(data_dir / "hue-proportional-theta-radii-width.eps")
+plt.savefig(data_dir / "hue-proportional-theta-radii-width.svg")
 plt.show()
 ```
 

@@ -54,7 +54,7 @@ help:
 .PHONY: docker-build
 docker-build: $(DOCKER_BUILD_TRIGGER)
 
-$(DOCKER_BUILD_TRIGGER):
+$(DOCKER_BUILD_TRIGGER): Dockerfile Dockerfile-api
 	docker build --tag $(DOCKER_API_TAG) --file=Dockerfile-api .
 	time docker build --tag $(DOCKER_RESEARCH_TAG) .
 	touch $(DOCKER_BUILD_TRIGGER)
@@ -63,7 +63,7 @@ $(DOCKER_BUILD_TRIGGER):
 .PHONY: docker-rebuild
 docker-rebuild:
 	rm -f $(DOCKER_BUILD_TRIGGER)
-	$(MAKE) build
+	$(MAKE) docker-build
 
 ## Run the project deliverables
 
