@@ -487,17 +487,7 @@ black bean
 black locust
 black mangrove tree
 black mulberry
-black olive tree
-black poui
-black walnut
-black wattle
-blackbead
-blackjack pine
-bladder fern
-bladder senna
-bladdernut
-bladderpod
-bladderwort
+black olive tree and `#`
 blandfordia
 blazing star
 blechnum
@@ -510,6 +500,7 @@ bloodroot
 bloodwood
 bloomeria
 blossfeldia
+blossom
 blue daisy
 blue jacaranda
 blue lace flower
@@ -2866,6 +2857,8 @@ persicaria
 persimmon
 peruvian lily
 peruvian mastic tree
+petal
+petals
 petasites
 petrea
 petrocosmea

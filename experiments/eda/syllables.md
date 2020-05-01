@@ -5,7 +5,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.2'
-      jupytext_version: 1.3.3
+      jupytext_version: 1.4.2
   kernelspec:
     display_name: Python 3
     language: python
@@ -76,14 +76,14 @@ from haikulib import data
 experiment_dir = data.get_data_dir() / "experiments" / "eda" / "syllables"
 experiment_dir.mkdir(parents=True, exist_ok=True)
 
-pd.set_option("display.latex.repr", True)
-pd.set_option("display.latex.longtable", True)
-pd.set_option("display.max_colwidth", -1)
+pd.set_option("display.latex.repr", False)
+pd.set_option("display.latex.longtable", False)
+pd.set_option("display.max_colwidth", None)
 
 # plt.rcParams has no effect if in the same cell as the matplotlib import.
 # See: https://github.com/ipython/ipython/issues/11098
 plt.rcParams["figure.figsize"] = (16 * 0.6, 9 * 0.6)
-sns.set()
+sns.set(style="whitegrid")
 
 df = data.get_df()
 df.head()
@@ -113,6 +113,7 @@ sns.distplot(
 plt.title("Haiku total syllable count")
 plt.xlabel("syllables")
 plt.ylabel("density")
+plt.savefig("total-syllable-distribution.svg")
 plt.show()
 ```
 
@@ -171,6 +172,7 @@ plt.title("Haiku syllables per line")
 plt.legend()
 plt.xlabel("syllables")
 plt.ylabel("density")
+plt.savefig("syllables-per-line.svg")
 plt.show()
 ```
 
@@ -208,6 +210,7 @@ plt.plot(np.log(syllables["count"]))
 plt.title("Distribution of syllabic structures in haiku")
 plt.ylabel("$\log(freq)$")
 plt.xlabel("$rank$")
+plt.savefig("syllabic-exponential.svg")
 plt.show()
 ```
 

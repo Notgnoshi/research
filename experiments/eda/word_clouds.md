@@ -52,6 +52,7 @@ If we build the word cloud without removing stop words, the results are less ill
 
 ```python
 bag = data.get_bag_of("words", add_tags=False)
+del bag["/"]
 wordcloud = WordCloud(
     max_words=500, width=1600, height=900, mode="RGBA", background_color=None
 ).generate_from_frequencies(bag)

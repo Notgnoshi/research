@@ -211,8 +211,6 @@ alligator gar
 alligator snapping turtle
 allmouth goosefish
 alluaud's haplo
-almond
-almond-leaved willow
 almond moth
 aloe
 alpaca
@@ -808,7 +806,6 @@ babirusa
 baboon
 baboon flower
 baby blue eyes
-babylon weeping willow
 baby rubber plant
 bachman's sparrow
 bacillus phage spbc2
@@ -3739,7 +3736,6 @@ damping-off fungus
 dampwood termite
 damselfish
 damselfly
-dandelion
 dandruff-associated fungus
 danford iris
 danish scurvygrass
@@ -14259,9 +14255,6 @@ tuft-tailed spiny tree rat
 tuhv-1
 tuhv-2
 tule bluet damselfly
-tulip
-tulip prickly pear cactus
-tuliptree
 tullberg's soft-furred rat
 tumbes sparrow
 tumv
@@ -15279,7 +15272,6 @@ wild yak
 willet
 williamson's sapsucker
 williams' tiger moth
-willow
 willow bracket
 willow flycatcher
 willow grouse

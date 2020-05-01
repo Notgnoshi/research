@@ -10,6 +10,7 @@ data/*
 !data/flora.txt
 !data/fauna.txt
 !data/colors.csv
+!data/haiku.csv
 
 ## According to gitignore(5) you cannot negate a pattern if a parent _directory_ for that pattern has been ignored.
 # !data/models/**/*.jsonc
