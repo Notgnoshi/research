@@ -31,7 +31,7 @@ RUN pip3 install --no-cache-dir --user --upgrade  \
     commentjson \
     gensim \
     grakel-dev[lovasz] \
-    https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz#egg=en_core_web_sm==2.2.5 \
+    # https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz#egg=en_core_web_sm==2.2.5 \
     ipython \
     isort \
     jedi \
@@ -64,6 +64,7 @@ RUN pip3 install --no-cache-dir --user --upgrade  \
     webcolors \
     wordcloud
 
+RUN python3 -m spacy download en
 RUN python3 -m nltk.downloader stopwords wordnet averaged_perceptron_tagger punkt
 RUN wget -qO- https://nodejs.org/dist/v12.16.1/node-v12.16.1-linux-x64.tar.xz | tar -xJ
 ENV PATH="$HOME/node-v12.16.1-linux-x64/bin${PATH:+:${PATH}}"

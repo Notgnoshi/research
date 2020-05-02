@@ -33,33 +33,30 @@ The questions this notebook attempts to answer are
 %load_ext autoreload
 %autoreload 2
 
-%config InlineBackend.figure_format = 'svg'
+%config InlineBackend.figure_format = 'retina'
 %matplotlib inline
 
-from collections import Counter
 import operator
+from collections import Counter
+from urllib.request import urlopen
+
 import matplotlib.pyplot as plt
+import nltk
 import numpy as np
 import pandas as pd
 import seaborn as sns
 
-from nltk.stem import LancasterStemmer, PorterStemmer, SnowballStemmer
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import wordnet
-import nltk
-
-import spacy
-
-from haikulib import data, utils, nlp
+from haikulib import data, nlp, utils
 ```
 
 ```python
-_nlp = spacy.load("en", disable=["parser", "ner"])
-pd.set_option("display.latex.repr", True)
-pd.set_option("display.latex.longtable", True)
-plt.rcParams["figure.figsize"] = (16 * 0.6, 9 * 0.6)
+# _nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+# pd.set_option("display.latex.repr", True)
+# pd.set_option("display.latex.longtable", True)
+pd.set_option("display.max_colwidth", None)
+plt.rcParams["figure.figsize"] = (16 * 0.8, 9 * 0.8)
 
-sns.set()
+sns.set(style="whitegrid")
 ```
 
 # Zipf's Law
@@ -83,9 +80,89 @@ frequencies = np.array([21, 10, 7])
 plt.plot(np.log(ranks), np.log(frequencies))
 plt.plot(np.log(ranks), np.log(frequencies), ".")
 
-plt.title("Example of Zipf's Law")
+# plt.title("Example of Zipf's Law")
 plt.xlabel("$\log(rank)$")
 plt.ylabel("$\log(freq)$")
+plt.savefig("contrived.png", dpi=240)
+plt.show()
+```
+
+# Compare Haiku to Ambrose Bierce's Writing
+
+Before we proceed with looking at Zipf's law for haiku, we should have a baseline to compare it to.
+I'm a sucker for the dark, cynicism of Ambrose Bierce, so let's download his works from Project Gutenberg and examine how they look with respect to Zipf's law.
+
+```python
+part1 = "https://www.gutenberg.org/cache/epub/13541/pg13541.txt"
+part2 = "https://www.gutenberg.org/cache/epub/13334/pg13334.txt"
+
+part1 = urlopen(part1).read().decode("utf-8")
+part2 = urlopen(part2).read().decode("utf-8")
+```
+
+```python
+def get_freq_table(bag):
+    """Get a frequency table representation of the given bag-of-words representation."""
+    assert isinstance(bag, Counter)
+    words, frequencies = zip(
+        *sorted(bag.items(), key=operator.itemgetter(1), reverse=True)
+    )
+    words = np.array(words)
+    frequencies = np.array(frequencies)
+    ranks = np.arange(1, len(words) + 1)
+
+    freq_table = pd.DataFrame({"rank": ranks, "word": words, "frequency": frequencies})
+    return freq_table
+```
+
+```python
+corpus = " ".join(part1.split()) + " ".join(part2.split())
+tokens = [nlp.preprocess(t) for t in corpus.split()]
+bag = Counter(tokens)
+freq_table_bierce = get_freq_table(bag)
+freq_table_bierce.head()
+```
+
+```python
+plt.plot(
+    np.log(freq_table_bierce["rank"]),
+    np.log(freq_table_bierce["frequency"]),
+    ".",
+    markersize=3,
+)
+
+plt.xlabel("$\log(rank)$")
+plt.ylabel("$\log(freq)$")
+plt.savefig("bierce.png", dpi=240)
+plt.show()
+```
+
+```python
+for stopword in nlp.STOPWORDS:
+    if stopword in bag:
+        del bag[stopword]
+
+stop_table_bierce = get_freq_table(bag)
+
+plt.plot(
+    np.log(freq_table_bierce["rank"]),
+    np.log(freq_table_bierce["frequency"]),
+    ".",
+    markersize=3,
+    label="bierce with stopwords",
+)
+plt.plot(
+    np.log(stop_table_bierce["rank"]),
+    np.log(stop_table_bierce["frequency"]),
+    ".",
+    markersize=3,
+    label="bierce without stopwords",
+)
+
+plt.xlabel("$\log(rank)$")
+plt.ylabel("$\log(freq)$")
+plt.legend()
+plt.savefig("bierce-nostopwords.png", dpi=240)
 plt.show()
 ```
 
@@ -102,38 +179,42 @@ Further, these vector representations have the property that the vector between 
 However, for the present work, a bag-of-words suffices.
 So we get a bag-of-words representation of the dataset, and construct the frequency table.
 
-```python
-def get_freq_table(bag, thing="word"):
-    """Get a frequency table representation of the given bag-of-<thing> representation."""
-    assert isinstance(bag, Counter)
-    things, frequencies = zip(*sorted(bag.items(), key=operator.itemgetter(1), reverse=True))
-    things = np.array(things)
-    frequencies = np.array(frequencies)
-    ranks = np.arange(1, len(things) + 1)
-
-    freq_table = pd.DataFrame({"rank": ranks, thing: things, "frequency": frequencies})
-    return freq_table
-```
 
 The frequency table is just another view of the bag-of-words.
 It contains no new information, but allows us to more easily examine the mathematical relationships of word frequencies.
 
 ```python
-bag = data.get_bag_of(kind="words")
+bag = data.get_bag_of(kind="words", add_tags=False)
+del bag["/"]
 freq_table = get_freq_table(bag)
 freq_table.head()
 ```
 
-Plotting the ranks of each word vs their frequency on a log-log scale reveals that Zipf's law does seem to hold for most of the dataset.
-
 ```python
-plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
+plt.plot(
+    np.log(freq_table["rank"]),
+    np.log(freq_table["frequency"]),
+    ".",
+    markersize=3,
+    label="haiku with stopwords",
+)
+plt.plot(
+    np.log(freq_table_bierce["rank"]),
+    np.log(freq_table_bierce["frequency"]),
+    ".",
+    markersize=3,
+    label="bierce with stopwords",
+)
 
-plt.title("Haiku Word Frequency")
 plt.xlabel("$\log(rank)$")
 plt.ylabel("$\log(freq)$")
+plt.legend()
+plt.savefig("haiku.png", dpi=240)
 plt.show()
 ```
+
+Plotting the ranks of each word vs their frequency on a log-log scale reveals that Zipf's law does seem to hold for most of the dataset.
+
 
 So then we find the words and their corresponding frequencies at the interesting points of the plot.
 
@@ -162,7 +243,11 @@ x_adjust = np.array([0.1, -0.6, 0.15, -0.6, 0.2, -0.6, 0.0])
 y_adjust = np.array([1.0, -1.2, 1.0, -1.3, 1.0, -1.3, 1.0])
 
 for word, freq, rank, xa, ya in zip(
-    interesting["word"], interesting["frequency"], interesting["rank"], x_adjust, y_adjust
+    interesting["word"],
+    interesting["frequency"],
+    interesting["rank"],
+    x_adjust,
+    y_adjust,
 ):
     plt.annotate(
         word,
@@ -172,11 +257,11 @@ for word, freq, rank, xa, ya in zip(
         arrowprops={"arrowstyle": "-", "color": "k"},
     )
 
-plt.title("Haiku Word Frequency")
+# plt.title("Haiku Word Frequency")
 plt.xlabel("$\log(rank)$")
 plt.ylabel("$\log(freq)$")
 plt.ylim((-0.5, 11.9))
-# plt.savefig('zipfs-uncleaned.svg')
+plt.savefig("haiku-annotated.png", dpi=240)
 plt.show()
 ```
 
@@ -193,15 +278,30 @@ for stopword in nlp.STOPWORDS:
     if stopword in bag:
         del bag[stopword]
 
-freq_table = get_freq_table(bag)
+stop_table = get_freq_table(bag)
 ```
 
 ```python
-plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
+plt.plot(
+    np.log(freq_table["rank"]),
+    np.log(freq_table["frequency"]),
+    ".",
+    markersize=3,
+    label="haiku with stopwords",
+)
+plt.plot(
+    np.log(stop_table["rank"]),
+    np.log(stop_table["frequency"]),
+    ".",
+    markersize=3,
+    label="haiku without stopwords",
+)
 
-plt.title("Haiku Word Frequency")
+# plt.title("Haiku Word Frequency")
 plt.xlabel("$\log(rank)$")
 plt.ylabel("$\log(freq)$")
+plt.legend()
+plt.savefig("haiku-nostopwords.png", dpi=240)
 plt.show()
 ```
 
@@ -210,28 +310,32 @@ The plot retains the same characteristics, albeit with a slightly less linear sh
 After removing the stop words, the most frequent words start to show characteristics unique to haiku.
 
 ```python
-freq_table.head(15)
+stop_table.head(15)
 ```
 
 ```python
 indices = get_indices(
-    freq_table,
+    stop_table,
     "word",
     ["moon", "rain", "day", "night", "snow", "winter", "summer", "spring", "autumn"],
 )
 
-interesting = freq_table.loc[indices]
+interesting = stop_table.loc[indices]
 ```
 
 ```python
-plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
+plt.plot(np.log(stop_table["rank"]), np.log(stop_table["frequency"]), ".", markersize=3)
 
 # This should also be a crime.
 x_adjust = np.array([-0.35, -0.9, -0.23, -0.9, -0.1, -0.7, 0.3, -0.7, 0.4])
 y_adjust = np.array([1.0, -1.0, 1.1, -1.1, 1.1, -1.4, 1.0, -1.45, 1.0])
 
 for word, freq, rank, xa, ya in zip(
-    interesting["word"], interesting["frequency"], interesting["rank"], x_adjust, y_adjust
+    interesting["word"],
+    interesting["frequency"],
+    interesting["rank"],
+    x_adjust,
+    y_adjust,
 ):
     plt.annotate(
         word,
@@ -241,213 +345,13 @@ for word, freq, rank, xa, ya in zip(
         arrowprops={"arrowstyle": "-", "color": "k"},
     )
 
-plt.title("Haiku Word Frequency")
 plt.xlabel("$\log(rank)$")
 plt.ylabel("$\log(freq)$")
 plt.xlim((-0.5, 10.5))
-plt.ylim((-0.5, 9))
-# plt.savefig("zipfs-cleaned.svg")
+plt.ylim((-0.5, 9.2))
+plt.savefig("haiku-no-stopwords-annotated.png", dpi=240)
 plt.show()
 ```
-
-In the context of Zipf's law, this diagram isn't very revealing.
-But as exploratory data analysis undertaken to understand the haiku dataset, it is quite illuminating.
-
-We can immediately tell that weather and seasons are major themes in haiku.
-
-# Word Frequencies After Stemming/Lemmatization
-
-There are two computational approaches for getting the root form of a word - stemming and lemmatization.
-
-Stemming involves a sequence of rules used to strip off suffixes of the word to reduce it to its stem - which notably might not be a word.
-For example, "leaves" and "leaving" might both be stemmed to form "leav".
-Further, because stemming operates by removing parts of the word, it would fail to stem "better" and "good" the same.
-
-Notably, stemming is unaware of the vocabulary.
-It is a purely algorithmic process of applying grammatical rules to remove prefixes and suffixes.
-
-Lemmatization on the other hand, is aware of vocabulary.
-It is a more sophisticated technique that returns the word to its base dictionary form via morphological analysis.
-Lemmatization is much more costly than stemming, and is often performed using a machine learning model.
-
-```python
-bag = data.get_bag_of(kind="words")
-
-for stopword in nlp.STOPWORDS:
-    if stopword in bag:
-        del bag[stopword]
-
-feq_table = get_freq_table(bag)
-```
-
-## Stemming
-
-There are many approaches to stemming words, but the most common approaches are the Porter, Lancaster, and Snowball stemmers.
-
-So in order to get a feel for how stemming effects, we will build a bag-of-stems for each of the above stemmers.
-
-```python
-# Build a new bag of stems
-porter_stems = Counter()
-lancaster_stems = Counter()
-snowball_stems = Counter()
-
-porter_stemmer = PorterStemmer()
-lancaster_stemmer = LancasterStemmer()
-snowball_stemmer = SnowballStemmer("english")
-```
-
-```python
-for word, frequency in zip(freq_table["word"], freq_table["frequency"]):
-    stem = porter_stemmer.stem(word)
-    if stem in porter_stems:
-        porter_stems[stem] += frequency
-    else:
-        porter_stems[stem] = frequency
-
-    stem = lancaster_stemmer.stem(word)
-    if stem in lancaster_stems:
-        lancaster_stems[stem] += frequency
-    else:
-        lancaster_stems[stem] = frequency
-
-    stem = snowball_stemmer.stem(word)
-    if stem in snowball_stems:
-        snowball_stems[stem] += frequency
-    else:
-        snowball_stems[stem] = frequency
-```
-
-Each of the stemmers produce similar results.
-
-```python
-print("Original: length:", len(bag), "common words:", bag.most_common(15), "\n\n")
-print("Porter: length:", len(porter_stems), "common stems:", porter_stems.most_common(15), "\n\n")
-print(
-    "Lancaster: length:",
-    len(lancaster_stems),
-    "common stems:",
-    lancaster_stems.most_common(15),
-    "\n\n",
-)
-print(
-    "Snowball: length:",
-    len(snowball_stems),
-    "common stems:",
-    snowball_stems.most_common(15),
-    "\n\n",
-)
-```
-
-We see the largest compression from the Lancaster stemmer.
-So we use the Lancaster stems to plot the same frequency curve as before.
-
-```python
-freq_table = get_freq_table(lancaster_stems)
-plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
-
-plt.title("Haiku Stem Frequency")
-plt.xlabel("$\log(rank)$")
-plt.ylabel("$\log(freq)$")
-plt.show()
-```
-
-The shape of the curve does not appear to have changed much from the frequency plot with the stop words removed, except slightly more curved.
-Perhaps there just aren't that many variants of each word.
-Or perhaps Zipf's law holds on natural language word stems as well as the words themselves.
-I think that is more likely.
-
-## Lemmatization
-
-Lemmatization is a more involved process, and takes quite a bit more time.
-
-There are two lemmatizers that I will use: one from NLTK, and one from SpaCy.
-However, the NLTK WordNet lemmatizer supports two modes: with, and without Part-Of-Speech (POS) tagging.
-
-So we procede with the three variants.
-
-```python
-freq_table = get_freq_table(bag)
-
-wn_lemmas = Counter()
-wn_pos_lemmas = Counter()
-spacy_lemmas = Counter()
-```
-
-```python
-lem = WordNetLemmatizer()
-for word, frequency in zip(freq_table["word"], freq_table["frequency"]):
-    lemma = lem.lemmatize(word)
-    if lemma in wn_lemmas:
-        wn_lemmas[lemma] += frequency
-    else:
-        wn_lemmas[lemma] = frequency
-```
-
-```python
-def get_pos(word):
-    tag = nltk.pos_tag([word])[0][1][0].upper()
-    tags = {"J": wordnet.ADJ, "N": wordnet.NOUN, "V": wordnet.VERB, "R": wordnet.ADV}
-    # Default to a noun if the POS is unknown.
-    return tags.get(tag, wordnet.NOUN)
-```
-
-```python
-for word, frequency in zip(freq_table["word"], freq_table["frequency"]):
-    lemma = lem.lemmatize(word, get_pos(word))
-    if lemma in wn_pos_lemmas:
-        wn_pos_lemmas[lemma] += frequency
-    else:
-        wn_pos_lemmas[lemma] = frequency
-```
-
-Note that SpaCy lemmatizes tokens in the provided corpus as a part of its model construction, so we build a full model for each of the words in the dataset.
-This is *not* what SpaCy was designed for, but should we lemmatize the entire dataset, we would not be able associate the lemma's frequency with that of the original word.
-This is because the bag-of-words is already compressed - there are no duplicate tokens - only an annotation of how frequent each token is.
-
-```python
-%time
-# horrendously slow
-for word, frequency in zip(freq_table["word"], freq_table["frequency"]):
-    # This is not what SpaCy was meant for.
-    doc = _nlp(word)
-    token = doc[0]
-    lemma = token.lemma_
-
-    if lemma in spacy_lemmas:
-        spacy_lemmas[lemma] += frequency
-    else:
-        spacy_lemmas[lemma] = frequency
-```
-
-```python
-print("original: length:", len(bag), "most common:", bag.most_common(15), "\n\n")
-print("WordNet: length:", len(wn_lemmas), "most common:", wn_lemmas.most_common(15), "\n\n")
-print(
-    "WordNet with POS: length:",
-    len(wn_pos_lemmas),
-    "most common:",
-    wn_pos_lemmas.most_common(15),
-    "\n\n",
-)
-print("spaCy: length:", len(spacy_lemmas), "most common:", spacy_lemmas.most_common(15), "\n\n")
-```
-
-Note that each of the lemmatizers identifies the same most common lemmas, but with different frequencies.
-The SpaCy lemmatizer does the most compression, so plot the same frequency curve as before using the SpaCy lemmas.
-
-```python
-freq_table = get_freq_table(spacy_lemmas)
-
-plt.plot(np.log(freq_table["rank"]), np.log(freq_table["frequency"]), ".", markersize=3)
-
-plt.title("Haiku Lemma Frequency")
-plt.xlabel("$\log(rank)$")
-plt.ylabel("$\log(freq)$")
-plt.show()
-```
-
-The pattern is the same as before.
 
 # Conclusion
 
