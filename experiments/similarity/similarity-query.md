@@ -18,7 +18,7 @@ from gensim.models import LsiModel
 from gensim.similarities import MatrixSimilarity
 from nltk.stem.wordnet import WordNetLemmatizer
 
-from haikulib.data import get_df, get_data_dir
+from haikulib.data import get_data_dir, get_df
 from haikulib.nlp import remove_stopwords
 
 # Building the LdaModel freezes Firefox due to so much frigging logger output.

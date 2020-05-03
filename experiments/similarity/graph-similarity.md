@@ -4,20 +4,20 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.4.2
   kernelspec:
-    display_name: research
+    display_name: Python 3
     language: python
-    name: research
+    name: python3
 ---
 
-```
+<!-- #raw -->
 \author{Austin Gill}
 \title{Data Analysis -- Haiku Graph Similarity}
 \maketitle
 \tableofcontents
-```
+<!-- #endraw -->
 
 In order to get an intuitive feeling for how well (how creative) a haiku generator is, we compare the similarity of generated haiku with each of the haiku in the training corpus.
 
@@ -46,10 +46,11 @@ from haikulib import data, nlp, utils
 ```python
 experiment_dir = data.get_data_dir() / "experiments" / "similarity"
 experiment_dir.mkdir(parents=True, exist_ok=True)
-pd.set_option("display.latex.repr", True)
-pd.set_option("display.latex.longtable", True)
+pd.set_option("display.latex.repr", False)
+pd.set_option("display.latex.longtable", False)
+pd.set_option("display.max_colwidth", None)
 plt.rcParams["figure.figsize"] = (16 * 0.6, 9 * 0.6)
-sns.set()
+sns.set(style="whitegrid")
 ```
 
 # Word Level Adjacency Graph Similarity
@@ -78,10 +79,11 @@ def haiku2edges(haiku):
 
 
 def edges2grakel(edges):
-    tokens = set(itertools.chain.from_iterable(edges))
+    # edges: dict(tuple -> weight)
+    nodes = set(itertools.chain.from_iterable(edges))
     # Even though the node objects are the same as the node labels,
     # we still need the labels for some unknown reason.
-    return grakel.Graph(edges, node_labels={k: k for k in tokens})
+    return grakel.Graph(edges, node_labels={k: k for k in nodes})
 
 
 def edges2nx(edges):
@@ -98,11 +100,15 @@ gen_graphs = [edges2grakel(e) for e in gen_edges]
 gen_nx_graphs = [edges2nx(e) for e in gen_edges]
 
 corpus_edges = [haiku2edges(h) for h in corpus["lemma"]]
+# Remove empty edge dicts, because apparently that's a thing that happens.
+corpus_edges = [e for e in corpus_edges if len(e) > 0]
 corpus_graphs = [edges2grakel(e) for e in corpus_edges]
 
 # There are enough haiku in the dataset that we need to use sparse representations.
 graph_kernel = grakel.kernels.WeisfeilerLehman(
-    n_iter=2, normalize=True, base_kernel=(grakel.kernels.VertexHistogram, {"sparse": True})
+    n_iter=2,
+    normalize=True,
+    base_kernel=(grakel.kernels.VertexHistogram, {"sparse": True}),
 )
 ```
 
@@ -111,16 +117,24 @@ Notice that for this particular haiku, there are no tokens (aside from `/`) that
 In other words, the adjacency graph is a linear sequence of words, so we expect the graph similarity measures to pick out haiku that share as long of a common subsequence as possible.
 
 ```python
-graph = gen_nx_graphs[1]
+graph = gen_nx_graphs[1362]
 pos = nx.spring_layout(graph)
 nx.draw(graph, pos, with_labels=True, node_size=900)
-
+plt.savefig("medication-and-loneliness.svg")
 plt.show()
 ```
 
 ```python
+for g in corpus_graphs:
+    try:
+        g.get_labels(purpose="dictionary")
+    except ValueError:
+        print(g.vertices)
+```
+
+```python
 %%time
-for query_graph, query in zip(gen_graphs, generated["haiku"]):
+for query_graph, query in zip(gen_graphs, generated["haiku"][:3]):
     graph_kernel.fit([query_graph])
     kernel = graph_kernel.transform(corpus_graphs)
 
@@ -131,6 +145,22 @@ for query_graph, query in zip(gen_graphs, generated["haiku"]):
     print("query:", query)
     for sim in similar["haiku"]:
         print("\tsimilar:", sim)
+```
+
+```python
+haiku = "summer / all these extra prayers / at the dead puppies"
+haiku = nlp.lemmatize([haiku])
+haiku = next(haiku)
+query_graph = edges2grakel(haiku2edges(haiku))
+graph_kernel.fit([query_graph])
+kernel = graph_kernel.transform(corpus_graphs)
+n = 5
+indices = np.argsort(kernel[:, 0])[-n:]
+similar = corpus.iloc[indices]
+
+print("query:", haiku)
+for sim in similar["haiku"]:
+    print("\tsimilar:", sim)
 ```
 
 Our intuition about the graph similarity measures is correct, for the particular queries given, it seems to be measuring similarity based on the length of common subsequences.
@@ -156,7 +186,9 @@ corpus_graphs = [edges2grakel(e) for e in corpus_edges]
 
 # There are enough haiku in the dataset that we need to use sparse representations.
 graph_kernel = grakel.kernels.WeisfeilerLehman(
-    n_iter=2, normalize=True, base_kernel=(grakel.kernels.VertexHistogram, {"sparse": True})
+    n_iter=2,
+    normalize=True,
+    base_kernel=(grakel.kernels.VertexHistogram, {"sparse": True}),
 )
 ```
 
@@ -164,7 +196,7 @@ It's much harder to extract visual meaning from the character level adjacency gr
 However, perhaps the graph similarity measures can extract more meaning, since there are more nodes in the graphs, and the graphs are no longer mostly linear sequences.
 
 ```python
-graph = gen_nx_graphs[1]
+graph = gen_nx_graphs[1362]
 pos = nx.spring_layout(graph)
 nx.draw(graph, pos, with_labels=True, node_size=900)
 
@@ -173,7 +205,7 @@ plt.show()
 
 ```python
 %%time
-for query_graph, query in zip(gen_graphs, generated["haiku"]):
+for query_graph, query in zip(gen_graphs, generated["haiku"][:3]):
     graph_kernel.fit([query_graph])
     kernel = graph_kernel.transform(corpus_graphs)
 

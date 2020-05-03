@@ -4,20 +4,20 @@ jupyter:
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.4.2
   kernelspec:
-    display_name: research
+    display_name: Python 3
     language: python
-    name: research
+    name: python3
 ---
 
-```
+<!-- #raw -->
 \author{Austin Gill}
 \title{Data Analysis -- Haiku Word Similarity}
 \maketitle
 \tableofcontents
-```
+<!-- #endraw -->
 
 See the gensim [tutorial](https://radimrehurek.com/gensim/auto_examples/tutorials/run_annoy.html) on Word2Vec similarity queries.
 

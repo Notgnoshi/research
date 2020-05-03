@@ -26,6 +26,7 @@ What words are adjacent to each other?
 
 import collections
 import itertools
+
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
@@ -33,7 +34,7 @@ import pandas as pd
 import seaborn as sns
 import spacy
 
-from haikulib import data, utils, nlp
+from haikulib import data, nlp, utils
 ```
 
 ```python
